@@ -58,9 +58,7 @@ public class FinishScript : MonoBehaviour
 
     void Update()
     {
-        int miniGame1 = PlayerPrefs.GetInt("MiniGame1");
-        int miniGame2 = PlayerPrefs.GetInt("MiniGame2");
-        int miniGame3 = PlayerPrefs.GetInt("MiniGame3");
+        int miniGame = PlayerPrefs.GetInt("MiniGame");
 
         if (finishScreen.GetComponent<FinishScript>().enabled == true && timeStopper == false)
         {
@@ -97,8 +95,9 @@ public class FinishScript : MonoBehaviour
             Scoring();
         }
 
-        else if (miniGame1 == 1 || miniGame2 == 1 || miniGame3 == 1)
+        else if (miniGame == 1 || miniGame == 2 || miniGame == 3)
         {
+            PlayerPrefs.SetInt("NovelMenu", 0);
             SceneManager.LoadScene("Novel");
         }
 

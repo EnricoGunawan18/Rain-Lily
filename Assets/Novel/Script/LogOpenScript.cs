@@ -13,6 +13,8 @@ public class LogOpenScript : MonoBehaviour
     public GameObject Logs;
     [SerializeField]
     Scrollbar ScrollNormalize;
+    [SerializeField]
+    ScrollRect scrollrect;
 
     void Start()
     {
@@ -25,7 +27,8 @@ public class LogOpenScript : MonoBehaviour
     {
         Time.timeScale = 0f;
         Logs.SetActive(true);
-        ScrollNormalize.value = 0;
+        //ScrollNormalize.value = 0;
+        scrollrect.normalizedPosition = new Vector2(0,0);
     }
 
     void LogClosing()
