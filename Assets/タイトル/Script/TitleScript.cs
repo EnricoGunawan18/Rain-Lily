@@ -66,9 +66,7 @@ public class TitleScript : MonoBehaviour
 
 	public void NewGameStart()
 	{
-		NowSaveScreen.SetActive(true);
-		TitleScreen.SetActive(false);
-		newFile = true;
+		SceneManager.LoadScene("Novel");
 	}
 
 	public void LoadGameStart()
@@ -85,43 +83,26 @@ public class TitleScript : MonoBehaviour
 
 	public void MemoryGameClicked()
 	{
+		PlayerPrefs.SetInt("MiniGame", 0);
 		SceneManager.LoadScene("Stage1");
 	}
 
 
 	public void FirstFile()
-    {
+	{
 		PlayerPrefs.SetInt("WhichFile", 1);
 
-		if(newFile == true)
-        {
-			PlayerPrefs.SetInt("FirstLog", 1);
-			PlayerPrefs.SetInt("FirstPos", 0);
+		int log = PlayerPrefs.GetInt("FirstLog");
+		int pos = PlayerPrefs.GetInt("FirstPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu1");
+		string date = PlayerPrefs.GetString("Date1");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu1", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date1", "Prologue");
+		PlayerPrefs.SetString("Date", date);
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			int log = PlayerPrefs.GetInt("FirstLog");
-			int pos = PlayerPrefs.GetInt("FirstPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu1");
-			string date = PlayerPrefs.GetString("Date1");
-
-			PlayerPrefs.SetString("Date", date);
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
+		SceneManager.LoadScene("Novel");
 	}
 
 
@@ -129,38 +110,18 @@ public class TitleScript : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("WhichFile", 2);
 
-		if (newFile == true)
-		{
-			PlayerPrefs.SetInt("SecondLog", 1);
-			PlayerPrefs.SetInt("SecondPos", 0);
+		int log = PlayerPrefs.GetInt("SecondLog");
+		int pos = PlayerPrefs.GetInt("SecondPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu2");
+		string date = PlayerPrefs.GetString("Date2");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu2", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date2", "Prologue");
+		PlayerPrefs.SetString("Date", date);
 
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			SceneManager.LoadScene("Novel");
-        }
-        else
-        {
-			int log = PlayerPrefs.GetInt("SecondLog");
-			int pos = PlayerPrefs.GetInt("SecondPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu2");
-			string date = PlayerPrefs.GetString("Date2");
-
-			PlayerPrefs.SetString("Date", date);
-
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
-
+		SceneManager.LoadScene("Novel");
 	}
 
 
@@ -168,38 +129,18 @@ public class TitleScript : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("WhichFile", 3);
 
-		if (newFile == true)
-		{
-			PlayerPrefs.SetInt("ThirdLog", 1);
-			PlayerPrefs.SetInt("ThirdPos", 0);
+		int log = PlayerPrefs.GetInt("ThirdLog");
+		int pos = PlayerPrefs.GetInt("ThirdPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu3");
+		string date = PlayerPrefs.GetString("Date3");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu3", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date3", "Prologue");
+		PlayerPrefs.SetString("Date", date);
 
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			int log = PlayerPrefs.GetInt("ThirdLog");
-			int pos = PlayerPrefs.GetInt("ThirdPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu3");
-			string date = PlayerPrefs.GetString("Date3");
-
-			PlayerPrefs.SetString("Date", date);
-
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
-
+		SceneManager.LoadScene("Novel");
 	}
 
 
@@ -207,38 +148,18 @@ public class TitleScript : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("WhichFile", 4);
 
-		if (newFile == true)
-		{
-			PlayerPrefs.SetInt("FourthLog", 1);
-			PlayerPrefs.SetInt("FourthPos", 0);
+		int log = PlayerPrefs.GetInt("FourthLog");
+		int pos = PlayerPrefs.GetInt("FourthPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu4");
+		string date = PlayerPrefs.GetString("Date4");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu4", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date4", "Prologue");
+		PlayerPrefs.SetString("Date", date);
 
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			int log = PlayerPrefs.GetInt("FourthLog");
-			int pos = PlayerPrefs.GetInt("FourthPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu4");
-			string date = PlayerPrefs.GetString("Date4");
-
-			PlayerPrefs.SetString("Date", date);
-
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
-
+		SceneManager.LoadScene("Novel");
 	}
 
 
@@ -246,38 +167,18 @@ public class TitleScript : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("WhichFile", 5);
 
-		if (newFile == true)
-		{
-			PlayerPrefs.SetInt("FifthLog", 1);
-			PlayerPrefs.SetInt("FifthPos", 0);
+		int log = PlayerPrefs.GetInt("FifthLog");
+		int pos = PlayerPrefs.GetInt("FifthPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu5");
+		string date = PlayerPrefs.GetString("Date5");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu5", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date5", "Prologue");
+		PlayerPrefs.SetString("Date", date);
 
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			int log = PlayerPrefs.GetInt("FifthLog");
-			int pos = PlayerPrefs.GetInt("FifthPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu5");
-			string date = PlayerPrefs.GetString("Date5");
-
-			PlayerPrefs.SetString("Date", date);
-
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
-
+		SceneManager.LoadScene("Novel");
 	}
 
 
@@ -285,74 +186,36 @@ public class TitleScript : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("WhichFile", 6);
 
-		if (newFile == true)
-		{
-			PlayerPrefs.SetInt("SixthLog", 1);
-			PlayerPrefs.SetInt("SixthPos", 0);
+		int log = PlayerPrefs.GetInt("SixthLog");
+		int pos = PlayerPrefs.GetInt("SixthPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu6");
+		string date = PlayerPrefs.GetString("Date6");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu6", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date6", "Prologue");
+		PlayerPrefs.SetString("Date", date);
 
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			int log = PlayerPrefs.GetInt("SixthLog");
-			int pos = PlayerPrefs.GetInt("SixthPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu6");
-			string date = PlayerPrefs.GetString("Date6");
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			PlayerPrefs.SetString("Date", date);
-
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
-
+		SceneManager.LoadScene("Novel");
 	}
 
 	public void SeventhFile()
 	{
 		PlayerPrefs.SetInt("WhichFile", 7);
 
-		if (newFile == true)
-		{
-			PlayerPrefs.SetInt("SeventhLog", 1);
-			PlayerPrefs.SetInt("SeventhPos", 0);
+		int log = PlayerPrefs.GetInt("SeventhLog");
+		int pos = PlayerPrefs.GetInt("SeventhPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu7");
+		string date = PlayerPrefs.GetString("Date7");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu7", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date7", "Prologue");
+		PlayerPrefs.SetString("Date", date);
 
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			int log = PlayerPrefs.GetInt("SeventhLog");
-			int pos = PlayerPrefs.GetInt("SeventhPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu7");
-			string date = PlayerPrefs.GetString("Date7");
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			PlayerPrefs.SetString("Date", date);
-
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
-
+		SceneManager.LoadScene("Novel");
 	}
 
 
@@ -360,37 +223,18 @@ public class TitleScript : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("WhichFile", 8);
 
-		if (newFile == true)
-		{
-			PlayerPrefs.SetInt("EighthLog", 1);
-			PlayerPrefs.SetInt("EighthPos", 0);
+		int log = PlayerPrefs.GetInt("EighthLog");
+		int pos = PlayerPrefs.GetInt("EighthPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu8");
+		string date = PlayerPrefs.GetString("Date8");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu8", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date8", "Prologue");
+		PlayerPrefs.SetString("Date", date);
 
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			int log = PlayerPrefs.GetInt("EighthLog");
-			int pos = PlayerPrefs.GetInt("EighthPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu8");
-			string date = PlayerPrefs.GetString("Date8");
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			PlayerPrefs.SetString("Date", date);
-
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
-
+		SceneManager.LoadScene("Novel");
 	}
 
 
@@ -398,37 +242,18 @@ public class TitleScript : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("WhichFile", 9);
 
-		if (newFile == true)
-		{
-			PlayerPrefs.SetInt("NinthLog", 1);
-			PlayerPrefs.SetInt("NinthPos", 0);
+		int log = PlayerPrefs.GetInt("NinthLog");
+		int pos = PlayerPrefs.GetInt("NinthPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu9");
+		string date = PlayerPrefs.GetString("Date9");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu9", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date9", "Prologue");
+		PlayerPrefs.SetString("Date", date);
 
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			int log = PlayerPrefs.GetInt("NinthLog");
-			int pos = PlayerPrefs.GetInt("NinthPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu9");
-			string date = PlayerPrefs.GetString("Date9");
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			PlayerPrefs.SetString("Date", date);
-
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
-
+		SceneManager.LoadScene("Novel");
 	}
 
 
@@ -436,41 +261,22 @@ public class TitleScript : MonoBehaviour
 	{
 		PlayerPrefs.SetInt("WhichFile", 10);
 
-		if (newFile == true)
-		{
-			PlayerPrefs.SetInt("TenthLog", 1);
-			PlayerPrefs.SetInt("TenthPos", 0);
+		int log = PlayerPrefs.GetInt("TenthLog");
+		int pos = PlayerPrefs.GetInt("TenthPos");
+		int novelMenu = PlayerPrefs.GetInt("NovelMenu10");
+		string date = PlayerPrefs.GetString("Date10");
 
-			PlayerPrefs.SetInt("LogNow", 1);
-			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("ResetPos", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			PlayerPrefs.SetInt("NovelMenu10", 0);
-			PlayerPrefs.SetString("Date", "Prologue");
-			PlayerPrefs.SetString("Date10", "Prologue");
+		PlayerPrefs.SetString("Date", date);
 
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			int log = PlayerPrefs.GetInt("TenthLog");
-			int pos = PlayerPrefs.GetInt("TenthPos");
-			int novelMenu = PlayerPrefs.GetInt("NovelMenu10");
-			string date = PlayerPrefs.GetString("Date10");
+		PlayerPrefs.SetInt("NovelMenu", novelMenu);
+		PlayerPrefs.SetInt("LogNow", log);
+		PlayerPrefs.SetInt("ResetPos", pos);
 
-			PlayerPrefs.SetString("Date", date);
-
-			PlayerPrefs.SetInt("NovelMenu", novelMenu);
-			PlayerPrefs.SetInt("LogNow", log);
-			PlayerPrefs.SetInt("ResetPos", pos);
-
-			SceneManager.LoadScene("Novel");
-		}
-
+		SceneManager.LoadScene("Novel");
 	}
 
 	public void Back()
-    {
+	{
 		NowSaveScreen.SetActive(false);
 		TitleScreen.SetActive(true);
 		newFile = false;

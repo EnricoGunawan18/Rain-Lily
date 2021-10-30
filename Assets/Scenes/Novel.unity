@@ -14978,7 +14978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1309054953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19057,7 +19057,7 @@ MonoBehaviour:
   Button4: {fileID: 181931312}
   ItemBuyScreen: {fileID: 1698913341}
   GiveWhoScreen: {fileID: 775291909}
-  il: {fileID: 0}
+  loadDialogue: {fileID: 1714509504}
 --- !u!1 &1698950762
 GameObject:
   m_ObjectHideFlags: 0

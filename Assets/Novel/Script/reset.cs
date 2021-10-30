@@ -22,7 +22,7 @@ public class reset : MonoBehaviour
 		PlayerPrefs.SetFloat("Score3", 0);
 		PlayerPrefs.SetFloat("Score4", 0);
 		PlayerPrefs.SetFloat("Score5", 0);
-		PlayerPrefs.SetInt("MiniGame",3);
+		PlayerPrefs.SetInt("MiniGame",0);
 		PlayerPrefs.SetInt("ResetPos", 0);
 		PlayerPrefs.SetInt("NovelMenu", 0);
 
