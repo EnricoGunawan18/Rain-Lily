@@ -47,7 +47,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("FirstLog");
 			int pos = PlayerPrefs.GetInt("FirstPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu1");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber1");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
@@ -57,7 +59,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("SecondLog");
 			int pos = PlayerPrefs.GetInt("SecondPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu2");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber2");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
@@ -67,7 +71,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("ThirdLog");
 			int pos = PlayerPrefs.GetInt("ThirdPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu3");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber3");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
@@ -77,7 +83,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("FourthLog");
 			int pos = PlayerPrefs.GetInt("FourthPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu4");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber4");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
@@ -87,7 +95,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("FifthLog");
 			int pos = PlayerPrefs.GetInt("FifthPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu5");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber5");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
@@ -97,7 +107,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("SixthLog");
 			int pos = PlayerPrefs.GetInt("SixthPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu6");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber6");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
@@ -107,7 +119,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("SeventhLog");
 			int pos = PlayerPrefs.GetInt("SeventhPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu7");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber7");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
@@ -117,7 +131,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("EighthLog");
 			int pos = PlayerPrefs.GetInt("EighthPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu8");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber8");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
@@ -127,7 +143,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("NinthLog");
 			int pos = PlayerPrefs.GetInt("NinthPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu9");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber9");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
@@ -137,7 +155,9 @@ public class QLoadSave : MonoBehaviour
 			int log = PlayerPrefs.GetInt("TenthLog");
 			int pos = PlayerPrefs.GetInt("TenthPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu10");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber10");
 
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);

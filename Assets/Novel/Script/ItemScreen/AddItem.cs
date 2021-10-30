@@ -6,28 +6,104 @@ using UnityEngine.UI;
 public class AddItem : MonoBehaviour
 {
 	[SerializeField]
-	public GameObject ItemButton;
+	public Button[] ItemButton;
+	[SerializeField]
+	Text[] ItemName;
+	[SerializeField]
+	Text[] Quantity;
+	[SerializeField]
+	TextAsset ItemList;
+
+
+	[SerializeField]
+	LoadDialogue loadDialogue;
+	[SerializeField]
+	CharacterItemChoose characterItemChoose;
+
+	[SerializeField]
+	GameObject ItemScreen;
+
+	List<GameObject> ButtonList;
 
 	int[] ItemNumber;
-	Vector2 ButtonPos;
 
-	public void OnEnable()
+	string[] itemData;
+	string[] itemRow;
+
+	void Awake()
 	{
-		ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-
-		for (int i = 0; i < 9; i++)
+		itemData = ItemList.text.Split(new char[] { '$' });
+		for (int i = 0; i < 14; i++)
 		{
-			if (ItemNumber[i] != 0)
-			{
-				ItemButton.SetActive(true);
-				Instantiate(ItemButton, ButtonPos, Quaternion.Euler(ButtonPos));
-				ButtonPos.y += 200;
-			}
+			int number = i;
+			ItemButton[i].onClick.AddListener(() => ItemChooseClick(number));
 		}
 	}
 
-	public void OnDisable()
+	public void OnEnable()
 	{
-		GameObject.Destroy(ItemButton);
+		ButtonList = new List<GameObject>();
+		ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+
+		for (int i = 0; i < 14; i++)
+		{
+			itemRow = itemData[i + 1].Split(new char[] { ',' });
+			ItemName[i].text = itemRow[2];
+			Quantity[i].text = ItemNumber[i].ToString();
+		}
+	}
+
+	void ItemChooseClick(int number)
+	{
+		if (characterItemChoose.Character == "Riit")
+		{
+			if (ItemNumber[number] != 0)
+			{
+				characterItemChoose.Character = "None";
+				if (number == 0 || number == 7 || number == 8
+					|| number == 9 || number == 10)
+				{
+					loadDialogue.RiitEffect(0);
+				}
+				else if (number == 1 || number == 5 || number == 6
+					|| number == 11)
+				{
+					loadDialogue.RiitEffect(1);
+				}
+				else
+				{
+					loadDialogue.RiitEffect(2);
+				}
+				ItemScreen.SetActive(false);
+			}
+		}
+
+		else if (characterItemChoose.Character == "Klein")
+		{
+			if (ItemNumber[number] != 0)
+			{
+				characterItemChoose.Character = "None";
+				if (number == 3 || number == 7 || number == 11
+				|| number == 12 || number == 13)
+				{
+					loadDialogue.KleinEffect(0);
+				}
+				else if (number == 0 || number == 4 || number == 6
+					|| number == 8 || number == 9 || number == 10)
+				{
+					loadDialogue.KleinEffect(1);
+				}
+				else
+				{
+					loadDialogue.KleinEffect(2);
+				}
+				ItemScreen.SetActive(false);
+			}
+		}
+
+
+		else
+		{
+		}
 	}
 }

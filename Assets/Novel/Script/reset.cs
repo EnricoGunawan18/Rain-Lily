@@ -22,7 +22,7 @@ public class reset : MonoBehaviour
 		PlayerPrefs.SetFloat("Score3", 0);
 		PlayerPrefs.SetFloat("Score4", 0);
 		PlayerPrefs.SetFloat("Score5", 0);
-		PlayerPrefs.SetInt("MiniGame", 3);
+		PlayerPrefs.SetInt("MiniGame",3);
 		PlayerPrefs.SetInt("ResetPos", 0);
 		PlayerPrefs.SetInt("NovelMenu", 0);
 
@@ -52,6 +52,18 @@ public class reset : MonoBehaviour
 		int[] a = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 		PlayerPrefsX.SetIntArray("ItemNumber", a);
+
+		PlayerPrefsX.SetIntArray("ItemNumber1", a);
+		PlayerPrefsX.SetIntArray("ItemNumber2", a);
+		PlayerPrefsX.SetIntArray("ItemNumber3", a);
+		PlayerPrefsX.SetIntArray("ItemNumber4", a);
+		PlayerPrefsX.SetIntArray("ItemNumber5", a);
+		PlayerPrefsX.SetIntArray("ItemNumber6", a);
+		PlayerPrefsX.SetIntArray("ItemNumber7", a);
+		PlayerPrefsX.SetIntArray("ItemNumber8", a);
+		PlayerPrefsX.SetIntArray("ItemNumber9", a);
+		PlayerPrefsX.SetIntArray("ItemNumber10", a);
+
 
 	}
 }

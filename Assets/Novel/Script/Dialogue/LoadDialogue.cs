@@ -51,6 +51,10 @@ public class LoadDialogue : MonoBehaviour
 	GameObject GameMenu;
 	[SerializeField]
 	GameObject ItemScreen;
+	[SerializeField]
+	GameObject ItemChooseScreen;
+	[SerializeField]
+	GameObject MiniGameChoose;
 
 	[SerializeField]
 	GameObject EraseButton1;
@@ -86,6 +90,8 @@ public class LoadDialogue : MonoBehaviour
 	public bool finishTemp2 = false;
 	public bool finishTemp3 = false;
 	public bool finishTemp4 = false;
+
+	public bool ItemEffect = false;
 	public bool itemChoose = false;
 	public int resetPos = 0;
 
@@ -224,27 +230,6 @@ public class LoadDialogue : MonoBehaviour
 			dialogues.Add(d);
 		}
 
-
-		//resetPos = 7;
-		//for (int i = 226; i < 250; i++)
-		//{
-		//    row = data[i].Split(new char[] { ',' });
-
-		//    if (row[2] != "" || row[6] != "" || row[7] != "")
-		//    {
-		//        d = new Dialogue();
-		//        int.TryParse(row[0], out d.id);
-		//        d.character = row[1];
-		//        d.dialogue = row[2];
-		//        d.expression = row[3];
-		//        d.background = row[4];
-		//        d.BGM = row[5];
-		//        d.SE = row[6];
-		//        d.effect = row[7];
-
-		//        dialogues.Add(d);
-		//    }
-		//}
 
 		else if (resetFrom == 1)
 		{
@@ -1070,7 +1055,14 @@ public class LoadDialogue : MonoBehaviour
 				FadeAnim.SetBool("Fading", true);
 				waitForFadeAnim = true;
 				whichLineNow += 1;
-
+			}
+			else if (ItemEffect == true)
+			{
+				ItemEffect = false;
+				nameLabel.text = string.Empty;
+				textLabel.text = string.Empty;
+				FadeAnim.SetBool("Fading", true);
+				waitForFadeAnim = true;
 			}
 			else
 			{
@@ -1084,6 +1076,7 @@ public class LoadDialogue : MonoBehaviour
 				yield return new WaitForSeconds(1.5f);
 				FadeAnim.SetBool("Fading", false);
 			}
+
 			else if (autoScroll.automated == false)
 			{
 				yield return new WaitUntil(() => dialogueManager.next == true);
@@ -1112,6 +1105,10 @@ public class LoadDialogue : MonoBehaviour
 				{
 					PlayerPrefs.SetInt("MiniGame", 2);
 					PlayerPrefs.SetInt("NovelMenu", 2);
+				}
+				if (d.id == 175)
+				{
+					MiniGameChoose.SetActive(true);
 				}
 				if (d.id == 176)
 				{
@@ -1153,6 +1150,10 @@ public class LoadDialogue : MonoBehaviour
 					PlayerPrefs.SetInt("MiniGame", 2);
 					PlayerPrefs.SetInt("NovelMenu", 2);
 				}
+				if (d.id == 175)
+				{
+					MiniGameChoose.SetActive(true);
+				}
 				if (d.id == 176)
 				{
 					PlayerPrefs.SetInt("MiniGame", 3);
@@ -1192,6 +1193,10 @@ public class LoadDialogue : MonoBehaviour
 					PlayerPrefs.SetInt("MiniGame", 2);
 					PlayerPrefs.SetInt("NovelMenu", 2);
 				}
+				if (d.id == 175)
+				{
+					MiniGameChoose.SetActive(true);
+				}
 				if (d.id == 176)
 				{
 					PlayerPrefs.SetInt("MiniGame", 3);
@@ -1201,7 +1206,14 @@ public class LoadDialogue : MonoBehaviour
 				{
 					PlayerPrefs.SetInt("NovelMenu", 4);
 				}
+			}
 
+
+
+
+			if (itemChoose == true)
+			{
+				ItemChooseScreen.SetActive(true);
 			}
 		}
 	}
@@ -1393,14 +1405,14 @@ public class LoadDialogue : MonoBehaviour
 		}
 		if (finishTemp4 == true)
 		{
+			finishTemp4 = false;
 			ItemScreen.SetActive(true);
+
 			EraseButton1.SetActive(false);
 			EraseButton2.SetActive(false);
 			EraseButton3.SetActive(false);
 			EraseUI1.SetActive(false);
 			EraseUI2.SetActive(false);
-
-			finishTemp4 = false;
 
 			itemRow = itemData[8].Split(new char[] { ',' });
 
@@ -1415,7 +1427,6 @@ public class LoadDialogue : MonoBehaviour
 			d.effect = itemRow[7];
 
 			dialogues.Add(d);
-
 		}
 
 		ShowDialogue();
@@ -1539,6 +1550,26 @@ public class LoadDialogue : MonoBehaviour
 			}
 		}
 
+		if (finishTemp4 == true)
+		{
+			finishTemp4 = false;
+			d = new Dialogue();
+			int.TryParse("999", out d.id);
+			d.character = "";
+			d.dialogue = "";
+			d.expression = "";
+			d.background = "";
+			d.BGM = "";
+			d.SE = "";
+			d.effect = "afteritem";
+
+			dialogues.Add(d);
+
+			ItemEffect = true;
+
+			AfterShopPrologue();
+		}
+
 		ShowDialogue();
 	}
 
@@ -1563,6 +1594,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date1", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber1", ItemNumber);
 		}
 		else if (whichFile == 2)
 		{
@@ -1581,6 +1614,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date2", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber2", ItemNumber);
 		}
 		else if (whichFile == 3)
 		{
@@ -1598,6 +1633,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date3", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber3", ItemNumber);
 		}
 		else if (whichFile == 4)
 		{
@@ -1615,6 +1652,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date4", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber4", ItemNumber);
 		}
 		else if (whichFile == 5)
 		{
@@ -1632,6 +1671,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date5", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber5", ItemNumber);
 		}
 		else if (whichFile == 6)
 		{
@@ -1649,6 +1690,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date6", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber6", ItemNumber);
 		}
 		else if (whichFile == 7)
 		{
@@ -1666,6 +1709,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date7", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber7", ItemNumber);
 		}
 		else if (whichFile == 8)
 		{
@@ -1683,6 +1728,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date8", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber8", ItemNumber);
 		}
 		else if (whichFile == 9)
 		{
@@ -1700,6 +1747,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date9", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber9", ItemNumber);
 		}
 		else if (whichFile == 10)
 		{
@@ -1717,6 +1766,8 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", file);
 			string date = PlayerPrefs.GetString("Date");
 			PlayerPrefs.SetString("Date10", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber10", ItemNumber);
 		}
 
 		whichLineNow = 0;
@@ -1766,6 +1817,19 @@ public class LoadDialogue : MonoBehaviour
 		d.effect = itemRow[7];
 
 		dialogues.Add(d);
+
+		d = new Dialogue();
+		int.TryParse("999", out d.id);
+		d.character = "";
+		d.dialogue = "";
+		d.expression = "";
+		d.background = "";
+		d.BGM = "";
+		d.SE = "";
+		d.effect = "giveitem";
+
+		dialogues.Add(d);
+
 		itemChoose = true;
 
 		ShowDialogue();
@@ -1774,7 +1838,7 @@ public class LoadDialogue : MonoBehaviour
 	public void KleinItem()
 	{
 		dialogues.Clear();
-		itemRow = itemData[30].Split(new char[] { ',' });
+		itemRow = itemData[29].Split(new char[] { ',' });
 
 		d = new Dialogue();
 		int.TryParse(itemRow[0], out d.id);
@@ -1787,8 +1851,205 @@ public class LoadDialogue : MonoBehaviour
 		d.effect = itemRow[7];
 
 		dialogues.Add(d);
+
+		d = new Dialogue();
+		int.TryParse("999", out d.id);
+		d.character = "";
+		d.dialogue = "";
+		d.expression = "";
+		d.background = "";
+		d.BGM = "";
+		d.SE = "";
+		d.effect = "giveitem";
+
+		dialogues.Add(d);
+
 		itemChoose = true;
 
 		ShowDialogue();
+	}
+
+
+
+
+
+
+	public void RiitEffect(int feel)
+	{
+		dialogues.Clear();
+		itemChoose = false;
+		if (feel == 0)
+		{
+			itemRow = itemData[22].Split(new char[] { ',' });
+
+			d = new Dialogue();
+			int.TryParse(itemRow[0], out d.id);
+			d.character = itemRow[1];
+			d.dialogue = itemRow[2];
+			d.expression = itemRow[3];
+			d.background = itemRow[4];
+			d.BGM = itemRow[5];
+			d.SE = itemRow[6];
+			d.effect = itemRow[7];
+
+			dialogues.Add(d);
+		}
+
+		else if (feel == 1)
+		{
+			itemRow = itemData[21].Split(new char[] { ',' });
+
+			d = new Dialogue();
+			int.TryParse(itemRow[0], out d.id);
+			d.character = itemRow[1];
+			d.dialogue = itemRow[2];
+			d.expression = itemRow[3];
+			d.background = itemRow[4];
+			d.BGM = itemRow[5];
+			d.SE = itemRow[6];
+			d.effect = itemRow[7];
+
+			dialogues.Add(d);
+		}
+
+		else if (feel == 2)
+		{
+			itemRow = itemData[20].Split(new char[] { ',' });
+
+			d = new Dialogue();
+			int.TryParse(itemRow[0], out d.id);
+			d.character = itemRow[1];
+			d.dialogue = itemRow[2];
+			d.expression = itemRow[3];
+			d.background = itemRow[4];
+			d.BGM = itemRow[5];
+			d.SE = itemRow[6];
+			d.effect = itemRow[7];
+
+			dialogues.Add(d);
+		}
+
+		d = new Dialogue();
+		int.TryParse("999", out d.id);
+		d.character = "";
+		d.dialogue = "";
+		d.expression = "";
+		d.background = "";
+		d.BGM = "";
+		d.SE = "";
+		d.effect = "giveitem";
+
+		dialogues.Add(d);
+
+		AfterShopPrologue();
+		ShowDialogue();
+
+
+		ItemEffect = true;
+	}
+
+	public void KleinEffect(int feel)
+	{
+		dialogues.Clear();
+		itemChoose = false;
+		if (feel == 0)
+		{
+			itemRow = itemData[34].Split(new char[] { ',' });
+
+			d = new Dialogue();
+			int.TryParse(itemRow[0], out d.id);
+			d.character = itemRow[1];
+			d.dialogue = itemRow[2];
+			d.expression = itemRow[3];
+			d.background = itemRow[4];
+			d.BGM = itemRow[5];
+			d.SE = itemRow[6];
+			d.effect = itemRow[7];
+
+			dialogues.Add(d);
+		}
+
+		else if (feel == 1)
+		{
+			itemRow = itemData[33].Split(new char[] { ',' });
+
+			d = new Dialogue();
+			int.TryParse(itemRow[0], out d.id);
+			d.character = itemRow[1];
+			d.dialogue = itemRow[2];
+			d.expression = itemRow[3];
+			d.background = itemRow[4];
+			d.BGM = itemRow[5];
+			d.SE = itemRow[6];
+			d.effect = itemRow[7];
+
+			dialogues.Add(d);
+		}
+
+		else if (feel == 2)
+		{
+			itemRow = itemData[32].Split(new char[] { ',' });
+
+			d = new Dialogue();
+			int.TryParse(itemRow[0], out d.id);
+			d.character = itemRow[1];
+			d.dialogue = itemRow[2];
+			d.expression = itemRow[3];
+			d.background = itemRow[4];
+			d.BGM = itemRow[5];
+			d.SE = itemRow[6];
+			d.effect = itemRow[7];
+
+			dialogues.Add(d);
+		}
+
+		d = new Dialogue();
+		int.TryParse("999", out d.id);
+		d.character = "";
+		d.dialogue = "";
+		d.expression = "";
+		d.background = "";
+		d.BGM = "";
+		d.SE = "";
+		d.effect = "giveitem";
+
+		dialogues.Add(d);
+
+		AfterShopPrologue();
+		ShowDialogue();
+
+
+		ItemEffect = true;
+	}
+
+	public void AfterShopPrologue()
+	{
+		whichLineNow = 226;
+		resetPos = 7;
+		EraseButton1.SetActive(true);
+		EraseButton2.SetActive(true);
+		EraseButton3.SetActive(true);
+		EraseUI1.SetActive(true);
+		EraseUI2.SetActive(true);
+
+		for (int i = 226; i < 250; i++)
+		{
+			row = data[i].Split(new char[] { ',' });
+
+			if (row[2] != "" || row[6] != "" || row[7] != "")
+			{
+				d = new Dialogue();
+				int.TryParse(row[0], out d.id);
+				d.character = row[1];
+				d.dialogue = row[2];
+				d.expression = row[3];
+				d.background = row[4];
+				d.BGM = row[5];
+				d.SE = row[6];
+				d.effect = row[7];
+
+				dialogues.Add(d);
+			}
+		}
 	}
 }

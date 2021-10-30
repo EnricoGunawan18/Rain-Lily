@@ -20,9 +20,12 @@ public class CharacterItemChoose : MonoBehaviour
     [SerializeField]
     LoadDialogue loadDialogue;
 
+    public string Character;
+
     // Start is called before the first frame update
     void Start()
     {
+        Character = "None";
         Riit.onClick.AddListener(RiitPress);
         Klein.onClick.AddListener(KleinPress);
         NoGive.onClick.AddListener(NoGivePress);
@@ -30,12 +33,14 @@ public class CharacterItemChoose : MonoBehaviour
 
     void RiitPress()
     {
+        Character = "Riit";
         GiveWhoScreen.SetActive(false);
         loadDialogue.RiitItem();
     }
 
     void KleinPress()
     {
+        Character = "Klein";
         GiveWhoScreen.SetActive(false);
         loadDialogue.KleinItem();
     }
