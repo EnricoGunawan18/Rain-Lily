@@ -188,6 +188,7 @@ public class LoadDialogue : MonoBehaviour
 		else if (miniGame == 2)
 		{
 			resetPos = 6;
+			PlayerPrefs.SetInt("NovelMenu", 0);
 			PlayerPrefs.SetInt("MiniGame", 0);
 			for (int i = 212; i < 224; i++)
 			{
@@ -211,23 +212,8 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if ((miniGame == 3 && novelMenu == 0) || resetFrom == 10)
 		{
-			resetPos = 10;
 			PlayerPrefs.SetInt("MiniGame", 0);
-			PlayerPrefs.SetInt("NovelMenu", 0);
-
-			itemRow = itemData[3].Split(new char[] { ',' });
-
-			d = new Dialogue();
-			int.TryParse(itemRow[0], out d.id);
-			d.character = itemRow[1];
-			d.dialogue = itemRow[2];
-			d.expression = itemRow[3];
-			d.background = itemRow[4];
-			d.BGM = itemRow[5];
-			d.SE = itemRow[6];
-			d.effect = itemRow[7];
-
-			dialogues.Add(d);
+			AfterShopPrologue();
 		}
 
 
@@ -743,11 +729,7 @@ public class LoadDialogue : MonoBehaviour
 		{
 			dialogueManager.next = false;
 			nameLabel.text = d.character;
-
-			if (resetPos != 10)
-			{
-				whichLineNow++;
-			}
+			whichLineNow++;
 
 			logLabel.text = logLabel.text + d.character + "\n" + d.dialogue + "\n\n";
 
@@ -816,7 +798,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				charaImageNow.color = new Color(0, 0, 0, 0);
 			}
-			else if (d.expression == "L-01" || d.expression == "L-01a" ||
+			if (d.expression == "L-01" || d.expression == "L-01a" ||
 				d.expression == "L-01b" || d.expression == "L-02" ||
 				d.expression == "L-02a" || d.expression == "L-03" ||
 				d.expression == "L-04" || d.expression == "L-05" ||
@@ -865,8 +847,8 @@ public class LoadDialogue : MonoBehaviour
 			}
 			else if (d.character == "メイア")
 			{
-				charaImageNow.color = new Color(0, 0, 0, 0);
-				charaImageNow.sprite = charaImage[4];
+				//charaImageNow.color = new Color(0, 0, 0, 0);
+				//charaImageNow.sprite = charaImage[4];
 			}
 			else
 			{
@@ -1025,6 +1007,11 @@ public class LoadDialogue : MonoBehaviour
 				whichLineNow++;
 			}
 
+			if(d.id == 251)
+            {
+				PlayerPrefs.SetInt("NovelMenu", 10);
+			}
+
 			bool minusLine = false;
 			if (d.id == 231)
 			{
@@ -1071,10 +1058,17 @@ public class LoadDialogue : MonoBehaviour
 
 
 			//effects
+			int menu = PlayerPrefs.GetInt("NovelMenu");
 			if (waitForFadeAnim == true)
 			{
 				yield return new WaitForSeconds(1.5f);
 				FadeAnim.SetBool("Fading", false);
+			}
+
+
+			else if (menu == 1 || menu == 2 || menu == 3)
+			{
+				MiniGameChoose.SetActive(true);
 			}
 
 			else if (autoScroll.automated == false)
@@ -1106,10 +1100,6 @@ public class LoadDialogue : MonoBehaviour
 					PlayerPrefs.SetInt("MiniGame", 2);
 					PlayerPrefs.SetInt("NovelMenu", 2);
 				}
-				if (d.id == 175)
-				{
-					MiniGameChoose.SetActive(true);
-				}
 				if (d.id == 176)
 				{
 					PlayerPrefs.SetInt("MiniGame", 3);
@@ -1117,7 +1107,7 @@ public class LoadDialogue : MonoBehaviour
 				}
 				if (d.id == 179)
 				{
-					PlayerPrefs.SetInt("NovelMenu", 4);
+					PlayerPrefs.SetInt("NovelMenu", 5);
 				}
 
 			}
@@ -1150,10 +1140,6 @@ public class LoadDialogue : MonoBehaviour
 					PlayerPrefs.SetInt("MiniGame", 2);
 					PlayerPrefs.SetInt("NovelMenu", 2);
 				}
-				if (d.id == 175)
-				{
-					MiniGameChoose.SetActive(true);
-				}
 				if (d.id == 176)
 				{
 					PlayerPrefs.SetInt("MiniGame", 3);
@@ -1163,7 +1149,6 @@ public class LoadDialogue : MonoBehaviour
 				{
 					PlayerPrefs.SetInt("NovelMenu", 5);
 				}
-
 			}
 			else
 			{
@@ -1193,10 +1178,6 @@ public class LoadDialogue : MonoBehaviour
 					PlayerPrefs.SetInt("MiniGame", 2);
 					PlayerPrefs.SetInt("NovelMenu", 2);
 				}
-				if (d.id == 175)
-				{
-					MiniGameChoose.SetActive(true);
-				}
 				if (d.id == 176)
 				{
 					PlayerPrefs.SetInt("MiniGame", 3);
@@ -1204,12 +1185,9 @@ public class LoadDialogue : MonoBehaviour
 				}
 				if (d.id == 179)
 				{
-					PlayerPrefs.SetInt("NovelMenu", 4);
+					PlayerPrefs.SetInt("NovelMenu", 5);
 				}
 			}
-
-
-
 
 			if (itemChoose == true)
 			{

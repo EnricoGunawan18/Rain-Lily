@@ -95,7 +95,7 @@ public class FinishScript : MonoBehaviour
             Scoring();
         }
 
-        else if (miniGame == 1 || miniGame == 2 || miniGame == 3)
+        else if ( miniGame == 2 || miniGame == 3)
         {
             PlayerPrefs.SetInt("NovelMenu", 0);
             SceneManager.LoadScene("Novel");

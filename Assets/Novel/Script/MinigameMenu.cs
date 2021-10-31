@@ -52,7 +52,7 @@ public class MinigameMenu : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Stage1");
+            SceneManager.LoadScene("Scene_pazle");
         }
     }
 

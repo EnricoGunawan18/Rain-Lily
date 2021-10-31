@@ -112,7 +112,6 @@ public class AutoScroll : MonoBehaviour
 		dialogueManager.next = true;
 
 		dialogueManager.dialogueSpeed = 300f;
-		autoSign.text = ">>";
 	}
 
 	public void DoublingSpeed()
@@ -124,7 +123,6 @@ public class AutoScroll : MonoBehaviour
 		dialogueManager.next = true;
 
 		dialogueManager.dialogueSpeed = 400f;
-		autoSign.text = ">>>";
 	}
 
 
@@ -136,7 +134,6 @@ public class AutoScroll : MonoBehaviour
 		autoActive = false;
 
 		dialogueManager.dialogueSpeed = 25f;
-		autoSign.text = ">";
 
 		ScrollAnim.SetBool("isOpening", false);
 	}

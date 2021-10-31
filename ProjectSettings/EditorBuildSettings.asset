@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: a13182a480c3d1940b5e04e755e8e260
   - enabled: 1
+    path: Assets/Scenes/Scene_pazle.unity
+    guid: ca4cfc7b1ae41d6429cd6566d0a7941f
+  - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: f88d658562faa5a48b3543e26215d24a
   - enabled: 1

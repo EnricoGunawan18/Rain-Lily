@@ -66,6 +66,14 @@ public class TitleScript : MonoBehaviour
 
 	public void NewGameStart()
 	{
+		PlayerPrefs.SetInt("LogNow", 1);
+
+		PlayerPrefs.SetInt("MiniGame", 0);
+		PlayerPrefs.SetInt("ResetPos", 0);
+		PlayerPrefs.SetInt("NovelMenu", 0);
+		PlayerPrefs.SetString("Date", "Prologue");
+		int[] a = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
 		SceneManager.LoadScene("Novel");
 	}
 
