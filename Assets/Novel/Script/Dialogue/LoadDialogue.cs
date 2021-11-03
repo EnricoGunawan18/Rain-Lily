@@ -57,6 +57,14 @@ public class LoadDialogue : MonoBehaviour
 	GameObject MiniGameChoose;
 
 	[SerializeField]
+	public Sprite[] CharaEyes;
+	[SerializeField]
+	public Sprite[] CharaMouth;
+
+	[SerializeField]
+	public AudioClip[] VoiceFile;
+
+	[SerializeField]
 	GameObject EraseButton1;
 	[SerializeField]
 	GameObject EraseButton2;
