@@ -11,5 +11,6 @@ public class Dialogue : ScriptableObject
     public string background;
     public string BGM;
     public string SE;
+    public string voice;
     public string effect;
 }

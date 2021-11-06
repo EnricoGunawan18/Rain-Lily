@@ -45,10 +45,9 @@ public class MinigameMenu : MonoBehaviour
 
         if (date == "Prologue")
         {
-            float speed = PlayerPrefs.GetFloat("DialogueSpeedTemp");
-            dialogueManager.dialogueSpeed = speed;
             MinigameChoose.SetActive(false);
             PlayerPrefs.SetInt("NovelMenu", 6);
+            dialogueManager.dialogueSpeed = 25f;
         }
         else
         {
@@ -67,10 +66,9 @@ public class MinigameMenu : MonoBehaviour
 
         if (date == "Prologue")
         {
-            float speed = PlayerPrefs.GetFloat("DialogueSpeedTemp");
-            dialogueManager.dialogueSpeed = speed;
             MinigameChoose.SetActive(false);
             PlayerPrefs.SetInt("NovelMenu", 7);
+            dialogueManager.dialogueSpeed = 25f;
         }
         else
         {

@@ -64,6 +64,11 @@ public class reset : MonoBehaviour
         PlayerPrefsX.SetIntArray("ItemNumber9", a);
         PlayerPrefsX.SetIntArray("ItemNumber10", a);
 
+        //int[] b = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        //PlayerPrefsX.SetIntArray("MoneyFile", b);
+        //PlayerPrefsX.SetIntArray("LiedHeartFile", b);
+        //PlayerPrefsX.SetIntArray("KleinHeartFile", b);
 
+        //playerPrefs
     }
 }

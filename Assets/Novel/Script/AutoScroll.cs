@@ -17,7 +17,6 @@ public class AutoScroll : MonoBehaviour
 	[SerializeField]
 	private TMP_Text autoSign;
 
-
 	private DialogueManager dialogueManager;
 
 	Animator ScrollAnim;
