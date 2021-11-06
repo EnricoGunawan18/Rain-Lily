@@ -15035,7 +15035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1309054953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19955,6 +19955,7 @@ MonoBehaviour:
   ItemEffect: 0
   itemChoose: 0
   resetPos: 0
+  voiceTime: 0
   backgrounds: []
   dialogues: []
 --- !u!4 &1714509505
@@ -21328,7 +21329,8 @@ AudioSource:
   m_GameObject: {fileID: 1800009929}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 559625626324444323, guid: d5bdffe91bf86a348b6f1b746c93ea32,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -21337,7 +21339,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -21851,7 +21853,8 @@ AudioSource:
   m_GameObject: {fileID: 1837344127}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4645835272348745936, guid: d5bdffe91bf86a348b6f1b746c93ea32,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -21860,7 +21863,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -25750,6 +25753,7 @@ MonoBehaviour:
   Shop: {fileID: 1108726392}
   MinigameChoose: {fileID: 1921759942}
   Menus: {fileID: 1983594002}
+  autoScroll: {fileID: 141130860}
 --- !u!4 &2114945304
 Transform:
   m_ObjectHideFlags: 0

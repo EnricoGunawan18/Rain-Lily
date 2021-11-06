@@ -39,20 +39,22 @@ public class DialogueManager : MonoBehaviour
         loadDialogue = GetComponent<LoadDialogue>();
         textLabel.text = string.Empty;
 
-        if (loadDialogue.waitForFadeAnim == true)
+
+        int menu = PlayerPrefs.GetInt("NovelMenu");
+
+        if (menu == 1 || menu == 2 || menu == 3 || menu == 10)
+        {
+            dialogueSpeed = 0;
+            MiniGameChoose.SetActive(true);
+            loadDialogue.waitForFadeAnim = false;
+        }
+        else if (loadDialogue.waitForFadeAnim == true)
         {
             float tempSpeed = dialogueSpeed;
             dialogueSpeed = 0;
             yield return new WaitForSeconds(1.5f);
             dialogueSpeed = tempSpeed;
             loadDialogue.waitForFadeAnim = false;
-        }
-
-        int menu = PlayerPrefs.GetInt("NovelMenu");
-
-        if (menu == 1 || menu == 2 || menu == 3 || menu == 10)
-        {
-            MiniGameChoose.SetActive(true);
         }
 
 
@@ -85,10 +87,15 @@ public class DialogueManager : MonoBehaviour
 
         if ((miniGame == 1) && menu == 4)
         {
+            //PlayerPrefs.SetInt("NovelMenu", 0);
+            //SceneManager.LoadScene("Novel");
             SceneManager.LoadScene("Scene_pazle");
         }
-        else if ((miniGame == 2 || miniGame == 3) && menu == 5)
+        
+        if ((miniGame == 2 || miniGame == 3) && menu == 5)
         {
+            //PlayerPrefs.SetInt("NovelMenu", 0);
+            //SceneManager.LoadScene("Novel");
             SceneManager.LoadScene("Stage1");
         }
 

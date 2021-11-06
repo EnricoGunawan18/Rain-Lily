@@ -75,10 +75,6 @@ public class LoadDialogue : MonoBehaviour
     GameObject EraseButton2;
     [SerializeField]
     GameObject EraseButton3;
-    [SerializeField]
-    GameObject EraseUI1;
-    [SerializeField]
-    GameObject EraseUI2;
 
 
 
@@ -118,6 +114,10 @@ public class LoadDialogue : MonoBehaviour
 
     private void Start()
     {
+        charaImageNow.color = new Color(0, 0, 0, 0);
+        EyeNow.color = new Color(0, 0, 0, 0);
+        MouthNow.color = new Color(0, 0, 0, 0);
+
         backgrounds = new List<BackGroundLogs>();
         dialogues = new List<Dialogue>();
         resetPos = PlayerPrefs.GetInt("ResetPos");
@@ -152,7 +152,7 @@ public class LoadDialogue : MonoBehaviour
 
         int menu = PlayerPrefs.GetInt("NovelMenu");
 
-        if (menu == 0 || menu == 5)
+        if (menu == 0 || menu == 6 || menu == 7 || menu == 8)
         {
             GameMenu.SetActive(false);
         }
@@ -204,10 +204,9 @@ public class LoadDialogue : MonoBehaviour
                 }
             }
         }
-        else if (miniGame == 2)
+        else if (miniGame == 2 && novelMenu == 0)
         {
             resetPos = 6;
-            PlayerPrefs.SetInt("NovelMenu", 0);
             PlayerPrefs.SetInt("MiniGame", 0);
             for (int i = 212; i < 224; i++)
             {
@@ -230,7 +229,7 @@ public class LoadDialogue : MonoBehaviour
                 }
             }
         }
-        else if ((miniGame == 3 && novelMenu == 0) || resetFrom == 10)
+        else if (miniGame == 3 && novelMenu == 0)
         {
             PlayerPrefs.SetInt("MiniGame", 0);
             AfterShopPrologue();
@@ -806,13 +805,13 @@ public class LoadDialogue : MonoBehaviour
             }
             else if (d.background == "back-005-sun")
             {
-                backGroundLabel.text = backgrounds[6].bg;
+                backGroundLabel.text = backgrounds[5].bg;
                 backgroundNow.color = new Color(255, 255, 255, 255);
                 backgroundNow.sprite = background[6];
             }
             else if (d.background == "back-005-night")
             {
-                backGroundLabel.text = backgrounds[5].bg;
+                backGroundLabel.text = backgrounds[6].bg;
                 backgroundNow.color = new Color(255, 255, 255, 255);
                 backgroundNow.sprite = background[7];
             }
@@ -839,21 +838,25 @@ public class LoadDialogue : MonoBehaviour
                 if (d.voice == "V-65")
                 {
                     Voice.clip = VoiceFile[0];
+                    voiceTime = VoiceFile[0].length;
                     Voice.Play();
                 }
                 else if (d.voice == "V-67")
                 {
                     Voice.clip = VoiceFile[1];
+                    voiceTime = VoiceFile[1].length;
                     Voice.Play();
                 }
                 else if (d.voice == "V-69")
                 {
                     Voice.clip = VoiceFile[2];
+                    voiceTime = VoiceFile[2].length;
                     Voice.Play();
                 }
                 else if (d.voice == "V-71")
                 {
                     Voice.clip = VoiceFile[3];
+                    voiceTime = VoiceFile[3].length;
                     Voice.Play();
                 }
                 else if (d.voice == "V-72")
@@ -1128,8 +1131,6 @@ public class LoadDialogue : MonoBehaviour
 
             if (d.expression == "L-01")
             {
-                voiceTime = Voice.clip.length;
-
                 StopCoroutine("EyeAnim");
                 StopCoroutine("MouthAnim");
                 EyeNow.color = new Color(255, 255, 255, 255);
@@ -1495,22 +1496,18 @@ public class LoadDialogue : MonoBehaviour
 
 
             //effects
-            int menu = PlayerPrefs.GetInt("NovelMenu");
-
-            if (d.id == 162 && menu != 6)
-            {
-                dialogueManager.dialogueSpeed = 0f;
-            }
-
+            int menu = PlayerPrefs.GetInt("NovelMenu");  
+            
             if (waitForFadeAnim == true)
             {
                 yield return new WaitForSeconds(1.5f);
                 FadeAnim.SetBool("Fading", false);
-            }
 
-            else if (menu == 1 || menu == 2 || menu == 3)
-            {
-                MiniGameChoose.SetActive(true);
+                if (d.id == 169)
+                {
+                    PlayerPrefs.SetInt("MiniGame", 2);
+                    PlayerPrefs.SetInt("NovelMenu", 2);
+                }
             }
 
             else if (autoScroll.automated == false)
@@ -1537,12 +1534,16 @@ public class LoadDialogue : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("NovelMenu", 4);
                 }
-                if (d.id == 170)
+                if (d.id == 169)
                 {
                     PlayerPrefs.SetInt("MiniGame", 2);
                     PlayerPrefs.SetInt("NovelMenu", 2);
                 }
-                if (d.id == 176)
+                if (d.id == 170)
+                {
+                    PlayerPrefs.SetInt("NovelMenu", 5);
+                }
+                if (d.id == 175)
                 {
                     PlayerPrefs.SetInt("MiniGame", 3);
                     PlayerPrefs.SetInt("NovelMenu", 3);
@@ -1577,12 +1578,16 @@ public class LoadDialogue : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("NovelMenu", 4);
                 }
-                if (d.id == 170)
+                if (d.id == 169)
                 {
                     PlayerPrefs.SetInt("MiniGame", 2);
                     PlayerPrefs.SetInt("NovelMenu", 2);
                 }
-                if (d.id == 176)
+                if(d.id == 170)
+                {
+                    PlayerPrefs.SetInt("NovelMenu", 5);
+                }
+                if (d.id == 175)
                 {
                     PlayerPrefs.SetInt("MiniGame", 3);
                     PlayerPrefs.SetInt("NovelMenu", 3);
@@ -1615,12 +1620,16 @@ public class LoadDialogue : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("NovelMenu", 4);
                 }
-                if (d.id == 170)
+                if (d.id == 169)
                 {
                     PlayerPrefs.SetInt("MiniGame", 2);
                     PlayerPrefs.SetInt("NovelMenu", 2);
                 }
-                if (d.id == 176)
+                if (d.id == 170)
+                {
+                    PlayerPrefs.SetInt("NovelMenu", 5);
+                }
+                if (d.id == 175)
                 {
                     PlayerPrefs.SetInt("MiniGame", 3);
                     PlayerPrefs.SetInt("NovelMenu", 3);
@@ -1839,8 +1848,6 @@ public class LoadDialogue : MonoBehaviour
             EraseButton1.SetActive(false);
             EraseButton2.SetActive(false);
             EraseButton3.SetActive(false);
-            EraseUI1.SetActive(false);
-            EraseUI2.SetActive(false);
 
             itemRow = itemData[8].Split(new char[] { ',' });
 
@@ -2469,11 +2476,6 @@ public class LoadDialogue : MonoBehaviour
     {
         whichLineNow = 226;
         resetPos = 7;
-        EraseButton1.SetActive(true);
-        EraseButton2.SetActive(true);
-        EraseButton3.SetActive(true);
-        EraseUI1.SetActive(true);
-        EraseUI2.SetActive(true);
 
         for (int i = 226; i < 250; i++)
         {
@@ -2532,14 +2534,23 @@ public class LoadDialogue : MonoBehaviour
 
     public IEnumerator MouthAnim(int[] mouth)
     {
-        while (true)
+        float timeToClose = 0;
+
+        if (timeToClose == voiceTime)
         {
-            MouthNow.sprite = CharaMouth[mouth[0]];
-            yield return new WaitForSeconds(0.1f);
-            MouthNow.sprite = CharaMouth[mouth[1]];
-            yield return new WaitForSeconds(0.1f);
+            MouthNow.sprite = CharaMouth[mouth[2]];
+            yield break;
         }
-        yield return new WaitForSeconds(voiceTime);
-        MouthNow.sprite = CharaMouth[mouth[2]];
+        else
+        {
+            while (true)
+            {
+                MouthNow.sprite = CharaMouth[mouth[0]];
+                yield return new WaitForSeconds(0.1f);
+                MouthNow.sprite = CharaMouth[mouth[1]];
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        //yield return new WaitForSeconds(voiceTime);
     }
 }

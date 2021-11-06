@@ -21,6 +21,9 @@ public class MinigameMenu : MonoBehaviour
 
     DialogueManager dialogueManager;
 
+    [SerializeField]
+    public AutoScroll autoScroll;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,7 @@ public class MinigameMenu : MonoBehaviour
             MinigameChoose.SetActive(false);
             PlayerPrefs.SetInt("NovelMenu", 6);
             dialogueManager.dialogueSpeed = 25f;
+            autoScroll.automated = false;
         }
         else
         {
@@ -57,7 +61,19 @@ public class MinigameMenu : MonoBehaviour
 
     void CookOpen()
     {
-        SceneManager.LoadScene("Stage1");
+        string date = PlayerPrefs.GetString("Date");
+
+        if (date == "Prologue")
+        {
+            MinigameChoose.SetActive(false);
+            PlayerPrefs.SetInt("NovelMenu", 8);
+            dialogueManager.dialogueSpeed = 25f;
+            autoScroll.automated = false;
+        }
+        else
+        {
+            SceneManager.LoadScene("Stage1");
+        }
     }
 
     void ShopOpen()
@@ -69,6 +85,7 @@ public class MinigameMenu : MonoBehaviour
             MinigameChoose.SetActive(false);
             PlayerPrefs.SetInt("NovelMenu", 7);
             dialogueManager.dialogueSpeed = 25f;
+            autoScroll.automated = false;
         }
         else
         {
