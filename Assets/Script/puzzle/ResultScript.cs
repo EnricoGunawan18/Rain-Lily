@@ -71,8 +71,18 @@ public class ResultScript : MonoBehaviour
     private void Quit()
     {
         Time.timeScale = 1;
-        PlayerPrefs.SetInt("NovelMenu", 0);
-        SceneManager.LoadScene("Novel");
+
+        int miniGame = PlayerPrefs.GetInt("MiniGame");
+        if (miniGame == 4)
+        {
+            PlayerPrefs.SetInt("NovelMenu", 10);
+            SceneManager.LoadScene("Novel");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("NovelMenu", 0);
+            SceneManager.LoadScene("Novel");
+        }
     }
 
     public bool SendStop()

@@ -9,13 +9,21 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     GameObject MiniGameChoose;
     [SerializeField]
+    GameObject GameMenu;
+    [SerializeField]
+    GameObject Skipper;
+
+    [SerializeField]
     Button[] MinGameButton;
+    [SerializeField]
+    Button SkipDialogueButton;
 
     LoadDialogue loadDialogue;
     Animator FadeAnim;
 
     public float dialogueSpeed;
     public bool next = false;
+    public bool isSkipped;
     int menu;
 
     private void Start()
@@ -25,7 +33,22 @@ public class DialogueManager : MonoBehaviour
         dialogueSpeed = PlayerPrefs.GetFloat("DialogueSpeed");
 
         FadeAnim = GameObject.Find("Fader").GetComponent<Animator>();
+
+        SkipDialogueButton.onClick.AddListener(SkipDialogue);
     }
+
+    private void Update()
+    {
+        if (isSkipped == false)
+        {
+            Skipper.SetActive(true);
+        }
+        else
+        {
+            Skipper.SetActive(false);
+        }
+    }
+
     public Coroutine Run(string textToType, Text textLabel)
     {
         string Filtered1 = textToType.Replace("「", "");
@@ -39,13 +62,21 @@ public class DialogueManager : MonoBehaviour
         loadDialogue = GetComponent<LoadDialogue>();
         textLabel.text = string.Empty;
 
+        isSkipped = false;
 
         int menu = PlayerPrefs.GetInt("NovelMenu");
 
-        if (menu == 1 || menu == 2 || menu == 3 || menu == 10)
+        if (menu == 1 || menu == 2 || menu == 3)
         {
             dialogueSpeed = 0;
             MiniGameChoose.SetActive(true);
+            loadDialogue.waitForFadeAnim = false;
+        }
+        else if(menu == 10)
+        {
+            FadeAnim.SetBool("Fading", false);
+            dialogueSpeed = 0;
+            GameMenu.SetActive(true);
             loadDialogue.waitForFadeAnim = false;
         }
         else if (loadDialogue.waitForFadeAnim == true)
@@ -101,7 +132,7 @@ public class DialogueManager : MonoBehaviour
 
         float t = 0;
         int charIndex = 0;
-        while (charIndex < textToType.Length)
+        while (charIndex < textToType.Length && isSkipped == false)
         {
             t += Time.deltaTime * dialogueSpeed;
             charIndex = Mathf.FloorToInt(t);
@@ -110,6 +141,13 @@ public class DialogueManager : MonoBehaviour
 
             yield return null;
         }
+        
+        isSkipped = true;
         textLabel.text = textToType;
+    }
+
+    void SkipDialogue()
+    {
+        isSkipped = true;
     }
 }

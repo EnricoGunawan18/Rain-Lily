@@ -13,6 +13,7 @@ public class TitleScript : MonoBehaviour
 	public Button MemoryGame;
 	public Button[] Files;
 	public Button BackButton;
+	public Button BackMiniGame;
 	public Text MemoryHS;
 
 	public GameObject TitleScreen;
@@ -62,6 +63,7 @@ public class TitleScript : MonoBehaviour
 		Files[8].onClick.AddListener(NinthFile);
 		Files[9].onClick.AddListener(TenthFile);
 		BackButton.onClick.AddListener(Back);
+		BackMiniGame.onClick.AddListener(Back);
 	}
 
 	public void NewGameStart()
@@ -296,6 +298,7 @@ public class TitleScript : MonoBehaviour
 
 	public void Back()
 	{
+		GameScreen.SetActive(false);
 		NowSaveScreen.SetActive(false);
 		TitleScreen.SetActive(true);
 		newFile = false;

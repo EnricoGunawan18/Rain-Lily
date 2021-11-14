@@ -55,6 +55,7 @@ public class MinigameMenu : MonoBehaviour
         }
         else
         {
+            PlayerPrefs.SetInt("MiniGame", 4);
             SceneManager.LoadScene("Scene_pazle");
         }
     }
@@ -72,6 +73,7 @@ public class MinigameMenu : MonoBehaviour
         }
         else
         {
+            PlayerPrefs.SetInt("MiniGame", 5);
             SceneManager.LoadScene("Stage1");
         }
     }
@@ -89,6 +91,7 @@ public class MinigameMenu : MonoBehaviour
         }
         else
         {
+            PlayerPrefs.SetInt("MiniGame", 6);
             SceneManager.LoadScene("Stage1");
         }
     }

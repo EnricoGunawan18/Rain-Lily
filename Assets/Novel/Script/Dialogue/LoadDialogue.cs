@@ -88,6 +88,9 @@ public class LoadDialogue : MonoBehaviour
     private AudioSource SE;
 
     [SerializeField]
+    Animator TextBGHide;
+
+    [SerializeField]
     AudioSource Voice;
 
     string[] backData;
@@ -107,6 +110,8 @@ public class LoadDialogue : MonoBehaviour
     public bool itemChoose = false;
     public int resetPos = 0;
 
+    string backGroundName;
+
     public float voiceTime;
 
     public List<BackGroundLogs> backgrounds;
@@ -121,6 +126,8 @@ public class LoadDialogue : MonoBehaviour
         backgrounds = new List<BackGroundLogs>();
         dialogues = new List<Dialogue>();
         resetPos = PlayerPrefs.GetInt("ResetPos");
+
+        backGroundName = "";
 
         autoScroll = GameObject.Find("AutoScroll").GetComponent<AutoScroll>();
         hide = GameObject.Find("HideAnimator").GetComponent<Hide>();
@@ -156,6 +163,18 @@ public class LoadDialogue : MonoBehaviour
         {
             GameMenu.SetActive(false);
         }
+        else if (menu == 10)
+        {
+            GameMenu.SetActive(true);
+        }
+        else if (menu == 11)
+        {
+            //buy item
+        }
+        else if (menu == 12)
+        {
+            MiniGameChoose.SetActive(true);
+        }
         else
         {
             GameMenu.SetActive(true);
@@ -183,7 +202,7 @@ public class LoadDialogue : MonoBehaviour
         {
             resetPos = 5;
             PlayerPrefs.SetInt("MiniGame", 0);
-            for (int i = 202; i < 211; i++)
+            for (int i = 196; i < 205; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -208,7 +227,7 @@ public class LoadDialogue : MonoBehaviour
         {
             resetPos = 6;
             PlayerPrefs.SetInt("MiniGame", 0);
-            for (int i = 212; i < 224; i++)
+            for (int i = 206; i < 218; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -238,9 +257,9 @@ public class LoadDialogue : MonoBehaviour
 
         else if (resetFrom == 1)
         {
-            if (logNumber == 68)
+            if (logNumber == 65)
             {
-                row = data[68].Split(new char[] { ',' });
+                row = data[65].Split(new char[] { ',' });
                 d = new Dialogue();
                 int.TryParse(row[0], out d.id);
                 d.character = row[1];
@@ -254,7 +273,7 @@ public class LoadDialogue : MonoBehaviour
 
                 dialogues.Add(d);
 
-                for (int i = 73; i < 155; i++)
+                for (int i = 70; i < 149; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -277,7 +296,7 @@ public class LoadDialogue : MonoBehaviour
             }
             else
             {
-                for (int i = logNumber + 4; i < 155; i++)
+                for (int i = logNumber + 4; i < 149; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -303,9 +322,9 @@ public class LoadDialogue : MonoBehaviour
         }
         else if (resetFrom == 2)
         {
-            if (logNumber == 64)
+            if (logNumber == 61)
             {
-                row = data[71].Split(new char[] { ',' });
+                row = data[68].Split(new char[] { ',' });
                 d = new Dialogue();
                 int.TryParse(row[0], out d.id);
                 d.character = row[1];
@@ -319,7 +338,7 @@ public class LoadDialogue : MonoBehaviour
 
                 dialogues.Add(d);
 
-                for (int i = 73; i < 155; i++)
+                for (int i = 70; i < 149; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -343,7 +362,7 @@ public class LoadDialogue : MonoBehaviour
             }
             else
             {
-                for (int i = logNumber + 8; i < 155; i++)
+                for (int i = logNumber + 8; i < 149; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -368,9 +387,9 @@ public class LoadDialogue : MonoBehaviour
 
         else if (resetFrom == 3)
         {
-            if (logNumber <= 167 && logNumber >= 157)
+            if (logNumber <= 161 && logNumber >= 151)
             {
-                for (int i = logNumber; i < 167; i++)
+                for (int i = logNumber; i < 161; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -390,7 +409,7 @@ public class LoadDialogue : MonoBehaviour
                         dialogues.Add(d);
                     }
                 }
-                for (int i = 177; i < 184; i++)
+                for (int i = 171; i < 178; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -410,7 +429,7 @@ public class LoadDialogue : MonoBehaviour
                         dialogues.Add(d);
                     }
                 }
-                for (int i = 185; i < 195; i++)
+                for (int i = 179; i < 189; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -430,7 +449,7 @@ public class LoadDialogue : MonoBehaviour
                         dialogues.Add(d);
                     }
                 }
-                for (int i = 198; i < 202; i++)
+                for (int i = 192; i < 196; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -454,11 +473,11 @@ public class LoadDialogue : MonoBehaviour
             }
             else
             {
-                for (int i = logNumber; i < 202; i++)
+                for (int i = logNumber; i < 196; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
-                    if (row[2] != "" || row[6] != "" || row[8] != "" || row[0] != "153")
+                    if (row[2] != "" || row[6] != "" || row[8] != "" || row[0] != "147")
                     {
                         d = new Dialogue();
                         int.TryParse(row[0], out d.id);
@@ -479,7 +498,7 @@ public class LoadDialogue : MonoBehaviour
 
         else if (resetFrom == 4)
         {
-            for (int i = logNumber; i < 202; i++)
+            for (int i = logNumber; i < 196; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -503,7 +522,7 @@ public class LoadDialogue : MonoBehaviour
 
         else if (resetFrom == 5)
         {
-            for (int i = logNumber; i < 211; i++)
+            for (int i = logNumber; i < 205; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -527,7 +546,7 @@ public class LoadDialogue : MonoBehaviour
 
         else if (resetFrom == 6)
         {
-            for (int i = logNumber; i < 224; i++)
+            for (int i = logNumber; i < 218; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -552,7 +571,7 @@ public class LoadDialogue : MonoBehaviour
 
         else if (resetFrom == 7)
         {
-            for (int i = logNumber; i < 250; i++)
+            for (int i = logNumber; i < 246; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -577,9 +596,9 @@ public class LoadDialogue : MonoBehaviour
 
         else if (resetFrom == 8)
         {
-            if (logNumber <= 258)
+            if (logNumber <= 252)
             {
-                for (int i = logNumber; i < 259; i++)
+                for (int i = logNumber; i < 253; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -599,7 +618,7 @@ public class LoadDialogue : MonoBehaviour
                         dialogues.Add(d);
                     }
                 }
-                for (int i = 270; i < 307; i++)
+                for (int i = 264; i < 301; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -622,7 +641,7 @@ public class LoadDialogue : MonoBehaviour
             }
             else
             {
-                for (int i = logNumber; i < 307; i++)
+                for (int i = logNumber; i < 301; i++)
                 {
                     row = data[i].Split(new char[] { ',' });
 
@@ -648,7 +667,7 @@ public class LoadDialogue : MonoBehaviour
 
         else if (resetFrom == 9)
         {
-            for (int i = logNumber; i < 307; i++)
+            for (int i = logNumber; i < 301; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -673,7 +692,7 @@ public class LoadDialogue : MonoBehaviour
 
         else
         {
-            for (int i = logNumber; i < 66; i++)
+            for (int i = logNumber; i < 63; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -707,11 +726,17 @@ public class LoadDialogue : MonoBehaviour
 
             TwoChoices.SetActive(true);
 
-            string[] tempRow = data[67].Split(new char[] { ',' });
-            FirstTwo.text = tempRow[2];
+            string[] tempRow = data[64].Split(new char[] { ',' });
+            string Filtered1 = tempRow[2].Replace("『", "");
+            string Filtered2 = Filtered1.Replace("』", "");
+            string Filtered3 = Filtered2.Replace("\"", "");
+            FirstTwo.text = Filtered3;
 
-            string[] tempRow2 = data[70].Split(new char[] { ',' });
-            SecondTwo.text = tempRow2[2];
+            string[] tempRow2 = data[67].Split(new char[] { ',' });
+            string Filtered4 = tempRow2[2].Replace("『", "");
+            string Filtered5 = Filtered4.Replace("』", "");
+            string Filtered6 = Filtered5.Replace("\"", "");
+            SecondTwo.text = Filtered6;
         }
 
         if (finishTemp2 == true)
@@ -720,11 +745,17 @@ public class LoadDialogue : MonoBehaviour
 
             TwoChoices.SetActive(true);
 
-            string[] tempRow = data[156].Split(new char[] { ',' });
-            FirstTwo.text = tempRow[2];
+            string[] tempRow = data[150].Split(new char[] { ',' });
+            string Filtered1 = tempRow[2].Replace("『", "");
+            string Filtered2 = Filtered1.Replace("』", "");
+            string Filtered3 = Filtered2.Replace("\"", "");
+            FirstTwo.text = Filtered3;
 
-            string[] tempRow2 = data[168].Split(new char[] { ',' });
-            SecondTwo.text = tempRow2[2];
+            string[] tempRow2 = data[162].Split(new char[] { ',' });
+            string Filtered4 = tempRow2[2].Replace("『", "");
+            string Filtered5 = Filtered4.Replace("』", "");
+            string Filtered6 = Filtered5.Replace("\"", "");
+            SecondTwo.text = Filtered6;
 
         }
         if (finishTemp3 == true)
@@ -733,11 +764,17 @@ public class LoadDialogue : MonoBehaviour
 
             TwoChoices.SetActive(true);
 
-            string[] tempRow = data[251].Split(new char[] { ',' });
-            FirstTwo.text = tempRow[2];
+            string[] tempRow = data[245].Split(new char[] { ',' });
+            string Filtered1 = tempRow[2].Replace("『", "");
+            string Filtered2 = Filtered1.Replace("』", "");
+            string Filtered3 = Filtered2.Replace("\"", "");
+            FirstTwo.text = Filtered3;
 
-            string[] tempRow2 = data[260].Split(new char[] { ',' });
-            SecondTwo.text = tempRow2[2];
+            string[] tempRow2 = data[254].Split(new char[] { ',' });
+            string Filtered4 = tempRow2[2].Replace("『", "");
+            string Filtered5 = Filtered4.Replace("』", "");
+            string Filtered6 = Filtered5.Replace("\"", "");
+            SecondTwo.text = Filtered6;
 
         }
 
@@ -746,10 +783,16 @@ public class LoadDialogue : MonoBehaviour
             TwoChoices.SetActive(true);
 
             string[] tempRow = itemData[4].Split(new char[] { ',' });
-            FirstTwo.text = tempRow[2];
+            string Filtered1 = tempRow[2].Replace("『", "");
+            string Filtered2 = Filtered1.Replace("』", "");
+            string Filtered3 = Filtered2.Replace("\"", "");
+            FirstTwo.text = Filtered3;
 
             string[] tempRow2 = itemData[5].Split(new char[] { ',' });
-            SecondTwo.text = tempRow2[2];
+            string Filtered4 = tempRow2[2].Replace("『", "");
+            string Filtered5 = Filtered4.Replace("』", "");
+            string Filtered6 = Filtered5.Replace("\"", "");
+            SecondTwo.text = Filtered6;
 
         }
 
@@ -827,219 +870,228 @@ public class LoadDialogue : MonoBehaviour
                 backgroundNow.color = new Color(255, 255, 255, 255);
                 backgroundNow.sprite = background[9];
             }
+            else if (d.background == "暗転")
+            {
+                backGroundLabel.text = "暗転";
+                backgroundNow.color = new Color(0, 0, 0, 255);
+            }
             else
             {
                 backGroundLabel.text = "";
             }
 
+            string[] textTemp = { backGroundName, backGroundLabel.text };
+            StartCoroutine("BGTextAnim", textTemp);
+
+
             //Voice
             if (autoScroll.automated == false)
             {
-                if (d.voice == "V-65")
+                if (d.voice == "V-0065")
                 {
                     Voice.clip = VoiceFile[0];
                     voiceTime = VoiceFile[0].length;
                     Voice.Play();
                 }
-                else if (d.voice == "V-67")
+                else if (d.voice == "V-0067")
                 {
                     Voice.clip = VoiceFile[1];
                     voiceTime = VoiceFile[1].length;
                     Voice.Play();
                 }
-                else if (d.voice == "V-69")
+                else if (d.voice == "V-0069")
                 {
                     Voice.clip = VoiceFile[2];
                     voiceTime = VoiceFile[2].length;
                     Voice.Play();
                 }
-                else if (d.voice == "V-71")
+                else if (d.voice == "V-0071")
                 {
                     Voice.clip = VoiceFile[3];
                     voiceTime = VoiceFile[3].length;
                     Voice.Play();
                 }
-                else if (d.voice == "V-72")
+                else if (d.voice == "V-0072")
                 {
                     Voice.clip = VoiceFile[4];
                     Voice.Play();
                 }
-                else if (d.voice == "V-74")
+                else if (d.voice == "V-0074")
                 {
                     Voice.clip = VoiceFile[5];
                     Voice.Play();
                 }
-                else if (d.voice == "V-76")
+                else if (d.voice == "V-0076")
                 {
                     Voice.clip = VoiceFile[6];
                     Voice.Play();
                 }
-                else if (d.voice == "V-77")
+                else if (d.voice == "V-0077")
                 {
                     Voice.clip = VoiceFile[7];
                     Voice.Play();
                 }
-                else if (d.voice == "V-80")
+                else if (d.voice == "V-0080")
                 {
                     Voice.clip = VoiceFile[8];
                     Voice.Play();
                 }
-                else if (d.voice == "V-83")
+                else if (d.voice == "V-0083")
                 {
                     Voice.clip = VoiceFile[9];
                     Voice.Play();
                 }
-                else if (d.voice == "V-86")
+                else if (d.voice == "V-0086")
                 {
                     Voice.clip = VoiceFile[10];
                     Voice.Play();
                 }
-                else if (d.voice == "V-89")
+                else if (d.voice == "V-0089")
                 {
                     Voice.clip = VoiceFile[11];
                     Voice.Play();
                 }
-                else if (d.voice == "V-91")
+                else if (d.voice == "V-0091")
                 {
                     Voice.clip = VoiceFile[12];
                     Voice.Play();
                 }
-                else if (d.voice == "V-92")
+                else if (d.voice == "V-0092")
                 {
                     Voice.clip = VoiceFile[13];
                     Voice.Play();
                 }
-                else if (d.voice == "V-93")
+                else if (d.voice == "V-0093")
                 {
                     Voice.clip = VoiceFile[14];
                     Voice.Play();
                 }
-                else if (d.voice == "V-95")
+                else if (d.voice == "V-0095")
                 {
                     Voice.clip = VoiceFile[15];
                     Voice.Play();
                 }
-                else if (d.voice == "V-97")
+                else if (d.voice == "V-0097")
                 {
                     Voice.clip = VoiceFile[16];
                     Voice.Play();
                 }
-                else if (d.voice == "V-99")
+                else if (d.voice == "V-0099")
                 {
                     Voice.clip = VoiceFile[17];
                     Voice.Play();
                 }
-                else if (d.voice == "V-100")
+                else if (d.voice == "V-0100")
                 {
                     Voice.clip = VoiceFile[18];
                     Voice.Play();
                 }
-                else if (d.voice == "V-101")
+                else if (d.voice == "V-0101")
                 {
                     Voice.clip = VoiceFile[19];
                     Voice.Play();
                 }
-                else if (d.voice == "V-103")
+                else if (d.voice == "V-0103")
                 {
                     Voice.clip = VoiceFile[20];
                     Voice.Play();
                 }
-                else if (d.voice == "V-105")
+                else if (d.voice == "V-0105")
                 {
                     Voice.clip = VoiceFile[21];
                     Voice.Play();
                 }
-                else if (d.voice == "V-107")
+                else if (d.voice == "V-0107")
                 {
                     Voice.clip = VoiceFile[22];
                     Voice.Play();
                 }
-                else if (d.voice == "V-109")
+                else if (d.voice == "V-0109")
                 {
                     Voice.clip = VoiceFile[23];
                     Voice.Play();
                 }
-                else if (d.voice == "V-111")
+                else if (d.voice == "V-0111")
                 {
                     Voice.clip = VoiceFile[24];
                     Voice.Play();
                 }
-                else if (d.voice == "V-115")
+                else if (d.voice == "V-0115")
                 {
                     Voice.clip = VoiceFile[25];
                     Voice.Play();
                 }
-                else if (d.voice == "V-118")
+                else if (d.voice == "V-0118")
                 {
                     Voice.clip = VoiceFile[26];
                     Voice.Play();
                 }
-                else if (d.voice == "V-124")
+                else if (d.voice == "V-0124")
                 {
                     Voice.clip = VoiceFile[27];
                     Voice.Play();
                 }
-                else if (d.voice == "V-126")
+                else if (d.voice == "V-0126")
                 {
                     Voice.clip = VoiceFile[28];
                     Voice.Play();
                 }
-                else if (d.voice == "V-133")
+                else if (d.voice == "V-0133")
                 {
                     Voice.clip = VoiceFile[29];
                     Voice.Play();
                 }
-                else if (d.voice == "V-136")
+                else if (d.voice == "V-0136")
                 {
                     Voice.clip = VoiceFile[30];
                     Voice.Play();
                 }
-                else if (d.voice == "V-142")
+                else if (d.voice == "V-0142")
                 {
                     Voice.clip = VoiceFile[31];
                     Voice.Play();
                 }
-                else if (d.voice == "V-144")
+                else if (d.voice == "V-0144")
                 {
                     Voice.clip = VoiceFile[32];
                     Voice.Play();
                 }
-                else if (d.voice == "V-148")
+                else if (d.voice == "V-0148")
                 {
                     Voice.clip = VoiceFile[33];
                     Voice.Play();
                 }
-                else if (d.voice == "V-150")
+                else if (d.voice == "V-0150")
                 {
                     Voice.clip = VoiceFile[34];
                     Voice.Play();
                 }
-                else if (d.voice == "V-152")
+                else if (d.voice == "V-0152")
                 {
                     Voice.clip = VoiceFile[35];
                     Voice.Play();
                 }
-                else if (d.voice == "V-153")
+                else if (d.voice == "V-0153")
                 {
                     Voice.clip = VoiceFile[36];
                     Voice.Play();
                 }
-                else if (d.voice == "V-155")
+                else if (d.voice == "V-0155")
                 {
                     Voice.clip = VoiceFile[37];
                     Voice.Play();
                 }
-                else if (d.voice == "V-158")
+                else if (d.voice == "V-0158")
                 {
                     Voice.clip = VoiceFile[38];
                     Voice.Play();
                 }
-                else if (d.voice == "V-161")
+                else if (d.voice == "V-0161")
                 {
                     Voice.clip = VoiceFile[39];
                     Voice.Play();
                 }
-                else if (d.voice == "V-172")
+                else if (d.voice == "V-0172")
                 {
                     Voice.clip = VoiceFile[40];
                     Voice.Play();
@@ -1119,7 +1171,7 @@ public class LoadDialogue : MonoBehaviour
                 charaImageNow.sprite = charaImage[5];
 
                 EyeNow.color = new Color(0, 0, 0, 0);
-                EyeNow.sprite = CharaEyes[43];
+                EyeNow.sprite = CharaEyes[42];
 
                 MouthNow.color = new Color(0, 0, 0, 0);
                 MouthNow.sprite = CharaMouth[30];
@@ -1138,9 +1190,7 @@ public class LoadDialogue : MonoBehaviour
                 StartCoroutine("EyeAnim", eyeList);
 
                 MouthNow.color = new Color(255, 255, 255, 255);
-
-                int[] mouthList = { 0, 1, 2 };
-                StartCoroutine("MouthAnim", mouthList);
+                MouthNow.sprite = CharaMouth[2];
             }
             else if (d.id == 81 || d.id == 82)
             {
@@ -1209,7 +1259,7 @@ public class LoadDialogue : MonoBehaviour
                 EyeNow.sprite = CharaEyes[18];
 
                 MouthNow.color = new Color(255, 255, 255, 255);
-                MouthNow.sprite = CharaMouth[11];
+                MouthNow.sprite = CharaMouth[10];
             }
             else if (d.expression == "L-05")
             {
@@ -1285,13 +1335,142 @@ public class LoadDialogue : MonoBehaviour
             {
                 StopCoroutine("EyeAnim");
                 EyeNow.color = new Color(255, 255, 255, 255);
-                int[] eyeList = { 40, 41, 42 };
+                int[] eyeList = { 40, 41, 40 };
                 StartCoroutine("EyeAnim", eyeList);
 
                 MouthNow.color = new Color(255, 255, 255, 255);
                 MouthNow.sprite = CharaMouth[29];
             }
 
+
+
+            else if (d.expression == "K-01")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 43, 44, 45 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[33];
+            }
+            else if (d.expression == "K-02")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 43, 44, 45 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[36];
+            }
+            else if (d.expression == "K-02a")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 46, 47, 48 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[36];
+            }
+            else if (d.expression == "K-03")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                EyeNow.sprite = CharaEyes[49];
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[39];
+            }
+            else if (d.expression == "K-04")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 50, 51, 52 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[42];
+            }
+            else if (d.expression == "K-05")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 53, 54, 55 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[45];
+            }
+            else if (d.expression == "K-06")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 56, 57, 58 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[48];
+            }
+            else if (d.expression == "K-07")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 59, 60, 61 };
+                StartCoroutine("EyeAnim", eyeList);
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[51];
+            }
+            else if (d.expression == "K-08")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 62, 63, 64 };
+                StartCoroutine("EyeAnim", eyeList);
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[54];
+            }
+            else if (d.expression == "K-09")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 65, 66, 67 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[57];
+            }
+            else if (d.expression == "K-09a")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 73, 74, 67 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[57];
+            }
+            else if (d.expression == "K-10")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 68, 69, 70 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[60];
+            }
+            else if (d.expression == "K-11")
+            {
+                StopCoroutine("EyeAnim");
+                EyeNow.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 71, 72, 73 };
+                StartCoroutine("EyeAnim", eyeList);
+
+                MouthNow.color = new Color(255, 255, 255, 255);
+                MouthNow.sprite = CharaMouth[63];
+            }
 
             //BGM
             if (d.BGM == "BGM-001")
@@ -1388,6 +1567,14 @@ public class LoadDialogue : MonoBehaviour
 
             ////////////////////////////////////////////////////////////////////////////P R O L O G U E////////////////////////////////////////////////////////////////
             //effects & run
+            if (d.id == 37 || d.id == 77)
+            {
+                if (whichLineNow != 0)
+                {
+                    whichLineNow -= 2;
+                }
+            }
+
             if (d.id == 154 && resetPos == 3)
             {
                 whichLineNow++;
@@ -1417,17 +1604,17 @@ public class LoadDialogue : MonoBehaviour
 
             if (d.id == 165)
             {
-                whichLineNow = 202;
+                whichLineNow = 196;
             }
 
             if (d.id == 171)
             {
-                whichLineNow = 212;
+                whichLineNow = 206;
             }
 
             if (d.id == 180)
             {
-                whichLineNow = 227;
+                whichLineNow = 220;
             }
 
             if (d.id == 218 && resetPos == 8)
@@ -1437,7 +1624,7 @@ public class LoadDialogue : MonoBehaviour
 
             if (d.id == 210)
             {
-                whichLineNow = 261;
+                whichLineNow = 255;
             }
 
             if (d.id == 218 && resetPos == 9)
@@ -1496,8 +1683,8 @@ public class LoadDialogue : MonoBehaviour
 
 
             //effects
-            int menu = PlayerPrefs.GetInt("NovelMenu");  
-            
+            int menu = PlayerPrefs.GetInt("NovelMenu");
+
             if (waitForFadeAnim == true)
             {
                 yield return new WaitForSeconds(1.5f);
@@ -1583,7 +1770,7 @@ public class LoadDialogue : MonoBehaviour
                     PlayerPrefs.SetInt("MiniGame", 2);
                     PlayerPrefs.SetInt("NovelMenu", 2);
                 }
-                if(d.id == 170)
+                if (d.id == 170)
                 {
                     PlayerPrefs.SetInt("NovelMenu", 5);
                 }
@@ -1667,9 +1854,9 @@ public class LoadDialogue : MonoBehaviour
         {
             resetPos = 1;
             finishTemp1 = false;
-            whichLineNow = 62;
+            whichLineNow = 59;
 
-            row = data[68].Split(new char[] { ',' });
+            row = data[65].Split(new char[] { ',' });
             d = new Dialogue();
             int.TryParse(row[0], out d.id);
             d.character = row[1];
@@ -1683,7 +1870,7 @@ public class LoadDialogue : MonoBehaviour
 
             dialogues.Add(d);
 
-            for (int i = 73; i < 155; i++)
+            for (int i = 70; i < 149; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1709,9 +1896,9 @@ public class LoadDialogue : MonoBehaviour
         {
             resetPos = 3;
             finishTemp2 = false;
-            whichLineNow = 156;
+            whichLineNow = 150;
 
-            for (int i = 157; i < 167; i++)
+            for (int i = 151; i < 161; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1731,7 +1918,7 @@ public class LoadDialogue : MonoBehaviour
                     dialogues.Add(d);
                 }
             }
-            for (int i = 177; i < 184; i++)
+            for (int i = 171; i < 178; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1752,7 +1939,7 @@ public class LoadDialogue : MonoBehaviour
                 }
             }
 
-            for (int i = 185; i < 195; i++)
+            for (int i = 179; i < 189; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1772,7 +1959,7 @@ public class LoadDialogue : MonoBehaviour
                     dialogues.Add(d);
                 }
             }
-            for (int i = 198; i < 202; i++)
+            for (int i = 192; i < 196; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1798,7 +1985,7 @@ public class LoadDialogue : MonoBehaviour
             resetPos = 8;
             finishTemp3 = false;
 
-            for (int i = 252; i < 259; i++)
+            for (int i = 246; i < 253; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1818,7 +2005,7 @@ public class LoadDialogue : MonoBehaviour
                     dialogues.Add(d);
                 }
             }
-            for (int i = 270; i < 307; i++)
+            for (int i = 264; i < 301; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1878,9 +2065,9 @@ public class LoadDialogue : MonoBehaviour
         {
             resetPos = 2;
             finishTemp1 = false;
-            whichLineNow = 62;
+            whichLineNow = 59;
 
-            row = data[71].Split(new char[] { ',' });
+            row = data[68].Split(new char[] { ',' });
             d = new Dialogue();
             int.TryParse(row[0], out d.id);
             d.character = row[1];
@@ -1894,7 +2081,7 @@ public class LoadDialogue : MonoBehaviour
 
             dialogues.Add(d);
 
-            for (int i = 73; i < 155; i++)
+            for (int i = 70; i < 149; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1920,9 +2107,9 @@ public class LoadDialogue : MonoBehaviour
         {
             resetPos = 4;
             finishTemp2 = false;
-            whichLineNow = 168;
+            whichLineNow = 162;
 
-            for (int i = 169; i < 195; i++)
+            for (int i = 163; i < 189; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1942,7 +2129,7 @@ public class LoadDialogue : MonoBehaviour
                     dialogues.Add(d);
                 }
             }
-            for (int i = 198; i < 202; i++)
+            for (int i = 192; i < 196; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -1969,7 +2156,7 @@ public class LoadDialogue : MonoBehaviour
             resetPos = 9;
             finishTemp3 = false;
 
-            for (int i = 261; i < 307; i++)
+            for (int i = 255; i < 301; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -2474,10 +2661,10 @@ public class LoadDialogue : MonoBehaviour
 
     public void AfterShopPrologue()
     {
-        whichLineNow = 226;
+        whichLineNow = 220;
         resetPos = 7;
 
-        for (int i = 226; i < 250; i++)
+        for (int i = 220; i < 244; i++)
         {
             row = data[i].Split(new char[] { ',' });
 
@@ -2532,25 +2719,49 @@ public class LoadDialogue : MonoBehaviour
         }
     }
 
-    public IEnumerator MouthAnim(int[] mouth)
-    {
-        float timeToClose = 0;
+    //public IEnumerator MouthAnim(int[] mouth)
+    //{
+    //    float timeToClose = 0;
 
-        if (timeToClose == voiceTime)
+    //    if (timeToClose == voiceTime)
+    //    {
+    //        MouthNow.sprite = CharaMouth[mouth[2]];
+    //        yield break;
+    //    }
+    //    else
+    //    {
+    //        while (true)
+    //        {
+    //            MouthNow.sprite = CharaMouth[mouth[0]];
+    //            yield return new WaitForSeconds(0.1f);
+    //            MouthNow.sprite = CharaMouth[mouth[1]];
+    //            yield return new WaitForSeconds(0.1f);
+    //        }
+    //    }
+    //    //yield return new WaitForSeconds(voiceTime);
+    //}
+
+    public IEnumerator BGTextAnim(string[] x)
+    {
+        if (x[1] == "暗転")
         {
-            MouthNow.sprite = CharaMouth[mouth[2]];
-            yield break;
+            Debug.Log(x[1]);
+            TextBGHide.SetBool("TextIsHidden", true);
+            yield return x[0] = x[1];
         }
-        else
+        else  if(x[0] != x[1])
         {
-            while (true)
-            {
-                MouthNow.sprite = CharaMouth[mouth[0]];
-                yield return new WaitForSeconds(0.1f);
-                MouthNow.sprite = CharaMouth[mouth[1]];
-                yield return new WaitForSeconds(0.1f);
-            }
+            Debug.Log("OK");
+            TextBGHide.SetBool("TextIsHidden", false);
+            yield return x[0] = x[1];
         }
-        //yield return new WaitForSeconds(voiceTime);
+        else if(x[0] == x[1])
+        {
+            Debug.Log("KO");
+            TextBGHide.SetBool("TextIsHidden", true);
+            yield return x[0] = x[1];
+        }
     }
+
+
 }

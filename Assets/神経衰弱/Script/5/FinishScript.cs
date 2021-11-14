@@ -101,6 +101,18 @@ public class FinishScript : MonoBehaviour
             SceneManager.LoadScene("Novel");
         }
 
+        else if (miniGame == 5)
+        {
+            PlayerPrefs.SetInt("NovelMenu", 10);
+            SceneManager.LoadScene("Novel");
+        }
+
+        else if(miniGame == 6)
+        {
+            PlayerPrefs.SetInt("NovelMenu", 11);
+            SceneManager.LoadScene("Novel");
+        }
+
         else
         {
             SceneManager.LoadScene("TitleScreen");
