@@ -83,7 +83,10 @@ public class LoadDialogue : MonoBehaviour
     private Hide hide;
     public BackGroundLogs bgl;
     public Dialogue d;
+
+    [SerializeField]
     Animator FadeAnim;
+
     private AudioSource BGM;
     private AudioSource SE;
 
@@ -132,7 +135,7 @@ public class LoadDialogue : MonoBehaviour
         autoScroll = GameObject.Find("AutoScroll").GetComponent<AutoScroll>();
         hide = GameObject.Find("HideAnimator").GetComponent<Hide>();
         dialogueManager = GetComponent<DialogueManager>();
-        FadeAnim = GameObject.Find("Fader").GetComponent<Animator>();
+        //FadeAnim = GameObject.Find("Fader").GetComponent<Animator>();
         BGM = GameObject.Find("BGM").GetComponent<AudioSource>();
         SE = GameObject.Find("SE").GetComponent<AudioSource>();
         nextDialogue.onClick.AddListener(TaskOnClick);
@@ -816,6 +819,11 @@ public class LoadDialogue : MonoBehaviour
             logLabel.text = logLabel.text + d.character + "\n" + d.dialogue + "\n\n";
 
             //background
+
+            string[] textTemp = { backGroundName, backGroundLabel.text };
+            StartCoroutine("BGTextAnim", textTemp);
+
+
             if (d.background == "back-001")
             {
                 backGroundLabel.text = backgrounds[0].bg;
@@ -880,8 +888,6 @@ public class LoadDialogue : MonoBehaviour
                 backGroundLabel.text = "";
             }
 
-            string[] textTemp = { backGroundName, backGroundLabel.text };
-            StartCoroutine("BGTextAnim", textTemp);
 
 
             //Voice
@@ -2749,15 +2755,17 @@ public class LoadDialogue : MonoBehaviour
             TextBGHide.SetBool("TextIsHidden", true);
             yield return x[0] = x[1];
         }
-        else  if(x[0] != x[1])
+        else if (x[0] != x[1])
         {
             Debug.Log("OK");
-            TextBGHide.SetBool("TextIsHidden", false);
+            TextBGHide.SetBool("TextIsHidden", true);
             yield return x[0] = x[1];
         }
-        else if(x[0] == x[1])
+        else if (x[0] == x[1])
         {
             Debug.Log("KO");
+            TextBGHide.SetBool("TextIsHidden", false);
+            yield return new WaitForSeconds(3f);
             TextBGHide.SetBool("TextIsHidden", true);
             yield return x[0] = x[1];
         }
