@@ -75,7 +75,7 @@ public class ResultScript : MonoBehaviour
         int miniGame = PlayerPrefs.GetInt("MiniGame");
         if (miniGame == 4)
         {
-            PlayerPrefs.SetInt("NovelMenu", 10);
+            PlayerPrefs.SetInt("NovelMenu", 13);
             SceneManager.LoadScene("Novel");
         }
         else

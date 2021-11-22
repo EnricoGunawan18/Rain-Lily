@@ -103,7 +103,7 @@ public class FinishScript : MonoBehaviour
 
         else if (miniGame == 5)
         {
-            PlayerPrefs.SetInt("NovelMenu", 10);
+            PlayerPrefs.SetInt("NovelMenu", 13);
             SceneManager.LoadScene("Novel");
         }
 

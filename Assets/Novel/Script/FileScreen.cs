@@ -90,9 +90,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("FirstLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date1", date);
+            PlayerPrefs.SetInt("Money1", money);
+            PlayerPrefs.SetFloat("LiedHeart1", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart1", kleinAff);
+            PlayerPrefsX.SetIntArray("Date1", date);
             PlayerPrefs.SetInt("NovelMenu1", novelMenu);
             PlayerPrefs.SetInt("FirstPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -103,11 +109,17 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("FirstLog");
             int pos = PlayerPrefs.GetInt("FirstPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu1");
-            string date = PlayerPrefs.GetString("Date1");
+            int[] date = PlayerPrefsX.GetIntArray("Date1");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber1");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart1");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart1");
+            int money = PlayerPrefs.GetInt("Money1");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);
@@ -135,10 +147,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("SecondLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date2", date);
-
+            PlayerPrefs.SetInt("Money2", money);
+            PlayerPrefs.SetFloat("LiedHeart2", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart2", kleinAff);
+            PlayerPrefsX.SetIntArray("Date2", date);
             PlayerPrefs.SetInt("NovelMenu2", novelMenu);
             PlayerPrefs.SetInt("SecondPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -149,11 +166,17 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("SecondLog");
             int pos = PlayerPrefs.GetInt("SecondPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu2");
-            string date = PlayerPrefs.GetString("Date2");
+            int[] date = PlayerPrefsX.GetIntArray("Date2");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber2");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart2");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart2");
+            int money = PlayerPrefs.GetInt("Money2");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);
@@ -181,10 +204,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("ThirdLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date3", date);
-
+            PlayerPrefs.SetInt("Money3", money);
+            PlayerPrefs.SetFloat("LiedHeart3", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart3", kleinAff);
+            PlayerPrefsX.SetIntArray("Date3", date);
             PlayerPrefs.SetInt("NovelMenu3", novelMenu);
             PlayerPrefs.SetInt("ThirdPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -195,11 +223,17 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("ThirdLog");
             int pos = PlayerPrefs.GetInt("ThirdPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu3");
-            string date = PlayerPrefs.GetString("Date3");
+            int[] date = PlayerPrefsX.GetIntArray("Date3");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber3");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart3");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart3");
+            int money = PlayerPrefs.GetInt("Money3");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);
@@ -227,10 +261,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("FourthLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date4", date);
-
+            PlayerPrefs.SetInt("Money4", money);
+            PlayerPrefs.SetFloat("LiedHeart4", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart4", kleinAff);
+            PlayerPrefsX.SetIntArray("Date4", date);
             PlayerPrefs.SetInt("NovelMenu4", novelMenu);
             PlayerPrefs.SetInt("FourthPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -241,11 +280,17 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("FourthLog");
             int pos = PlayerPrefs.GetInt("FourthPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu4");
-            string date = PlayerPrefs.GetString("Date4");
+            int[] date = PlayerPrefsX.GetIntArray("Date4");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber4");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart4");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart4");
+            int money = PlayerPrefs.GetInt("Money4");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);
@@ -273,9 +318,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("FifthLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date5", date);
+            PlayerPrefs.SetInt("Money5", money);
+            PlayerPrefs.SetFloat("LiedHeart5", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart5", kleinAff);
+            PlayerPrefsX.SetIntArray("Date5", date);
             PlayerPrefs.SetInt("NovelMenu5", novelMenu);
             PlayerPrefs.SetInt("FifthPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -286,11 +337,17 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("FifthLog");
             int pos = PlayerPrefs.GetInt("FifthPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu5");
-            string date = PlayerPrefs.GetString("Date5");
+            int[] date = PlayerPrefsX.GetIntArray("Date5");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber5");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart5");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart5");
+            int money = PlayerPrefs.GetInt("Money5");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);
@@ -318,10 +375,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("SixthLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date6", date);
-
+            PlayerPrefs.SetInt("Money6", money);
+            PlayerPrefs.SetFloat("LiedHeart6", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart6", kleinAff);
+            PlayerPrefsX.SetIntArray("Date6", date);
             PlayerPrefs.SetInt("NovelMenu6", novelMenu);
             PlayerPrefs.SetInt("SixthPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -332,15 +394,21 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("SixthLog");
             int pos = PlayerPrefs.GetInt("SixthPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu6");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart6");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart6");
+            int money = PlayerPrefs.GetInt("Money6");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);
-            string date = PlayerPrefs.GetString("Date6");
+            int[] date = PlayerPrefsX.GetIntArray("Date6");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber6");
 
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             Time.timeScale = 1;
             SceneManager.LoadScene("Novel");
         }
@@ -364,9 +432,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("SeventhLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date7", date);
+            PlayerPrefs.SetInt("Money7", money);
+            PlayerPrefs.SetFloat("LiedHeart7", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart7", kleinAff);
+            PlayerPrefsX.SetIntArray("Date7", date);
             PlayerPrefs.SetInt("NovelMenu7", novelMenu);
             PlayerPrefs.SetInt("SeventhPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -377,11 +451,17 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("SeventhLog");
             int pos = PlayerPrefs.GetInt("SeventhPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu7");
-            string date = PlayerPrefs.GetString("Date7");
+            int[] date = PlayerPrefsX.GetIntArray("Date7");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber7");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart7");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart7");
+            int money = PlayerPrefs.GetInt("Money7");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);
@@ -409,10 +489,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("EighthLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date8", date);
-
+            PlayerPrefs.SetInt("Money8", money);
+            PlayerPrefs.SetFloat("LiedHeart8", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart8", kleinAff);
+            PlayerPrefsX.SetIntArray("Date8", date);
             PlayerPrefs.SetInt("NovelMenu8", novelMenu);
             PlayerPrefs.SetInt("EighthPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -423,11 +508,17 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("EighthLog");
             int pos = PlayerPrefs.GetInt("EighthPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu8");
-            string date = PlayerPrefs.GetString("Date8");
+            int[] date = PlayerPrefsX.GetIntArray("Date8");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber8");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart8");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart8");
+            int money = PlayerPrefs.GetInt("Money8");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);
@@ -455,9 +546,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("NinthLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date9", date);
+            PlayerPrefs.SetInt("Money9", money);
+            PlayerPrefs.SetFloat("LiedHeart9", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart9", kleinAff);
+            PlayerPrefsX.SetIntArray("Date9", date);
             PlayerPrefs.SetInt("NovelMenu9", novelMenu);
             PlayerPrefs.SetInt("NinthPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -468,11 +565,17 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("NinthLog");
             int pos = PlayerPrefs.GetInt("NinthPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu9");
-            string date = PlayerPrefs.GetString("Date9");
+            int[] date = PlayerPrefsX.GetIntArray("Date9");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber9");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart9");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart9");
+            int money = PlayerPrefs.GetInt("Money9");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);
@@ -500,9 +603,15 @@ public class FileScreen : MonoBehaviour
                 PlayerPrefs.SetInt("TenthLog", startFrom + loadDialogue.whichLineNow);
             }
             int novelMenu = PlayerPrefs.GetInt("NovelMenu");
-            string date = PlayerPrefs.GetString("Date");
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
 
-            PlayerPrefs.SetString("Date10", date);
+            PlayerPrefs.SetInt("Money10", money);
+            PlayerPrefs.SetFloat("LiedHeart10", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart10", kleinAff);
+            PlayerPrefsX.SetIntArray("Date10", date);
             PlayerPrefs.SetInt("NovelMenu10", novelMenu);
             PlayerPrefs.SetInt("TenthPos", loadDialogue.resetPos);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
@@ -513,11 +622,17 @@ public class FileScreen : MonoBehaviour
             int log = PlayerPrefs.GetInt("TenthLog");
             int pos = PlayerPrefs.GetInt("TenthPos");
             int novelMenu = PlayerPrefs.GetInt("NovelMenu10");
-            string date = PlayerPrefs.GetString("Date10");
+            int[] date = PlayerPrefsX.GetIntArray("Date10");
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber10");
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart10");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart10");
+            int money = PlayerPrefs.GetInt("Money10");
 
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetFloat("LiedHeart", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart", kleinAff);
             PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-            PlayerPrefs.SetString("Date", date);
+            PlayerPrefsX.SetIntArray("Date", date);
             PlayerPrefs.SetInt("NovelMenu", novelMenu);
             PlayerPrefs.SetInt("LogNow", log);
             PlayerPrefs.SetInt("ResetPos", pos);

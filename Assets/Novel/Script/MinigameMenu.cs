@@ -35,6 +35,7 @@ public class MinigameMenu : MonoBehaviour
         Shop.onClick.AddListener(ShopOpen);
     }
 
+
     // Update is called once per frame
     void MenuOpen()
     {
@@ -44,9 +45,9 @@ public class MinigameMenu : MonoBehaviour
 
     void CleanOpen()
     {
-        string date = PlayerPrefs.GetString("Date");
+        int[] date = PlayerPrefsX.GetIntArray("Date");
 
-        if (date == "Prologue")
+        if (date[0] == 10 && date[1] == 7)
         {
             MinigameChoose.SetActive(false);
             PlayerPrefs.SetInt("NovelMenu", 6);
@@ -62,9 +63,9 @@ public class MinigameMenu : MonoBehaviour
 
     void CookOpen()
     {
-        string date = PlayerPrefs.GetString("Date");
+        int[] date = PlayerPrefsX.GetIntArray("Date");
 
-        if (date == "Prologue")
+        if (date[0] == 10 && date[1] == 8)
         {
             MinigameChoose.SetActive(false);
             PlayerPrefs.SetInt("NovelMenu", 8);
@@ -80,9 +81,9 @@ public class MinigameMenu : MonoBehaviour
 
     void ShopOpen()
     {
-        string date = PlayerPrefs.GetString("Date");
+        int[] date = PlayerPrefsX.GetIntArray("Date");
 
-        if (date == "Prologue")
+        if (date[0] == 10 && date[1] == 9)
         {
             MinigameChoose.SetActive(false);
             PlayerPrefs.SetInt("NovelMenu", 7);

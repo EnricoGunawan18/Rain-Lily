@@ -51,10 +51,7 @@ public class DialogueManager : MonoBehaviour
 
     public Coroutine Run(string textToType, Text textLabel)
     {
-        string Filtered1 = textToType.Replace("「", "");
-        string Filtered2 = Filtered1.Replace("」", "");
-        string Filtered3 = Filtered2.Replace("\"", "");
-        return StartCoroutine(TypeText(Filtered3, textLabel));
+        return StartCoroutine(TypeText(textToType, textLabel));
     }
 
     private IEnumerator TypeText(string textToType, Text textLabel)
@@ -66,13 +63,25 @@ public class DialogueManager : MonoBehaviour
 
         int menu = PlayerPrefs.GetInt("NovelMenu");
 
-        if (menu == 1 || menu == 2 || menu == 3)
+        //if (loadDialogue.ItemEffect == true)
+        //{
+
+        //    ItemEffect = false;
+
+        //    loadDialogue.waitForFadeAnim = false;
+
+        //    PlayerPrefs.SetInt("NovelMenu", 10);
+
+        //    SceneManager.LoadScene("Novel");
+
+        //}
+        /*else*/ if (menu == 1 || menu == 2 || menu == 3)
         {
             dialogueSpeed = 0;
             MiniGameChoose.SetActive(true);
             loadDialogue.waitForFadeAnim = false;
         }
-        else if(menu == 10)
+        else if (menu == 10)
         {
             FadeAnim.SetBool("Fading", false);
             dialogueSpeed = 0;
@@ -122,7 +131,7 @@ public class DialogueManager : MonoBehaviour
             //SceneManager.LoadScene("Novel");
             SceneManager.LoadScene("Scene_pazle");
         }
-        
+
         if ((miniGame == 2 || miniGame == 3) && menu == 5)
         {
             //PlayerPrefs.SetInt("NovelMenu", 0);
@@ -141,7 +150,7 @@ public class DialogueManager : MonoBehaviour
 
             yield return null;
         }
-        
+
         isSkipped = true;
         textLabel.text = textToType;
     }

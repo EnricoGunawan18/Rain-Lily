@@ -1,0 +1,114 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class StartGame : MonoBehaviour
+{
+	[SerializeField]
+	public PlayerPrefsX playerPrefsX;
+
+	// Start is called before the first frame update
+	void Start()
+	{
+		int startGame = PlayerPrefs.GetInt("StartGame");
+
+		if (startGame == 0)
+		{
+			PlayerPrefs.SetInt("StartGame", 1);
+			//which dialogue
+			PlayerPrefs.SetInt("LogNow", 1);
+
+			//dialogue speed
+			PlayerPrefs.SetFloat("DialogueSpeed", 25f);
+
+			//reset//////////////////////////////////////////////////////////////////
+			PlayerPrefs.SetFloat("ScoreAll", 0);
+			PlayerPrefs.SetFloat("Score1", 0);
+			PlayerPrefs.SetFloat("Score2", 0);
+			PlayerPrefs.SetFloat("Score3", 0);
+			PlayerPrefs.SetFloat("Score4", 0);
+			PlayerPrefs.SetFloat("Score5", 0);
+			PlayerPrefs.SetInt("MiniGame", 0);
+			PlayerPrefs.SetInt("ResetPos", 0);
+			PlayerPrefs.SetInt("NovelMenu", 0);
+
+			PlayerPrefs.SetInt("NovelMenu1", 0);
+			PlayerPrefs.SetInt("NovelMenu2", 0);
+			PlayerPrefs.SetInt("NovelMenu3", 0);
+			PlayerPrefs.SetInt("NovelMenu4", 0);
+			PlayerPrefs.SetInt("NovelMenu5", 0);
+			PlayerPrefs.SetInt("NovelMenu6", 0);
+			PlayerPrefs.SetInt("NovelMenu7", 0);
+			PlayerPrefs.SetInt("NovelMenu8", 0);
+			PlayerPrefs.SetInt("NovelMenu9", 0);
+			PlayerPrefs.SetInt("NovelMenu10", 0);
+
+			int[] startDate = { 10, 7 };
+			PlayerPrefsX.SetIntArray("Date", startDate);
+
+			int[] empty = { 0, 0 };
+			PlayerPrefsX.SetIntArray("Date1", empty);
+			PlayerPrefsX.SetIntArray("Date2", empty);
+			PlayerPrefsX.SetIntArray("Date3", empty);
+			PlayerPrefsX.SetIntArray("Date4", empty);
+			PlayerPrefsX.SetIntArray("Date5", empty);
+			PlayerPrefsX.SetIntArray("Date6", empty);
+			PlayerPrefsX.SetIntArray("Date7", empty);
+			PlayerPrefsX.SetIntArray("Date8", empty);
+			PlayerPrefsX.SetIntArray("Date9", empty);
+			PlayerPrefsX.SetIntArray("Date10", empty);
+
+			int[] a = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+			PlayerPrefsX.SetIntArray("ItemNumber", a);
+
+			PlayerPrefsX.SetIntArray("ItemNumber1", a);
+			PlayerPrefsX.SetIntArray("ItemNumber2", a);
+			PlayerPrefsX.SetIntArray("ItemNumber3", a);
+			PlayerPrefsX.SetIntArray("ItemNumber4", a);
+			PlayerPrefsX.SetIntArray("ItemNumber5", a);
+			PlayerPrefsX.SetIntArray("ItemNumber6", a);
+			PlayerPrefsX.SetIntArray("ItemNumber7", a);
+			PlayerPrefsX.SetIntArray("ItemNumber8", a);
+			PlayerPrefsX.SetIntArray("ItemNumber9", a);
+			PlayerPrefsX.SetIntArray("ItemNumber10", a);
+
+			PlayerPrefs.SetInt("Money", 0);
+			PlayerPrefs.SetFloat("LiedHeart", 0);
+			PlayerPrefs.SetFloat("KleinHeart", 0);
+
+			PlayerPrefs.SetInt("Money1", 0);
+			PlayerPrefs.SetFloat("LiedHeart1", 0);
+			PlayerPrefs.SetFloat("KleinHeart1", 0);
+			PlayerPrefs.SetInt("Money2", 0);
+			PlayerPrefs.SetFloat("LiedHeart2", 0);
+			PlayerPrefs.SetFloat("KleinHeart2", 0);
+			PlayerPrefs.SetInt("Money3", 0);
+			PlayerPrefs.SetFloat("LiedHeart3", 0);
+			PlayerPrefs.SetFloat("KleinHeart3", 0);
+			PlayerPrefs.SetInt("Money4", 0);
+			PlayerPrefs.SetFloat("LiedHeart4", 0);
+			PlayerPrefs.SetFloat("KleinHeart4", 0);
+			PlayerPrefs.SetInt("Money5", 0);
+			PlayerPrefs.SetFloat("LiedHeart5", 0);
+			PlayerPrefs.SetFloat("KleinHeart5", 0);
+			PlayerPrefs.SetInt("Money6", 0);
+			PlayerPrefs.SetFloat("LiedHeart6", 0);
+			PlayerPrefs.SetFloat("KleinHeart6", 0);
+			PlayerPrefs.SetInt("Money7", 0);
+			PlayerPrefs.SetFloat("LiedHeart7", 0);
+			PlayerPrefs.SetFloat("KleinHeart7", 0);
+			PlayerPrefs.SetInt("Money8", 0);
+			PlayerPrefs.SetFloat("LiedHeart8", 0);
+			PlayerPrefs.SetFloat("KleinHeart8", 0);
+			PlayerPrefs.SetInt("Money9", 0);
+			PlayerPrefs.SetFloat("LiedHeart9", 0);
+			PlayerPrefs.SetFloat("KleinHeart9", 0);
+			PlayerPrefs.SetInt("Money10", 0);
+			PlayerPrefs.SetFloat("LiedHeart10", 0);
+			PlayerPrefs.SetFloat("KleinHeart10", 0);
+		}
+		PlayerPrefs.Save();
+	}
+
+}

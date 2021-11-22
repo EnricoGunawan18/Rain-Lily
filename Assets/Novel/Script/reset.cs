@@ -36,18 +36,21 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("NovelMenu8", 0);
         PlayerPrefs.SetInt("NovelMenu9", 0);
         PlayerPrefs.SetInt("NovelMenu10", 0);
-        PlayerPrefs.SetString("Date", "Prologue");
+       
+        int[] startDate = { 10,7 };
+        PlayerPrefsX.SetIntArray("Date", startDate);
 
-        PlayerPrefs.SetString("Date1", "Prologue");
-        PlayerPrefs.SetString("Date2", "Prologue");
-        PlayerPrefs.SetString("Date3", "Prologue");
-        PlayerPrefs.SetString("Date4", "Prologue");
-        PlayerPrefs.SetString("Date5", "Prologue");
-        PlayerPrefs.SetString("Date6", "Prologue");
-        PlayerPrefs.SetString("Date7", "Prologue");
-        PlayerPrefs.SetString("Date8", "Prologue");
-        PlayerPrefs.SetString("Date9", "Prologue");
-        PlayerPrefs.SetString("Date10", "Prologue");
+        int[] empty = { 10, 0 };
+        PlayerPrefsX.SetIntArray("Date1", empty);
+        PlayerPrefsX.SetIntArray("Date2", empty);
+        PlayerPrefsX.SetIntArray("Date3", empty);
+        PlayerPrefsX.SetIntArray("Date4", empty);
+        PlayerPrefsX.SetIntArray("Date5", empty);
+        PlayerPrefsX.SetIntArray("Date6", empty);
+        PlayerPrefsX.SetIntArray("Date7", empty);
+        PlayerPrefsX.SetIntArray("Date8", empty);
+        PlayerPrefsX.SetIntArray("Date9", empty);
+        PlayerPrefsX.SetIntArray("Date10", empty);
 
         int[] a = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
@@ -64,11 +67,40 @@ public class reset : MonoBehaviour
         PlayerPrefsX.SetIntArray("ItemNumber9", a);
         PlayerPrefsX.SetIntArray("ItemNumber10", a);
 
-        //int[] b = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        //PlayerPrefsX.SetIntArray("MoneyFile", b);
-        //PlayerPrefsX.SetIntArray("LiedHeartFile", b);
-        //PlayerPrefsX.SetIntArray("KleinHeartFile", b);
+        PlayerPrefs.SetInt("Money", 0);
+        PlayerPrefs.SetFloat("LiedHeart", 0);
+        PlayerPrefs.SetFloat("KleinHeart", 0);
 
-        //playerPrefs
+        PlayerPrefs.SetInt("Money1", 0);
+        PlayerPrefs.SetFloat("LiedHeart1", 0);
+        PlayerPrefs.SetFloat("KleinHeart1", 0);
+        PlayerPrefs.SetInt("Money2", 0);
+        PlayerPrefs.SetFloat("LiedHeart2", 0);
+        PlayerPrefs.SetFloat("KleinHeart2", 0);
+        PlayerPrefs.SetInt("Money3", 0);
+        PlayerPrefs.SetFloat("LiedHeart3", 0);
+        PlayerPrefs.SetFloat("KleinHeart3", 0);
+        PlayerPrefs.SetInt("Money4", 0);
+        PlayerPrefs.SetFloat("LiedHeart4", 0);
+        PlayerPrefs.SetFloat("KleinHeart4", 0);
+        PlayerPrefs.SetInt("Money5", 0);
+        PlayerPrefs.SetFloat("LiedHeart5", 0);
+        PlayerPrefs.SetFloat("KleinHeart5", 0);
+        PlayerPrefs.SetInt("Money6", 0);
+        PlayerPrefs.SetFloat("LiedHeart6", 0);
+        PlayerPrefs.SetFloat("KleinHeart6", 0);
+        PlayerPrefs.SetInt("Money7", 0);
+        PlayerPrefs.SetFloat("LiedHeart7", 0);
+        PlayerPrefs.SetFloat("KleinHeart7", 0);
+        PlayerPrefs.SetInt("Money8", 0);
+        PlayerPrefs.SetFloat("LiedHeart8", 0);
+        PlayerPrefs.SetFloat("KleinHeart8", 0);
+        PlayerPrefs.SetInt("Money9", 0);
+        PlayerPrefs.SetFloat("LiedHeart9", 0);
+        PlayerPrefs.SetFloat("KleinHeart9", 0);
+        PlayerPrefs.SetInt("Money10", 0);
+        PlayerPrefs.SetFloat("LiedHeart10", 0);
+        PlayerPrefs.SetFloat("KleinHeart10", 0);
+
     }
 }

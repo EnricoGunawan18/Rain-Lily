@@ -108,11 +108,20 @@ public class GameMenu : MonoBehaviour
 
     void NextDay()
     {
-        string date = PlayerPrefs.GetString("Date");
-        if (date == "Prologue")
+        int[] date = PlayerPrefsX.GetIntArray("Date");
+        PlayerPrefs.SetInt("NovelMenu", 12);
+
+        if (date[0] == 10 && date[1] == 9)
         {
-            PlayerPrefs.SetInt("NovelMenu", 12);
-            PlayerPrefs.SetString("Date", "10ŒŽ10“ú");
+
+            int[] octten = { 10, 10 };
+            PlayerPrefsX.SetIntArray("Date", octten);
+            SceneManager.LoadScene("Novel");
+        }
+        else
+        {
+            date[1]++;
+            PlayerPrefsX.SetIntArray("Date", date);
             SceneManager.LoadScene("Novel");
         }
     }

@@ -70,6 +70,9 @@ public class LoadDialogue : MonoBehaviour
     public AudioClip[] VoiceFile;
 
     [SerializeField]
+    AudioSource ButtonAudioSource;
+
+    [SerializeField]
     GameObject EraseButton1;
     [SerializeField]
     GameObject EraseButton2;
@@ -113,6 +116,8 @@ public class LoadDialogue : MonoBehaviour
     public bool itemChoose = false;
     public int resetPos = 0;
 
+    bool shopDecide = true;
+
     string backGroundName;
 
     public float voiceTime;
@@ -129,6 +134,8 @@ public class LoadDialogue : MonoBehaviour
         backgrounds = new List<BackGroundLogs>();
         dialogues = new List<Dialogue>();
         resetPos = PlayerPrefs.GetInt("ResetPos");
+
+        ButtonAudioSource.Stop();
 
         backGroundName = "";
 
@@ -164,10 +171,12 @@ public class LoadDialogue : MonoBehaviour
 
         if (menu == 0 || menu == 6 || menu == 7 || menu == 8)
         {
+            MiniGameChoose.SetActive(false);
             GameMenu.SetActive(false);
         }
-        else if (menu == 10)
+        else if (menu == 13)
         {
+            MiniGameChoose.SetActive(false);
             GameMenu.SetActive(true);
         }
         else if (menu == 11)
@@ -177,13 +186,17 @@ public class LoadDialogue : MonoBehaviour
         else if (menu == 12)
         {
             MiniGameChoose.SetActive(true);
+            GameMenu.SetActive(false);
         }
         else
         {
             GameMenu.SetActive(true);
         }
 
-        First();
+        if (menu != 13 && menu != 12)
+        {
+            First();
+        }
     }
 
     private void Update()
@@ -201,8 +214,32 @@ public class LoadDialogue : MonoBehaviour
 
         Debug.Log(logNumber);
 
-        if (miniGame == 1 && novelMenu == 0)
+        if (novelMenu == 11)
         {
+            string[] tempRow = itemData[3].Split(new char[] { ',' });
+
+            if (tempRow[2] != "" || tempRow[6] != "" || tempRow[8] != "")
+            {
+                d = new Dialogue();
+                int.TryParse(tempRow[0], out d.id);
+                d.character = tempRow[1];
+                d.dialogue = tempRow[2];
+                d.expression = tempRow[3];
+                d.background = tempRow[4];
+                d.BGM = tempRow[5];
+                d.SE = tempRow[6];
+                d.voice = tempRow[7];
+                d.effect = tempRow[8];
+
+                dialogues.Add(d);
+            }
+
+        }
+        else if (miniGame == 1 && novelMenu == 0)
+        {
+            int[] dateNow = { 10, 8 };
+            PlayerPrefsX.SetIntArray("Date", dateNow);
+
             resetPos = 5;
             PlayerPrefs.SetInt("MiniGame", 0);
             for (int i = 196; i < 205; i++)
@@ -228,6 +265,9 @@ public class LoadDialogue : MonoBehaviour
         }
         else if (miniGame == 2 && novelMenu == 0)
         {
+            int[] dateNow = { 10, 9 };
+            PlayerPrefsX.SetIntArray("Date", dateNow);
+
             resetPos = 6;
             PlayerPrefs.SetInt("MiniGame", 0);
             for (int i = 206; i < 218; i++)
@@ -574,7 +614,7 @@ public class LoadDialogue : MonoBehaviour
 
         else if (resetFrom == 7)
         {
-            for (int i = logNumber; i < 246; i++)
+            for (int i = logNumber; i < 244; i++)
             {
                 row = data[i].Split(new char[] { ',' });
 
@@ -844,37 +884,37 @@ public class LoadDialogue : MonoBehaviour
             }
             else if (d.background == "back-004-sun")
             {
-                backGroundLabel.text = backgrounds[4].bg;
+                backGroundLabel.text = backgrounds[5].bg;
                 backgroundNow.color = new Color(255, 255, 255, 255);
                 backgroundNow.sprite = background[4];
             }
             else if (d.background == "back-004-night")
             {
-                backGroundLabel.text = backgrounds[3].bg;
+                backGroundLabel.text = backgrounds[6].bg;
                 backgroundNow.color = new Color(255, 255, 255, 255);
                 backgroundNow.sprite = background[5];
             }
             else if (d.background == "back-005-sun")
             {
-                backGroundLabel.text = backgrounds[5].bg;
+                backGroundLabel.text = backgrounds[7].bg;
                 backgroundNow.color = new Color(255, 255, 255, 255);
                 backgroundNow.sprite = background[6];
             }
             else if (d.background == "back-005-night")
             {
-                backGroundLabel.text = backgrounds[6].bg;
+                backGroundLabel.text = backgrounds[8].bg;
                 backgroundNow.color = new Color(255, 255, 255, 255);
                 backgroundNow.sprite = background[7];
             }
             else if (d.background == "back-006")
             {
-                backGroundLabel.text = backgrounds[7].bg;
+                backGroundLabel.text = backgrounds[9].bg;
                 backgroundNow.color = new Color(255, 255, 255, 255);
                 backgroundNow.sprite = background[8];
             }
             else if (d.background == "back-007")
             {
-                backGroundLabel.text = backgrounds[9].bg;
+                backGroundLabel.text = backgrounds[12].bg;
                 backgroundNow.color = new Color(255, 255, 255, 255);
                 backgroundNow.sprite = background[9];
             }
@@ -1100,6 +1140,171 @@ public class LoadDialogue : MonoBehaviour
                 else if (d.voice == "V-0172")
                 {
                     Voice.clip = VoiceFile[40];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0186")
+                {
+                    Voice.clip = VoiceFile[41];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0189")
+                {
+                    Voice.clip = VoiceFile[42];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0191")
+                {
+                    Voice.clip = VoiceFile[43];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0192")
+                {
+                    Voice.clip = VoiceFile[44];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0194")
+                {
+                    Voice.clip = VoiceFile[45];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0196")
+                {
+                    Voice.clip = VoiceFile[46];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0197")
+                {
+                    Voice.clip = VoiceFile[47];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0199")
+                {
+                    Voice.clip = VoiceFile[48];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0204")
+                {
+                    Voice.clip = VoiceFile[49];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0206")
+                {
+                    Voice.clip = VoiceFile[50];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0207")
+                {
+                    Voice.clip = VoiceFile[51];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0209")
+                {
+                    Voice.clip = VoiceFile[52];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0211")
+                {
+                    Voice.clip = VoiceFile[53];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0213")
+                {
+                    Voice.clip = VoiceFile[54];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0214")
+                {
+                    Voice.clip = VoiceFile[55];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0216")
+                {
+                    Voice.clip = VoiceFile[56];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0217")
+                {
+                    Voice.clip = VoiceFile[57];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0218")
+                {
+                    Voice.clip = VoiceFile[58];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0220")
+                {
+                    Voice.clip = VoiceFile[59];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0221")
+                {
+                    Voice.clip = VoiceFile[60];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0225")
+                {
+                    Voice.clip = VoiceFile[61];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0227")
+                {
+                    Voice.clip = VoiceFile[62];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0228")
+                {
+                    Voice.clip = VoiceFile[63];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0229")
+                {
+                    Voice.clip = VoiceFile[64];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0231")
+                {
+                    Voice.clip = VoiceFile[65];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0232")
+                {
+                    Voice.clip = VoiceFile[66];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0237")
+                {
+                    Voice.clip = VoiceFile[67];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0240")
+                {
+                    Voice.clip = VoiceFile[68];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0242")
+                {
+                    Voice.clip = VoiceFile[69];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0244")
+                {
+                    Voice.clip = VoiceFile[70];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0245")
+                {
+                    Voice.clip = VoiceFile[71];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0248")
+                {
+                    Voice.clip = VoiceFile[72];
+                    Voice.Play();
+                }
+                else if (d.voice == "V-0250")
+                {
+                    Voice.clip = VoiceFile[73];
                     Voice.Play();
                 }
                 else
@@ -1568,269 +1773,294 @@ public class LoadDialogue : MonoBehaviour
             }
 
 
-
-
-
             ////////////////////////////////////////////////////////////////////////////P R O L O G U E////////////////////////////////////////////////////////////////
             //effects & run
-            if (d.id == 37 || d.id == 77)
+
+
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+
+            if (date[0] == 10 && (date[1] == 7 || date[1] == 8 || date[1] == 9))
             {
-                if (whichLineNow != 0)
+                if (d.id == 37 || d.id == 77)
                 {
-                    whichLineNow -= 2;
+                    if (whichLineNow != 0)
+                    {
+                        whichLineNow -= 2;
+                    }
+                }
+
+                if (d.id == 154 && resetPos == 3)
+                {
+                    whichLineNow++;
+                }
+
+                if (d.id == 52 || d.id == 53 || d.id == 128
+                    || d.id == 145 || d.id == 162 || d.id == 164 || d.id == 179
+                    || d.id == 203)
+                {
+                    whichLineNow += 1;
+                }
+
+                if (d.id == 54 && resetPos == 1)
+                {
+                    whichLineNow += 4;
+                }
+
+                if (d.id == 170)
+                {
+                    whichLineNow += 2;
+                }
+
+                if (d.id == 146 && resetPos == 3)
+                {
+                    whichLineNow += 10;
+                }
+
+                if (d.id == 165)
+                {
+                    whichLineNow = 196;
+                }
+
+                if (d.id == 171)
+                {
+                    whichLineNow = 206;
+                }
+
+                if (d.id == 180)
+                {
+                    whichLineNow = 220;
+                }
+
+                if (d.id == 218 && resetPos == 8)
+                {
+                    whichLineNow += 11;
+                }
+
+                if (d.id == 210)
+                {
+                    whichLineNow = 255;
+                }
+
+                if (d.id == 218 && resetPos == 9)
+                {
+                    whichLineNow++;
+                }
+
+                if (d.id == 251)
+                {
+                    nameLabel.text = string.Empty;
+                    textLabel.text = string.Empty;
+                    FadeAnim.SetBool("Fading", true);
+                    yield return new WaitForSeconds(1.5f);
+
+                    PlayerPrefs.SetInt("NovelMenu", 10);
+                }
+
+                bool minusLine = false;
+                if (d.id == 231)
+                {
+                    minusLine = true;
+                }
+
+                if (d.effect == "フェードアウト" && minusLine == true)
+                {
+                    minusLine = false;
+                    nameLabel.text = string.Empty;
+                    textLabel.text = string.Empty;
+                    FadeAnim.SetBool("Fading", true);
+                    waitForFadeAnim = true;
+                    whichLineNow += 1;
+                }
+                else if (d.effect == "フェードアウト" || d.effect == "一度画面フェードアウト" || d.effect == "右からアウト" || d.effect == "フェードアウト/３秒暗転")
+                {
+                    nameLabel.text = string.Empty;
+                    textLabel.text = string.Empty;
+                    FadeAnim.SetBool("Fading", true);
+                    waitForFadeAnim = true;
+                    whichLineNow += 2;
+                }
+                else if (d.effect == "フェードアウト/3秒待つ")
+                {
+                    nameLabel.text = string.Empty;
+                    textLabel.text = string.Empty;
+                    FadeAnim.SetBool("Fading", true);
+                    waitForFadeAnim = true;
+                    whichLineNow += 1;
+                }
+                else
+                {
+                    yield return dialogueManager.Run(d.dialogue, textLabel);
+                }
+
+
+                //effects
+                int menu = PlayerPrefs.GetInt("NovelMenu");
+
+                if (waitForFadeAnim == true)
+                {
+                    yield return new WaitForSeconds(1.5f);
+                    FadeAnim.SetBool("Fading", false);
+
+                    if (d.id == 169)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 2);
+                        PlayerPrefs.SetInt("NovelMenu", 2);
+                    }
+                }
+
+                else if (autoScroll.automated == false)
+                {
+                    yield return new WaitUntil(() => dialogueManager.next == true);
+                    if (d.id == 51)
+                    {
+                        finishTemp1 = true;
+                    }
+                    if (d.id == 128)
+                    {
+                        finishTemp2 = true;
+                    }
+                    if (d.id == 202)
+                    {
+                        finishTemp3 = true;
+                    }
+                    if (d.id == 162)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 1);
+                        PlayerPrefs.SetInt("NovelMenu", 1);
+                    }
+                    if (d.id == 164)
+                    {
+                        PlayerPrefs.SetInt("NovelMenu", 4);
+                    }
+                    if (d.id == 169)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 2);
+                        PlayerPrefs.SetInt("NovelMenu", 2);
+                    }
+                    if (d.id == 170)
+                    {
+                        PlayerPrefs.SetInt("NovelMenu", 5);
+                    }
+                    if (d.id == 175)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 3);
+                        PlayerPrefs.SetInt("NovelMenu", 3);
+                    }
+                    if (d.id == 179)
+                    {
+                        PlayerPrefs.SetInt("NovelMenu", 5);
+                    }
+
+                }
+                else if (autoScroll.automated == true && autoScroll.autoActive == true)
+                {
+                    yield return new WaitForSeconds(2);
+                    if (d.id == 51)
+                    {
+                        finishTemp1 = true;
+                    }
+                    if (d.id == 128)
+                    {
+                        finishTemp2 = true;
+                    }
+                    if (d.id == 202)
+                    {
+                        finishTemp3 = true;
+                    }
+                    if (d.id == 162)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 1);
+                        PlayerPrefs.SetInt("NovelMenu", 1);
+                    }
+                    if (d.id == 164)
+                    {
+                        PlayerPrefs.SetInt("NovelMenu", 4);
+                    }
+                    if (d.id == 169)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 2);
+                        PlayerPrefs.SetInt("NovelMenu", 2);
+                    }
+                    if (d.id == 170)
+                    {
+                        PlayerPrefs.SetInt("NovelMenu", 5);
+                    }
+                    if (d.id == 175)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 3);
+                        PlayerPrefs.SetInt("NovelMenu", 3);
+                    }
+                    if (d.id == 179)
+                    {
+                        PlayerPrefs.SetInt("NovelMenu", 5);
+                    }
+                }
+                else
+                {
+                    if (d.id == 51)
+                    {
+                        finishTemp1 = true;
+                    }
+                    if (d.id == 128)
+                    {
+                        finishTemp2 = true;
+                    }
+                    if (d.id == 202)
+                    {
+                        finishTemp3 = true;
+                    }
+                    if (d.id == 162)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 1);
+                        PlayerPrefs.SetInt("NovelMenu", 1);
+                    }
+                    if (d.id == 164)
+                    {
+                        PlayerPrefs.SetInt("NovelMenu", 4);
+                    }
+                    if (d.id == 169)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 2);
+                        PlayerPrefs.SetInt("NovelMenu", 2);
+                    }
+                    if (d.id == 170)
+                    {
+                        PlayerPrefs.SetInt("NovelMenu", 5);
+                    }
+                    if (d.id == 175)
+                    {
+                        PlayerPrefs.SetInt("MiniGame", 3);
+                        PlayerPrefs.SetInt("NovelMenu", 3);
+                    }
+                    if (d.id == 179)
+                    {
+                        PlayerPrefs.SetInt("NovelMenu", 5);
+                    }
                 }
             }
 
-            if (d.id == 154 && resetPos == 3)
-            {
-                whichLineNow++;
-            }
-
-            if (d.id == 52 || d.id == 53 || d.id == 128
-                || d.id == 145 || d.id == 162 || d.id == 164 || d.id == 179
-                || d.id == 203)
-            {
-                whichLineNow += 1;
-            }
-
-            if (d.id == 54 && resetPos == 1)
-            {
-                whichLineNow += 4;
-            }
-
-            if (d.id == 170)
-            {
-                whichLineNow += 2;
-            }
-
-            if (d.id == 146 && resetPos == 3)
-            {
-                whichLineNow += 10;
-            }
-
-            if (d.id == 165)
-            {
-                whichLineNow = 196;
-            }
-
-            if (d.id == 171)
-            {
-                whichLineNow = 206;
-            }
-
-            if (d.id == 180)
-            {
-                whichLineNow = 220;
-            }
-
-            if (d.id == 218 && resetPos == 8)
-            {
-                whichLineNow += 11;
-            }
-
-            if (d.id == 210)
-            {
-                whichLineNow = 255;
-            }
-
-            if (d.id == 218 && resetPos == 9)
-            {
-                whichLineNow++;
-            }
-
-            if (d.id == 251)
-            {
-                PlayerPrefs.SetInt("NovelMenu", 10);
-            }
-
-            bool minusLine = false;
-            if (d.id == 231)
-            {
-                minusLine = true;
-            }
-
-            if (d.effect == "フェードアウト" && minusLine == true)
-            {
-                minusLine = false;
-                nameLabel.text = string.Empty;
-                textLabel.text = string.Empty;
-                FadeAnim.SetBool("Fading", true);
-                waitForFadeAnim = true;
-                whichLineNow += 1;
-            }
-            else if (d.effect == "フェードアウト" || d.effect == "一度画面フェードアウト" || d.effect == "右からアウト" || d.effect == "フェードアウト/３秒暗転")
-            {
-                nameLabel.text = string.Empty;
-                textLabel.text = string.Empty;
-                FadeAnim.SetBool("Fading", true);
-                waitForFadeAnim = true;
-                whichLineNow += 2;
-            }
-            else if (d.effect == "フェードアウト/3秒待つ")
-            {
-                nameLabel.text = string.Empty;
-                textLabel.text = string.Empty;
-                FadeAnim.SetBool("Fading", true);
-                waitForFadeAnim = true;
-                whichLineNow += 1;
-            }
-            else if (ItemEffect == true)
-            {
-                ItemEffect = false;
-                nameLabel.text = string.Empty;
-                textLabel.text = string.Empty;
-                FadeAnim.SetBool("Fading", true);
-                waitForFadeAnim = true;
-            }
             else
             {
                 yield return dialogueManager.Run(d.dialogue, textLabel);
-            }
-
-
-            //effects
-            int menu = PlayerPrefs.GetInt("NovelMenu");
-
-            if (waitForFadeAnim == true)
-            {
-                yield return new WaitForSeconds(1.5f);
-                FadeAnim.SetBool("Fading", false);
-
-                if (d.id == 169)
+                if (autoScroll.automated == false)
                 {
-                    PlayerPrefs.SetInt("MiniGame", 2);
-                    PlayerPrefs.SetInt("NovelMenu", 2);
+                    yield return new WaitUntil(() => dialogueManager.next == true);
+                }
+                else if (autoScroll.automated == true && autoScroll.autoActive == true)
+                {
+                    yield return new WaitForSeconds(2);
+                }
+                else
+                {
                 }
             }
 
-            else if (autoScroll.automated == false)
+            if (ItemEffect == true)
             {
-                yield return new WaitUntil(() => dialogueManager.next == true);
-                if (d.id == 51)
-                {
-                    finishTemp1 = true;
-                }
-                if (d.id == 128)
-                {
-                    finishTemp2 = true;
-                }
-                if (d.id == 202)
-                {
-                    finishTemp3 = true;
-                }
-                if (d.id == 162)
-                {
-                    PlayerPrefs.SetInt("MiniGame", 1);
-                    PlayerPrefs.SetInt("NovelMenu", 1);
-                }
-                if (d.id == 164)
-                {
-                    PlayerPrefs.SetInt("NovelMenu", 4);
-                }
-                if (d.id == 169)
-                {
-                    PlayerPrefs.SetInt("MiniGame", 2);
-                    PlayerPrefs.SetInt("NovelMenu", 2);
-                }
-                if (d.id == 170)
-                {
-                    PlayerPrefs.SetInt("NovelMenu", 5);
-                }
-                if (d.id == 175)
-                {
-                    PlayerPrefs.SetInt("MiniGame", 3);
-                    PlayerPrefs.SetInt("NovelMenu", 3);
-                }
-                if (d.id == 179)
-                {
-                    PlayerPrefs.SetInt("NovelMenu", 5);
-                }
-
-            }
-            else if (autoScroll.automated == true && autoScroll.autoActive == true)
-            {
-                yield return new WaitForSeconds(2);
-                if (d.id == 51)
-                {
-                    finishTemp1 = true;
-                }
-                if (d.id == 128)
-                {
-                    finishTemp2 = true;
-                }
-                if (d.id == 202)
-                {
-                    finishTemp3 = true;
-                }
-                if (d.id == 162)
-                {
-                    PlayerPrefs.SetInt("MiniGame", 1);
-                    PlayerPrefs.SetInt("NovelMenu", 1);
-                }
-                if (d.id == 164)
-                {
-                    PlayerPrefs.SetInt("NovelMenu", 4);
-                }
-                if (d.id == 169)
-                {
-                    PlayerPrefs.SetInt("MiniGame", 2);
-                    PlayerPrefs.SetInt("NovelMenu", 2);
-                }
-                if (d.id == 170)
-                {
-                    PlayerPrefs.SetInt("NovelMenu", 5);
-                }
-                if (d.id == 175)
-                {
-                    PlayerPrefs.SetInt("MiniGame", 3);
-                    PlayerPrefs.SetInt("NovelMenu", 3);
-                }
-                if (d.id == 179)
-                {
-                    PlayerPrefs.SetInt("NovelMenu", 5);
-                }
-            }
-            else
-            {
-                if (d.id == 51)
-                {
-                    finishTemp1 = true;
-                }
-                if (d.id == 128)
-                {
-                    finishTemp2 = true;
-                }
-                if (d.id == 202)
-                {
-                    finishTemp3 = true;
-                }
-                if (d.id == 162)
-                {
-                    PlayerPrefs.SetInt("MiniGame", 1);
-                    PlayerPrefs.SetInt("NovelMenu", 1);
-                }
-                if (d.id == 164)
-                {
-                    PlayerPrefs.SetInt("NovelMenu", 4);
-                }
-                if (d.id == 169)
-                {
-                    PlayerPrefs.SetInt("MiniGame", 2);
-                    PlayerPrefs.SetInt("NovelMenu", 2);
-                }
-                if (d.id == 170)
-                {
-                    PlayerPrefs.SetInt("NovelMenu", 5);
-                }
-                if (d.id == 175)
-                {
-                    PlayerPrefs.SetInt("MiniGame", 3);
-                    PlayerPrefs.SetInt("NovelMenu", 3);
-                }
-                if (d.id == 179)
-                {
-                    PlayerPrefs.SetInt("NovelMenu", 5);
-                }
+                nameLabel.text = string.Empty;
+                textLabel.text = string.Empty;
+                FadeAnim.SetBool("Fading", true);
+                waitForFadeAnim = true;
             }
 
             if (itemChoose == true)
@@ -1843,8 +2073,11 @@ public class LoadDialogue : MonoBehaviour
     void TaskOnClick()
     {
         dialogueManager.next = true;
-        if (d.dialogue == "「そうだ、折角なら何か買い物して行こうかな」")
+        int menu = PlayerPrefs.GetInt("NovelMenu");
+
+        if (menu == 11 && shopDecide == true)
         {
+            shopDecide = false;
             finishTemp4 = true;
         }
     }
@@ -1853,6 +2086,9 @@ public class LoadDialogue : MonoBehaviour
     {
         TwoChoices.SetActive(false);
         dialogues.Clear();
+
+        ButtonAudioSource.Stop();
+        ButtonAudioSource.Play();
 
         Time.timeScale = 1;
 
@@ -1900,6 +2136,9 @@ public class LoadDialogue : MonoBehaviour
 
         if (finishTemp2 == true)
         {
+            int affection = PlayerPrefs.GetInt("LiedHeart");
+            affection += 5;
+            PlayerPrefs.SetInt("LiedHeart", affection);
             resetPos = 3;
             finishTemp2 = false;
             whichLineNow = 150;
@@ -1988,6 +2227,10 @@ public class LoadDialogue : MonoBehaviour
         }
         if (finishTemp3 == true)
         {
+            int affection = PlayerPrefs.GetInt("KleinHeart");
+            affection += 5;
+            PlayerPrefs.SetInt("KleinHeart", affection);
+
             resetPos = 8;
             finishTemp3 = false;
 
@@ -2066,6 +2309,9 @@ public class LoadDialogue : MonoBehaviour
         TwoChoices.SetActive(false);
         dialogues.Clear();
 
+        ButtonAudioSource.Stop();
+        ButtonAudioSource.Play();
+
         Time.timeScale = 1;
         if (finishTemp1 == true)
         {
@@ -2111,6 +2357,10 @@ public class LoadDialogue : MonoBehaviour
 
         if (finishTemp2 == true)
         {
+            int affection = PlayerPrefs.GetInt("LiedHeart");
+            affection += 2;
+            PlayerPrefs.SetInt("LiedHeart", affection);
+
             resetPos = 4;
             finishTemp2 = false;
             whichLineNow = 162;
@@ -2159,6 +2409,10 @@ public class LoadDialogue : MonoBehaviour
 
         if (finishTemp3 == true)
         {
+            int affection = PlayerPrefs.GetInt("KleinHeart");
+            affection += 2;
+            PlayerPrefs.SetInt("KleinHeart", affection);
+
             resetPos = 9;
             finishTemp3 = false;
 
@@ -2226,10 +2480,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("FirstLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date1", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date1", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber1", ItemNumber);
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money1", money);
+            PlayerPrefs.SetFloat("LiedHeart1", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart1", kleinAff);
+
         }
         else if (whichFile == 2)
         {
@@ -2246,10 +2508,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("SecondLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date2", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date2", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber2", ItemNumber);
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money2", money);
+            PlayerPrefs.SetFloat("LiedHeart2", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart2", kleinAff);
+
         }
         else if (whichFile == 3)
         {
@@ -2265,10 +2535,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("ThirdLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date3", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date3", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber3", ItemNumber);
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money3", money);
+            PlayerPrefs.SetFloat("LiedHeart3", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart3", kleinAff);
+
         }
         else if (whichFile == 4)
         {
@@ -2284,10 +2562,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("FourthLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date4", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date4", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber4", ItemNumber);
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money4", money);
+            PlayerPrefs.SetFloat("LiedHeart4", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart4", kleinAff);
+
         }
         else if (whichFile == 5)
         {
@@ -2303,10 +2589,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("FifthLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date5", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date5", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber5", ItemNumber);
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money5", money);
+            PlayerPrefs.SetFloat("LiedHeart5", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart5", kleinAff);
+
         }
         else if (whichFile == 6)
         {
@@ -2322,10 +2616,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("SixthLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date6", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date6", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber6", ItemNumber);
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money6", money);
+            PlayerPrefs.SetFloat("LiedHeart6", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart6", kleinAff);
+
         }
         else if (whichFile == 7)
         {
@@ -2341,10 +2643,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("SeventhLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date7", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date7", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber7", ItemNumber);
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money7", money);
+            PlayerPrefs.SetFloat("LiedHeart7", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart7", kleinAff);
+
         }
         else if (whichFile == 8)
         {
@@ -2360,10 +2670,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("EighthLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date8", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date8", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber8", ItemNumber);
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money8", money);
+            PlayerPrefs.SetFloat("LiedHeart8", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart8", kleinAff);
+
         }
         else if (whichFile == 9)
         {
@@ -2379,10 +2697,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("NinthLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date9", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date9", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber9", ItemNumber);
+            float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money9", money);
+            PlayerPrefs.SetFloat("LiedHeart9", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart9", kleinAff);
+
         }
         else if (whichFile == 10)
         {
@@ -2398,10 +2724,18 @@ public class LoadDialogue : MonoBehaviour
 
             int file = PlayerPrefs.GetInt("TenthLog");
             PlayerPrefs.SetInt("LogNow", file);
-            string date = PlayerPrefs.GetString("Date");
-            PlayerPrefs.SetString("Date10", date);
+            int[] date = PlayerPrefsX.GetIntArray("Date");
+            PlayerPrefsX.SetIntArray("Date10", date);
             int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
             PlayerPrefsX.SetIntArray("ItemNumber10", ItemNumber);
+                        float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+            int money = PlayerPrefs.GetInt("Money");
+
+            PlayerPrefs.SetInt("Money10", money);
+            PlayerPrefs.SetFloat("LiedHeart10", liedAff);
+            PlayerPrefs.SetFloat("KleinHeart10", kleinAff);
+
         }
 
         whichLineNow = 0;
@@ -2431,8 +2765,6 @@ public class LoadDialogue : MonoBehaviour
         dialogues.Add(d);
 
         ShowDialogue();
-
-        Debug.Log(resetPos);
     }
 
 
@@ -2515,8 +2847,13 @@ public class LoadDialogue : MonoBehaviour
     {
         dialogues.Clear();
         itemChoose = false;
+
+        int affection = PlayerPrefs.GetInt("LiedHeart");
+
         if (feel == 0)
         {
+            affection += 5;
+
             itemRow = itemData[22].Split(new char[] { ',' });
 
             d = new Dialogue();
@@ -2535,6 +2872,8 @@ public class LoadDialogue : MonoBehaviour
 
         else if (feel == 1)
         {
+            affection += 3;
+
             itemRow = itemData[21].Split(new char[] { ',' });
 
             d = new Dialogue();
@@ -2553,6 +2892,8 @@ public class LoadDialogue : MonoBehaviour
 
         else if (feel == 2)
         {
+            affection += 2;
+
             itemRow = itemData[20].Split(new char[] { ',' });
 
             d = new Dialogue();
@@ -2569,6 +2910,8 @@ public class LoadDialogue : MonoBehaviour
             dialogues.Add(d);
         }
 
+        PlayerPrefs.SetInt("LiedHeart", affection);
+
         d = new Dialogue();
         int.TryParse("999", out d.id);
         d.character = "";
@@ -2581,9 +2924,7 @@ public class LoadDialogue : MonoBehaviour
 
         dialogues.Add(d);
 
-        AfterShopPrologue();
         ShowDialogue();
-
 
         ItemEffect = true;
     }
@@ -2592,8 +2933,13 @@ public class LoadDialogue : MonoBehaviour
     {
         dialogues.Clear();
         itemChoose = false;
+
+        int affection = PlayerPrefs.GetInt("KleinHeart");
+
         if (feel == 0)
         {
+            affection += 5;
+
             itemRow = itemData[34].Split(new char[] { ',' });
 
             d = new Dialogue();
@@ -2612,6 +2958,8 @@ public class LoadDialogue : MonoBehaviour
 
         else if (feel == 1)
         {
+            affection += 3;
+
             itemRow = itemData[33].Split(new char[] { ',' });
 
             d = new Dialogue();
@@ -2630,6 +2978,8 @@ public class LoadDialogue : MonoBehaviour
 
         else if (feel == 2)
         {
+            affection += 2;
+
             itemRow = itemData[32].Split(new char[] { ',' });
 
             d = new Dialogue();
@@ -2645,6 +2995,8 @@ public class LoadDialogue : MonoBehaviour
 
             dialogues.Add(d);
         }
+
+        PlayerPrefs.SetInt("KleinHeart", affection);
 
         d = new Dialogue();
         int.TryParse("999", out d.id);
@@ -2697,7 +3049,7 @@ public class LoadDialogue : MonoBehaviour
         while (true)
         {
             EyeNow.sprite = CharaEyes[eye[0]];
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
             EyeNow.sprite = CharaEyes[eye[1]];
             yield return new WaitForSeconds(0.1f);
             EyeNow.sprite = CharaEyes[eye[2]];
@@ -2751,19 +3103,16 @@ public class LoadDialogue : MonoBehaviour
     {
         if (x[1] == "暗転")
         {
-            Debug.Log(x[1]);
             TextBGHide.SetBool("TextIsHidden", true);
             yield return x[0] = x[1];
         }
         else if (x[0] != x[1])
         {
-            Debug.Log("OK");
             TextBGHide.SetBool("TextIsHidden", true);
             yield return x[0] = x[1];
         }
         else if (x[0] == x[1])
         {
-            Debug.Log("KO");
             TextBGHide.SetBool("TextIsHidden", false);
             yield return new WaitForSeconds(3f);
             TextBGHide.SetBool("TextIsHidden", true);
