@@ -107,6 +107,42 @@ public class StartGame : MonoBehaviour
 			PlayerPrefs.SetInt("Money10", 0);
 			PlayerPrefs.SetFloat("LiedHeart10", 0);
 			PlayerPrefs.SetFloat("KleinHeart10", 0);
+
+			PlayerPrefs.SetInt("CleanNumber", 0);
+			PlayerPrefs.SetInt("CookNumber", 0);
+			PlayerPrefs.SetInt("ShopNumber", 0);
+
+			PlayerPrefs.SetInt("CleanNumber1", 0);
+			PlayerPrefs.SetInt("CookNumber1", 0);
+			PlayerPrefs.SetInt("ShopNumber1", 0);
+			PlayerPrefs.SetInt("CleanNumber2", 0);
+			PlayerPrefs.SetInt("CookNumber2", 0);
+			PlayerPrefs.SetInt("ShopNumber2", 0);
+			PlayerPrefs.SetInt("CleanNumber3", 0);
+			PlayerPrefs.SetInt("CookNumber3", 0);
+			PlayerPrefs.SetInt("ShopNumber3", 0);
+			PlayerPrefs.SetInt("CleanNumber4", 0);
+			PlayerPrefs.SetInt("CookNumber4", 0);
+			PlayerPrefs.SetInt("ShopNumber4", 0);
+			PlayerPrefs.SetInt("CleanNumber5", 0);
+			PlayerPrefs.SetInt("CookNumber5", 0);
+			PlayerPrefs.SetInt("ShopNumber5", 0);
+			PlayerPrefs.SetInt("CleanNumber6", 0);
+			PlayerPrefs.SetInt("CookNumber6", 0);
+			PlayerPrefs.SetInt("ShopNumber6", 0);
+			PlayerPrefs.SetInt("CleanNumber7", 0);
+			PlayerPrefs.SetInt("CookNumber7", 0);
+			PlayerPrefs.SetInt("ShopNumber7", 0);
+			PlayerPrefs.SetInt("CleanNumber8", 0);
+			PlayerPrefs.SetInt("CookNumber8", 0);
+			PlayerPrefs.SetInt("ShopNumber8", 0);
+			PlayerPrefs.SetInt("CleanNumber9", 0);
+			PlayerPrefs.SetInt("CookNumber9", 0);
+			PlayerPrefs.SetInt("ShopNumber9", 0);
+			PlayerPrefs.SetInt("CleanNumber10", 0);
+			PlayerPrefs.SetInt("CookNumber10", 0);
+			PlayerPrefs.SetInt("ShopNumber10", 0);
+
 		}
 		PlayerPrefs.Save();
 	}

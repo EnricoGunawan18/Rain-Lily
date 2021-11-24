@@ -42,10 +42,13 @@ public class FinishScript : MonoBehaviour
 
     bool timeStopper = false;
 
+    int gameMoneyGet;
+
     void Start()
     {
         memorygamescript = GameObject.Find("MemoryGameScript").GetComponent<MemoryGameScript>();
 
+        gameMoneyGet = PlayerPrefs.GetInt("Money");
 
         timeReadyStart = Time.time;
 
@@ -109,6 +112,11 @@ public class FinishScript : MonoBehaviour
 
         else if(miniGame == 6)
         {
+            int shopTimes = PlayerPrefs.GetInt("ShopNumber");
+            shopTimes += 1;
+            PlayerPrefs.SetInt("ShopNumber", shopTimes);
+
+            PlayerPrefs.SetInt("Money", gameMoneyGet);
             PlayerPrefs.SetInt("NovelMenu", 11);
             SceneManager.LoadScene("Novel");
         }
@@ -120,34 +128,37 @@ public class FinishScript : MonoBehaviour
 
         if (recentScore >= 0)
         {
+            gameMoneyGet += 100;
             Star[0].color = new Color32(255, 255, 255, 255);
             MoneyGet.text = "‹à‰Ý100Šl“¾‚µ‚Ü‚µ‚½";
         }
         if (recentScore >= 900)
         {
+            gameMoneyGet += 200;
             Star[1].color = new Color32(255, 255, 255, 255);
             MoneyGet.text = "‹à‰Ý300Šl“¾‚µ‚Ü‚µ‚½";
 
         }
         if (recentScore >= 1500)
         {
+            gameMoneyGet += 200;
             Star[2].color = new Color32(255, 255, 255, 255);
             MoneyGet.text = "‹à‰Ý500Šl“¾‚µ‚Ü‚µ‚½";
 
         }
         if (recentScore >= 3000)
         {
+            gameMoneyGet += 200;
             Star[3].color = new Color32(255, 255, 255, 255);
             MoneyGet.text = "‹à‰Ý700Šl“¾‚µ‚Ü‚µ‚½";
 
         }
         if (recentScore >= 6000)
         {
+            gameMoneyGet += 300;
             Star[4].color = new Color32(255, 255, 255, 255);
             MoneyGet.text = "‹à‰Ý1000Šl“¾‚µ‚Ü‚µ‚½";
-
         }
-
     }
 
 

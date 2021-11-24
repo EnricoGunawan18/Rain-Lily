@@ -88,7 +88,8 @@ public class MemoryGameScript4 : MonoBehaviour
 	List<int> TextRNG = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 	List<int> RNG = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 
-
+	[SerializeField]
+	Sprite BoxBack;
 
 	// Start is called before the NumMat[0] frame update
 
@@ -755,8 +756,8 @@ public class MemoryGameScript4 : MonoBehaviour
 					outline10.effectColor = Color.black;
 
 					colorBlock[i] = NumMat[i].colors;
-					colorBlock[i].normalColor = Color.black;
-					NumMat[i].GetComponent<Image>().sprite = draw10;
+					colorBlock[i].normalColor = Color.white;
+					NumMat[i].GetComponent<Image>().sprite = BoxBack;
 					NumMat[i].colors = colorBlock[i];
 				}
 			}

@@ -11,6 +11,8 @@ public class FileData : MonoBehaviour
     Image[] Eye;
     [SerializeField]
     Image[] Mouth;
+    [SerializeField]
+    Button[] Data;
 
     [SerializeField]
     Sprite[] Sprite;
@@ -81,6 +83,7 @@ public class FileData : MonoBehaviour
                 Mouth[i].color = new Color(0, 0, 0, 0);
 
                 Date[i].text = "EMPTY";
+                Data[i].interactable = false;
             }
             else
             {

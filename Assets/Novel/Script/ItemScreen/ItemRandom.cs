@@ -21,6 +21,9 @@ public class ItemRandom : MonoBehaviour
 	[SerializeField]
 	Button Button4;
 
+	//[SerializeField]
+
+
 	[SerializeField]
 	GameObject ItemBuyScreen;
 	[SerializeField]
@@ -28,13 +31,23 @@ public class ItemRandom : MonoBehaviour
 	[SerializeField]
 	LoadDialogue loadDialogue;
 
+	[SerializeField]
+	Text MoneyShow;
+
+	[SerializeField]
+	Button[] Disabler;
+
 	string[] itemData;
 	string[] itemRow;
 
 	int[] Number = new int[] { 0, 0, 0 };
 
+	int[] Cost = new int[] { 300, 100, 500, 500, 100, 300, 300, 500, 500, 500, 300, 500, 300, 300 };
+
 	List<int> Items;
 	int[] ItemNumber;
+
+	int ownedMoney;
 
 	void Awake()
 	{
@@ -48,13 +61,27 @@ public class ItemRandom : MonoBehaviour
 
 	void OnEnable()
 	{
+		float liedHeart = PlayerPrefs.GetFloat("LiedHeart");
+		float kleinHeart = PlayerPrefs.GetFloat("KleinHeart");
+
 		Items = new List<int>();
 		ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+
+		ownedMoney = PlayerPrefs.GetInt("Money");
+		MoneyShow.text = ownedMoney.ToString() + "–‡";
 
 		for (int i = 1; i < 9; i++)
 		{
 			Items.Add(i);
 		}
+		if (liedHeart >= 50f || kleinHeart >= 50f)
+		{
+			for (int i = 10; i < 16; i++)
+			{
+				Items.Add(i);
+			}
+		}
+
 
 		for (int i = 0; i < 3; i++)
 		{
@@ -63,12 +90,19 @@ public class ItemRandom : MonoBehaviour
 			Text[i].text = itemRow[2];
 			Money[i].text = itemRow[4];
 			Items.Remove(Number[i]);
+
+			if (ownedMoney < Cost[Number[i]])
+			{
+				Disabler[i].interactable = false;
+			}
 		}
 	}
 
 	void FirstClick()
 	{
 		ItemNumber[Number[0]]++;
+		ownedMoney-= Cost[Number[0]];
+		PlayerPrefs.SetInt("Money", ownedMoney);
 
 		PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 		ItemBuyScreen.SetActive(false);
@@ -78,6 +112,8 @@ public class ItemRandom : MonoBehaviour
 	void SecondClick()
 	{
 		ItemNumber[Number[1]]++;
+		ownedMoney -= Cost[Number[1]];
+		PlayerPrefs.SetInt("Money", ownedMoney);
 
 		PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 		ItemBuyScreen.SetActive(false);
@@ -87,6 +123,8 @@ public class ItemRandom : MonoBehaviour
 	void ThirdClick()
 	{
 		ItemNumber[Number[2]]++;
+		ownedMoney -= Cost[Number[2]];
+		PlayerPrefs.SetInt("Money", ownedMoney);
 
 		PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
 		ItemBuyScreen.SetActive(false);

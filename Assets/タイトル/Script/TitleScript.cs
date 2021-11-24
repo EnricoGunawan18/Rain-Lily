@@ -88,6 +88,10 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetFloat("LiedHeart", 0);
 		PlayerPrefs.SetFloat("KleinHeart", 0);
 
+		PlayerPrefs.SetInt("CleanNumber", 0);
+		PlayerPrefs.SetInt("CookNumber", 0);
+		PlayerPrefs.SetInt("ShopNumber", 0);
+
 		int[] itemNumber = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 		PlayerPrefsX.SetIntArray("ItemNumber", itemNumber);
@@ -138,7 +142,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart1");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart1");
 		int money = PlayerPrefs.GetInt("Money1");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber1");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber1");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber1");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);
@@ -167,7 +177,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart2");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart2");
 		int money = PlayerPrefs.GetInt("Money2");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber2");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber2");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber2");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);
@@ -196,7 +212,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart3");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart3");
 		int money = PlayerPrefs.GetInt("Money3");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber3");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber3");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber3");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);
@@ -225,7 +247,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart4");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart4");
 		int money = PlayerPrefs.GetInt("Money4");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber4");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber4");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber4");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);
@@ -254,7 +282,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart5");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart5");
 		int money = PlayerPrefs.GetInt("Money5");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber5");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber5");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber5");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);
@@ -283,7 +317,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart6");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart6");
 		int money = PlayerPrefs.GetInt("Money6");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber6");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber6");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber6");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);
@@ -311,7 +351,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart7");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart7");
 		int money = PlayerPrefs.GetInt("Money7");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber7");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber7");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber7");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);
@@ -340,7 +386,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart8");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart8");
 		int money = PlayerPrefs.GetInt("Money8");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber8");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber8");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber8");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);
@@ -369,7 +421,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart9");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart9");
 		int money = PlayerPrefs.GetInt("Money9");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber9");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber9");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber9");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);
@@ -398,7 +456,13 @@ public class TitleScript : MonoBehaviour
 		float liedAff = PlayerPrefs.GetFloat("LiedHeart10");
 		float kleinAff = PlayerPrefs.GetFloat("KleinHeart10");
 		int money = PlayerPrefs.GetInt("Money10");
+		int cleanNumber = PlayerPrefs.GetInt("CleanNumber10");
+		int cookNumber = PlayerPrefs.GetInt("CookNumber10");
+		int shopNumber = PlayerPrefs.GetInt("ShopNumber10");
 
+		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+		PlayerPrefs.SetInt("CookNumber", cookNumber);
+		PlayerPrefs.SetInt("ShopNumber", shopNumber);
 		PlayerPrefs.SetInt("Money", money);
 		PlayerPrefs.SetFloat("LiedHeart", liedAff);
 		PlayerPrefs.SetFloat("KleinHeart", kleinAff);

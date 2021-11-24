@@ -121,7 +121,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             MinGameButton[0].interactable = true;
-            MinGameButton[1].interactable = true;
+            MinGameButton[1].interactable = false;
             MinGameButton[2].interactable = true;
         }
 
@@ -132,11 +132,17 @@ public class DialogueManager : MonoBehaviour
             SceneManager.LoadScene("Scene_pazle");
         }
 
-        if ((miniGame == 2 || miniGame == 3) && menu == 5)
+        if ( miniGame == 3 && menu == 5)
         {
             //PlayerPrefs.SetInt("NovelMenu", 0);
             //SceneManager.LoadScene("Novel");
             SceneManager.LoadScene("Stage1");
+        }
+
+        if (miniGame == 2 && menu == 5)
+        {
+            PlayerPrefs.SetInt("NovelMenu", 0);
+            SceneManager.LoadScene("Novel");
         }
 
         float t = 0;
