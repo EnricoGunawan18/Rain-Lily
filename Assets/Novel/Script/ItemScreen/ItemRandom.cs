@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -68,15 +68,15 @@ public class ItemRandom : MonoBehaviour
 		ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 
 		ownedMoney = PlayerPrefs.GetInt("Money");
-		MoneyShow.text = ownedMoney.ToString() + "–‡";
+		MoneyShow.text = ownedMoney.ToString() + "æžš";
 
-		for (int i = 1; i < 9; i++)
+		for (int i = 0; i < 8; i++)
 		{
 			Items.Add(i);
 		}
 		if (liedHeart >= 50f || kleinHeart >= 50f)
 		{
-			for (int i = 10; i < 16; i++)
+			for (int i = 8; i < 14; i++)
 			{
 				Items.Add(i);
 			}

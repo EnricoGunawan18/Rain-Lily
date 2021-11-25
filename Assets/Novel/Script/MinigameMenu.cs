@@ -29,6 +29,8 @@ public class MinigameMenu : MonoBehaviour
     {
         dialogueManager = GameObject.Find("LoadDialogue").GetComponent<DialogueManager>();
 
+        Cook.interactable = false;
+
         Menu.onClick.AddListener(MenuOpen);
         Clean.onClick.AddListener(CleanOpen);
         Cook.onClick.AddListener(CookOpen);

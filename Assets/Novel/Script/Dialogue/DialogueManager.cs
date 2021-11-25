@@ -51,7 +51,9 @@ public class DialogueManager : MonoBehaviour
 
     public Coroutine Run(string textToType, Text textLabel)
     {
-        return StartCoroutine(TypeText(textToType, textLabel));
+        string Filtered = textToType.Replace("\"", "");
+
+        return StartCoroutine(TypeText(Filtered, textLabel));
     }
 
     private IEnumerator TypeText(string textToType, Text textLabel)
