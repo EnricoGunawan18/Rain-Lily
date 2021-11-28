@@ -14,6 +14,9 @@ public class DialogueManager : MonoBehaviour
     GameObject Skipper;
 
     [SerializeField]
+    GameObject GameShowOnly;
+
+    [SerializeField]
     Button[] MinGameButton;
     [SerializeField]
     Button SkipDialogueButton;
@@ -87,7 +90,7 @@ public class DialogueManager : MonoBehaviour
         {
             FadeAnim.SetBool("Fading", false);
             dialogueSpeed = 0;
-            GameMenu.SetActive(true);
+            GameShowOnly.SetActive(true);
             loadDialogue.waitForFadeAnim = false;
         }
         else if (loadDialogue.waitForFadeAnim == true)

@@ -178,5 +178,7 @@ public class reset : MonoBehaviour
         PlayerPrefsX.SetIntArray("ItemNumber0", a);
         PlayerPrefsX.SetIntArray("Date0", startDate);
 
+        PlayerPrefs.SetInt("WhichFile", 0);
+
     }
 }

@@ -1,3 +1,4 @@
+Ôªø
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 using UnityEngine;
@@ -17,45 +18,45 @@ public class Tochmaneger : MonoBehaviour
 
     private Camera camera;
     private List<GameObject> Books = new List<GameObject>();
-    private List<GameObject> TempList=new List<GameObject>();
+    private List<GameObject> TempList = new List<GameObject>();
     private GameObject lastBook;
 
-	private void Start()
-	{
+    private void Start()
+    {
         camera = Camera.main;
-	}
+    }
 
-	void Update()
+    void Update()
     {
         if (Mathf.Approximately(Time.timeScale, 0f))
         {
             return;
         }
 
-        if (_stop.StopMorment()||_result.SendStop())
+        if (_stop.StopMorment() || _result.SendStop())
         {
             return;
         }
 
         if (Input.GetMouseButtonDown(0))
-		{
-            //Debug.Log("ç≈èâ");
+        {
+            //Debug.Log("ÊúÄÂàù");
             FirstBook();
-		}
+        }
 
-		if (Input.GetMouseButton(0) && Books.Count > 0)
+        if (Input.GetMouseButton(0) && Books.Count > 0)
         {
-            //Debug.Log("éü");
+            //Debug.Log("Ê¨°");
             Dragging();
-		}
+        }
 
-		if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
-            //Debug.Log("è¡ãé");
+            //Debug.Log("Ê∂àÂéª");
             DeleteBooks();
-		}
+        }
 
-        
+
     }
 
     void FirstBook()
@@ -64,9 +65,9 @@ public class Tochmaneger : MonoBehaviour
         RaycastHit2D hit2D = Physics2D.Raycast(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0.5f);
         if (hit2D.collider != null)
         {
-            if(hit2D.collider.gameObject.CompareTag("éáÉsÅ[ÉX")|| hit2D.collider.gameObject.CompareTag("óŒÉsÅ[ÉX")
-                || hit2D.collider.gameObject.CompareTag("ê¬ÉsÅ[ÉX")|| hit2D.collider.gameObject.CompareTag("ê‘ÉsÅ[ÉX")
-                || hit2D.collider.gameObject.CompareTag("â©ÉsÅ[ÉX"))
+            if (hit2D.collider.gameObject.CompareTag("Á¥´„Éî„Éº„Çπ") || hit2D.collider.gameObject.CompareTag("Á∑ë„Éî„Éº„Çπ")
+                || hit2D.collider.gameObject.CompareTag("Èùí„Éî„Éº„Çπ") || hit2D.collider.gameObject.CompareTag("Ëµ§„Éî„Éº„Çπ")
+                || hit2D.collider.gameObject.CompareTag("ÈªÑ„Éî„Éº„Çπ"))
             {
                 var thisBook = hit2D.collider.gameObject;
                 _child = thisBook.transform.GetChild(0).gameObject;
@@ -75,7 +76,8 @@ public class Tochmaneger : MonoBehaviour
                 bookColor.a = 0.5f;
                 _child.GetComponent<SpriteRenderer>().color = bookColor;
                 lastBook = thisBook;
-            }else if(hit2D.collider.gameObject.CompareTag("É{ÉÄ"))
+            }
+            else if (hit2D.collider.gameObject.CompareTag("„Éú„É†"))
             {
                 var thisBook = hit2D.collider.gameObject;
                 _child = thisBook.transform.GetChild(0).gameObject;
@@ -89,22 +91,22 @@ public class Tochmaneger : MonoBehaviour
     }
 
     void Dragging()
-	{
+    {
         GameObject _child;
         RaycastHit2D hit2D = Physics2D.Raycast(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0.5f);
-        
-        
-        //Debug.Log("à⁄ìÆíÜ");
+
+
+        //Debug.Log("ÁßªÂãï‰∏≠");
         if (hit2D.collider != null)
         {
-            if (hit2D.collider.gameObject.tag==lastBook.tag&& lastBook.tag != "É{ÉÄ")
+            if (hit2D.collider.gameObject.tag == lastBook.tag && lastBook.tag != "„Éú„É†")
             {
                 var thisBook = hit2D.collider.gameObject;
 
                 Vector2 distance = thisBook.transform.position - lastBook.transform.position;
 
-				if (!Books.Contains(thisBook) && distance.magnitude <= 20.0f)
-				{
+                if (!Books.Contains(thisBook) && distance.magnitude <= 20.0f)
+                {
                     _child = thisBook.transform.GetChild(0).gameObject;
                     Books.Add(thisBook);
                     Color bookColor = _child.GetComponent<SpriteRenderer>().color;
@@ -114,15 +116,15 @@ public class Tochmaneger : MonoBehaviour
                 }
                 _book.BombRes();
             }
-            else if(lastBook.tag=="É{ÉÄ")
+            else if (lastBook.tag == "„Éú„É†")
             {
-                var h = Physics2D.CircleCastAll(lastBook.transform.position, 10f,Vector2.zero);
+                var h = Physics2D.CircleCastAll(lastBook.transform.position, 10f, Vector2.zero);
                 Debug.Log(h.Length);
                 foreach (var hit in h)
                 {
                     Debug.Log(hit.transform.position);
-                    if (!hit.collider.gameObject.CompareTag("É{ÉÄ")
-                        &&!hit.collider.gameObject.CompareTag("Frame"))
+                    if (!hit.collider.gameObject.CompareTag("„Éú„É†")
+                        && !hit.collider.gameObject.CompareTag("Frame"))
                     {
                         if (hit != false)
                         {
@@ -146,13 +148,14 @@ public class Tochmaneger : MonoBehaviour
         int num = 0;
         bool bomme = false;
         if (Books.Count >= 3)
-		{
-            foreach(var item in Books)
-			{
-                if (item.gameObject.CompareTag("É{ÉÄ"))
+        {
+            foreach (var item in Books)
+            {
+                if (item.gameObject.CompareTag("„Éú„É†"))
                 {
                     _effect.Bomb_effect();
-                }else
+                }
+                else
                 {
                     _effect.Chain_effect(num++);
                 }
@@ -163,26 +166,26 @@ public class Tochmaneger : MonoBehaviour
                     num = 6;
                 }
             }
-			if (bomme)
-			{
+            if (bomme)
+            {
                 _Add.BombAdd(Books.Count);
             }
-			else
-			{
+            else
+            {
                 _Add.ScoreAdd(Books.Count);
-			}
-		}
-		else
-		{
+            }
+        }
+        else
+        {
             GameObject _child;
-            foreach(var item in Books)
-			{
+            foreach (var item in Books)
+            {
                 _child = item.transform.GetChild(0).gameObject;
                 Color bookColor = _child.GetComponent<SpriteRenderer>().color;
                 bookColor.a = 1;
                 _child.GetComponent<SpriteRenderer>().color = bookColor;
             }
-		}
+        }
         Books.Clear();
-	}
+    }
 }
