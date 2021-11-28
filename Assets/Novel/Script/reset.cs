@@ -24,7 +24,7 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetFloat("Score5", 0);
         PlayerPrefs.SetInt("MiniGame", 0);
         PlayerPrefs.SetInt("ResetPos", 0);
-        PlayerPrefs.SetInt("NovelMenu", 14);
+        PlayerPrefs.SetInt("NovelMenu", 0);
 
         PlayerPrefs.SetInt("NovelMenu1", 0);
         PlayerPrefs.SetInt("NovelMenu2", 0);
@@ -37,7 +37,7 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("NovelMenu9", 0);
         PlayerPrefs.SetInt("NovelMenu10", 0);
        
-        int[] startDate = { 10,15 };
+        int[] startDate = { 10,7 };
         PlayerPrefsX.SetIntArray("Date", startDate);
 
         int[] empty = { 0, 0 };
@@ -68,7 +68,7 @@ public class reset : MonoBehaviour
         PlayerPrefsX.SetIntArray("ItemNumber10", a);
 
         PlayerPrefs.SetInt("Money", 0);
-        PlayerPrefs.SetFloat("LiedHeart", 20);
+        PlayerPrefs.SetFloat("LiedHeart", 0);
         PlayerPrefs.SetFloat("KleinHeart", 0);
 
         PlayerPrefs.SetInt("Money1", 0);
@@ -102,8 +102,32 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetFloat("LiedHeart10", 0);
         PlayerPrefs.SetFloat("KleinHeart10", 0);
 
+        PlayerPrefs.SetInt("LiedFail", 0);
+        PlayerPrefs.SetInt("KleinFail", 0);
 
-        PlayerPrefs.SetInt("CleanNumber", 3);
+        PlayerPrefs.SetInt("LiedFail1", 0);
+        PlayerPrefs.SetInt("KleinFail1", 0);
+        PlayerPrefs.SetInt("LiedFail2", 0);
+        PlayerPrefs.SetInt("KleinFail2", 0);
+        PlayerPrefs.SetInt("LiedFail3", 0);
+        PlayerPrefs.SetInt("KleinFail3", 0);
+        PlayerPrefs.SetInt("LiedFail4", 0);
+        PlayerPrefs.SetInt("KleinFail4", 0);
+        PlayerPrefs.SetInt("LiedFail5", 0);
+        PlayerPrefs.SetInt("KleinFail5", 0);
+        PlayerPrefs.SetInt("LiedFail6", 0);
+        PlayerPrefs.SetInt("KleinFail6", 0);
+        PlayerPrefs.SetInt("LiedFail7", 0);
+        PlayerPrefs.SetInt("KleinFail7", 0);
+        PlayerPrefs.SetInt("LiedFail8", 0);
+        PlayerPrefs.SetInt("KleinFail8", 0);
+        PlayerPrefs.SetInt("LiedFail9", 0);
+        PlayerPrefs.SetInt("KleinFail9", 0);
+        PlayerPrefs.SetInt("LiedFail10", 0);
+        PlayerPrefs.SetInt("KleinFail10", 0);
+
+
+        PlayerPrefs.SetInt("CleanNumber", 0);
         PlayerPrefs.SetInt("CookNumber", 0);
         PlayerPrefs.SetInt("ShopNumber", 0);
 
@@ -137,6 +161,22 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("CleanNumber10", 0);
         PlayerPrefs.SetInt("CookNumber10", 0);
         PlayerPrefs.SetInt("ShopNumber10", 0);
+
+        PlayerPrefs.SetInt("WhichFile", 0);
+        PlayerPrefs.SetInt("ZeroLog", 1);
+        PlayerPrefs.SetInt("ZeroPos", 0);
+        PlayerPrefs.SetInt("LiedFail0", 0);
+        PlayerPrefs.SetInt("KleinFail0", 0);
+        PlayerPrefs.SetInt("Money0", 0);
+        PlayerPrefs.SetFloat("LiedHeart0", 0);
+        PlayerPrefs.SetFloat("KleinHeart0", 0);
+        PlayerPrefs.SetInt("CleanNumber0", 0);
+        PlayerPrefs.SetInt("CookNumber0", 0);
+        PlayerPrefs.SetInt("ShopNumber0", 0);
+
+        PlayerPrefs.SetInt("NovelMenu0",0);
+        PlayerPrefsX.SetIntArray("ItemNumber0", a);
+        PlayerPrefsX.SetIntArray("Date0", startDate);
 
     }
 }

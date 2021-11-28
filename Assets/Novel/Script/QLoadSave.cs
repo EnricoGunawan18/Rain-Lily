@@ -55,7 +55,11 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber1");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber1");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber1");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail1");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail1");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);
@@ -81,7 +85,11 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber2");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber2");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber2");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail2");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail2");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);
@@ -107,7 +115,11 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber3");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber3");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber3");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail3");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail3");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);
@@ -133,7 +145,11 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber4");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber4");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber4");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail4");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail4");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);
@@ -159,7 +175,11 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber5");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber5");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber5");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail5");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail5");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);
@@ -185,7 +205,11 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber6");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber6");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber6");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail6");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail6");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);
@@ -211,7 +235,11 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber7");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber7");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber7");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail7");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail7");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);
@@ -237,7 +265,11 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber8");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber8");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber8");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail8");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail8");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);
@@ -263,7 +295,11 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber9");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber9");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber9");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail9");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail9");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);
@@ -289,7 +325,41 @@ public class QLoadSave : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber10");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber10");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber10");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail10");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail10");
 
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
+			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
+			PlayerPrefs.SetInt("CookNumber", cookNumber);
+			PlayerPrefs.SetInt("ShopNumber", shopNumber);
+			PlayerPrefs.SetInt("Money", money);
+			PlayerPrefs.SetFloat("LiedHeart", liedAff);
+			PlayerPrefs.SetFloat("KleinHeart", kleinAff);
+			PlayerPrefsX.SetIntArray("Date", date);
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
+			PlayerPrefs.SetInt("NovelMenu", novelMenu);
+			PlayerPrefs.SetInt("LogNow", log);
+			PlayerPrefs.SetInt("ResetPos", pos);
+		}
+		else if (whichFile == 0)
+		{
+			int log = PlayerPrefs.GetInt("ZeroLog");
+			int pos = PlayerPrefs.GetInt("ZeroPos");
+			int novelMenu = PlayerPrefs.GetInt("NovelMenu0");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber0");
+			int[] date = PlayerPrefsX.GetIntArray("Date0");
+			float liedAff = PlayerPrefs.GetFloat("LiedHeart0");
+			float kleinAff = PlayerPrefs.GetFloat("KleinHeart0");
+			int money = PlayerPrefs.GetInt("Money0");
+			int cleanNumber = PlayerPrefs.GetInt("CleanNumber0");
+			int cookNumber = PlayerPrefs.GetInt("CookNumber0");
+			int shopNumber = PlayerPrefs.GetInt("ShopNumber0");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail0");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail0");
+
+			PlayerPrefs.SetInt("LiedFail", LiedFail);
+			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber", shopNumber);

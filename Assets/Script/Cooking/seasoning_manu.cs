@@ -71,16 +71,18 @@ public class seasoning_manu : MonoBehaviour
 	{
 		oil_bm.onClick.AddListener(() => on_Canvas(oil));
 		sauce_bm.onClick.AddListener(() => on_Canvas(sauce));
-		/*
-		parsley_bm.onClick.AddListener(() => on_Canvas(parsley));
-		cheese_bm.onClick.AddListener(() => on_Canvas(cheese));
-		dressing_bm.onClick.AddListener(() => on_Canvas(dressing));
 		pepper_bm.onClick.AddListener(() => on_Canvas(pepper));
+		lemon_bm.onClick.AddListener(() => on_Canvas(lemon));
+		rosemary_bm.onClick.AddListener(() => on_Canvas(rosemary));
+		crouton_bm.onClick.AddListener(() => on_Canvas(crouton));
+		dressing_bm.onClick.AddListener(() => on_Canvas(dressing));
+		cheese_bm.onClick.AddListener(() => on_Canvas(cheese));
+		parsley_bm.onClick.AddListener(() => on_Canvas(parsley));
 		suger_bm.onClick.AddListener(() => on_Canvas(suger));
 		veryS_bm.onClick.AddListener(() => on_Canvas(very_sauce));
-		*/
+		mint_bm.onClick.AddListener(() => on_Canvas(mint));
 		_position = canvasTran.position;
-		_position.z -= 10.0f;
+		_position.z -= 30.0f;
 	}
 
 	private void on_Canvas(GameObject equipment)

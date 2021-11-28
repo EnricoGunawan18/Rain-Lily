@@ -112,6 +112,8 @@ public class LoadDialogue : MonoBehaviour
 	public bool finishTemp3 = false;
 	public bool finishTemp4 = false;
 	public bool finishTemp5 = false;
+	public bool finishTemp6 = false;
+	public bool finishTemp7 = false;
 
 	public bool ItemEffect = false;
 	public bool itemChoose = false;
@@ -130,9 +132,6 @@ public class LoadDialogue : MonoBehaviour
 	TextAsset[] LiedDialogue;
 	[SerializeField]
 	TextAsset[] KleinDialogue;
-
-	string[] LiedData;
-	string[] KleinData;
 
 	private void Start()
 	{
@@ -190,20 +189,38 @@ public class LoadDialogue : MonoBehaviour
 		{
 			data = prologue.text.Split(new char[] { '$' });
 		}
-		else if (menu == 14)
+		else if (date[0] == 10 && date[1] == 15)
 		{
 			data = LiedDialogue[0].text.Split(new char[] { '$' });
 			if (liedAff >= 20f && countClean >= 3)
 			{
-				resetPos = 10;
-				PlayerPrefs.SetInt("ResetPos", 10);
+				menu = 14;
+				PlayerPrefs.SetInt("NovelMenu", menu);
+			}
+			else
+			{
+				PlayerPrefs.SetInt("LiedFail", 1);
+			}
+
+		}
+		else if (date[0] == 10 && date[1] == 20)
+		{
+			data = LiedDialogue[1].text.Split(new char[] { '$' });
+			if (liedAff >= 30f)
+			{
+				menu = 15;
+				PlayerPrefs.SetInt("NovelMenu", menu);
+			}
+			else
+			{
+				PlayerPrefs.SetInt("LiedFail", 1);
 			}
 
 		}
 
 
 
-		if (menu == 0 || menu == 6 || menu == 7 || menu == 8 || resetPos == 10)
+		if (menu == 0 || menu == 6 || menu == 7 || menu == 8 || menu == 11 || menu == 14 || menu == 15)
 		{
 			MiniGameChoose.SetActive(false);
 			GameMenu.SetActive(false);
@@ -231,7 +248,7 @@ public class LoadDialogue : MonoBehaviour
 		{
 			First();
 		}
-		else if (resetPos == 10)
+		else if (menu == 14 || menu == 15)
 		{
 			First();
 		}
@@ -252,10 +269,33 @@ public class LoadDialogue : MonoBehaviour
 
 		Debug.Log(logNumber);
 
-		if (resetFrom == 10)
+		if (novelMenu == 11)
+		{
+			string[] tempRow = itemData[3].Split(new char[] { ',' });
+
+			if (tempRow[2] != "" || tempRow[6] != "" || tempRow[8] != "")
+			{
+				d = new Dialogue();
+				int.TryParse(tempRow[0], out d.id);
+				d.character = tempRow[1];
+				d.dialogue = tempRow[2];
+				d.expression = tempRow[3];
+				d.background = tempRow[4];
+				d.BGM = tempRow[5];
+				d.SE = tempRow[6];
+				d.voice = tempRow[7];
+				d.effect = tempRow[8];
+
+				dialogues.Add(d);
+			}
+
+		}
+
+
+		else if (novelMenu == 14 && resetFrom == 10)
 		{
 			resetPos = 13;
-			whichLineNow = 1;
+			PlayerPrefs.SetInt("LogNow", 1);
 			for (int i = 1; i < 17; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
@@ -277,27 +317,33 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-		else if (novelMenu == 11)
+		else if (novelMenu == 15 && resetFrom == 16)
 		{
-			string[] tempRow = itemData[3].Split(new char[] { ',' });
-
-			if (tempRow[2] != "" || tempRow[6] != "" || tempRow[8] != "")
+			resetPos = 17;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 41; i++)
 			{
-				d = new Dialogue();
-				int.TryParse(tempRow[0], out d.id);
-				d.character = tempRow[1];
-				d.dialogue = tempRow[2];
-				d.expression = tempRow[3];
-				d.background = tempRow[4];
-				d.BGM = tempRow[5];
-				d.SE = tempRow[6];
-				d.voice = tempRow[7];
-				d.effect = tempRow[8];
+				row = data[i].Split(new char[] { ',' });
 
-				dialogues.Add(d);
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
 			}
 
 		}
+
 		else if (miniGame == 1 && novelMenu == 0)
 		{
 			int[] dateNow = { 10, 8 };
@@ -796,31 +842,83 @@ public class LoadDialogue : MonoBehaviour
 
 		}
 
-		////////////////////////////////////////////Lied 1
+		////////////////////////////////////////////Lied 1/////////////////////////////////////////////////////
 
 		else if (resetFrom == 11)
 		{
-			for (int i = 19; i < 28; i++)
+			if (logNumber >= 19 && logNumber <= 28)
 			{
-				row = data[i].Split(new char[] { ',' });
-
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				for (int i = logNumber; i < 28; i++)
 				{
-					d = new Dialogue();
-					int.TryParse(row[0], out d.id);
-					d.character = row[1];
-					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					row = data[i].Split(new char[] { ',' });
 
-					dialogues.Add(d);
+					if (row[2] != "" || row[6] != "" || row[8] != "")
+					{
+						d = new Dialogue();
+						int.TryParse(row[0], out d.id);
+						d.character = row[1];
+						d.dialogue = row[2];
+						d.expression = row[3];
+						d.background = row[4];
+						d.BGM = row[5];
+						d.SE = row[6];
+						d.voice = row[7];
+						d.effect = row[8];
+
+						dialogues.Add(d);
+					}
+				}
+				for (int i = 35; i < 48; i++)
+				{
+					row = data[i].Split(new char[] { ',' });
+
+					if (row[2] != "" || row[6] != "" || row[8] != "")
+					{
+						d = new Dialogue();
+						int.TryParse(row[0], out d.id);
+						d.character = row[1];
+						d.dialogue = row[2];
+						d.expression = row[3];
+						d.background = row[4];
+						d.BGM = row[5];
+						d.SE = row[6];
+						d.voice = row[7];
+						d.effect = row[8];
+
+						dialogues.Add(d);
+					}
 				}
 			}
-			for (int i = 35; i < 48; i++)
+			else
+			{
+				for (int i = logNumber; i < 48; i++)
+				{
+					row = data[i].Split(new char[] { ',' });
+
+					if (row[2] != "" || row[6] != "" || row[8] != "")
+					{
+						d = new Dialogue();
+						int.TryParse(row[0], out d.id);
+						d.character = row[1];
+						d.dialogue = row[2];
+						d.expression = row[3];
+						d.background = row[4];
+						d.BGM = row[5];
+						d.SE = row[6];
+						d.voice = row[7];
+						d.effect = row[8];
+
+						dialogues.Add(d);
+					}
+				}
+
+			}
+
+		}
+
+		else if (resetFrom == 12)
+		{
+			for (int i = logNumber; i < 48; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -842,6 +940,245 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
+
+		else if (resetFrom == 13)
+		{
+			for (int i = logNumber; i < 17; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 14)
+		{
+			if (logNumber >= 50 && logNumber <= 54)
+			{
+				for (int i = logNumber; i < 54; i++)
+				{
+					row = data[i].Split(new char[] { ',' });
+
+					if (row[2] != "" || row[6] != "" || row[8] != "")
+					{
+						d = new Dialogue();
+						int.TryParse(row[0], out d.id);
+						d.character = row[1];
+						d.dialogue = row[2];
+						d.expression = row[3];
+						d.background = row[4];
+						d.BGM = row[5];
+						d.SE = row[6];
+						d.voice = row[7];
+						d.effect = row[8];
+
+						dialogues.Add(d);
+					}
+				}
+				for (int i = 61; i < 107; i++)
+				{
+					row = data[i].Split(new char[] { ',' });
+
+					if (row[2] != "" || row[6] != "" || row[8] != "")
+					{
+						d = new Dialogue();
+						int.TryParse(row[0], out d.id);
+						d.character = row[1];
+						d.dialogue = row[2];
+						d.expression = row[3];
+						d.background = row[4];
+						d.BGM = row[5];
+						d.SE = row[6];
+						d.voice = row[7];
+						d.effect = row[8];
+
+						dialogues.Add(d);
+					}
+				}
+			}
+			else
+			{
+				for (int i = logNumber; i < 107; i++)
+				{
+					row = data[i].Split(new char[] { ',' });
+
+					if (row[2] != "" || row[6] != "" || row[8] != "")
+					{
+						d = new Dialogue();
+						int.TryParse(row[0], out d.id);
+						d.character = row[1];
+						d.dialogue = row[2];
+						d.expression = row[3];
+						d.background = row[4];
+						d.BGM = row[5];
+						d.SE = row[6];
+						d.voice = row[7];
+						d.effect = row[8];
+
+						dialogues.Add(d);
+					}
+				}
+
+			}
+
+		}
+		else if (resetFrom == 15)
+		{
+			for (int i = logNumber; i < 107; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+
+		else if (resetFrom == 17)
+		{
+			for (int i = whichLineNow; i < 41; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 18)
+		{
+			if (logNumber >= 43 && logNumber <= 56)
+			{
+				for (int i = logNumber; i < 56; i++)
+				{
+					row = data[i].Split(new char[] { ',' });
+
+					if (row[2] != "" || row[6] != "" || row[8] != "")
+					{
+						d = new Dialogue();
+						int.TryParse(row[0], out d.id);
+						d.character = row[1];
+						d.dialogue = row[2];
+						d.expression = row[3];
+						d.background = row[4];
+						d.BGM = row[5];
+						d.SE = row[6];
+						d.voice = row[7];
+						d.effect = row[8];
+
+						dialogues.Add(d);
+					}
+				}
+				for (int i = 84; i < 93; i++)
+				{
+					row = data[i].Split(new char[] { ',' });
+
+					if (row[2] != "" || row[6] != "" || row[8] != "")
+					{
+						d = new Dialogue();
+						int.TryParse(row[0], out d.id);
+						d.character = row[1];
+						d.dialogue = row[2];
+						d.expression = row[3];
+						d.background = row[4];
+						d.BGM = row[5];
+						d.SE = row[6];
+						d.voice = row[7];
+						d.effect = row[8];
+
+						dialogues.Add(d);
+					}
+				}
+			}
+			else
+			{
+				for (int i = logNumber; i < 93; i++)
+				{
+					row = data[i].Split(new char[] { ',' });
+
+					if (row[2] != "" || row[6] != "" || row[8] != "")
+					{
+						d = new Dialogue();
+						int.TryParse(row[0], out d.id);
+						d.character = row[1];
+						d.dialogue = row[2];
+						d.expression = row[3];
+						d.background = row[4];
+						d.BGM = row[5];
+						d.SE = row[6];
+						d.voice = row[7];
+						d.effect = row[8];
+
+						dialogues.Add(d);
+					}
+				}
+
+			}
+
+		}
+		else if (resetFrom == 19)
+		{
+			for (int i = whichLineNow; i < 93; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+
+
 
 		else
 		{
@@ -866,7 +1203,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		ShowDialogue();
 	}
 
@@ -963,6 +1299,37 @@ public class LoadDialogue : MonoBehaviour
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
+		if (finishTemp6 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[49].Split(new char[] { ',' });
+			string Filtered1 = tempRow[2].Replace("『", "");
+			string Filtered2 = Filtered1.Replace("』", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[55].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[2].Replace("『", "");
+			string Filtered5 = Filtered4.Replace("』", "");
+			string Filtered6 = Filtered5.Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp7 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[42].Split(new char[] { ',' });
+			string Filtered1 = tempRow[2].Replace("『", "");
+			string Filtered2 = Filtered1.Replace("』", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[57].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[2].Replace("『", "");
+			string Filtered5 = Filtered4.Replace("』", "");
+			string Filtered6 = Filtered5.Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+
 
 	}
 
@@ -985,7 +1352,7 @@ public class LoadDialogue : MonoBehaviour
 
 			//background
 
-			string[] textTemp = { backGroundName, backGroundLabel.text };
+			string[] textTemp = { backGroundName, backGroundLabel.text, whichLineNow.ToString() };
 			StartCoroutine("BGTextAnim", textTemp);
 
 
@@ -1042,6 +1409,18 @@ public class LoadDialogue : MonoBehaviour
 				backGroundLabel.text = backgrounds[12].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[21];
+			}
+			else if (d.background == "back-008")
+			{
+				backGroundLabel.text = backgrounds[13].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[25];
+			}
+			else if (d.background == "back-014")
+			{
+				backGroundLabel.text = backgrounds[22].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[26];
 			}
 			else if (d.background == "暗転")
 			{
@@ -1897,6 +2276,8 @@ public class LoadDialogue : MonoBehaviour
 
 
 			int[] date = PlayerPrefsX.GetIntArray("Date");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
 			if (date[0] == 10 && (date[1] == 7 || date[1] == 8 || date[1] == 9))
 			{
@@ -2164,14 +2545,122 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 
-			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////////L I E D 1/////////////////////////////////////////////////////////////////
 			else if (date[0] == 10 && date[1] == 15)
 			{
-				yield return dialogueManager.Run(d.dialogue, textLabel);
+				if (d.id == 276)
+				{
+					whichLineNow = 19;
+				}
+				if (d.id == 276)
+				{
+					whichLineNow = 30;
+				}
+				if (d.id == 280)
+				{
+					whichLineNow = 35;
+				}
+				if (d.id == 299)
+				{
+					whichLineNow = 61;
+				}
+				if (d.id == 339)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+				}
+				if (d.effect == "フェードアウト")
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					waitForFadeAnim = true;
+					//yield return new WaitForSeconds(1.5f);
+					//FadeAnim.SetBool("Fading", false);
+					//waitForFadeAnim = false;
+				}
+
+				else if (d.effect == "場面変化。スライド。")
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					waitForFadeAnim = true;
+				}
+				else
+				{
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+
+				if (waitForFadeAnim == true)
+				{
+					yield return new WaitForSeconds(1.5f);
+					FadeAnim.SetBool("Fading", false);
+				}
+
+
+				if (d.id == 280)
+				{
+					whichLineNow++;
+				}
 
 				if (d.id == 266)
 				{
 					finishTemp5 = true;
+				}
+
+				if (d.id == 290)
+				{
+					finishTemp6 = true;
+				}
+
+				else if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+			}
+
+			///////////////////////////////////////////////////////////////////////////////L I E D 2/////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 10 && date[1] == 20 && LiedFail == 0)
+			{
+				if (d.id == 417)
+				{
+					whichLineNow = 84;
+				}
+				if (d.effect == "一拍（一秒程度）間を置く")
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					yield return new WaitForSeconds(1f);
+				}
+				if (d.id == 423)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+				}
+
+
+				yield return dialogueManager.Run(d.dialogue, textLabel);
+
+				if (d.id == 378)
+				{
+					finishTemp7 = true;
 				}
 
 				if (autoScroll.automated == false)
@@ -2185,6 +2674,13 @@ public class LoadDialogue : MonoBehaviour
 				else
 				{
 				}
+			}
+
+
+			/////////////////////////////////////////////////////////S H O P/////////////////////////////
+			else
+			{
+				yield return dialogueManager.Run(d.dialogue, textLabel);
 			}
 
 			if (ItemEffect == true)
@@ -2485,6 +2981,107 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
+		if (finishTemp6 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("LiedHeart");
+			affection += 2;
+			PlayerPrefs.SetFloat("LiedHeart", affection);
+			resetPos = 14;
+			finishTemp6 = false;
+			whichLineNow = 50;
+
+			for (int i = 50; i < 54; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+			for (int i = 61; i < 107; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+
+		if (finishTemp7 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("LiedHeart");
+			affection += 2;
+			PlayerPrefs.SetFloat("LiedHeart", affection);
+			resetPos = 18;
+			finishTemp7 = false;
+			whichLineNow = 44;
+
+			for (int i = 44; i < 56; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+			for (int i = 84; i < 93; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+		}
 
 
 		ShowDialogue();
@@ -2627,21 +3224,8 @@ public class LoadDialogue : MonoBehaviour
 		if (finishTemp4 == true)
 		{
 			finishTemp4 = false;
-			d = new Dialogue();
-			int.TryParse("999", out d.id);
-			d.character = "";
-			d.dialogue = "";
-			d.expression = "";
-			d.background = "";
-			d.BGM = "";
-			d.SE = "";
-			d.effect = "afteritem";
-
-			dialogues.Add(d);
-
-			ItemEffect = true;
-
-			AfterShopPrologue();
+			PlayerPrefs.SetInt("NovelMenu", 13);
+			SceneManager.LoadScene("Novel");
 		}
 		if (finishTemp5 == true)
 		{
@@ -2653,6 +3237,67 @@ public class LoadDialogue : MonoBehaviour
 			whichLineNow = 31;
 
 			for (int i = 30; i < 48; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp6 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("LiedHeart");
+			affection -= 2;
+			PlayerPrefs.SetFloat("LiedHeart", affection);
+			resetPos = 15;
+			finishTemp6 = false;
+			whichLineNow = 56;
+
+			for (int i = 56; i < 107; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[6] != "" || row[8] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.expression = row[3];
+					d.background = row[4];
+					d.BGM = row[5];
+					d.SE = row[6];
+					d.voice = row[7];
+					d.effect = row[8];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+
+		if (finishTemp7 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("LiedHeart");
+			affection += 5;
+			PlayerPrefs.SetFloat("LiedHeart", affection);
+			resetPos = 19;
+			finishTemp7 = false;
+			whichLineNow = 58;
+
+			for (int i = 58; i < 93; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2703,7 +3348,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail1", LiedFail);
+			PlayerPrefs.SetInt("KleinFail1", KleinFail);
 			PlayerPrefs.SetInt("Money1", money);
 			PlayerPrefs.SetFloat("LiedHeart1", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart1", kleinAff);
@@ -2738,7 +3387,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail2", LiedFail);
+			PlayerPrefs.SetInt("KleinFail2", KleinFail);
 			PlayerPrefs.SetInt("Money2", money);
 			PlayerPrefs.SetFloat("LiedHeart2", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart2", kleinAff);
@@ -2772,7 +3425,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail3", LiedFail);
+			PlayerPrefs.SetInt("KleinFail3", KleinFail);
 			PlayerPrefs.SetInt("Money3", money);
 			PlayerPrefs.SetFloat("LiedHeart3", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart3", kleinAff);
@@ -2806,7 +3463,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail4", LiedFail);
+			PlayerPrefs.SetInt("KleinFail4", KleinFail);
 			PlayerPrefs.SetInt("Money4", money);
 			PlayerPrefs.SetFloat("LiedHeart4", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart4", kleinAff);
@@ -2840,7 +3501,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail5", LiedFail);
+			PlayerPrefs.SetInt("KleinFail5", KleinFail);
 			PlayerPrefs.SetInt("Money5", money);
 			PlayerPrefs.SetFloat("LiedHeart5", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart5", kleinAff);
@@ -2874,7 +3539,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail6", LiedFail);
+			PlayerPrefs.SetInt("KleinFail6", KleinFail);
 			PlayerPrefs.SetInt("Money6", money);
 			PlayerPrefs.SetFloat("LiedHeart6", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart6", kleinAff);
@@ -2908,7 +3577,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail7", LiedFail);
+			PlayerPrefs.SetInt("KleinFail7", KleinFail);
 			PlayerPrefs.SetInt("Money7", money);
 			PlayerPrefs.SetFloat("LiedHeart7", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart7", kleinAff);
@@ -2942,7 +3615,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail8", LiedFail);
+			PlayerPrefs.SetInt("KleinFail8", KleinFail);
 			PlayerPrefs.SetInt("Money8", money);
 			PlayerPrefs.SetFloat("LiedHeart8", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart8", kleinAff);
@@ -2976,7 +3653,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail9", LiedFail);
+			PlayerPrefs.SetInt("KleinFail9", KleinFail);
 			PlayerPrefs.SetInt("Money9", money);
 			PlayerPrefs.SetFloat("LiedHeart9", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart9", kleinAff);
@@ -3010,7 +3691,11 @@ public class LoadDialogue : MonoBehaviour
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
 			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("LiedFail10", LiedFail);
+			PlayerPrefs.SetInt("KleinFail10", KleinFail);
 			PlayerPrefs.SetInt("Money10", money);
 			PlayerPrefs.SetFloat("LiedHeart10", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart10", kleinAff);
@@ -3022,6 +3707,44 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetInt("CleanNumber10", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber10", cookNumber);
 			PlayerPrefs.SetInt("ShopNumber10", shopNumber);
+		}
+		else if (whichFile == 0)
+		{
+			if (whichLineNow != 0)
+			{
+				PlayerPrefs.SetInt("ZeroLog", startFrom + whichLineNow - 1);
+			}
+			else
+			{
+				PlayerPrefs.SetInt("ZeroLog", startFrom + whichLineNow);
+			}
+			PlayerPrefs.SetInt("ZeroPos", resetPos);
+
+			int file = PlayerPrefs.GetInt("ZeroLog");
+			PlayerPrefs.SetInt("LogNow", file);
+			int[] date = PlayerPrefsX.GetIntArray("Date");
+			PlayerPrefsX.SetIntArray("Date0", date);
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			PlayerPrefsX.SetIntArray("ItemNumber0", ItemNumber);
+			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+			int money = PlayerPrefs.GetInt("Money");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+
+			PlayerPrefs.SetInt("LiedFail0", LiedFail);
+			PlayerPrefs.SetInt("KleinFail0", KleinFail);
+			PlayerPrefs.SetInt("Money0", money);
+			PlayerPrefs.SetFloat("LiedHeart0", liedAff);
+			PlayerPrefs.SetFloat("KleinHeart0", kleinAff);
+
+			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
+			int cookNumber = PlayerPrefs.GetInt("CookNumber");
+			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
+
+			PlayerPrefs.SetInt("CleanNumber0", cleanNumber);
+			PlayerPrefs.SetInt("CookNumber0", cookNumber);
+			PlayerPrefs.SetInt("ShopNumber0", shopNumber);
 		}
 
 		whichLineNow = 0;
@@ -3392,7 +4115,12 @@ public class LoadDialogue : MonoBehaviour
 			TextBGHide.SetBool("TextIsHidden", true);
 			yield return x[0] = x[1];
 		}
-		else if (x[0] != x[1])
+		else if (x[2] == "1")
+		{
+			TextBGHide.SetBool("TextIsHidden", true);
+			yield return x[0] = x[1];
+		}
+		if (x[0] != x[1])
 		{
 			TextBGHide.SetBool("TextIsHidden", true);
 			yield return x[0] = x[1];
@@ -3400,7 +4128,7 @@ public class LoadDialogue : MonoBehaviour
 		else if (x[0] == x[1])
 		{
 			TextBGHide.SetBool("TextIsHidden", false);
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(2f);
 			TextBGHide.SetBool("TextIsHidden", true);
 			yield return x[0] = x[1];
 		}

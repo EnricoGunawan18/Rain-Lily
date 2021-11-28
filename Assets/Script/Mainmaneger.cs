@@ -15,15 +15,20 @@ public class Mainmaneger : MonoBehaviour
     private int num = 1;
     [SerializeField]
     private int num2 = 2;
+    [SerializeField]
+    private bool Through=true;
 
     void Start()
     {
         btn1.onClick.AddListener(() => MoveScene(num));
-        btn2.onClick.AddListener(() => MoveScene(num2));
+        if(Through)
+        {
+            btn2.onClick.AddListener(() => MoveScene(num2));
+        }
     }
 
     void MoveScene(int num)
     {
-        SceneManager.LoadScene(num);
+        SceneManager.LoadScene("TitleScreen");
     }
 }

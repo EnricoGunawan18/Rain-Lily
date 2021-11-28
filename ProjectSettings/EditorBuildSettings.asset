@@ -10,7 +10,10 @@ EditorBuildSettings:
     guid: a13182a480c3d1940b5e04e755e8e260
   - enabled: 1
     path: Assets/Scenes/Scene_pazle.unity
-    guid: ca4cfc7b1ae41d6429cd6566d0a7941f
+    guid: 0a10d79bb5448bd448f855d940a14bc4
+  - enabled: 1
+    path: Assets/Scenes/Scene_CG.unity
+    guid: 27ac96d8e6ce7054d84d259a976cb3df
   - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: f88d658562faa5a48b3543e26215d24a

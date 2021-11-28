@@ -91,14 +91,14 @@ public class MakeBook : MonoBehaviour
                     if (suitable >= 6 && sw &&!bsw)
                     {
                         books[i][j] =
-                              Instantiate(Bomb, new Vector3(-34f + (i * 11), 34f + (j * 5), 140f), Quaternion.identity);
+                              Instantiate(Bomb, new Vector3(-34f + (i * 11), 28f + (j * 5), 140f), Quaternion.identity);
                         sw = false;
                     }
                     else
                     {
                         int r = Random.Range(0, 5);
                         books[i][j] =
-                            Instantiate(Peas[r], new Vector3(-34f + (i * 11), 34f + (j * 5), 140f), Quaternion.identity);
+                            Instantiate(Peas[r], new Vector3(-34f + (i * 11), 28f + (j * 5), 140f), Quaternion.identity);
                     }                }
             }
         }

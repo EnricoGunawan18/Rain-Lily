@@ -8,10 +8,6 @@ public class FileData : MonoBehaviour
     [SerializeField]
     Image[] Base;
     [SerializeField]
-    Image[] Eye;
-    [SerializeField]
-    Image[] Mouth;
-    [SerializeField]
     Button[] Data;
 
     [SerializeField]
@@ -78,9 +74,8 @@ public class FileData : MonoBehaviour
         {
             if (dateFile[i][0] == 0)
             {
+                Base[i].sprite = null;
                 Base[i].color = new Color(0,0,0,0);
-                Eye[i].color = new Color(0, 0, 0, 0);
-                Mouth[i].color = new Color(0, 0, 0, 0);
 
                 Date[i].text = "EMPTY";
                 Data[i].interactable = false;
@@ -88,8 +83,6 @@ public class FileData : MonoBehaviour
             else
             {
                 Base[i].color = new Color(255, 255, 255, 255);
-                Eye[i].color = new Color(255, 255, 255, 255);
-                Mouth[i].color = new Color(255, 255, 255, 255);
 
                 Date[0].text = dateFile[0][0].ToString() + "/" + dateFile[0][1].ToString();
                 Date[1].text = dateFile[1][0].ToString() + "/" + dateFile[1][1].ToString();
@@ -104,15 +97,11 @@ public class FileData : MonoBehaviour
 
                 if (Lied[i] < Klein[i])
                 {
-                    Base[i].sprite = Sprite[3];
-                    Eye[i].sprite = Sprite[4];
-                    Mouth[i].sprite = Sprite[5];
+                    Base[i].sprite = Sprite[1];
                 }
                 else
                 {
                     Base[i].sprite = Sprite[0];
-                    Eye[i].sprite = Sprite[1];
-                    Mouth[i].sprite = Sprite[2];
                 }
             }
         }

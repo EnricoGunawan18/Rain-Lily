@@ -86,7 +86,7 @@ public class ItemRandom : MonoBehaviour
 		for (int i = 0; i < 3; i++)
 		{
 			Number[i] = Items[Random.Range(0, Items.Count)];
-			itemRow = itemData[Number[i]].Split(new char[] { ',' });
+			itemRow = itemData[Number[i] + 1].Split(new char[] { ',' });
 			Text[i].text = itemRow[2];
 			Money[i].text = itemRow[4];
 			Items.Remove(Number[i]);
@@ -133,9 +133,7 @@ public class ItemRandom : MonoBehaviour
 
 	void DontBuy()
 	{
-		loadDialogue.ItemEffect = true;
 		ItemBuyScreen.SetActive(false);
-		loadDialogue.AfterShopPrologue();
-		loadDialogue.ShowDialogue();
+		GiveWhoScreen.SetActive(true);
 	}
 }

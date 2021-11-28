@@ -93,17 +93,38 @@ public class material_manu : MonoBehaviour
 	private GameObject knob;
 	[SerializeField]
 	private Transform canvasTran;
+	private Vector3 _position = new Vector3();
 
 	private void Start()
 	{
-
+		lettuce_bm.onClick.AddListener(() => on_Canvas(lettuce));
+		Ronion_bm.onClick.AddListener(() => on_Canvas(Red_onion));
+		salmon_bm.onClick.AddListener(() => on_Canvas(salmon));
+		bacon_bm.onClick.AddListener(() => on_Canvas(bacon));
+		tomato_bm.onClick.AddListener(() => on_Canvas(tomato));
+		egg_bm.onClick.AddListener(() => on_Canvas(egg));
+		carrot_bm.onClick.AddListener(() => on_Canvas(carrot));
+		onion_bm.onClick.AddListener(() => on_Canvas(onion));
+		potato_bm.onClick.AddListener(() => on_Canvas(potato));
+		beef_bm.onClick.AddListener(() => on_Canvas(beef));
+		Sayaendo_bm.onClick.AddListener(() => on_Canvas(Sayaendo));
+		meat_bm.onClick.AddListener(() => on_Canvas(meat));
+		mushroom_bm.onClick.AddListener(() => on_Canvas(mushroom));
+		broccoli_bm.onClick.AddListener(() => on_Canvas(broccoli));
+		waffle_bm.onClick.AddListener(() => on_Canvas(waffle));
+		strawberry_bm.onClick.AddListener(() => on_Canvas(strawberry));
+		raspberry_bm.onClick.AddListener(() => on_Canvas(raspberry));
+		blueberry_bm.onClick.AddListener(() => on_Canvas(blueberry));
+		ice_bm.onClick.AddListener(() => on_Canvas(ice));
+		_position = canvasTran.position;
+		_position.z -= 30.0f;
 	}
 
 	private void on_Canvas(GameObject equipment)
 	{
 		if (knob == null)
 		{
-			knob = Instantiate(equipment, canvasTran.position, Quaternion.identity);
+			knob = Instantiate(equipment, _position, Quaternion.identity);
 		}
 		else
 		{

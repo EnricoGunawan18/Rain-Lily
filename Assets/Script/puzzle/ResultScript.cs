@@ -15,7 +15,11 @@ public class ResultScript : MonoBehaviour
 	[SerializeField]
 	private Text text;
 	[SerializeField]
+	private Text gold;
+	[SerializeField]
 	private AddScore _add;
+	[SerializeField]
+	private Image star;
 	[SerializeField]
 	private click_right_effect _effect;
 
@@ -24,19 +28,22 @@ public class ResultScript : MonoBehaviour
 	[SerializeField]
 	private GameObject finish;
 
-	int score;
+	private bool stop_W;
+	private Image[] stock = new Image[5];
+	private Transform _patent;
+	private Vector3 _position;
 	int gameMoneyGet;
 
-	private bool stop_W;
 	void Awake()
 	{
+		gameMoneyGet = PlayerPrefs.GetInt("Money");
 		Time.timeScale = 1f;
+		_position = new Vector3(0f, -3.2f, 0f);
+		_patent = resultObject.transform;
 		stop_W = false;
 		resultObject.SetActive(false);
 		retry.onClick.AddListener(Retry);
 		end.onClick.AddListener(Quit);
-
-		gameMoneyGet = PlayerPrefs.GetInt("Money");
 	}
 
 	async void ResultSW(bool sw)
@@ -59,13 +66,101 @@ public class ResultScript : MonoBehaviour
 		{
 			stop_W = true;
 			ResultSW(true);
+			if (_add.GetScore() < 1000)
+			{
+				Star_create(0, 1);
+				gold.text = "‹à‰Ý‚ð100–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gameMoneyGet += 100;
+				Debug.Log("1");
+			}
+			else if (_add.GetScore() < 1500)
+			{
+				Star_create(75, 2);
+				gold.text = "‹à‰Ý‚ð300–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gameMoneyGet += 300;
+				Debug.Log("2");
+			}
+			else if (_add.GetScore() < 2000)
+			{
+				Star_create(125, 3);
+				gold.text = "‹à‰Ý‚ð500–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gameMoneyGet += 500;
+				Debug.Log("3");
+			}
+			else if (_add.GetScore() < 2500)
+			{
+				Star_create(75, 4);
+				gold.text = "‹à‰Ý‚ð700–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gameMoneyGet += 700;
+				Debug.Log("4");
+			}
+			else
+			{
+				Star_create(125, 5);
+				gold.text = "‹à‰Ý‚ð1000–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gameMoneyGet += 1000;
+				Debug.Log("5");
+			}
 			text.text = "Score:" + _add.GetScore();
-			score = _add.GetScore();
-			//Debug.Log(score);
 		}
 		else
 		{
 			ResultSW(false);
+		}
+	}
+
+	private void Star_create(float numX, int num)
+	{
+		switch (num)
+		{
+			case 1:
+				stock[0] = Instantiate(star, _position, Quaternion.identity);
+				Debug.Log("star1");
+				break;
+			case 2:
+				_position.x += numX;
+				stock[0] = Instantiate(star, _position, Quaternion.identity);
+				_position.x -= numX * 2;
+				stock[1] = Instantiate(star, _position, Quaternion.identity);
+				Debug.Log("star2");
+				break;
+			case 3:
+				stock[0] = Instantiate(star, _position, Quaternion.identity);
+				_position.x += numX;
+				stock[1] = Instantiate(star, _position, Quaternion.identity);
+				_position.x -= numX * 2;
+				stock[2] = Instantiate(star, _position, Quaternion.identity);
+				Debug.Log("star3");
+				break;
+			case 4:
+				_position.x += numX;
+				stock[0] = Instantiate(star, _position, Quaternion.identity);
+				_position.x += numX;
+				stock[1] = Instantiate(star, _position, Quaternion.identity);
+				_position.x -= numX * 2;
+				stock[2] = Instantiate(star, _position, Quaternion.identity);
+				_position.x -= numX;
+				stock[3] = Instantiate(star, _position, Quaternion.identity);
+				Debug.Log("star4");
+				break;
+			case 5:
+				stock[0] = Instantiate(star, _position, Quaternion.identity);
+				_position.x += numX;
+				stock[1] = Instantiate(star, _position, Quaternion.identity);
+				_position.x += numX;
+				stock[2] = Instantiate(star, _position, Quaternion.identity);
+				_position.x -= numX * 3;
+				stock[3] = Instantiate(star, _position, Quaternion.identity);
+				_position.x -= numX;
+				stock[4] = Instantiate(star, _position, Quaternion.identity);
+				Debug.Log("star5");
+				break;
+			default:
+				break;
+		}
+		for (int i = 0; i < num; i++)
+		{
+			stock[i].transform.SetParent(_patent, false);
 		}
 	}
 
@@ -78,30 +173,11 @@ public class ResultScript : MonoBehaviour
 	private void Quit()
 	{
 		Time.timeScale = 1;
-
+		int score = _add.GetScore();
 		int miniGame = PlayerPrefs.GetInt("MiniGame");
+
 		if (miniGame == 4)
 		{
-			if (score >= 3000)
-			{
-				gameMoneyGet += 1000;
-			}
-			else if (score >= 2000)
-			{
-				gameMoneyGet += 700;
-			}
-			else if (score >= 1500)
-			{
-				gameMoneyGet += 500;
-			}
-			else if (score >= 1500)
-			{
-				gameMoneyGet += 300;
-			}
-			else
-			{
-				gameMoneyGet += 100;
-			}
 			int cleanTimes = PlayerPrefs.GetInt("CleanNumber");
 			cleanTimes += 1;
 			PlayerPrefs.SetInt("CleanNumber", cleanTimes);
@@ -110,10 +186,14 @@ public class ResultScript : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", 13);
 			SceneManager.LoadScene("Novel");
 		}
-		else
+		else if (miniGame == 1)
 		{
 			PlayerPrefs.SetInt("NovelMenu", 0);
 			SceneManager.LoadScene("Novel");
+		}
+		else
+		{
+			SceneManager.LoadScene("TitleScreen");
 		}
 	}
 

@@ -96,6 +96,10 @@ public class MinigameMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("MiniGame", 6);
             SceneManager.LoadScene("Stage1");
+
+            //PlayerPrefs.SetInt("NovelMenu", 11);
+            //SceneManager.LoadScene("Novel");
+
         }
     }
 }

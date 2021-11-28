@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterItemChoose : MonoBehaviour
 {
@@ -47,5 +48,7 @@ public class CharacterItemChoose : MonoBehaviour
 
     void NoGivePress()
     {
+        PlayerPrefs.SetInt("NovelMenu", 13);
+        SceneManager.LoadScene("Novel");
     }
 }

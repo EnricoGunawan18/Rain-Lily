@@ -39,6 +39,7 @@ public class FinishScript : MonoBehaviour
 	float score4;
 	float score5;
 
+	bool countMoneyStop = false;
 
 	bool timeStopper = false;
 
@@ -126,8 +127,9 @@ public class FinishScript : MonoBehaviour
 			SceneManager.LoadScene("TitleScreen");
 		}
 
-		if (recentScore >= 6000)
+		if (recentScore >= 6000 && countMoneyStop == false)
 		{
+			countMoneyStop = true;
 			gameMoneyGet += 1000;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
@@ -135,8 +137,9 @@ public class FinishScript : MonoBehaviour
 			Star[3].color = new Color32(255, 255, 255, 255);
 			Star[4].color = new Color32(255, 255, 255, 255);
 		}
-		else if (recentScore >= 3000)
+		else if (recentScore >= 3000 && countMoneyStop == false)
 		{
+			countMoneyStop = true;
 			gameMoneyGet += 700;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
@@ -144,23 +147,26 @@ public class FinishScript : MonoBehaviour
 			Star[3].color = new Color32(255, 255, 255, 255);
 
 		}
-		else if (recentScore >= 1500)
+		else if (recentScore >= 1500 && countMoneyStop == false)
 		{
+			countMoneyStop = true;
 			gameMoneyGet += 500;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			Star[2].color = new Color32(255, 255, 255, 255);
 
 		}
-		else if (recentScore >= 900)
+		else if (recentScore >= 900 && countMoneyStop == false)
 		{
+			countMoneyStop = true;
 			gameMoneyGet += 300;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 
 		}
-		else
+		else if( countMoneyStop == false)
 		{
+			countMoneyStop = true;
 			gameMoneyGet += 100;
 			Star[0].color = new Color32(255, 255, 255, 255);
 		}
