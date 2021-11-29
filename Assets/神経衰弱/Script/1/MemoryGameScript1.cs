@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -66,7 +66,7 @@ public class MemoryGameScript1 : MonoBehaviour
 	//clicked button
 	public bool[] clicked = { false, false, false, false, false };
 	public bool[] correctEffect = { false, false, false, false, false };
-	public bool shuffleColor =  false;
+	public bool shuffleColor = false;
 
 	//answer
 	int correctAns = 0;
@@ -150,47 +150,47 @@ public class MemoryGameScript1 : MonoBehaviour
 		//shits
 		if (randText == 0)
 		{
-			Text1 = "uƒŠƒ“ƒSv";
+			Text1 = "ã€Œãƒªãƒ³ã‚´ã€";
 		}
 		else if (randText == 1)
 		{
-			Text1 = "uƒr[ƒtv";
+			Text1 = "ã€Œãƒ“ãƒ¼ãƒ•ã€";
 		}
 		else if (randText == 2)
 		{
-			Text1 = "uƒoƒ^[v";
+			Text1 = "ã€Œãƒã‚¿ãƒ¼ã€";
 		}
 		else if (randText == 3)
 		{
-			Text1 = "ulQv";
+			Text1 = "ã€Œäººå‚ã€";
 		}
 		else if (randText == 4)
 		{
-			Text1 = "u‹›v";
+			Text1 = "ã€Œé­šã€";
 		}
 		else if (randText == 5)
 		{
-			Text1 = "uƒOƒŒ[ƒvv";
+			Text1 = "ã€Œã‚°ãƒ¬ãƒ¼ãƒ—ã€";
 		}
 		else if (randText == 6)
 		{
-			Text1 = "u‰–v";
+			Text1 = "ã€Œå¡©ã€";
 		}
 		else if (randText == 7)
 		{
-			Text1 = "u‚Ù‚¤‚ê‚ñ‘v";
+			Text1 = "ã€Œã»ã†ã‚Œã‚“è‰ã€";
 		}
 		else if (randText == 8)
 		{
-			Text1 = "u»“œv";
+			Text1 = "ã€Œç ‚ç³–ã€";
 		}
 		else if (randText == 9)
 		{
-			Text1 = "uƒpƒ“v";
+			Text1 = "ã€Œãƒ‘ãƒ³ã€";
 		}
 
 
-		command_Text.text = "u¡“ú‚Í" + Text1 + "‚ğ”ƒ‚¨‚¤v";
+		command_Text.text = "ã€Œä»Šæ—¥ã¯" + Text1 + "ã‚’è²·ãŠã†ã€";
 
 
 		getImage();
@@ -337,7 +337,7 @@ public class MemoryGameScript1 : MonoBehaviour
 		{
 			NumMat[2].GetComponent<Image>().sprite = bread;
 		}
-		if (rand3 == randText )
+		if (rand3 == randText)
 		{
 			outline3.effectColor = Color.red;
 		}
@@ -384,7 +384,7 @@ public class MemoryGameScript1 : MonoBehaviour
 		{
 			NumMat[3].GetComponent<Image>().sprite = bread;
 		}
-		if (rand4 == randText )
+		if (rand4 == randText)
 		{
 			outline4.effectColor = Color.red;
 		}
@@ -431,7 +431,7 @@ public class MemoryGameScript1 : MonoBehaviour
 		{
 			NumMat[4].GetComponent<Image>().sprite = bread;
 		}
-		if (rand5 == randText )
+		if (rand5 == randText)
 		{
 			outline5.effectColor = Color.red;
 		}
@@ -454,13 +454,13 @@ public class MemoryGameScript1 : MonoBehaviour
 			timer = Time.time - StartTime;
 		}
 
-		if(timer >= 1 && timer <= 2)
-        {
+		if (timer >= 1 && timer <= 2)
+		{
 			SE.clip = SEFile[0];
 			SE.Play();
 		}
-		else if(timer >= 2.5 && timer <= 3)
-        {
+		else if (timer >= 2.5 && timer <= 3)
+		{
 			SE.Stop();
 			SE.clip = SEFile[1];
 			SE.loop = true;
@@ -513,7 +513,7 @@ public class MemoryGameScript1 : MonoBehaviour
 				canBePressed = true;
 
 				//text
-				command_Text.text = "u”ƒ‚¤‚à‚Ì‚ªuˆê‚Âv‚ ‚Á‚½‚æ‚Ëv";
+				command_Text.text = "ã€Œè²·ã†ã‚‚ã®ãŒã€Œä¸€ã¤ã€ã‚ã£ãŸã‚ˆã­ã€";
 			}
 
 			if (correctAns == 1)
@@ -593,7 +593,7 @@ public class MemoryGameScript1 : MonoBehaviour
 				colorBlock[rando_2].normalColor = Color.red;
 				NumMat[rando_2].GetComponent<Image>().sprite = draw10;
 				NumMat[rando_2].colors = colorBlock[rando_2];
-			} 
+			}
 
 
 		}
@@ -610,7 +610,7 @@ public class MemoryGameScript1 : MonoBehaviour
 			colorBlock[0].normalColor = Color.white;
 			NumMat[0].colors = colorBlock[0];
 
-			if (rand1 == randText )
+			if (rand1 == randText)
 			{
 				SE.Stop();
 				SE.clip = SEFile[2];
@@ -679,7 +679,7 @@ public class MemoryGameScript1 : MonoBehaviour
 			colorBlock[2].normalColor = Color.white;
 			NumMat[2].colors = colorBlock[2];
 
-			if (rand3 == randText )
+			if (rand3 == randText)
 			{
 				SE.Stop();
 				SE.clip = SEFile[2];
@@ -713,7 +713,7 @@ public class MemoryGameScript1 : MonoBehaviour
 			colorBlock[3].normalColor = Color.white;
 			NumMat[3].colors = colorBlock[3];
 
-			if (rand4 == randText )
+			if (rand4 == randText)
 			{
 				SE.Stop();
 				SE.clip = SEFile[2];
@@ -747,7 +747,7 @@ public class MemoryGameScript1 : MonoBehaviour
 			colorBlock[4].normalColor = Color.white;
 			NumMat[4].colors = colorBlock[4];
 
-			if (rand5 == randText )
+			if (rand5 == randText)
 			{
 				SE.Stop();
 				SE.clip = SEFile[2];
@@ -769,6 +769,3 @@ public class MemoryGameScript1 : MonoBehaviour
 		}
 	}
 }
-
-
-

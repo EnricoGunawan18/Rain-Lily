@@ -68,19 +68,7 @@ public class DialogueManager : MonoBehaviour
 
         int menu = PlayerPrefs.GetInt("NovelMenu");
 
-        //if (loadDialogue.ItemEffect == true)
-        //{
-
-        //    ItemEffect = false;
-
-        //    loadDialogue.waitForFadeAnim = false;
-
-        //    PlayerPrefs.SetInt("NovelMenu", 10);
-
-        //    SceneManager.LoadScene("Novel");
-
-        //}
-        /*else*/ if (menu == 1 || menu == 2 || menu == 3)
+        if (menu == 1 || menu == 2 || menu == 3)
         {
             dialogueSpeed = 0;
             MiniGameChoose.SetActive(true);

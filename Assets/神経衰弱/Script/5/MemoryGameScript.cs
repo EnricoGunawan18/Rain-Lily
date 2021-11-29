@@ -1214,6 +1214,3 @@ public class MemoryGameScript : MonoBehaviour
         }
     }
 }
-
-
-

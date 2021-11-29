@@ -23,6 +23,22 @@ public class GameShowOnly : MonoBehaviour
 	{
 		int whichFile = PlayerPrefs.GetInt("WhichFile");
 		int startFrom = PlayerPrefs.GetInt("LogNow");
+		int[] date = PlayerPrefsX.GetIntArray("Date");
+		PlayerPrefs.SetInt("NovelMenu", 12);
+		int menu = PlayerPrefs.GetInt("NovelMenu");
+
+		date[1]++;
+
+		if (date[0] == 10 && date[1] == 32)
+		{
+			date[0] = 11;
+			date[1] = 1;
+		}
+		if (date[0] == 11 && date[1] == 31)
+		{
+			date[0] = 12;
+			date[1] = 1;
+		}
 
 		if (whichFile == 1)
 		{
@@ -38,7 +54,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("FirstLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date1", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber1", ItemNumber);
@@ -48,6 +64,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu1", menu);
 			PlayerPrefs.SetInt("LiedFail1", LiedFail);
 			PlayerPrefs.SetInt("KleinFail1", KleinFail);
 			PlayerPrefs.SetInt("Money1", money);
@@ -76,7 +93,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("SecondLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date2", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber2", ItemNumber);
@@ -86,6 +103,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu2", menu);
 			PlayerPrefs.SetInt("LiedFail2", LiedFail);
 			PlayerPrefs.SetInt("KleinFail2", KleinFail);
 			PlayerPrefs.SetInt("Money2", money);
@@ -114,7 +132,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("ThirdLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date3", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber3", ItemNumber);
@@ -124,6 +142,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu3", menu);
 			PlayerPrefs.SetInt("LiedFail3", LiedFail);
 			PlayerPrefs.SetInt("KleinFail3", KleinFail);
 			PlayerPrefs.SetInt("Money3", money);
@@ -152,7 +171,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("FourthLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date4", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber4", ItemNumber);
@@ -162,6 +181,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu4", menu);
 			PlayerPrefs.SetInt("LiedFail4", LiedFail);
 			PlayerPrefs.SetInt("KleinFail4", KleinFail);
 			PlayerPrefs.SetInt("Money4", money);
@@ -190,7 +210,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("FifthLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date5", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber5", ItemNumber);
@@ -200,6 +220,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu5", menu);
 			PlayerPrefs.SetInt("LiedFail5", LiedFail);
 			PlayerPrefs.SetInt("KleinFail5", KleinFail);
 			PlayerPrefs.SetInt("Money5", money);
@@ -228,7 +249,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("SixthLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date6", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber6", ItemNumber);
@@ -238,6 +259,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu6", menu);
 			PlayerPrefs.SetInt("LiedFail6", LiedFail);
 			PlayerPrefs.SetInt("KleinFail6", KleinFail);
 			PlayerPrefs.SetInt("Money6", money);
@@ -266,7 +288,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("SeventhLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date7", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber7", ItemNumber);
@@ -276,6 +298,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu7", menu);
 			PlayerPrefs.SetInt("LiedFail7", LiedFail);
 			PlayerPrefs.SetInt("KleinFail7", KleinFail);
 			PlayerPrefs.SetInt("Money7", money);
@@ -304,7 +327,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("EighthLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date8", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber8", ItemNumber);
@@ -314,6 +337,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu8", menu);
 			PlayerPrefs.SetInt("LiedFail8", LiedFail);
 			PlayerPrefs.SetInt("KleinFail8", KleinFail);
 			PlayerPrefs.SetInt("Money8", money);
@@ -342,7 +366,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("NinthLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date9", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber9", ItemNumber);
@@ -352,6 +376,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu9", menu);
 			PlayerPrefs.SetInt("LiedFail9", LiedFail);
 			PlayerPrefs.SetInt("KleinFail9", KleinFail);
 			PlayerPrefs.SetInt("Money9", money);
@@ -380,7 +405,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("TenthLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date10", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber10", ItemNumber);
@@ -390,6 +415,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu10", menu);
 			PlayerPrefs.SetInt("LiedFail10", LiedFail);
 			PlayerPrefs.SetInt("KleinFail10", KleinFail);
 			PlayerPrefs.SetInt("Money10", money);
@@ -420,7 +446,7 @@ public class GameShowOnly : MonoBehaviour
 
 			int file = PlayerPrefs.GetInt("FirstLog");
 			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
+			
 			PlayerPrefsX.SetIntArray("Date1", date);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber1", ItemNumber);
@@ -430,6 +456,7 @@ public class GameShowOnly : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			PlayerPrefs.SetInt("NovelMenu1", menu);
 			PlayerPrefs.SetInt("LiedFail1", LiedFail);
 			PlayerPrefs.SetInt("KleinFail1", KleinFail);
 			PlayerPrefs.SetInt("Money1", money);

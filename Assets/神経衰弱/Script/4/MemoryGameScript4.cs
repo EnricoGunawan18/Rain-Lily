@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -121,87 +121,87 @@ public class MemoryGameScript4 : MonoBehaviour
 		//shits
 		if (randText == 0)
 		{
-			Text1 = "uƒŠƒ“ƒSv";
+			Text1 = "ã€Œãƒªãƒ³ã‚´ã€";
 		}
 		else if (randText == 1)
 		{
-			Text1 = "uƒr[ƒtv";
+			Text1 = "ã€Œãƒ“ãƒ¼ãƒ•ã€";
 		}
 		else if (randText == 2)
 		{
-			Text1 = "uƒoƒ^[v";
+			Text1 = "ã€Œãƒã‚¿ãƒ¼ã€";
 		}
 		else if (randText == 3)
 		{
-			Text1 = "ulQv";
+			Text1 = "ã€Œäººå‚ã€";
 		}
 		else if (randText == 4)
 		{
-			Text1 = "u‹›v";
+			Text1 = "ã€Œé­šã€";
 		}
 		else if (randText == 5)
 		{
-			Text1 = "uƒOƒŒ[ƒvv";
+			Text1 = "ã€Œã‚°ãƒ¬ãƒ¼ãƒ—ã€";
 		}
 		else if (randText == 6)
 		{
-			Text1 = "u‰–v";
+			Text1 = "ã€Œå¡©ã€";
 		}
 		else if (randText == 7)
 		{
-			Text1 = "u‚Ù‚¤‚ê‚ñ‘v";
+			Text1 = "ã€Œã»ã†ã‚Œã‚“è‰ã€";
 		}
 		else if (randText == 8)
 		{
-			Text1 = "u»“œv";
+			Text1 = "ã€Œç ‚ç³–ã€";
 		}
 		else if (randText == 9)
 		{
-			Text1 = "uƒpƒ“v";
+			Text1 = "ã€Œãƒ‘ãƒ³ã€";
 		}
 
 		if (randText2 == 0)
 		{
-			Text2 = "uƒŠƒ“ƒSv";
+			Text2 = "ã€Œãƒªãƒ³ã‚´ã€";
 		}
 		else if (randText2 == 1)
 		{
-			Text2 = "uƒr[ƒtv";
+			Text2 = "ã€Œãƒ“ãƒ¼ãƒ•ã€";
 		}
 		else if (randText2 == 2)
 		{
-			Text2 = "uƒoƒ^[v";
+			Text2 = "ã€Œãƒã‚¿ãƒ¼ã€";
 		}
 		else if (randText2 == 3)
 		{
-			Text2 = "ulQv";
+			Text2 = "ã€Œäººå‚ã€";
 		}
 		else if (randText2 == 4)
 		{
-			Text2 = "u‹›v";
+			Text2 = "ã€Œé­šã€";
 		}
 		else if (randText2 == 5)
 		{
-			Text2 = "uƒOƒŒ[ƒvv";
+			Text2 = "ã€Œã‚°ãƒ¬ãƒ¼ãƒ—ã€";
 		}
 		else if (randText2 == 6)
 		{
-			Text2 = "u‰–v";
+			Text2 = "ã€Œå¡©ã€";
 		}
 		else if (randText2 == 7)
 		{
-			Text2 = "u‚Ù‚¤‚ê‚ñ‘v";
+			Text2 = "ã€Œã»ã†ã‚Œã‚“è‰ã€";
 		}
 		else if (randText2 == 8)
 		{
-			Text2 = "u»“œv";
+			Text2 = "ã€Œç ‚ç³–ã€";
 		}
 		else if (randText2 == 9)
 		{
-			Text2 = "uƒpƒ“v";
+			Text2 = "ã€Œãƒ‘ãƒ³ã€";
 		}
 
-		command_Text.text = "u¡“ú‚Í" + Text1 + Text2 + "‚ğ”ƒ‚¨‚¤v";
+		command_Text.text = "ã€Œä»Šæ—¥ã¯" + Text1 + Text2 + "ã‚’è²·ãŠã†ã€";
 
 		rand1 = RNG[Random.Range(0, RNG.Count)];
 		RNG.Remove(rand1);
@@ -788,7 +788,7 @@ public class MemoryGameScript4 : MonoBehaviour
 				canBePressed = true;
 
 				//text
-				command_Text.text = "u”ƒ‚¤‚à‚Ì‚ªu“ñ‚Âv‚ ‚Á‚½‚æ‚Ëv";
+				command_Text.text = "ã€Œè²·ã†ã‚‚ã®ãŒã€ŒäºŒã¤ã€ã‚ã£ãŸã‚ˆã­ã€";
 			}
 
 			if (nowStage == 4 || nowStage == 5)
@@ -1158,6 +1158,3 @@ public class MemoryGameScript4 : MonoBehaviour
 		}
 	}
 }
-
-
-

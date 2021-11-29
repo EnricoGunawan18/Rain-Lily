@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
@@ -69,35 +69,35 @@ public class ResultScript : MonoBehaviour
 			if (_add.GetScore() < 1000)
 			{
 				Star_create(0, 1);
-				gold.text = "‹à‰Ý‚ð100–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gold.text = "é‡‘è²¨ã‚’100æžšç²å¾—ã—ã¾ã—ãŸ";
 				gameMoneyGet += 100;
 				Debug.Log("1");
 			}
 			else if (_add.GetScore() < 1500)
 			{
 				Star_create(75, 2);
-				gold.text = "‹à‰Ý‚ð300–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gold.text = "é‡‘è²¨ã‚’300æžšç²å¾—ã—ã¾ã—ãŸ";
 				gameMoneyGet += 300;
 				Debug.Log("2");
 			}
 			else if (_add.GetScore() < 2000)
 			{
 				Star_create(125, 3);
-				gold.text = "‹à‰Ý‚ð500–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gold.text = "é‡‘è²¨ã‚’500æžšç²å¾—ã—ã¾ã—ãŸ";
 				gameMoneyGet += 500;
 				Debug.Log("3");
 			}
 			else if (_add.GetScore() < 2500)
 			{
 				Star_create(75, 4);
-				gold.text = "‹à‰Ý‚ð700–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gold.text = "é‡‘è²¨ã‚’700æžšç²å¾—ã—ã¾ã—ãŸ";
 				gameMoneyGet += 700;
 				Debug.Log("4");
 			}
 			else
 			{
 				Star_create(125, 5);
-				gold.text = "‹à‰Ý‚ð1000–‡Šl“¾‚µ‚Ü‚µ‚½";
+				gold.text = "é‡‘è²¨ã‚’1000æžšç²å¾—ã—ã¾ã—ãŸ";
 				gameMoneyGet += 1000;
 				Debug.Log("5");
 			}
@@ -108,7 +108,6 @@ public class ResultScript : MonoBehaviour
 			ResultSW(false);
 		}
 	}
-
 	private void Star_create(float numX, int num)
 	{
 		switch (num)
