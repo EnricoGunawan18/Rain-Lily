@@ -24,6 +24,9 @@ public class DialogueManager : MonoBehaviour
     LoadDialogue loadDialogue;
     Animator FadeAnim;
 
+    [SerializeField]
+    Hide hide;
+
     public float dialogueSpeed;
     public bool next = false;
     public bool isSkipped;
@@ -42,7 +45,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (isSkipped == false)
+        if (isSkipped == false && hide.isHidden == false)
         {
             Skipper.SetActive(true);
         }
@@ -67,6 +70,8 @@ public class DialogueManager : MonoBehaviour
         isSkipped = false;
 
         int menu = PlayerPrefs.GetInt("NovelMenu");
+        int resetPos = PlayerPrefs.GetInt("ResetPos");
+
 
         if (menu == 1 || menu == 2 || menu == 3)
         {
@@ -76,6 +81,10 @@ public class DialogueManager : MonoBehaviour
         }
         else if (menu == 10)
         {
+            if (resetPos == 31)
+            {
+                PlayerPrefs.SetFloat("LiedHeart", 1);
+            }
             FadeAnim.SetBool("Fading", false);
             dialogueSpeed = 0;
             GameShowOnly.SetActive(true);
@@ -89,7 +98,6 @@ public class DialogueManager : MonoBehaviour
             dialogueSpeed = tempSpeed;
             loadDialogue.waitForFadeAnim = false;
         }
-
 
         int miniGame = PlayerPrefs.GetInt("MiniGame");
         if (menu == 1)

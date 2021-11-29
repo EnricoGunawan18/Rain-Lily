@@ -21,6 +21,11 @@ public class Hide : MonoBehaviour
 	Animator Hider;
 	Animator AutoHider;
 
+	[SerializeField]
+	DialogueManager dialogueManager;
+
+	float speed = 0;
+
 	public bool isHidden = false;
 
 	// Start is called before the first frame update
@@ -39,14 +44,16 @@ public class Hide : MonoBehaviour
 	{
 		if (isHidden == false)
 		{
+			speed = dialogueManager.dialogueSpeed;
+			dialogueManager.dialogueSpeed = 0;
 			Hider.SetBool("Hiding", true);
 			isHidden = true;
 			NextDialogue.SetActive(false);
 		}
-		if( autoScroll.normalSpeed != true)
-        {
+		if (autoScroll.normalSpeed != true)
+		{
 			AutoHider.SetBool("autoIsHidden", true);
-        }
+		}
 	}
 
 	private void Showing()
@@ -56,11 +63,11 @@ public class Hide : MonoBehaviour
 			Hider.SetBool("Hiding", false);
 			isHidden = false;
 			NextDialogue.SetActive(true);
+			dialogueManager.dialogueSpeed = speed;
 		}
 		if (autoScroll.normalSpeed != true)
 		{
 			AutoHider.SetBool("autoIsHidden", false);
 		}
-
 	}
 }
