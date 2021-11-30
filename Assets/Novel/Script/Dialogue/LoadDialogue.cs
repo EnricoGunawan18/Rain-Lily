@@ -71,6 +71,10 @@ public class LoadDialogue : MonoBehaviour
 	GameObject StillDialogueBG;
 	[SerializeField]
 	Image DialogueBG;
+	[SerializeField]
+	GameObject NameText;
+
+	int textDown = 0;
 
 	[SerializeField]
 	Image EyeNow;
@@ -313,7 +317,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 	}
 
-	private void Update()
+	void Update()
 	{
 		Continue();
 	}
@@ -2083,6 +2087,7 @@ public class LoadDialogue : MonoBehaviour
 				StillImage.color = new Color(255, 255, 255, 255);
 				DialogueBG.sprite = null;
 				DialogueBG.color = new Color(0, 0, 0, 0);
+				textDown = 1;
 				StillDialogueBG.SetActive(true);
 				nameLabel.color = new Color(0, 0, 0, 255);
 			}
@@ -2092,6 +2097,7 @@ public class LoadDialogue : MonoBehaviour
 				StillImage.color = new Color(255, 255, 255, 255);
 				DialogueBG.sprite = null;
 				DialogueBG.color = new Color(0, 0, 0, 0);
+				textDown = 1;
 				StillDialogueBG.SetActive(true);
 				nameLabel.color = new Color(0, 0, 0, 255);
 			}
@@ -2101,6 +2107,7 @@ public class LoadDialogue : MonoBehaviour
 				StillImage.color = new Color(255, 255, 255, 255);
 				DialogueBG.sprite = null;
 				DialogueBG.color = new Color(0, 0, 0, 0);
+				textDown = 1;
 				StillDialogueBG.SetActive(true);
 				nameLabel.color = new Color(0, 0, 0, 255);
 			}
@@ -2111,8 +2118,20 @@ public class LoadDialogue : MonoBehaviour
 				DialogueBG.sprite = DialogueBGImage;
 				DialogueBG.color = new Color(255, 255, 255, 255);
 				StillDialogueBG.SetActive(false);
+				textDown = 0;
 				nameLabel.color = new Color(255, 255, 255, 255);
 			}
+
+			//if (textDown == 1)
+			//{
+			//	NameText.anchoredPosition = new Vector3(200, -495, 0);
+			//}
+			//else
+			//{
+			//	NameText.anchoredPosition = new Vector3(200, -290, 0);
+			//}
+
+
 			if (d.background == "back-001")
 			{
 				backGroundLabel.text = backgrounds[0].bg;
@@ -2125,7 +2144,7 @@ public class LoadDialogue : MonoBehaviour
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[2];
 			}
-			else if (d.background == "back-003")
+			else if (d.background == "back-003" || d.background == "back-013")
 			{
 				backGroundLabel.text = backgrounds[2].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
@@ -3550,16 +3569,16 @@ public class LoadDialogue : MonoBehaviour
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 				}
 
-				
+
 
 				if (d.id == 613)
 				{
 					finishTemp9 = true;
 				}
 
-				
 
-				if (d.effect == "３秒後フェードイン" )
+
+				if (d.effect == "３秒後フェードイン")
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
@@ -3677,6 +3696,17 @@ public class LoadDialogue : MonoBehaviour
 			else
 			{
 				yield return dialogueManager.Run(d.dialogue, textLabel);
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
 			}
 
 			if (ItemEffect == true)
@@ -3720,8 +3750,6 @@ public class LoadDialogue : MonoBehaviour
 
 		if (finishTemp1 == true)
 		{
-			dialogueManager.dialogueSpeed = speed;
-
 			resetPos = 1;
 			finishTemp1 = false;
 			whichLineNow = 59;
@@ -4249,8 +4277,8 @@ public class LoadDialogue : MonoBehaviour
 
 
 
-			ShowDialogue();
 		}
+		ShowDialogue();
 	}
 
 	void SecondButtonClicked()
@@ -4264,8 +4292,6 @@ public class LoadDialogue : MonoBehaviour
 		Time.timeScale = 1;
 		if (finishTemp1 == true)
 		{
-			dialogueManager.dialogueSpeed = speed;
-
 			resetPos = 2;
 			finishTemp1 = false;
 			whichLineNow = 59;
@@ -4608,8 +4634,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 
-			ShowDialogue();
 		}
+		ShowDialogue();
 	}
 
 

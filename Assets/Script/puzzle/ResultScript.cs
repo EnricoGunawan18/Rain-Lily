@@ -181,6 +181,12 @@ public class ResultScript : MonoBehaviour
 			cleanTimes += 1;
 			PlayerPrefs.SetInt("CleanNumber", cleanTimes);
 
+			/////////////////////////////////////gameshow
+			float liedHeart = PlayerPrefs.GetFloat("LiedHeart");
+			liedHeart += 10;
+			PlayerPrefs.SetFloat("LiedHeart", liedHeart);
+			/////////////////////////////////////
+
 			PlayerPrefs.SetInt("Money", gameMoneyGet);
 			PlayerPrefs.SetInt("NovelMenu", 13);
 			SceneManager.LoadScene("Novel");
@@ -192,6 +198,7 @@ public class ResultScript : MonoBehaviour
 		}
 		else
 		{
+			PlayerPrefs.SetInt("ScoreClean", score);
 			SceneManager.LoadScene("TitleScreen");
 		}
 	}

@@ -55,10 +55,14 @@ public class AddItem : MonoBehaviour
 
 	void ItemChooseClick(int number)
 	{
+		PlayerPrefsX.SetIntArray("ItemNumber",ItemNumber);
 		if (characterItemChoose.Character == "Riit")
 		{
 			if (ItemNumber[number] != 0)
 			{
+				ItemNumber[number] -= 1;
+				PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
+
 				characterItemChoose.Character = "None";
 				if (number == 0 || number == 7 || number == 8
 					|| number == 9 || number == 10)
@@ -74,6 +78,7 @@ public class AddItem : MonoBehaviour
 				{
 					loadDialogue.RiitEffect(2);
 				}
+				
 				ItemScreen.SetActive(false);
 			}
 		}
@@ -82,6 +87,8 @@ public class AddItem : MonoBehaviour
 		{
 			if (ItemNumber[number] != 0)
 			{
+				PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
+
 				characterItemChoose.Character = "None";
 				if (number == 3 || number == 7 || number == 11
 				|| number == 12 || number == 13)

@@ -14,7 +14,6 @@ public class TitleScript : MonoBehaviour
 	public Button[] Files;
 	public Button BackButton;
 	public Button BackMiniGame;
-	public Text MemoryHS;
 
 	[SerializeField]
 	Button CG;
@@ -28,31 +27,13 @@ public class TitleScript : MonoBehaviour
 	[SerializeField]
 	AudioSource ButtonAudioSource;
 
-	public static float highScore = 0;
 	public bool newFile = false;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		ButtonAudioSource.Stop();
-		//reset//////////////////////////////////////////////////////////////////
-		//PlayerPrefs.SetFloat("ScoreAll", 0);
-		//PlayerPrefs.SetFloat("Score1", 0);
-		//PlayerPrefs.SetFloat("Score2", 0);
-		//PlayerPrefs.SetFloat("Score3", 0);
-		//PlayerPrefs.SetFloat("Score4", 0);
-		//PlayerPrefs.SetFloat("Score5", 0);
-		//PlayerPrefs.SetInt("LogNow", 1);
 		PlayerPrefs.SetFloat("DialogueSpeed", 25f);
-
-		float scoreGet = PlayerPrefs.GetFloat("ScoreAll");
-
-		if (highScore <= scoreGet)
-		{
-			highScore = scoreGet;
-		}
-
-		MemoryHS.text = "High Score : " + highScore;
 
 		NewGame.onClick.AddListener(NewGameStart);
 		LoadGame.onClick.AddListener(LoadGameStart);

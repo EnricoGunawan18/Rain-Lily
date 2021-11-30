@@ -81,13 +81,21 @@ public class DialogueManager : MonoBehaviour
         }
         else if (menu == 10)
         {
+            dialogueSpeed = 25;
             if (resetPos == 31)
             {
                 PlayerPrefs.SetFloat("LiedHeart", 1);
             }
             FadeAnim.SetBool("Fading", false);
             dialogueSpeed = 0;
-            GameShowOnly.SetActive(true);
+            if (loadDialogue.ItemEffect == true)
+            {
+                GameMenu.SetActive(true);
+            }
+            else
+            {
+                GameShowOnly.SetActive(true);
+            }
             loadDialogue.waitForFadeAnim = false;
         }
         else if (loadDialogue.waitForFadeAnim == true)

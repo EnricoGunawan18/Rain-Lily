@@ -79,9 +79,7 @@ public class FinishScript : MonoBehaviour
 			score5 = PlayerPrefs.GetFloat("Score5");
 
 			totalScore = score1 + score2 + score3 + score4 + score5;
-			PlayerPrefs.SetFloat("ScoreAll", totalScore);
-			recentScore = PlayerPrefs.GetFloat("ScoreAll");
-			ScoreTotal.text = PlayerPrefs.GetFloat("ScoreAll").ToString();
+			ScoreTotal.text = totalScore.ToString();
 
 
 			timeStopper = true;
@@ -117,6 +115,12 @@ public class FinishScript : MonoBehaviour
 			shopTimes += 1;
 			PlayerPrefs.SetInt("ShopNumber", shopTimes);
 
+			/////////////////////////////////////gameshow
+			float liedHeart = PlayerPrefs.GetFloat("LiedHeart");
+			liedHeart += 10;
+			PlayerPrefs.SetFloat("LiedHeart", liedHeart);
+			/////////////////////////////////////
+
 			PlayerPrefs.SetInt("Money", gameMoneyGet);
 			PlayerPrefs.SetInt("NovelMenu", 11);
 			SceneManager.LoadScene("Novel");
@@ -124,6 +128,8 @@ public class FinishScript : MonoBehaviour
 
 		else
 		{
+			PlayerPrefs.SetFloat("ScoreAll", totalScore);
+
 			SceneManager.LoadScene("TitleScreen");
 		}
 
@@ -136,6 +142,8 @@ public class FinishScript : MonoBehaviour
 			Star[2].color = new Color32(255, 255, 255, 255);
 			Star[3].color = new Color32(255, 255, 255, 255);
 			Star[4].color = new Color32(255, 255, 255, 255);
+			MoneyGet.text = "金貨1000獲得しました";
+
 		}
 		else if (recentScore >= 3000 && countMoneyStop == false)
 		{
@@ -145,6 +153,7 @@ public class FinishScript : MonoBehaviour
 			Star[1].color = new Color32(255, 255, 255, 255);
 			Star[2].color = new Color32(255, 255, 255, 255);
 			Star[3].color = new Color32(255, 255, 255, 255);
+			MoneyGet.text = "金貨700獲得しました";
 
 		}
 		else if (recentScore >= 1500 && countMoneyStop == false)
@@ -154,6 +163,7 @@ public class FinishScript : MonoBehaviour
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			Star[2].color = new Color32(255, 255, 255, 255);
+			MoneyGet.text = "金貨500獲得しました";
 
 		}
 		else if (recentScore >= 900 && countMoneyStop == false)
@@ -162,6 +172,7 @@ public class FinishScript : MonoBehaviour
 			gameMoneyGet += 300;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
+			MoneyGet.text = "金貨300獲得しました";
 
 		}
 		else if( countMoneyStop == false)
@@ -169,8 +180,9 @@ public class FinishScript : MonoBehaviour
 			countMoneyStop = true;
 			gameMoneyGet += 100;
 			Star[0].color = new Color32(255, 255, 255, 255);
+			MoneyGet.text = "金貨100獲得しました";
+
 		}
-		MoneyGet.text = "金貨" + gameMoneyGet.ToString() + "獲得しました";
 
 	}
 
