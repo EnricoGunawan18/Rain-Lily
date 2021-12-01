@@ -133,7 +133,7 @@ public class FinishScript : MonoBehaviour
 			SceneManager.LoadScene("TitleScreen");
 		}
 
-		if (recentScore >= 6000 && countMoneyStop == false)
+		if (totalScore >= 6000 && countMoneyStop == false)
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 1000;
@@ -145,7 +145,7 @@ public class FinishScript : MonoBehaviour
 			MoneyGet.text = "金貨1000獲得しました";
 
 		}
-		else if (recentScore >= 3000 && countMoneyStop == false)
+		else if (totalScore >= 3000 && countMoneyStop == false)
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 700;
@@ -156,7 +156,7 @@ public class FinishScript : MonoBehaviour
 			MoneyGet.text = "金貨700獲得しました";
 
 		}
-		else if (recentScore >= 1500 && countMoneyStop == false)
+		else if (totalScore >= 1500 && countMoneyStop == false)
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 500;
@@ -166,7 +166,7 @@ public class FinishScript : MonoBehaviour
 			MoneyGet.text = "金貨500獲得しました";
 
 		}
-		else if (recentScore >= 900 && countMoneyStop == false)
+		else if (totalScore >= 900 && countMoneyStop == false)
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 300;
@@ -190,13 +190,11 @@ public class FinishScript : MonoBehaviour
 	public void Finishing()
 	{
 		Finish.SetActive(true);
-		//Time.timeScale = 0f;
 		ScoreSheet.SetActive(false);
 	}
 	public void Scoring()
 	{
 		ScoreSheet.SetActive(true);
-		//Time.timeScale = 0f;
 		Finish.SetActive(false);
 	}
 }

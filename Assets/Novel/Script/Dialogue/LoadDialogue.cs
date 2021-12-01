@@ -32,6 +32,8 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	public Image charaImageNow;
 	[SerializeField]
+	public Image charaImageNow1;
+	[SerializeField]
 	public AudioClip[] BGMFile;
 	[SerializeField]
 	public AudioClip[] SEFile;
@@ -57,6 +59,9 @@ public class LoadDialogue : MonoBehaviour
 	GameObject MiniGameChoose;
 
 	[SerializeField]
+	GameObject[] CharacterImage;
+
+	[SerializeField]
 	public Sprite[] CharaEyes;
 	[SerializeField]
 	public Sprite[] CharaMouth;
@@ -71,15 +76,17 @@ public class LoadDialogue : MonoBehaviour
 	GameObject StillDialogueBG;
 	[SerializeField]
 	Image DialogueBG;
-	[SerializeField]
-	GameObject NameText;
-
-	int textDown = 0;
 
 	[SerializeField]
 	Image EyeNow;
 	[SerializeField]
 	Image MouthNow;
+
+	[SerializeField]
+	Image EyeNow1;
+	[SerializeField]
+	Image MouthNow1;
+
 
 	[SerializeField]
 	public AudioClip[] VoiceFile;
@@ -98,7 +105,6 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	DialogueManager dialogueManager;
 	private AutoScroll autoScroll;
-	private Hide hide;
 	public BackGroundLogs bgl;
 	public Dialogue d;
 
@@ -110,6 +116,9 @@ public class LoadDialogue : MonoBehaviour
 
 	[SerializeField]
 	Animator TextBGHide;
+
+	[SerializeField]
+	Animator Hide;
 
 	[SerializeField]
 	AudioSource Voice;
@@ -147,6 +156,10 @@ public class LoadDialogue : MonoBehaviour
 
 	public float voiceTime;
 
+	[SerializeField]
+	GameObject GameShowOnly;
+
+
 	public List<BackGroundLogs> backgrounds;
 	public List<Dialogue> dialogues;
 
@@ -173,7 +186,6 @@ public class LoadDialogue : MonoBehaviour
 		backGroundName = "";
 
 		autoScroll = GameObject.Find("AutoScroll").GetComponent<AutoScroll>();
-		hide = GameObject.Find("HideAnimator").GetComponent<Hide>();
 		BGM = GameObject.Find("BGM").GetComponent<AudioSource>();
 		SE = GameObject.Find("SE").GetComponent<AudioSource>();
 		nextDialogue.onClick.AddListener(TaskOnClick);
@@ -209,7 +221,7 @@ public class LoadDialogue : MonoBehaviour
 		{
 			data = prologue.text.Split(new char[] { '$' });
 		}
-		else if (date[0] == 10 && date[1] == 15)
+		else if (date[0] == 10 && date[1] == 13)
 		{
 			data = LiedDialogue[0].text.Split(new char[] { '$' });
 			if (liedAff >= 10f)
@@ -223,7 +235,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 10 && date[1] == 20)
+		else if (date[0] == 10 && date[1] == 16)
 		{
 			data = LiedDialogue[1].text.Split(new char[] { '$' });
 			if (liedAff >= 15f)
@@ -238,7 +250,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 10 && date[1] == 30)
+		else if (date[0] == 10 && date[1] == 19)
 		{
 			data = LiedDialogue[2].text.Split(new char[] { '$' });
 			if (liedAff >= 20f)
@@ -252,7 +264,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 11 && date[1] == 8)
+		else if (date[0] == 10 && date[1] == 22)
 		{
 			data = LiedDialogue[3].text.Split(new char[] { '$' });
 			if (liedAff >= 25f)
@@ -266,7 +278,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 11 && date[1] == 15)
+		else if (date[0] == 10 && date[1] == 25)
 		{
 			data = LiedDialogue[4].text.Split(new char[] { '$' });
 			if (liedAff >= 30f)
@@ -2087,9 +2099,9 @@ public class LoadDialogue : MonoBehaviour
 				StillImage.color = new Color(255, 255, 255, 255);
 				DialogueBG.sprite = null;
 				DialogueBG.color = new Color(0, 0, 0, 0);
-				textDown = 1;
 				StillDialogueBG.SetActive(true);
 				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
 			}
 			else if (d.background == "still-006-b")
 			{
@@ -2097,9 +2109,9 @@ public class LoadDialogue : MonoBehaviour
 				StillImage.color = new Color(255, 255, 255, 255);
 				DialogueBG.sprite = null;
 				DialogueBG.color = new Color(0, 0, 0, 0);
-				textDown = 1;
 				StillDialogueBG.SetActive(true);
 				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
 			}
 			else if (d.background == "still-006-c")
 			{
@@ -2107,9 +2119,9 @@ public class LoadDialogue : MonoBehaviour
 				StillImage.color = new Color(255, 255, 255, 255);
 				DialogueBG.sprite = null;
 				DialogueBG.color = new Color(0, 0, 0, 0);
-				textDown = 1;
 				StillDialogueBG.SetActive(true);
 				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
 			}
 
 			else
@@ -2118,18 +2130,9 @@ public class LoadDialogue : MonoBehaviour
 				DialogueBG.sprite = DialogueBGImage;
 				DialogueBG.color = new Color(255, 255, 255, 255);
 				StillDialogueBG.SetActive(false);
-				textDown = 0;
 				nameLabel.color = new Color(255, 255, 255, 255);
+				Hide.SetBool("Still", false);
 			}
-
-			//if (textDown == 1)
-			//{
-			//	NameText.anchoredPosition = new Vector3(200, -495, 0);
-			//}
-			//else
-			//{
-			//	NameText.anchoredPosition = new Vector3(200, -290, 0);
-			//}
 
 
 			if (d.background == "back-001")
@@ -2144,7 +2147,7 @@ public class LoadDialogue : MonoBehaviour
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[2];
 			}
-			else if (d.background == "back-003" || d.background == "back-013")
+			else if (d.background == "back-003")
 			{
 				backGroundLabel.text = backgrounds[2].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
@@ -2198,6 +2201,30 @@ public class LoadDialogue : MonoBehaviour
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[26];
 			}
+			else if (d.background == "back-015-sun")
+			{
+				backGroundLabel.text = backgrounds[23].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[17];
+			}
+			else if (d.background == "back-015-night")
+			{
+				backGroundLabel.text = backgrounds[24].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[16];
+			}
+			else if (d.background == "back-013" || d.background == "back-013-night")
+			{
+				backGroundLabel.text = backgrounds[18].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[3];
+			}
+			else if (d.background == "back-016")
+			{
+				backGroundLabel.text = backgrounds[25].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[18];
+			}
 			else if (d.background == "暗転")
 			{
 				backGroundLabel.text = "暗転";
@@ -2216,25 +2243,21 @@ public class LoadDialogue : MonoBehaviour
 				if (d.voice == "V-0065")
 				{
 					Voice.clip = VoiceFile[0];
-					voiceTime = VoiceFile[0].length;
 					Voice.Play();
 				}
 				else if (d.voice == "V-0067")
 				{
 					Voice.clip = VoiceFile[1];
-					voiceTime = VoiceFile[1].length;
 					Voice.Play();
 				}
 				else if (d.voice == "V-0069")
 				{
 					Voice.clip = VoiceFile[2];
-					voiceTime = VoiceFile[2].length;
 					Voice.Play();
 				}
 				else if (d.voice == "V-0071")
 				{
 					Voice.clip = VoiceFile[3];
-					voiceTime = VoiceFile[3].length;
 					Voice.Play();
 				}
 				else if (d.voice == "V-0072")
@@ -2587,6 +2610,1214 @@ public class LoadDialogue : MonoBehaviour
 					Voice.clip = VoiceFile[73];
 					Voice.Play();
 				}
+				else if (d.voice == "V-0257")
+				{
+					Voice.clip = VoiceFile[74];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0259")
+				{
+					Voice.clip = VoiceFile[75];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0263")
+				{
+					Voice.clip = VoiceFile[76];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0265")
+				{
+					Voice.clip = VoiceFile[77];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0269")
+				{
+					Voice.clip = VoiceFile[78];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0271")
+				{
+					Voice.clip = VoiceFile[79];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0274")
+				{
+					Voice.clip = VoiceFile[80];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0278")
+				{
+					Voice.clip = VoiceFile[81];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0280")
+				{
+					Voice.clip = VoiceFile[82];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0281")
+				{
+					Voice.clip = VoiceFile[83];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0283")
+				{
+					Voice.clip = VoiceFile[84];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0286")
+				{
+					Voice.clip = VoiceFile[85];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0290")
+				{
+					Voice.clip = VoiceFile[86];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0294")
+				{
+					Voice.clip = VoiceFile[87];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0296")
+				{
+					Voice.clip = VoiceFile[88];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0298")
+				{
+					Voice.clip = VoiceFile[89];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0300")
+				{
+					Voice.clip = VoiceFile[90];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0302")
+				{
+					Voice.clip = VoiceFile[91];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0303")
+				{
+					Voice.clip = VoiceFile[92];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0304")
+				{
+					Voice.clip = VoiceFile[93];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0308")
+				{
+					Voice.clip = VoiceFile[94];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0314")
+				{
+					Voice.clip = VoiceFile[95];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0316")
+				{
+					Voice.clip = VoiceFile[96];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0318")
+				{
+					Voice.clip = VoiceFile[97];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0320")
+				{
+					Voice.clip = VoiceFile[98];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0322")
+				{
+					Voice.clip = VoiceFile[99];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0324")
+				{
+					Voice.clip = VoiceFile[100];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0326")
+				{
+					Voice.clip = VoiceFile[101];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0328")
+				{
+					Voice.clip = VoiceFile[102];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0330")
+				{
+					Voice.clip = VoiceFile[103];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0332")
+				{
+					Voice.clip = VoiceFile[104];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0333")
+				{
+					Voice.clip = VoiceFile[105];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0335")
+				{
+					Voice.clip = VoiceFile[106];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0337")
+				{
+					Voice.clip = VoiceFile[107];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0342")
+				{
+					Voice.clip = VoiceFile[108];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0344")
+				{
+					Voice.clip = VoiceFile[109];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0345")
+				{
+					Voice.clip = VoiceFile[110];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0347")
+				{
+					Voice.clip = VoiceFile[111];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0350")
+				{
+					Voice.clip = VoiceFile[112];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0352")
+				{
+					Voice.clip = VoiceFile[113];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0354")
+				{
+					Voice.clip = VoiceFile[114];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0357")
+				{
+					Voice.clip = VoiceFile[115];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0358")
+				{
+					Voice.clip = VoiceFile[116];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0360")
+				{
+					Voice.clip = VoiceFile[117];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0362")
+				{
+					Voice.clip = VoiceFile[118];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0364")
+				{
+					Voice.clip = VoiceFile[119];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0366")
+				{
+					Voice.clip = VoiceFile[120];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0370")
+				{
+					Voice.clip = VoiceFile[121];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0372")
+				{
+					Voice.clip = VoiceFile[122];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0374")
+				{
+					Voice.clip = VoiceFile[123];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0376")
+				{
+					Voice.clip = VoiceFile[124];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0380")
+				{
+					Voice.clip = VoiceFile[125];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0382")
+				{
+					Voice.clip = VoiceFile[126];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0384")
+				{
+					Voice.clip = VoiceFile[127];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0386")
+				{
+					Voice.clip = VoiceFile[128];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0388")
+				{
+					Voice.clip = VoiceFile[129];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0390")
+				{
+					Voice.clip = VoiceFile[130];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0393")
+				{
+					Voice.clip = VoiceFile[131];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0395")
+				{
+					Voice.clip = VoiceFile[132];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0397")
+				{
+					Voice.clip = VoiceFile[133];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0398")
+				{
+					Voice.clip = VoiceFile[134];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0399")
+				{
+					Voice.clip = VoiceFile[135];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0405")
+				{
+					Voice.clip = VoiceFile[136];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0407")
+				{
+					Voice.clip = VoiceFile[137];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0409")
+				{
+					Voice.clip = VoiceFile[138];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0411")
+				{
+					Voice.clip = VoiceFile[139];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0413")
+				{
+					Voice.clip = VoiceFile[140];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0415")
+				{
+					Voice.clip = VoiceFile[141];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0417")
+				{
+					Voice.clip = VoiceFile[142];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0419")
+				{
+					Voice.clip = VoiceFile[143];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0424")
+				{
+					Voice.clip = VoiceFile[144];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0426")
+				{
+					Voice.clip = VoiceFile[145];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0428")
+				{
+					Voice.clip = VoiceFile[146];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0430")
+				{
+					Voice.clip = VoiceFile[147];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0432")
+				{
+					Voice.clip = VoiceFile[148];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0434")
+				{
+					Voice.clip = VoiceFile[149];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0437")
+				{
+					Voice.clip = VoiceFile[150];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0439")
+				{
+					Voice.clip = VoiceFile[151];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0442")
+				{
+					Voice.clip = VoiceFile[152];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0444")
+				{
+					Voice.clip = VoiceFile[153];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0445")
+				{
+					Voice.clip = VoiceFile[154];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0447")
+				{
+					Voice.clip = VoiceFile[155];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0451")
+				{
+					Voice.clip = VoiceFile[156];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0453")
+				{
+					Voice.clip = VoiceFile[157];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0455")
+				{
+					Voice.clip = VoiceFile[158];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0457")
+				{
+					Voice.clip = VoiceFile[159];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0458")
+				{
+					Voice.clip = VoiceFile[160];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0460")
+				{
+					Voice.clip = VoiceFile[161];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0462")
+				{
+					Voice.clip = VoiceFile[162];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0464")
+				{
+					Voice.clip = VoiceFile[163];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0465")
+				{
+					Voice.clip = VoiceFile[164];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0468")
+				{
+					Voice.clip = VoiceFile[165];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0470")
+				{
+					Voice.clip = VoiceFile[166];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0472")
+				{
+					Voice.clip = VoiceFile[167];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0474")
+				{
+					Voice.clip = VoiceFile[168];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0476")
+				{
+					Voice.clip = VoiceFile[169];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0477")
+				{
+					Voice.clip = VoiceFile[170];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0479")
+				{
+					Voice.clip = VoiceFile[171];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0480")
+				{
+					Voice.clip = VoiceFile[172];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0482")
+				{
+					Voice.clip = VoiceFile[173];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0484")
+				{
+					Voice.clip = VoiceFile[174];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0486")
+				{
+					Voice.clip = VoiceFile[175];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0488")
+				{
+					Voice.clip = VoiceFile[176];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0490")
+				{
+					Voice.clip = VoiceFile[177];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0491")
+				{
+					Voice.clip = VoiceFile[178];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0493")
+				{
+					Voice.clip = VoiceFile[179];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0494")
+				{
+					Voice.clip = VoiceFile[180];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0496")
+				{
+					Voice.clip = VoiceFile[181];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0498")
+				{
+					Voice.clip = VoiceFile[182];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0500")
+				{
+					Voice.clip = VoiceFile[183];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0501")
+				{
+					Voice.clip = VoiceFile[184];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0503")
+				{
+					Voice.clip = VoiceFile[185];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0505")
+				{
+					Voice.clip = VoiceFile[186];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0507")
+				{
+					Voice.clip = VoiceFile[187];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0509")
+				{
+					Voice.clip = VoiceFile[188];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0510")
+				{
+					Voice.clip = VoiceFile[189];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0512")
+				{
+					Voice.clip = VoiceFile[190];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0519")
+				{
+					Voice.clip = VoiceFile[191];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0526")
+				{
+					Voice.clip = VoiceFile[192];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0529")
+				{
+					Voice.clip = VoiceFile[193];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0531")
+				{
+					Voice.clip = VoiceFile[194];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0534")
+				{
+					Voice.clip = VoiceFile[195];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0536")
+				{
+					Voice.clip = VoiceFile[196];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0538")
+				{
+					Voice.clip = VoiceFile[197];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0539")
+				{
+					Voice.clip = VoiceFile[198];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0541")
+				{
+					Voice.clip = VoiceFile[199];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0542")
+				{
+					Voice.clip = VoiceFile[200];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0544")
+				{
+					Voice.clip = VoiceFile[201];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0546")
+				{
+					Voice.clip = VoiceFile[202];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0549")
+				{
+					Voice.clip = VoiceFile[203];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0551")
+				{
+					Voice.clip = VoiceFile[204];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0553")
+				{
+					Voice.clip = VoiceFile[205];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0555")
+				{
+					Voice.clip = VoiceFile[206];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0558")
+				{
+					Voice.clip = VoiceFile[207];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0560")
+				{
+					Voice.clip = VoiceFile[208];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0562")
+				{
+					Voice.clip = VoiceFile[209];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0564")
+				{
+					Voice.clip = VoiceFile[210];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0568")
+				{
+					Voice.clip = VoiceFile[211];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0570")
+				{
+					Voice.clip = VoiceFile[212];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0572")
+				{
+					Voice.clip = VoiceFile[213];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0574")
+				{
+					Voice.clip = VoiceFile[214];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0576")
+				{
+					Voice.clip = VoiceFile[215];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0580")
+				{
+					Voice.clip = VoiceFile[216];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0581")
+				{
+					Voice.clip = VoiceFile[217];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0584")
+				{
+					Voice.clip = VoiceFile[218];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0586")
+				{
+					Voice.clip = VoiceFile[219];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0588")
+				{
+					Voice.clip = VoiceFile[220];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0591")
+				{
+					Voice.clip = VoiceFile[221];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0593")
+				{
+					Voice.clip = VoiceFile[222];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0595")
+				{
+					Voice.clip = VoiceFile[223];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0597")
+				{
+					Voice.clip = VoiceFile[224];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0599")
+				{
+					Voice.clip = VoiceFile[225];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0601")
+				{
+					Voice.clip = VoiceFile[226];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0606")
+				{
+					Voice.clip = VoiceFile[227];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0608")
+				{
+					Voice.clip = VoiceFile[228];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0613")
+				{
+					Voice.clip = VoiceFile[229];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0615")
+				{
+					Voice.clip = VoiceFile[230];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0617")
+				{
+					Voice.clip = VoiceFile[231];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0619")
+				{
+					Voice.clip = VoiceFile[232];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0621")
+				{
+					Voice.clip = VoiceFile[233];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0623")
+				{
+					Voice.clip = VoiceFile[234];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0626")
+				{
+					Voice.clip = VoiceFile[235];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0628")
+				{
+					Voice.clip = VoiceFile[236];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0630")
+				{
+					Voice.clip = VoiceFile[237];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0632")
+				{
+					Voice.clip = VoiceFile[238];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0634")
+				{
+					Voice.clip = VoiceFile[239];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0637")
+				{
+					Voice.clip = VoiceFile[240];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0639")
+				{
+					Voice.clip = VoiceFile[241];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0642")
+				{
+					Voice.clip = VoiceFile[242];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0644")
+				{
+					Voice.clip = VoiceFile[243];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0646")
+				{
+					Voice.clip = VoiceFile[244];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0648")
+				{
+					Voice.clip = VoiceFile[245];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0650")
+				{
+					Voice.clip = VoiceFile[246];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0652")
+				{
+					Voice.clip = VoiceFile[247];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0654")
+				{
+					Voice.clip = VoiceFile[248];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0656")
+				{
+					Voice.clip = VoiceFile[249];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0657")
+				{
+					Voice.clip = VoiceFile[250];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0659")
+				{
+					Voice.clip = VoiceFile[251];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0661")
+				{
+					Voice.clip = VoiceFile[252];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0687")
+				{
+					Voice.clip = VoiceFile[253];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0690")
+				{
+					Voice.clip = VoiceFile[254];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0692")
+				{
+					Voice.clip = VoiceFile[255];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0694")
+				{
+					Voice.clip = VoiceFile[256];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0697")
+				{
+					Voice.clip = VoiceFile[257];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0699")
+				{
+					Voice.clip = VoiceFile[258];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0703")
+				{
+					Voice.clip = VoiceFile[259];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0705")
+				{
+					Voice.clip = VoiceFile[260];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0709")
+				{
+					Voice.clip = VoiceFile[261];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0711")
+				{
+					Voice.clip = VoiceFile[262];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0714")
+				{
+					Voice.clip = VoiceFile[263];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0716")
+				{
+					Voice.clip = VoiceFile[264];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0719")
+				{
+					Voice.clip = VoiceFile[265];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0721")
+				{
+					Voice.clip = VoiceFile[266];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0723")
+				{
+					Voice.clip = VoiceFile[267];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0725")
+				{
+					Voice.clip = VoiceFile[268];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0727")
+				{
+					Voice.clip = VoiceFile[269];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0730")
+				{
+					Voice.clip = VoiceFile[270];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0732")
+				{
+					Voice.clip = VoiceFile[271];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0734")
+				{
+					Voice.clip = VoiceFile[272];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0735")
+				{
+					Voice.clip = VoiceFile[273];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0736")
+				{
+					Voice.clip = VoiceFile[274];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0737")
+				{
+					Voice.clip = VoiceFile[275];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0739")
+				{
+					Voice.clip = VoiceFile[276];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0741")
+				{
+					Voice.clip = VoiceFile[277];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0743")
+				{
+					Voice.clip = VoiceFile[278];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0745")
+				{
+					Voice.clip = VoiceFile[279];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0746")
+				{
+					Voice.clip = VoiceFile[280];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0750")
+				{
+					Voice.clip = VoiceFile[281];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0752")
+				{
+					Voice.clip = VoiceFile[282];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0754")
+				{
+					Voice.clip = VoiceFile[283];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0757")
+				{
+					Voice.clip = VoiceFile[284];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0759")
+				{
+					Voice.clip = VoiceFile[285];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0761")
+				{
+					Voice.clip = VoiceFile[286];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0762")
+				{
+					Voice.clip = VoiceFile[287];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0767")
+				{
+					Voice.clip = VoiceFile[288];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0771")
+				{
+					Voice.clip = VoiceFile[289];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0774")
+				{
+					Voice.clip = VoiceFile[290];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0775")
+				{
+					Voice.clip = VoiceFile[291];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0777")
+				{
+					Voice.clip = VoiceFile[292];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0780")
+				{
+					Voice.clip = VoiceFile[293];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0782")
+				{
+					Voice.clip = VoiceFile[294];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0785")
+				{
+					Voice.clip = VoiceFile[295];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0787")
+				{
+					Voice.clip = VoiceFile[296];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0791")
+				{
+					Voice.clip = VoiceFile[297];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0792")
+				{
+					Voice.clip = VoiceFile[298];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0799")
+				{
+					Voice.clip = VoiceFile[299];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0800")
+				{
+					Voice.clip = VoiceFile[300];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0801")
+				{
+					Voice.clip = VoiceFile[301];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0802")
+				{
+					Voice.clip = VoiceFile[302];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0803")
+				{
+					Voice.clip = VoiceFile[303];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0804")
+				{
+					Voice.clip = VoiceFile[304];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0805")
+				{
+					Voice.clip = VoiceFile[305];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0806")
+				{
+					Voice.clip = VoiceFile[306];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0807")
+				{
+					Voice.clip = VoiceFile[307];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0808")
+				{
+					Voice.clip = VoiceFile[308];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0809")
+				{
+					Voice.clip = VoiceFile[309];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0810")
+				{
+					Voice.clip = VoiceFile[310];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0811")
+				{
+					Voice.clip = VoiceFile[311];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0812")
+				{
+					Voice.clip = VoiceFile[312];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0813")
+				{
+					Voice.clip = VoiceFile[313];
+					Voice.Play();
+				}
+				else if (d.voice == "V-0604")
+				{
+					Voice.clip = VoiceFile[314];
+					Voice.Play();
+				}
+
+
+
 				else
 				{
 					Voice.Stop();
@@ -2611,11 +3842,18 @@ public class LoadDialogue : MonoBehaviour
 				d.expression == "L-05a" || d.expression == "L-06" ||
 				d.expression == "L-06a" || d.expression == "L-07" ||
 				d.expression == "L-07a" || d.expression == "L-08" ||
-				d.expression == "L-09" || d.expression == "L-10" ||
-				d.expression == "L-10a" || d.effect == "リート立ち絵/L-001で表示")
+				d.expression == "L-10" || d.expression == "L-01-ragan" ||
+				d.expression == "L-10a" || d.effect == "リート立ち絵/L-001で表示"||
+				d.expression == "M-05,L-01-ragan")
 			{
 				charaImageNow.color = new Color(255, 255, 255, 255);
 				charaImageNow.sprite = charaImage[0];
+			}
+
+			else if (d.expression == "L-09")
+			{
+				charaImageNow.color = new Color(255, 255, 255, 255);
+				charaImageNow.sprite = charaImage[4];
 			}
 
 			else if (d.expression == "K-01" || d.expression == "K-02" ||
@@ -2642,8 +3880,8 @@ public class LoadDialogue : MonoBehaviour
 				d.expression == "G-05" || d.expression == "G-06" ||
 				d.expression == "G-07")
 			{
-				charaImageNow.color = new Color(255, 255, 255, 255);
-				charaImageNow.sprite = charaImage[3];
+				charaImageNow1.color = new Color(255, 255, 255, 255);
+				charaImageNow1.sprite = charaImage[3];
 			}
 			else if (d.character == "メイア")
 			{
@@ -2704,6 +3942,17 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[2];
 			}
+			else if (d.expression == "L-01-ragan" || d.expression == "M-05,L-01-ragan")
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 3, 4, 5 };
+				StartCoroutine("EyeAnim", eyeList);
+
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[2];
+			}
+
 			else if (d.expression == "L-02")
 			{
 				StopCoroutine("EyeAnim");
@@ -2947,11 +4196,80 @@ public class LoadDialogue : MonoBehaviour
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 71, 72, 73 };
+				int[] eyeList = { 71, 72, 71 };
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[63];
+			}
+			else if (d.expression == "G-01")
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 75, 76, 77 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[66];
+			}
+			else if (d.expression == "G-02")
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				EyeNow1.sprite = CharaEyes[78];
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[69];
+			}
+			else if (d.expression == "G-03")
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 79, 80, 81 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[72];
+			}
+			else if (d.expression == "G-04")
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 82, 83, 84 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[75];
+			}
+			else if (d.expression == "G-05")
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 85, 86, 87 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[78];
+			}
+			else if (d.expression == "G-06")
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 88, 89, 90 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[81];
+			}
+			else if (d.expression == "G-07")
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 91, 92, 93 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[84];
 			}
 
 			//BGM
@@ -3125,15 +4443,6 @@ public class LoadDialogue : MonoBehaviour
 					whichLineNow++;
 				}
 
-				if (d.id == 251)
-				{
-					nameLabel.text = string.Empty;
-					textLabel.text = string.Empty;
-					FadeAnim.SetBool("Fading", true);
-					yield return new WaitForSeconds(1.5f);
-
-					PlayerPrefs.SetInt("NovelMenu", 10);
-				}
 
 				bool minusLine = false;
 				if (d.id == 231)
@@ -3316,10 +4625,21 @@ public class LoadDialogue : MonoBehaviour
 						PlayerPrefs.SetInt("NovelMenu", 5);
 					}
 				}
+
+				if (d.id == 251)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameShowOnly.SetActive(true);
+				}
 			}
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 1/////////////////////////////////////////////////////////////////
-			else if (date[0] == 10 && date[1] == 15)
+			else if (date[0] == 10 && date[1] == 13)
 			{
 				if (d.id == 267)
 				{
@@ -3336,15 +4656,6 @@ public class LoadDialogue : MonoBehaviour
 				if (d.id == 299)
 				{
 					whichLineNow = 61;
-				}
-				if (d.id == 339)
-				{
-					nameLabel.text = string.Empty;
-					textLabel.text = string.Empty;
-					FadeAnim.SetBool("Fading", true);
-					yield return new WaitForSeconds(1.5f);
-
-					PlayerPrefs.SetInt("NovelMenu", 10);
 				}
 				if (d.effect == "フェードアウト")
 				{
@@ -3404,11 +4715,23 @@ public class LoadDialogue : MonoBehaviour
 				else
 				{
 				}
+
+				if (d.id == 339)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameShowOnly.SetActive(true);
+				}
+
 			}
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 2/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 10 && date[1] == 20 && LiedFail == 0)
+			else if (date[0] == 10 && date[1] == 16 && LiedFail == 0)
 			{
 				if (d.id == 379)
 				{
@@ -3427,15 +4750,6 @@ public class LoadDialogue : MonoBehaviour
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
 					yield return new WaitForSeconds(1f);
-				}
-				if (d.id == 423)
-				{
-					nameLabel.text = string.Empty;
-					textLabel.text = string.Empty;
-					FadeAnim.SetBool("Fading", true);
-					yield return new WaitForSeconds(1.5f);
-
-					PlayerPrefs.SetInt("NovelMenu", 10);
 				}
 
 
@@ -3457,12 +4771,24 @@ public class LoadDialogue : MonoBehaviour
 				else
 				{
 				}
+
+				if (d.id == 423)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameShowOnly.SetActive(true);
+				}
+
 			}
 
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 3/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 10 && date[1] == 30 && LiedFail == 0)
+			else if (date[0] == 10 && date[1] == 19 && LiedFail == 0)
 			{
 				if (d.id == 467)
 				{
@@ -3471,15 +4797,6 @@ public class LoadDialogue : MonoBehaviour
 				if (d.id == 517)
 				{
 					whichLineNow = 108;
-				}
-				if (d.id == 516 || d.id == 521)
-				{
-					nameLabel.text = string.Empty;
-					textLabel.text = string.Empty;
-					FadeAnim.SetBool("Fading", true);
-					yield return new WaitForSeconds(1.5f);
-
-					PlayerPrefs.SetInt("NovelMenu", 10);
 				}
 				if (d.effect == "フェードアウト" || d.effect == "フェードアウト/フェードイン")
 				{
@@ -3518,11 +4835,23 @@ public class LoadDialogue : MonoBehaviour
 				else
 				{
 				}
+
+				if (d.id == 516 || d.id == 521)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameShowOnly.SetActive(true);
+				}
+
 			}
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 4/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 11 && date[1] == 8 && LiedFail == 0)
+			else if (date[0] == 10 && date[1] == 22 && LiedFail == 0)
 			{
 				if (d.id == 614)
 				{
@@ -3536,26 +4865,19 @@ public class LoadDialogue : MonoBehaviour
 				{
 					whichLineNow = 132;
 				}
-				if (d.id == 648)
+				if (d.effect == "フェードアウト")
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
-
-					PlayerPrefs.SetInt("NovelMenu", 10);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
 				}
-				if (d.effect == "フェードアウト" || d.effect == "フェードアウト/フェードイン")
+				else if (d.id == 548 || d.id == 526)
 				{
-					nameLabel.text = string.Empty;
-					textLabel.text = string.Empty;
-					FadeAnim.SetBool("Fading", true);
-					yield return new WaitForSeconds(1.5f);
-				}
-				else if (d.effect == "フェードイン")
-				{
-					yield return new WaitForSeconds(1.5f);
 					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
 				}
 
 				else if (d.id == 567 || d.id == 590)
@@ -3578,10 +4900,8 @@ public class LoadDialogue : MonoBehaviour
 
 
 
-				if (d.effect == "３秒後フェードイン")
+				if (d.effect == "３秒後フェードイン" || d.effect == "フェードアウト")
 				{
-					FadeAnim.SetBool("Fading", false);
-					yield return new WaitForSeconds(1.5f);
 				}
 
 				else if (autoScroll.automated == false)
@@ -3602,12 +4922,24 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 				}
+
+				if (d.id == 648)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameShowOnly.SetActive(true);
+				}
+
 			}
 
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 5/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 11 && date[1] == 15 && LiedFail == 0)
+			else if (date[0] == 10 && date[1] == 25 && LiedFail == 0)
 			{
 				if (d.id == 749)
 				{
@@ -3637,14 +4969,29 @@ public class LoadDialogue : MonoBehaviour
 				{
 					whichLineNow = 167;
 				}
-				if (d.id == 813)
+				if (d.id >= 799)
 				{
-					nameLabel.text = string.Empty;
-					textLabel.text = string.Empty;
-					FadeAnim.SetBool("Fading", true);
-					yield return new WaitForSeconds(1.5f);
+					RectTransform rt1 = CharacterImage[0].GetComponent<RectTransform>();
+					RectTransform rt2 = CharacterImage[1].GetComponent<RectTransform>();
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
+					rt1.localPosition = new Vector3(-400, -400, 0);
+					rt2.localPosition = new Vector3(400, -400, 0);
+				}
+				else
+				{
+					RectTransform rt1 = CharacterImage[0].GetComponent<RectTransform>();
+					RectTransform rt2 = CharacterImage[1].GetComponent<RectTransform>();
+
+					rt1.localPosition = new Vector3(0, -400, 0);
+					rt2.localPosition = new Vector3(0, -400, 0);
+				}
+				if (d.id >= 800)
+				{
+					CharacterImage[1].SetActive(true);
+				}
+				else
+				{
+					CharacterImage[1].SetActive(false);
 				}
 				if (d.effect == "フェードアウト" || d.effect == "フェードアウト/フェードイン" || d.effect == "スライドアウト")
 				{
@@ -3652,6 +4999,13 @@ public class LoadDialogue : MonoBehaviour
 					textLabel.text = string.Empty;
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				else if (d.id == 799 || d.id == 795 || d.id == 737 || d.id == 662)
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
 				}
 
 				else
@@ -3670,10 +5024,8 @@ public class LoadDialogue : MonoBehaviour
 					finishTemp10 = true;
 				}
 
-				if (d.effect == "フェードイン")
+				if (d.effect == "フェードアウト" || d.effect == "フェードアウト/フェードイン" || d.effect == "スライドアウト" || d.effect == "フェードイン" || d.effect == "スライドイン")
 				{
-					FadeAnim.SetBool("Fading", false);
-					yield return new WaitForSeconds(1.5f);
 				}
 				else if (autoScroll.automated == false)
 				{
@@ -3685,6 +5037,16 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else
 				{
+				}
+				if (d.id == 813)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameShowOnly.SetActive(true);
 				}
 			}
 
@@ -5399,6 +6761,38 @@ public class LoadDialogue : MonoBehaviour
 			EyeNow.sprite = CharaEyes[eye[1]];
 			yield return new WaitForSeconds(0.1f);
 			EyeNow.sprite = CharaEyes[eye[0]];
+			yield return new WaitForSeconds(0);
+		}
+	}
+	public IEnumerator EyeAnim1(int[] eye)
+	{
+		while (true)
+		{
+			EyeNow1.sprite = CharaEyes[eye[0]];
+			yield return new WaitForSeconds(3);
+			EyeNow1.sprite = CharaEyes[eye[1]];
+			yield return new WaitForSeconds(0.1f);
+			EyeNow1.sprite = CharaEyes[eye[2]];
+			yield return new WaitForSeconds(0.1f);
+			EyeNow1.sprite = CharaEyes[eye[1]];
+			yield return new WaitForSeconds(0.1f);
+			EyeNow1.sprite = CharaEyes[eye[0]];
+			yield return new WaitForSeconds(5);
+			EyeNow1.sprite = CharaEyes[eye[1]];
+			yield return new WaitForSeconds(0.1f);
+			EyeNow1.sprite = CharaEyes[eye[2]];
+			yield return new WaitForSeconds(0.1f);
+			EyeNow1.sprite = CharaEyes[eye[1]];
+			yield return new WaitForSeconds(0.1f);
+			EyeNow1.sprite = CharaEyes[eye[0]];
+			yield return new WaitForSeconds(0.5f);
+			EyeNow1.sprite = CharaEyes[eye[1]];
+			yield return new WaitForSeconds(0.1f);
+			EyeNow1.sprite = CharaEyes[eye[2]];
+			yield return new WaitForSeconds(0.1f);
+			EyeNow1.sprite = CharaEyes[eye[1]];
+			yield return new WaitForSeconds(0.1f);
+			EyeNow1.sprite = CharaEyes[eye[0]];
 			yield return new WaitForSeconds(0);
 		}
 	}

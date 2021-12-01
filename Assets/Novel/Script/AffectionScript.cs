@@ -51,51 +51,55 @@ public class AffectionScript : MonoBehaviour
         LiedBar.size = LiedAffection * 0.01f;
         KleinBar.size = KleinAffection * 0.01f;
 
-        if (date[0] == 10 && date[1] <= 15)
+        if (date[0] == 10 && date[1] <= 13)
         {
             TextField[0].text = TextList[0].effect;
         }
-        else if (date[0] == 10 && date[1] <= 20 && LiedFail == 0)
+        else if (date[0] == 10 && date[1] <= 16 && LiedFail == 0)
         {
             TextField[0].text = TextList[1].effect;
         }
-        else if (date[0] == 10 && date[1] <= 30 && LiedFail == 0)
+        else if (date[0] == 10 && date[1] <= 19 && LiedFail == 0)
         {
             TextField[0].text = TextList[2].effect;
         }
-        else if (date[0] == 10 && date[1] <= 31 && LiedFail == 0)
+        else if (date[0] == 10 && date[1] <= 22 && LiedFail == 0)
         {
             TextField[0].text = TextList[3].effect;
         }
-        else if (date[0] == 11 && date[1] <= 8 && LiedFail == 0)
+        else if (date[0] == 10 && date[1] <= 25 && LiedFail == 0)
         {
             TextField[0].text = TextList[3].effect;
         }
-        else if (date[0] == 11 && date[1] <= 15 && LiedFail == 0)
+        else if (date[0] == 10 && date[1] <= 28 && LiedFail == 0)
         {
             TextField[0].text = TextList[4].effect;
         }
-        else if (date[0] == 11 && date[1] <= 17 && LiedFail == 0)
+        else if (date[0] == 10 && date[1] <= 30 && LiedFail == 0)
         {
             TextField[0].text = TextList[5].effect;
         }
-        else if (date[0] == 11 && date[1] <= 25 && LiedFail == 0)
+        else if (date[0] == 11 && date[1] <= 1 && LiedFail == 0)
+        {
+            TextField[0].text = TextList[5].effect;
+        }
+        else if (date[0] == 11 && date[1] <= 4 && LiedFail == 0)
         {
             TextField[0].text = TextList[6].effect;
         }
-        else if (date[0] == 11 && date[1] <= 30 && LiedFail == 0)
+        else if (date[0] == 11 && date[1] <= 7 && LiedFail == 0)
         {
             TextField[0].text = TextList[7].effect;
         }
-        else if (date[0] == 12 && date[1] <= 3 && LiedFail == 0)
+        else if (date[0] == 11 && date[1] <= 10 && LiedFail == 0)
         {
             TextField[0].text = TextList[8].effect;
         }
-        else if (date[0] == 12 && date[1] <= 6 && LiedFail == 0)
+        else if (date[0] == 11 && date[1] <= 13 && LiedFail == 0)
         {
             TextField[0].text = TextList[9].effect;
         }
-        else if (date[0] == 12 && date[1] <= 9 && LiedFail == 0)
+        else if (date[0] == 11 && date[1] <= 16 && LiedFail == 0)
         {
             TextField[0].text = TextList[10].effect;
         }
