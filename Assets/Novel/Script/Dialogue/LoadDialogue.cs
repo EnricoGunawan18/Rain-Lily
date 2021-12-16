@@ -146,8 +146,6 @@ public class LoadDialogue : MonoBehaviour
 	public bool itemChoose = false;
 	public int resetPos = 0;
 
-	int liedFail = 0;
-
 	bool shopDecide = true;
 
 	float speed;
@@ -348,18 +346,18 @@ public class LoadDialogue : MonoBehaviour
 		{
 			string[] tempRow = itemData[3].Split(new char[] { ',' });
 
-			if (tempRow[2] != "" || tempRow[6] != "" || tempRow[8] != "")
+			if (tempRow[2] != "" || tempRow[12] != "" || tempRow[14] != "")
 			{
 				d = new Dialogue();
 				int.TryParse(tempRow[0], out d.id);
 				d.character = tempRow[1];
 				d.dialogue = tempRow[2];
-				d.expression = tempRow[3];
-				d.background = tempRow[4];
-				d.BGM = tempRow[5];
-				d.SE = tempRow[6];
-				d.voice = tempRow[7];
-				d.effect = tempRow[8];
+				d.expression = tempRow[4];
+				d.background = tempRow[7];
+				d.BGM = tempRow[11];
+				d.SE = tempRow[12];
+				d.voice = tempRow[13];
+				d.note = tempRow[14];
 
 				dialogues.Add(d);
 			}
@@ -375,18 +373,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -400,18 +407,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -426,18 +442,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -448,22 +473,31 @@ public class LoadDialogue : MonoBehaviour
 		{
 			resetPos = 25;
 			PlayerPrefs.SetInt("LogNow", 1);
-			for (int i = 1; i < 99; i++)
+			for (int i = 1; i < 92; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -474,22 +508,31 @@ public class LoadDialogue : MonoBehaviour
 		{
 			resetPos = 29;
 			PlayerPrefs.SetInt("LogNow", 1);
-			for (int i = 1; i < 112; i++)
+			for (int i = 1; i < 103; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -498,6 +541,8 @@ public class LoadDialogue : MonoBehaviour
 		}
 
 
+		///////////////////////////////////////////////PROLOGUE////////////////////////
+
 		else if (miniGame == 1 && novelMenu == 0)
 		{
 			int[] dateNow = { 10, 8 };
@@ -505,22 +550,31 @@ public class LoadDialogue : MonoBehaviour
 
 			resetPos = 5;
 			PlayerPrefs.SetInt("MiniGame", 0);
-			for (int i = 196; i < 205; i++)
+			for (int i = 171; i < 177; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -533,22 +587,31 @@ public class LoadDialogue : MonoBehaviour
 
 			resetPos = 6;
 			PlayerPrefs.SetInt("MiniGame", 0);
-			for (int i = 206; i < 218; i++)
+			for (int i = 178; i < 188; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -563,263 +626,131 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 1)
 		{
-			if (logNumber == 65)
+			for (int i = logNumber; i < 133; i++)
 			{
-				row = data[65].Split(new char[] { ',' });
-				d = new Dialogue();
-				int.TryParse(row[0], out d.id);
-				d.character = row[1];
-				d.dialogue = row[2];
-				d.expression = row[3];
-				d.background = row[4];
-				d.BGM = row[5];
-				d.SE = row[6];
-				d.voice = row[7];
-				d.effect = row[8];
+				row = data[i].Split(new char[] { ',' });
 
-				dialogues.Add(d);
-
-				for (int i = 70; i < 149; i++)
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
-					row = data[i].Split(new char[] { ',' });
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
+					dialogues.Add(d);
 				}
-			}
-			else
-			{
-				for (int i = logNumber + 4; i < 149; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
 			}
 
 		}
 		else if (resetFrom == 2)
 		{
-			if (logNumber == 61)
+
+			for (int i = logNumber; i < 133; i++)
 			{
-				row = data[68].Split(new char[] { ',' });
-				d = new Dialogue();
-				int.TryParse(row[0], out d.id);
-				d.character = row[1];
-				d.dialogue = row[2];
-				d.expression = row[3];
-				d.background = row[4];
-				d.BGM = row[5];
-				d.SE = row[6];
-				d.voice = row[7];
-				d.effect = row[8];
+				row = data[i].Split(new char[] { ',' });
 
-				dialogues.Add(d);
-
-				for (int i = 70; i < 149; i++)
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
 				{
-					row = data[i].Split(new char[] { ',' });
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-			else
-			{
-				for (int i = logNumber + 8; i < 149; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
+					dialogues.Add(d);
 				}
 			}
 		}
 
 		else if (resetFrom == 3)
 		{
-			if (logNumber <= 161 && logNumber >= 151)
+			for (int i = logNumber; i < 171; i++)
 			{
-				for (int i = logNumber; i < 161; i++)
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
-					row = data[i].Split(new char[] { ',' });
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				for (int i = 171; i < 178; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				for (int i = 179; i < 189; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				for (int i = 192; i < 196; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-			else
-			{
-				for (int i = logNumber; i < 196; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "" || row[0] != "147")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
+					dialogues.Add(d);
 				}
 			}
 		}
 
 		else if (resetFrom == 4)
 		{
-			for (int i = logNumber; i < 196; i++)
+			for (int i = logNumber; i < 171; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -828,22 +759,31 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 5)
 		{
-			for (int i = logNumber; i < 205; i++)
+			for (int i = logNumber; i < 178; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -852,22 +792,31 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 6)
 		{
-			for (int i = logNumber; i < 218; i++)
+			for (int i = logNumber; i < 189; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -877,22 +826,31 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 7)
 		{
-			for (int i = logNumber; i < 244; i++)
+			for (int i = logNumber; i < 213; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -902,93 +860,64 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 8)
 		{
-			if (logNumber <= 252)
-			{
-				for (int i = logNumber; i < 253; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				for (int i = 264; i < 301; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-			}
-			else
-			{
-				for (int i = logNumber; i < 301; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-		}
-
-		else if (resetFrom == 9)
-		{
-			for (int i = logNumber; i < 301; i++)
+			for (int i = logNumber; i < 263; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+
+		else if (resetFrom == 9)
+		{
+			for (int i = logNumber; i < 263; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -1002,99 +931,68 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 11)
 		{
-			if (logNumber >= 19 && logNumber <= 28)
-			{
-				for (int i = logNumber; i < 28; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				for (int i = 35; i < 48; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-			}
-			else
-			{
-				for (int i = logNumber; i < 48; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-
-		}
-
-		else if (resetFrom == 12)
-		{
-			for (int i = logNumber; i < 48; i++)
+			for (int i = logNumber; i < 43; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
 			}
+		}
 
+		else if (resetFrom == 12)
+		{
+			for (int i = logNumber; i < 43; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
 		}
 
 		else if (resetFrom == 13)
@@ -1103,18 +1001,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -1122,98 +1029,67 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 14)
 		{
-			if (logNumber >= 50 && logNumber <= 54)
-			{
-				for (int i = logNumber; i < 54; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				for (int i = 61; i < 107; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-			}
-			else
-			{
-				for (int i = logNumber; i < 107; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-
-		}
-		else if (resetFrom == 15)
-		{
-			for (int i = logNumber; i < 107; i++)
+			for (int i = logNumber; i < 92; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
 			}
+		}
+		else if (resetFrom == 15)
+		{
+			for (int i = logNumber; i < 92; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
 
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
 		}
 
 		else if (resetFrom == 17)
@@ -1222,18 +1098,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -1241,116 +1126,96 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 18)
 		{
-			if (logNumber >= 43 && logNumber <= 56)
-			{
-				for (int i = logNumber; i < 56; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				for (int i = 84; i < 93; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-			}
-			else
-			{
-				for (int i = logNumber; i < 93; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-
-		}
-		else if (resetFrom == 19)
-		{
-			for (int i = logNumber; i < 93; i++)
+			for (int i = logNumber; i < 87; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
 			}
 		}
-		else if (resetFrom == 21)
+		else if (resetFrom == 19)
 		{
-			for (int i = logNumber; i < 105; i++)
+			for (int i = logNumber; i < 87; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+
+		else if (resetFrom == 21)
+		{
+			for (int i = logNumber; i < 102; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -1358,22 +1223,31 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 22)
 		{
-			for (int i = logNumber; i < 114; i++)
+			for (int i = logNumber; i < 102; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -1381,45 +1255,64 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 24)
 		{
-			for (int i = logNumber; i < 46; i++)
+			for (int i = logNumber; i < 45; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
 			}
 		}
+
 		else if (resetFrom == 25)
 		{
-			for (int i = logNumber; i < 99; i++)
+			for (int i = logNumber; i < 92; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -1427,116 +1320,96 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 26)
 		{
-			if (logNumber >= 101 && logNumber <= 118)
-			{
-				for (int i = logNumber; i < 118; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				for (int i = 132; i < 140; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-			}
-			else
-			{
-				for (int i = logNumber; i < 140; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-
-		}
-		else if (resetFrom == 27)
-		{
-			for (int i = logNumber; i < 140; i++)
+			for (int i = logNumber; i < 128; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
 			}
 		}
-		else if (resetFrom == 29)
+		else if (resetFrom == 27)
 		{
-			for (int i = logNumber; i < 112; i++)
+			for (int i = logNumber; i < 128; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+
+		else if (resetFrom == 29)
+		{
+			for (int i = logNumber; i < 103; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -1544,356 +1417,96 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 30)
 		{
-			if (logNumber >= 114 && logNumber <= 151)
+			for (int i = logNumber; i < 168; i++)
 			{
-				for (int i = logNumber; i < 151; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
+				row = data[i].Split(new char[] { ',' });
 
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				for (int i = 160; i < 162; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				row = data[163].Split(new char[] { ',' });
-
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
-				for (int i = 165; i < 190; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-			}
-			else if (logNumber >= 160 && logNumber <= 161)
-			{
-				for (int i = logNumber; i < 162; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-				row = data[163].Split(new char[] { ',' });
-
-				if (row[2] != "" || row[6] != "" || row[8] != "")
-				{
-					d = new Dialogue();
-					int.TryParse(row[0], out d.id);
-					d.character = row[1];
-					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
-
-					dialogues.Add(d);
-				}
-				for (int i = 165; i < 190; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-			else if (logNumber == 163)
-			{
-				row = data[163].Split(new char[] { ',' });
-
-				if (row[2] != "" || row[6] != "" || row[8] != "")
-				{
-					d = new Dialogue();
-					int.TryParse(row[0], out d.id);
-					d.character = row[1];
-					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
-
-					dialogues.Add(d);
-				}
-				for (int i = 165; i < 190; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-			else
-			{
-				for (int i = logNumber; i < 190; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
 			}
 		}
 		else if (resetFrom == 31)
 		{
-			if (logNumber >= 153 && logNumber <= 160)
+			for (int i = logNumber; i < 168; i++)
 			{
-				for (int i = logNumber; i < 161; i++)
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
 				{
-					row = data[i].Split(new char[] { ',' });
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
+					dialogues.Add(d);
 				}
-				row = data[162].Split(new char[] { ',' });
-
-				d = new Dialogue();
-				int.TryParse(row[0], out d.id);
-				d.character = row[1];
-				d.dialogue = row[2];
-				d.expression = row[3];
-				d.background = row[4];
-				d.BGM = row[5];
-				d.SE = row[6];
-				d.voice = row[7];
-				d.effect = row[8];
-
-				dialogues.Add(d);
-
-				for (int i = 164; i < 190; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-			}
-			else if (logNumber == 162)
-			{
-				row = data[162].Split(new char[] { ',' });
-
-				d = new Dialogue();
-				int.TryParse(row[0], out d.id);
-				d.character = row[1];
-				d.dialogue = row[2];
-				d.expression = row[3];
-				d.background = row[4];
-				d.BGM = row[5];
-				d.SE = row[6];
-				d.voice = row[7];
-				d.effect = row[8];
-
-				dialogues.Add(d);
-
-				for (int i = 164; i < 190; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
-			}
-			else
-			{
-				for (int i = logNumber; i < 190; i++)
-				{
-					row = data[i].Split(new char[] { ',' });
-
-					if (row[2] != "" || row[6] != "" || row[8] != "")
-					{
-						d = new Dialogue();
-						int.TryParse(row[0], out d.id);
-						d.character = row[1];
-						d.dialogue = row[2];
-						d.expression = row[3];
-						d.background = row[4];
-						d.BGM = row[5];
-						d.SE = row[6];
-						d.voice = row[7];
-						d.effect = row[8];
-
-						dialogues.Add(d);
-					}
-				}
-
 			}
 		}
 
 		else if (novelMenu == 0 && resetFrom == 0)
 		{
-			for (int i = logNumber; i < 63; i++)
+			for (int i = logNumber; i < 54; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -1911,14 +1524,14 @@ public class LoadDialogue : MonoBehaviour
 		{
 			TwoChoices.SetActive(true);
 
-			string[] tempRow = data[64].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
+			string[] tempRow = data[53].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("『", "");
 			string Filtered2 = Filtered1.Replace("』", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[67].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
+			string[] tempRow2 = data[53].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("『", "");
 			string Filtered5 = Filtered4.Replace("』", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
@@ -1928,15 +1541,15 @@ public class LoadDialogue : MonoBehaviour
 		{
 			TwoChoices.SetActive(true);
 
-			string[] tempRow = data[150].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
-			string Filtered2 = Filtered1.Replace("』", "");
+			string[] tempRow = data[132].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("", "");
+			string Filtered2 = Filtered1.Replace("LiedLove_high", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[162].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
-			string Filtered5 = Filtered4.Replace("』", "");
+			string[] tempRow2 = data[132].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("", "");
+			string Filtered5 = Filtered4.Replace("LiedLove_low", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 
@@ -1945,15 +1558,15 @@ public class LoadDialogue : MonoBehaviour
 		{
 			TwoChoices.SetActive(true);
 
-			string[] tempRow = data[245].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
-			string Filtered2 = Filtered1.Replace("』", "");
+			string[] tempRow = data[212].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("", "");
+			string Filtered2 = Filtered1.Replace("/KleinLove_high", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[254].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
-			string Filtered5 = Filtered4.Replace("』", "");
+			string[] tempRow2 = data[212].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("", "");
+			string Filtered5 = Filtered4.Replace("/KleinLove_low", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 
@@ -1980,90 +1593,90 @@ public class LoadDialogue : MonoBehaviour
 		{
 			TwoChoices.SetActive(true);
 
-			string[] tempRow = data[18].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
-			string Filtered2 = Filtered1.Replace("』", "");
+			string[] tempRow = data[16].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("", "");
+			string Filtered2 = Filtered1.Replace("/LiedLove_high", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[29].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
-			string Filtered5 = Filtered4.Replace("』", "");
+			string[] tempRow2 = data[16].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("", "");
+			string Filtered5 = Filtered4.Replace("/LiedLove_low", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
 		if (finishTemp6 == true)
 		{
 			TwoChoices.SetActive(true);
-			string[] tempRow = data[49].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
-			string Filtered2 = Filtered1.Replace("』", "");
+			string[] tempRow = data[42].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("", "");
+			string Filtered2 = Filtered1.Replace("/LiedLove_low", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[55].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
-			string Filtered5 = Filtered4.Replace("』", "");
+			string[] tempRow2 = data[42].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("", "");
+			string Filtered5 = Filtered4.Replace("/LiedLove_lowdown", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
 		if (finishTemp7 == true)
 		{
 			TwoChoices.SetActive(true);
-			string[] tempRow = data[42].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
-			string Filtered2 = Filtered1.Replace("』", "");
+			string[] tempRow = data[40].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("", "");
+			string Filtered2 = Filtered1.Replace("/LiedLove_low", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[57].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
-			string Filtered5 = Filtered4.Replace("』", "");
+			string[] tempRow2 = data[40].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("", "");
+			string Filtered5 = Filtered4.Replace("/LiedLove_high", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
 		if (finishTemp8 == true)
 		{
 			TwoChoices.SetActive(true);
-			string[] tempRow = data[47].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
-			string Filtered2 = Filtered1.Replace("』", "");
+			string[] tempRow = data[44].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("", "");
+			string Filtered2 = Filtered1.Replace("/KleinLove_low", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[106].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
-			string Filtered5 = Filtered4.Replace("』", "");
+			string[] tempRow2 = data[44].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("", "");
+			string Filtered5 = Filtered4.Replace("/Lied_gameover", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
 		if (finishTemp9 == true)
 		{
 			TwoChoices.SetActive(true);
-			string[] tempRow = data[100].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
-			string Filtered2 = Filtered1.Replace("』", "");
+			string[] tempRow = data[91].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("", "");
+			string Filtered2 = Filtered1.Replace("/LiedLove_high", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[119].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
-			string Filtered5 = Filtered4.Replace("』", "");
+			string[] tempRow2 = data[91].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("", "");
+			string Filtered5 = Filtered4.Replace("/LiedLove_lowdown", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
 		if (finishTemp10 == true)
 		{
 			TwoChoices.SetActive(true);
-			string[] tempRow = data[113].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
-			string Filtered2 = Filtered1.Replace("』", "");
+			string[] tempRow = data[102].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("", "");
+			string Filtered2 = Filtered1.Replace("/LiedLove_high", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[152].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
-			string Filtered5 = Filtered4.Replace("』", "");
+			string[] tempRow2 = data[102].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("", "");
+			string Filtered5 = Filtered4.Replace("/Lied_gameover", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
@@ -2135,91 +1748,91 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 
-			if (d.background == "back-001")
+			if (d.background.Contains("back-001"))
 			{
 				backGroundLabel.text = backgrounds[0].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[1];
 			}
-			else if (d.background == "back-002")
+			else if (d.background.Contains("back-002"))
 			{
 				backGroundLabel.text = backgrounds[1].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[2];
 			}
-			else if (d.background == "back-003")
+			else if (d.background.Contains("back-003"))
 			{
 				backGroundLabel.text = backgrounds[2].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[3];
 			}
-			else if (d.background == "back-004-sun")
+			else if (d.background.Contains("back-004-sun"))
 			{
 				backGroundLabel.text = backgrounds[5].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[4];
 			}
-			else if (d.background == "back-004-night")
+			else if (d.background.Contains("back-004-night"))
 			{
 				backGroundLabel.text = backgrounds[6].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[5];
 			}
-			else if (d.background == "back-005-sun")
+			else if (d.background.Contains("back-005-sun"))
 			{
 				backGroundLabel.text = backgrounds[7].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[6];
 			}
-			else if (d.background == "back-005-night")
+			else if (d.background.Contains("back-005-night"))
 			{
 				backGroundLabel.text = backgrounds[8].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[7];
 			}
-			else if (d.background == "back-006")
+			else if (d.background.Contains("back-006"))
 			{
 				backGroundLabel.text = backgrounds[9].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[8];
 			}
-			else if (d.background == "back-007")
+			else if (d.background.Contains("back-007"))
 			{
 				backGroundLabel.text = backgrounds[12].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[21];
 			}
-			else if (d.background == "back-008")
+			else if (d.background.Contains("back-008"))
 			{
 				backGroundLabel.text = backgrounds[13].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[25];
 			}
-			else if (d.background == "back-014")
+			else if (d.background.Contains("back-014"))
 			{
 				backGroundLabel.text = backgrounds[22].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[26];
 			}
-			else if (d.background == "back-015-sun")
+			else if (d.background.Contains("back-015-sun"))
 			{
 				backGroundLabel.text = backgrounds[23].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[17];
 			}
-			else if (d.background == "back-015-night")
+			else if (d.background.Contains("back-015-night"))
 			{
 				backGroundLabel.text = backgrounds[24].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[16];
 			}
-			else if (d.background == "back-013" || d.background == "back-013-night")
+			else if (d.background.Contains("back-013") || d.background.Contains("back-013-night"))
 			{
 				backGroundLabel.text = backgrounds[18].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[3];
 			}
-			else if (d.background == "back-016")
+			else if (d.background.Contains("back-016"))
 			{
 				backGroundLabel.text = backgrounds[25].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
@@ -3843,7 +3456,7 @@ public class LoadDialogue : MonoBehaviour
 				d.expression == "L-06a" || d.expression == "L-07" ||
 				d.expression == "L-07a" || d.expression == "L-08" ||
 				d.expression == "L-10" || d.expression == "L-01-ragan" ||
-				d.expression == "L-10a" || d.effect == "リート立ち絵/L-001で表示"||
+				d.expression == "L-10a" || d.note == "リート立ち絵/L-001で表示" ||
 				d.expression == "M-05,L-01-ragan")
 			{
 				charaImageNow.color = new Color(255, 255, 255, 255);
@@ -4273,27 +3886,27 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 			//BGM
-			if (d.BGM == "BGM-001")
+			if (d.BGM.Contains("BGM-001"))
 			{
 				BGM.clip = BGMFile[0];
 				BGM.Play();
 			}
-			else if (d.BGM == "BGM-002")
+			else if (d.BGM.Contains("BGM-002"))
 			{
 				BGM.clip = BGMFile[1];
 				BGM.Play();
 			}
-			else if (d.BGM == "BGM-003")
+			else if (d.BGM.Contains("BGM-003"))
 			{
 				BGM.clip = BGMFile[2];
 				BGM.Play();
 			}
-			else if (d.BGM == "BGM-004")
+			else if (d.BGM.Contains("BGM-004"))
 			{
 				BGM.clip = BGMFile[3];
 				BGM.Play();
 			}
-			else if (d.BGM == "BGM-005")
+			else if (d.BGM.Contains("BGM-005"))
 			{
 				BGM.clip = BGMFile[4];
 				BGM.Play();
@@ -4362,7 +3975,6 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 
-			////////////////////////////////////////////////////////////////////////////P R O L O G U E////////////////////////////////////////////////////////////////
 			//effects & run
 
 
@@ -4370,110 +3982,16 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
+			////////////////////////////////////////////////////////////////////////////P R O L O G U E////////////////////////////////////////////////////////////////
 			if (date[0] == 10 && (date[1] == 7 || date[1] == 8 || date[1] == 9))
 			{
-				if (d.id == 188)
-				{
-					charaImageNow.color = new Color(255, 255, 255, 255);
-					charaImageNow.sprite = charaImage[1];
-				}
-
-				if (d.id == 37 || d.id == 77)
-				{
-					if (whichLineNow != 0)
-					{
-						whichLineNow -= 2;
-					}
-				}
-
-				if (d.id == 154 && resetPos == 3)
-				{
-					whichLineNow++;
-				}
-
-				if (d.id == 52 || d.id == 53 || d.id == 128
-					|| d.id == 145 || d.id == 162 || d.id == 164 || d.id == 179
-					|| d.id == 203)
-				{
-					whichLineNow += 1;
-				}
-
-				if (d.id == 54 && resetPos == 1)
-				{
-					whichLineNow += 4;
-				}
-
-				if (d.id == 170)
-				{
-					whichLineNow += 2;
-				}
-
-				if (d.id == 146 && resetPos == 3)
-				{
-					whichLineNow += 10;
-				}
-
-				if (d.id == 165)
-				{
-					whichLineNow = 196;
-				}
-
-				if (d.id == 171)
-				{
-					whichLineNow = 206;
-				}
-
-				if (d.id == 180)
-				{
-					whichLineNow = 220;
-				}
-
-				if (d.id == 218 && resetPos == 8)
-				{
-					whichLineNow += 11;
-				}
-
-				if (d.id == 210)
-				{
-					whichLineNow = 255;
-				}
-
-				if (d.id == 218 && resetPos == 9)
-				{
-					whichLineNow++;
-				}
-
-
-				bool minusLine = false;
-				if (d.id == 231)
-				{
-					minusLine = true;
-				}
-
-				if (d.effect == "フェードアウト" && minusLine == true)
-				{
-					minusLine = false;
-					nameLabel.text = string.Empty;
-					textLabel.text = string.Empty;
-					FadeAnim.SetBool("Fading", true);
-					waitForFadeAnim = true;
-					whichLineNow += 1;
-				}
-				else if (d.effect == "フェードアウト" || d.effect == "一度画面フェードアウト" || d.effect == "右からアウト" || d.effect == "フェードアウト/３秒暗転")
+				if (d.background.Contains("FI") || d.background.Contains("SI"))
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					FadeAnim.SetBool("Fading", true);
-					waitForFadeAnim = true;
-					whichLineNow += 2;
-				}
-				else if (d.effect == "フェードアウト/3秒待つ")
-				{
-					nameLabel.text = string.Empty;
-					textLabel.text = string.Empty;
-					FadeAnim.SetBool("Fading", true);
-					waitForFadeAnim = true;
-					whichLineNow += 1;
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
 				}
 				else
 				{
@@ -4484,146 +4002,73 @@ public class LoadDialogue : MonoBehaviour
 				//effects
 				int menu = PlayerPrefs.GetInt("NovelMenu");
 
-				if (waitForFadeAnim == true)
+				if (d.id == 51)
 				{
-					yield return new WaitForSeconds(1.5f);
-					FadeAnim.SetBool("Fading", false);
-
-					if (d.id == 169)
-					{
-						PlayerPrefs.SetInt("MiniGame", 2);
-						PlayerPrefs.SetInt("NovelMenu", 2);
-					}
+					finishTemp1 = true;
+				}
+				if (d.id == 128)
+				{
+					finishTemp2 = true;
+				}
+				if (d.id == 202)
+				{
+					finishTemp3 = true;
+				}
+				if (d.id == 162)
+				{
+					PlayerPrefs.SetInt("MiniGame", 1);
+					PlayerPrefs.SetInt("NovelMenu", 1);
+				}
+				if (d.id == 164)
+				{
+					PlayerPrefs.SetInt("NovelMenu", 4);
+				}
+				if (d.id == 169)
+				{
+					PlayerPrefs.SetInt("MiniGame", 2);
+					PlayerPrefs.SetInt("NovelMenu", 2);
+				}
+				if (d.id == 170)
+				{
+					PlayerPrefs.SetInt("NovelMenu", 5);
+				}
+				if (d.id == 175)
+				{
+					PlayerPrefs.SetInt("MiniGame", 3);
+					PlayerPrefs.SetInt("NovelMenu", 3);
+				}
+				if (d.id == 179)
+				{
+					PlayerPrefs.SetInt("NovelMenu", 5);
 				}
 
-				else if (autoScroll.automated == false)
+
+				if (d.id == 169)
+				{
+					PlayerPrefs.SetInt("MiniGame", 2);
+					PlayerPrefs.SetInt("NovelMenu", 2);
+				}
+
+
+
+				if (autoScroll.automated == false)
 				{
 					yield return new WaitUntil(() => dialogueManager.next == true);
-					if (d.id == 51)
-					{
-						finishTemp1 = true;
-					}
-					if (d.id == 128)
-					{
-						finishTemp2 = true;
-					}
-					if (d.id == 202)
-					{
-						finishTemp3 = true;
-					}
-					if (d.id == 162)
-					{
-						PlayerPrefs.SetInt("MiniGame", 1);
-						PlayerPrefs.SetInt("NovelMenu", 1);
-					}
-					if (d.id == 164)
-					{
-						PlayerPrefs.SetInt("NovelMenu", 4);
-					}
-					if (d.id == 169)
-					{
-						PlayerPrefs.SetInt("MiniGame", 2);
-						PlayerPrefs.SetInt("NovelMenu", 2);
-					}
-					if (d.id == 170)
-					{
-						PlayerPrefs.SetInt("NovelMenu", 5);
-					}
-					if (d.id == 175)
-					{
-						PlayerPrefs.SetInt("MiniGame", 3);
-						PlayerPrefs.SetInt("NovelMenu", 3);
-					}
-					if (d.id == 179)
-					{
-						PlayerPrefs.SetInt("NovelMenu", 5);
-					}
-
 				}
 				else if (autoScroll.automated == true && autoScroll.autoActive == true)
 				{
 					yield return new WaitForSeconds(2);
-					if (d.id == 51)
-					{
-						finishTemp1 = true;
-					}
-					if (d.id == 128)
-					{
-						finishTemp2 = true;
-					}
-					if (d.id == 202)
-					{
-						finishTemp3 = true;
-					}
-					if (d.id == 162)
-					{
-						PlayerPrefs.SetInt("MiniGame", 1);
-						PlayerPrefs.SetInt("NovelMenu", 1);
-					}
-					if (d.id == 164)
-					{
-						PlayerPrefs.SetInt("NovelMenu", 4);
-					}
-					if (d.id == 169)
-					{
-						PlayerPrefs.SetInt("MiniGame", 2);
-						PlayerPrefs.SetInt("NovelMenu", 2);
-					}
-					if (d.id == 170)
-					{
-						PlayerPrefs.SetInt("NovelMenu", 5);
-					}
-					if (d.id == 175)
-					{
-						PlayerPrefs.SetInt("MiniGame", 3);
-						PlayerPrefs.SetInt("NovelMenu", 3);
-					}
-					if (d.id == 179)
-					{
-						PlayerPrefs.SetInt("NovelMenu", 5);
-					}
 				}
 				else
 				{
-					if (d.id == 51)
-					{
-						finishTemp1 = true;
-					}
-					if (d.id == 128)
-					{
-						finishTemp2 = true;
-					}
-					if (d.id == 202)
-					{
-						finishTemp3 = true;
-					}
-					if (d.id == 162)
-					{
-						PlayerPrefs.SetInt("MiniGame", 1);
-						PlayerPrefs.SetInt("NovelMenu", 1);
-					}
-					if (d.id == 164)
-					{
-						PlayerPrefs.SetInt("NovelMenu", 4);
-					}
-					if (d.id == 169)
-					{
-						PlayerPrefs.SetInt("MiniGame", 2);
-						PlayerPrefs.SetInt("NovelMenu", 2);
-					}
-					if (d.id == 170)
-					{
-						PlayerPrefs.SetInt("NovelMenu", 5);
-					}
-					if (d.id == 175)
-					{
-						PlayerPrefs.SetInt("MiniGame", 3);
-						PlayerPrefs.SetInt("NovelMenu", 3);
-					}
-					if (d.id == 179)
-					{
-						PlayerPrefs.SetInt("NovelMenu", 5);
-					}
+				}
+
+				if (d.background.Contains("FO") || d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
 				}
 
 				if (d.id == 251)
@@ -4657,7 +4102,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					whichLineNow = 61;
 				}
-				if (d.effect == "フェードアウト")
+				if (d.note == "フェードアウト")
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
@@ -4665,7 +4110,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 				}
 
-				else if (d.effect == "場面変化。スライド。")
+				else if (d.note == "場面変化。スライド。")
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
@@ -4699,7 +4144,7 @@ public class LoadDialogue : MonoBehaviour
 					finishTemp6 = true;
 				}
 
-				if (d.effect == "フェードイン")
+				if (d.note == "フェードイン")
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
@@ -4745,7 +4190,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					whichLineNow = 84;
 				}
-				if (d.effect == "一拍（一秒程度）間を置く")
+				if (d.note == "一拍（一秒程度）間を置く")
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
@@ -4798,7 +4243,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					whichLineNow = 108;
 				}
-				if (d.effect == "フェードアウト" || d.effect == "フェードアウト/フェードイン")
+				if (d.note == "フェードアウト" || d.note == "フェードアウト/フェードイン")
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
@@ -4821,7 +4266,7 @@ public class LoadDialogue : MonoBehaviour
 					finishTemp8 = true;
 				}
 
-				if (d.effect == "三秒後フェードイン")
+				if (d.note == "三秒後フェードイン")
 				{
 				}
 				else if (autoScroll.automated == false)
@@ -4865,7 +4310,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					whichLineNow = 132;
 				}
-				if (d.effect == "フェードアウト")
+				if (d.note == "フェードアウト")
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
@@ -4900,7 +4345,7 @@ public class LoadDialogue : MonoBehaviour
 
 
 
-				if (d.effect == "３秒後フェードイン" || d.effect == "フェードアウト")
+				if (d.note == "３秒後フェードイン" || d.note == "フェードアウト")
 				{
 				}
 
@@ -4993,7 +4438,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					CharacterImage[1].SetActive(false);
 				}
-				if (d.effect == "フェードアウト" || d.effect == "フェードアウト/フェードイン" || d.effect == "スライドアウト")
+				if (d.note == "フェードアウト" || d.note == "フェードアウト/フェードイン" || d.note == "スライドアウト")
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
@@ -5024,7 +4469,7 @@ public class LoadDialogue : MonoBehaviour
 					finishTemp10 = true;
 				}
 
-				if (d.effect == "フェードアウト" || d.effect == "フェードアウト/フェードイン" || d.effect == "スライドアウト" || d.effect == "フェードイン" || d.effect == "スライドイン")
+				if (d.note == "フェードアウト" || d.note == "フェードアウト/フェードイン" || d.note == "スライドアウト" || d.note == "フェードイン" || d.note == "スライドイン")
 				{
 				}
 				else if (autoScroll.automated == false)
@@ -5114,43 +4559,40 @@ public class LoadDialogue : MonoBehaviour
 		{
 			resetPos = 1;
 			finishTemp1 = false;
-			whichLineNow = 59;
+			whichLineNow = 54;
 
-			row = data[65].Split(new char[] { ',' });
-			d = new Dialogue();
-			int.TryParse(row[0], out d.id);
-			d.character = row[1];
-			d.dialogue = row[2];
-			d.expression = row[3];
-			d.background = row[4];
-			d.BGM = row[5];
-			d.SE = row[6];
-			d.voice = row[7];
-			d.effect = row[8];
 
-			dialogues.Add(d);
-
-			for (int i = 70; i < 149; i++)
+			for (int i = 54; i < 133; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
 			}
 		}
+
 
 		if (finishTemp2 == true)
 		{
@@ -5159,85 +4601,33 @@ public class LoadDialogue : MonoBehaviour
 			PlayerPrefs.SetFloat("LiedHeart", affection);
 			resetPos = 3;
 			finishTemp2 = false;
-			whichLineNow = 150;
+			whichLineNow = 133;
 
-			for (int i = 151; i < 161; i++)
+			for (int i = 133; i < 171; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
-
-					dialogues.Add(d);
-				}
-			}
-			for (int i = 171; i < 178; i++)
-			{
-				row = data[i].Split(new char[] { ',' });
-
-				if (row[2] != "" || row[6] != "" || row[8] != "")
-				{
-					d = new Dialogue();
-					int.TryParse(row[0], out d.id);
-					d.character = row[1];
-					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
-
-					dialogues.Add(d);
-				}
-			}
-
-			for (int i = 179; i < 189; i++)
-			{
-				row = data[i].Split(new char[] { ',' });
-
-				if (row[2] != "" || row[6] != "" || row[8] != "")
-				{
-					d = new Dialogue();
-					int.TryParse(row[0], out d.id);
-					d.character = row[1];
-					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
-
-					dialogues.Add(d);
-				}
-			}
-			for (int i = 192; i < 196; i++)
-			{
-				row = data[i].Split(new char[] { ',' });
-
-				if (row[2] != "" || row[6] != "" || row[8] != "")
-				{
-					d = new Dialogue();
-					int.TryParse(row[0], out d.id);
-					d.character = row[1];
-					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5252,42 +4642,31 @@ public class LoadDialogue : MonoBehaviour
 			resetPos = 8;
 			finishTemp3 = false;
 
-			for (int i = 246; i < 253; i++)
+			for (int i = 213; i < 263; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
-
-					dialogues.Add(d);
-				}
-			}
-			for (int i = 264; i < 301; i++)
-			{
-				row = data[i].Split(new char[] { ',' });
-
-				if (row[2] != "" || row[6] != "" || row[8] != "")
-				{
-					d = new Dialogue();
-					int.TryParse(row[0], out d.id);
-					d.character = row[1];
-					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5309,12 +4688,12 @@ public class LoadDialogue : MonoBehaviour
 			int.TryParse(itemRow[0], out d.id);
 			d.character = itemRow[1];
 			d.dialogue = itemRow[2];
-			d.expression = itemRow[3];
-			d.background = itemRow[4];
-			d.BGM = itemRow[5];
-			d.SE = itemRow[6];
+			d.expression = itemRow[4];
+			d.background = itemRow[7];
+			d.BGM = itemRow[11];
+			d.SE = itemRow[12];
 			d.voice = "";
-			d.effect = itemRow[7];
+			d.note = itemRow[13];
 
 			dialogues.Add(d);
 		}
@@ -5332,18 +4711,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5352,18 +4740,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5382,18 +4779,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5402,18 +4808,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5433,18 +4848,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5453,18 +4877,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5483,18 +4916,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5513,18 +4955,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5533,18 +4984,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5563,18 +5023,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5583,36 +5052,54 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
 			}
 			row = data[163].Split(new char[] { ',' });
 
-			if (row[2] != "" || row[6] != "" || row[8] != "")
+			if (row[2] != "" || row[15] != "" || row[17] != "")
 			{
 				d = new Dialogue();
 				int.TryParse(row[0], out d.id);
 				d.character = row[1];
 				d.dialogue = row[2];
-				d.expression = row[3];
-				d.background = row[4];
-				d.BGM = row[5];
-				d.SE = row[6];
-				d.voice = row[7];
-				d.effect = row[8];
+				d.mainchara = row[3];
+				d.expression = row[4];
+				d.showtwoone = row[5];
+				d.showtwotwo = row[6];
+				d.background = row[7];
+				d.firstchoose = row[8];
+				d.secondchoose = row[9];
+				d.choicetextshow = row[10];
+				d.objecteffect = row[11];
+				d.itemimage = row[12];
+				d.effect = row[13];
+				d.BGM = row[14];
+				d.SE = row[15];
+				d.voice = row[16];
+				d.note = row[17];
 
 				dialogues.Add(d);
 			}
@@ -5620,18 +5107,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5656,38 +5152,33 @@ public class LoadDialogue : MonoBehaviour
 		{
 			resetPos = 2;
 			finishTemp1 = false;
-			whichLineNow = 59;
+			whichLineNow = 54;
 
-			row = data[68].Split(new char[] { ',' });
-			d = new Dialogue();
-			int.TryParse(row[0], out d.id);
-			d.character = row[1];
-			d.dialogue = row[2];
-			d.expression = row[3];
-			d.background = row[4];
-			d.BGM = row[5];
-			d.SE = row[6];
-			d.voice = row[7];
-			d.effect = row[8];
-
-			dialogues.Add(d);
-
-			for (int i = 70; i < 149; i++)
+			for (int i = 54; i < 133; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5704,42 +5195,33 @@ public class LoadDialogue : MonoBehaviour
 			finishTemp2 = false;
 			whichLineNow = 162;
 
-			for (int i = 163; i < 189; i++)
+			whichLineNow = 133;
+
+			for (int i = 133; i < 171; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
-
-					dialogues.Add(d);
-				}
-			}
-			for (int i = 192; i < 196; i++)
-			{
-				row = data[i].Split(new char[] { ',' });
-
-				if (row[2] != "" || row[6] != "" || row[8] != "")
-				{
-					d = new Dialogue();
-					int.TryParse(row[0], out d.id);
-					d.character = row[1];
-					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5755,22 +5237,31 @@ public class LoadDialogue : MonoBehaviour
 			resetPos = 9;
 			finishTemp3 = false;
 
-			for (int i = 255; i < 301; i++)
+			for (int i = 213; i < 263; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5796,18 +5287,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5826,18 +5326,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5857,18 +5366,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5887,18 +5405,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5917,18 +5444,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5944,18 +5480,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -5966,12 +5511,21 @@ public class LoadDialogue : MonoBehaviour
 			int.TryParse(row[0], out d.id);
 			d.character = row[1];
 			d.dialogue = row[2];
-			d.expression = row[3];
-			d.background = row[4];
-			d.BGM = row[5];
-			d.SE = row[6];
-			d.voice = row[7];
-			d.effect = row[8];
+			d.mainchara = row[3];
+			d.expression = row[4];
+			d.showtwoone = row[5];
+			d.showtwotwo = row[6];
+			d.background = row[7];
+			d.firstchoose = row[8];
+			d.secondchoose = row[9];
+			d.choicetextshow = row[10];
+			d.objecteffect = row[11];
+			d.itemimage = row[12];
+			d.effect = row[13];
+			d.BGM = row[14];
+			d.SE = row[15];
+			d.voice = row[16];
+			d.note = row[17];
 
 			dialogues.Add(d);
 
@@ -5979,18 +5533,27 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if (row[2] != "" || row[6] != "" || row[8] != "")
+				if (row[2] != "" || row[15] != "" || row[17] != "")
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
 					d.character = row[1];
 					d.dialogue = row[2];
-					d.expression = row[3];
-					d.background = row[4];
-					d.BGM = row[5];
-					d.SE = row[6];
-					d.voice = row[7];
-					d.effect = row[8];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
 
 					dialogues.Add(d);
 				}
@@ -6443,12 +6006,12 @@ public class LoadDialogue : MonoBehaviour
 		int.TryParse(itemRow[0], out d.id);
 		d.character = itemRow[1];
 		d.dialogue = itemRow[2];
-		d.expression = itemRow[3];
-		d.background = itemRow[4];
-		d.BGM = itemRow[5];
-		d.SE = itemRow[6];
+		d.expression = itemRow[4];
+		d.background = itemRow[7];
+		d.BGM = itemRow[11];
+		d.SE = itemRow[12];
 		d.voice = "";
-		d.effect = itemRow[7];
+		d.note = itemRow[13];
 
 		dialogues.Add(d);
 
@@ -6465,12 +6028,12 @@ public class LoadDialogue : MonoBehaviour
 		int.TryParse(itemRow[0], out d.id);
 		d.character = itemRow[1];
 		d.dialogue = itemRow[2];
-		d.expression = itemRow[3];
-		d.background = itemRow[4];
-		d.BGM = itemRow[5];
-		d.SE = itemRow[6];
+		d.expression = itemRow[4];
+		d.background = itemRow[7];
+		d.BGM = itemRow[11];
+		d.SE = itemRow[12];
 		d.voice = "";
-		d.effect = itemRow[7];
+		d.note = itemRow[13];
 
 		dialogues.Add(d);
 
@@ -6482,7 +6045,7 @@ public class LoadDialogue : MonoBehaviour
 		d.background = "";
 		d.BGM = "";
 		d.SE = "";
-		d.effect = "giveitem";
+		d.note = "giveitem";
 
 		dialogues.Add(d);
 
@@ -6500,12 +6063,12 @@ public class LoadDialogue : MonoBehaviour
 		int.TryParse(itemRow[0], out d.id);
 		d.character = itemRow[1];
 		d.dialogue = itemRow[2];
-		d.expression = itemRow[3];
-		d.background = itemRow[4];
-		d.BGM = itemRow[5];
-		d.SE = itemRow[6];
+		d.expression = itemRow[4];
+		d.background = itemRow[7];
+		d.BGM = itemRow[11];
+		d.SE = itemRow[12];
 		d.voice = "";
-		d.effect = itemRow[7];
+		d.note = itemRow[13];
 
 		dialogues.Add(d);
 
@@ -6517,7 +6080,7 @@ public class LoadDialogue : MonoBehaviour
 		d.background = "";
 		d.BGM = "";
 		d.SE = "";
-		d.effect = "giveitem";
+		d.note = "giveitem";
 
 		dialogues.Add(d);
 
@@ -6548,12 +6111,12 @@ public class LoadDialogue : MonoBehaviour
 			int.TryParse(itemRow[0], out d.id);
 			d.character = itemRow[1];
 			d.dialogue = itemRow[2];
-			d.expression = itemRow[3];
-			d.background = itemRow[4];
-			d.BGM = itemRow[5];
-			d.SE = itemRow[6];
+			d.expression = itemRow[4];
+			d.background = itemRow[7];
+			d.BGM = itemRow[11];
+			d.SE = itemRow[12];
 			d.voice = "";
-			d.effect = itemRow[7];
+			d.note = itemRow[13];
 
 			dialogues.Add(d);
 		}
@@ -6568,12 +6131,12 @@ public class LoadDialogue : MonoBehaviour
 			int.TryParse(itemRow[0], out d.id);
 			d.character = itemRow[1];
 			d.dialogue = itemRow[2];
-			d.expression = itemRow[3];
-			d.background = itemRow[4];
-			d.BGM = itemRow[5];
-			d.SE = itemRow[6];
+			d.expression = itemRow[4];
+			d.background = itemRow[7];
+			d.BGM = itemRow[11];
+			d.SE = itemRow[12];
 			d.voice = "";
-			d.effect = itemRow[7];
+			d.note = itemRow[13];
 
 			dialogues.Add(d);
 		}
@@ -6588,12 +6151,12 @@ public class LoadDialogue : MonoBehaviour
 			int.TryParse(itemRow[0], out d.id);
 			d.character = itemRow[1];
 			d.dialogue = itemRow[2];
-			d.expression = itemRow[3];
-			d.background = itemRow[4];
-			d.BGM = itemRow[5];
-			d.SE = itemRow[6];
+			d.expression = itemRow[4];
+			d.background = itemRow[7];
+			d.BGM = itemRow[11];
+			d.SE = itemRow[12];
 			d.voice = "";
-			d.effect = itemRow[7];
+			d.note = itemRow[13];
 
 			dialogues.Add(d);
 		}
@@ -6608,7 +6171,7 @@ public class LoadDialogue : MonoBehaviour
 		d.background = "";
 		d.BGM = "";
 		d.SE = "";
-		d.effect = "giveitem";
+		d.note = "giveitem";
 
 		dialogues.Add(d);
 
@@ -6634,12 +6197,12 @@ public class LoadDialogue : MonoBehaviour
 			int.TryParse(itemRow[0], out d.id);
 			d.character = itemRow[1];
 			d.dialogue = itemRow[2];
-			d.expression = itemRow[3];
-			d.background = itemRow[4];
-			d.BGM = itemRow[5];
-			d.SE = itemRow[6];
+			d.expression = itemRow[4];
+			d.background = itemRow[7];
+			d.BGM = itemRow[11];
+			d.SE = itemRow[12];
 			d.voice = "";
-			d.effect = itemRow[7];
+			d.note = itemRow[13];
 
 			dialogues.Add(d);
 		}
@@ -6654,12 +6217,12 @@ public class LoadDialogue : MonoBehaviour
 			int.TryParse(itemRow[0], out d.id);
 			d.character = itemRow[1];
 			d.dialogue = itemRow[2];
-			d.expression = itemRow[3];
-			d.background = itemRow[4];
-			d.BGM = itemRow[5];
-			d.SE = itemRow[6];
+			d.expression = itemRow[4];
+			d.background = itemRow[7];
+			d.BGM = itemRow[11];
+			d.SE = itemRow[12];
 			d.voice = "";
-			d.effect = itemRow[7];
+			d.note = itemRow[13];
 
 			dialogues.Add(d);
 		}
@@ -6674,12 +6237,12 @@ public class LoadDialogue : MonoBehaviour
 			int.TryParse(itemRow[0], out d.id);
 			d.character = itemRow[1];
 			d.dialogue = itemRow[2];
-			d.expression = itemRow[3];
-			d.background = itemRow[4];
-			d.BGM = itemRow[5];
-			d.SE = itemRow[6];
+			d.expression = itemRow[4];
+			d.background = itemRow[7];
+			d.BGM = itemRow[11];
+			d.SE = itemRow[12];
 			d.voice = "";
-			d.effect = itemRow[7];
+			d.note = itemRow[13];
 
 			dialogues.Add(d);
 		}
@@ -6694,7 +6257,7 @@ public class LoadDialogue : MonoBehaviour
 		d.background = "";
 		d.BGM = "";
 		d.SE = "";
-		d.effect = "giveitem";
+		d.note = "giveitem";
 
 		dialogues.Add(d);
 
@@ -6707,25 +6270,34 @@ public class LoadDialogue : MonoBehaviour
 
 	public void AfterShopPrologue()
 	{
-		whichLineNow = 220;
+		whichLineNow = 189;
 		resetPos = 7;
 
-		for (int i = 220; i < 244; i++)
+		for (int i = 189; i < 213; i++)
 		{
 			row = data[i].Split(new char[] { ',' });
 
-			if (row[2] != "" || row[6] != "" || row[8] != "")
+			if (row[2] != "" || row[15] != "" || row[17] != "")
 			{
 				d = new Dialogue();
 				int.TryParse(row[0], out d.id);
 				d.character = row[1];
 				d.dialogue = row[2];
-				d.expression = row[3];
-				d.background = row[4];
-				d.BGM = row[5];
-				d.SE = row[6];
-				d.voice = row[7];
-				d.effect = row[8];
+				d.mainchara = row[3];
+				d.expression = row[4];
+				d.showtwoone = row[5];
+				d.showtwotwo = row[6];
+				d.background = row[7];
+				d.firstchoose = row[8];
+				d.secondchoose = row[9];
+				d.choicetextshow = row[10];
+				d.objecteffect = row[11];
+				d.itemimage = row[12];
+				d.effect = row[13];
+				d.BGM = row[14];
+				d.SE = row[15];
+				d.voice = row[16];
+				d.note = row[17];
 
 				dialogues.Add(d);
 			}

@@ -24125,7 +24125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7dd65f1612d28d42a5a223a4b22f8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prologue: {fileID: 4900000, guid: a58cfeda3e45ffe4d9b7bfb994cf57d3, type: 3}
+  prologue: {fileID: 4900000, guid: a02ffea45ba95c54baf912b332a5989f, type: 3}
   itemDialogue: {fileID: 4900000, guid: c5e646a8210065342b91e29fd0b1c2ff, type: 3}
   BGName: {fileID: 4900000, guid: a4748d3b0767edf40989738ee28d25e6, type: 3}
   textLabel: {fileID: 230518241}
@@ -24744,7 +24744,7 @@ MonoBehaviour:
   backgrounds: []
   dialogues: []
   LiedDialogue:
-  - {fileID: 4900000, guid: 29599033951913143a9683ec850103cf, type: 3}
+  - {fileID: 4900000, guid: a4663685fb2f68a4291771f6df8888c6, type: 3}
   - {fileID: 4900000, guid: 9a670e04cbb351d42921e9a0228a04d0, type: 3}
   - {fileID: 4900000, guid: c8446da5938151e4a9e6822961e0c05a, type: 3}
   - {fileID: 4900000, guid: 0b93312fc871c4b4182b4d458cac0b29, type: 3}
@@ -27329,7 +27329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -59.960327, y: -49.252594}
+  m_AnchoredPosition: {x: -59.96045, y: -49.252686}
   m_SizeDelta: {x: -769.9208, y: -551.4948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845403716
