@@ -108,6 +108,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         int miniGame = PlayerPrefs.GetInt("MiniGame");
+        int[] date = PlayerPrefsX.GetIntArray("Date");
         if (menu == 1)
         {
             MinGameButton[0].interactable = true;

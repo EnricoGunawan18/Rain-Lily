@@ -51,10 +51,7 @@ public class MinigameMenu : MonoBehaviour
 
         if (date[0] == 10 && date[1] == 7)
         {
-            MinigameChoose.SetActive(false);
-            PlayerPrefs.SetInt("NovelMenu", 6);
-            dialogueManager.dialogueSpeed = 25f;
-            autoScroll.automated = false;
+            SceneManager.LoadScene("Scene_pazle");
         }
         else
         {
@@ -69,10 +66,8 @@ public class MinigameMenu : MonoBehaviour
 
         if (date[0] == 10 && date[1] == 8)
         {
-            MinigameChoose.SetActive(false);
-            PlayerPrefs.SetInt("NovelMenu", 8);
-            dialogueManager.dialogueSpeed = 25f;
-            autoScroll.automated = false;
+            PlayerPrefs.SetInt("NovelMenu", 0);
+            SceneManager.LoadScene("Novel");
         }
         else
         {
@@ -87,10 +82,7 @@ public class MinigameMenu : MonoBehaviour
 
         if (date[0] == 10 && date[1] == 9)
         {
-            MinigameChoose.SetActive(false);
-            PlayerPrefs.SetInt("NovelMenu", 7);
-            dialogueManager.dialogueSpeed = 25f;
-            autoScroll.automated = false;
+            SceneManager.LoadScene("Stage1");
         }
         else
         {

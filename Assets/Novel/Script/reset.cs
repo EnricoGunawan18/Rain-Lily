@@ -10,7 +10,7 @@ public class reset : MonoBehaviour
     void Start()
     {
         //which dialogue
-        PlayerPrefs.SetInt("LogNow", 1);
+        PlayerPrefs.SetInt("LogNow", 178);
 
         //dialogue speed
         PlayerPrefs.SetFloat("DialogueSpeed", 25f);
@@ -28,7 +28,7 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetFloat("Score5", 0);
         PlayerPrefs.SetInt("MiniGame", 0);
         //PlayerPrefs.SetInt("ResetPos", 0);
-        PlayerPrefs.SetInt("ResetPos", 0);
+        PlayerPrefs.SetInt("ResetPos", 6);
         PlayerPrefs.SetInt("NovelMenu", 0);
 
         PlayerPrefs.SetInt("NovelMenu1", 0);
@@ -43,7 +43,7 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("NovelMenu10", 0);
        
         //int[] startDate = { 10,7 };
-        int[] startDate = { 10, 7 };
+        int[] startDate = { 10, 8 };
 
         PlayerPrefsX.SetIntArray("Date", startDate);
 
