@@ -137,7 +137,26 @@ public class GameMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("ResetPos", 28);
         }
-
+        if (date[0] == 10 && date[1] == 27)
+        {
+            PlayerPrefs.SetInt("ResetPos", 32);
+        }
+        if (date[0] == 10 && date[1] == 30)
+        {
+            PlayerPrefs.SetInt("ResetPos", 34);
+        }
+        if (date[0] == 11 && date[1] == 2)
+        {
+            PlayerPrefs.SetInt("ResetPos", 38);
+        }
+        if (date[0] == 11 && date[1] == 5)
+        {
+            PlayerPrefs.SetInt("ResetPos", 42);
+        }
+        if (date[0] == 11 && date[1] == 8)
+        {
+            PlayerPrefs.SetInt("ResetPos", 44);
+        }
 
 
 

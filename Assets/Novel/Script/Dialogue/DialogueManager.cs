@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
         }
         else if (menu == 10)
         {
-            dialogueSpeed = 25;
+            dialogueSpeed = 10;
             if (resetPos == 31)
             {
                 PlayerPrefs.SetFloat("LiedHeart", 1);

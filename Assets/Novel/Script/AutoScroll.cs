@@ -17,27 +17,23 @@ public class AutoScroll : MonoBehaviour
 	[SerializeField]
 	private TMP_Text autoSign;
 
+	[SerializeField]
 	private DialogueManager dialogueManager;
 
+	[SerializeField]
 	Animator ScrollAnim;
 
-	bool dialogueIsPaused = false;
+	bool dialogueIsSkipped = false;
 	public bool normalSpeed = true;
 	bool autoOpen = false;
-	bool oneHalfSpeed = false;
-	bool twiceSpeed = false;
 	public bool autoActive = false;
 	public bool automated = false;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		ScrollAnim = ScrollSlide.GetComponent<Animator>();
-
-		dialogueManager = GameObject.Find("LoadDialogue").GetComponent<DialogueManager>();
-
 		ScrollBar.onClick.AddListener(ScrollShow);
-		Pausing.onClick.AddListener(PauseDialogue);
+		Pausing.onClick.AddListener(SkipDialogue);
 		Auto.onClick.AddListener(AutoDialogue);
 
 	}
@@ -45,33 +41,25 @@ public class AutoScroll : MonoBehaviour
 	// Update is called once per frame
 	private void ScrollShow()
 	{
-		if (normalSpeed == true)
+		if (autoOpen == false)
 		{
 			ScrollOpen();
 		}
-		else if (autoOpen == true)
-		{
-			OneHalfingSpeed();
-		}
-		else if (oneHalfSpeed == true)
-		{
-			DoublingSpeed();
-		}
-		else if (twiceSpeed == true)
+		else
 		{
 			ScrollClose();
 		}
 	}
 
-	private void PauseDialogue()
+	private void SkipDialogue()
 	{
-		if (dialogueIsPaused == false)
+		if (dialogueIsSkipped == false)
 		{
-			DialoguePaused();
+			DialogueSkipped();
 		}
-		else if (dialogueIsPaused == true)
+		else if (dialogueIsSkipped == true)
 		{
-			DialogueUnpaused();
+			DialogueUnskipped();
 		}
 	}
 
@@ -95,57 +83,32 @@ public class AutoScroll : MonoBehaviour
 
 	public void ScrollOpen()
 	{
-		normalSpeed = false;
 		autoOpen = true;
 
 		ScrollAnim.SetBool("isOpening", true);
 	}
 
-	public void OneHalfingSpeed()
-	{
-		autoOpen = false;
-		oneHalfSpeed = true;
-		automated = true;
-		autoActive = false;
-
-		dialogueManager.next = true;
-
-		dialogueManager.dialogueSpeed = 300f;
-	}
-
-	public void DoublingSpeed()
-	{
-		oneHalfSpeed = false;
-		twiceSpeed = true;
-		autoActive = false;
-
-		dialogueManager.next = true;
-
-		dialogueManager.dialogueSpeed = 400f;
-	}
-
 
 	public void ScrollClose()
 	{
-		twiceSpeed = false;
-		normalSpeed = true;
-		automated = false;
-		autoActive = false;
-
-		dialogueManager.dialogueSpeed = 25f;
+		autoOpen = false;
 
 		ScrollAnim.SetBool("isOpening", false);
 	}
 
-	public void DialoguePaused()
+	public void DialogueSkipped()
 	{
-		dialogueIsPaused = true;
-		dialogueManager.dialogueSpeed = 0f;
+		dialogueIsSkipped = true;
+		automated = true;
+		dialogueManager.next = true;
+		dialogueManager.dialogueSpeed = 400f;
 	}
 
-	public void DialogueUnpaused()
+	public void DialogueUnskipped()
 	{
-		dialogueIsPaused = false;
-		dialogueManager.dialogueSpeed = 25f;
+		dialogueIsSkipped = false;
+		automated = false;
+		dialogueManager.next = false;
+		dialogueManager.dialogueSpeed = 10f;
 	}
 }

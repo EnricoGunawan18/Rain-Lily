@@ -10,10 +10,10 @@ public class reset : MonoBehaviour
     void Start()
     {
         //which dialogue
-        PlayerPrefs.SetInt("LogNow", 178);
+        PlayerPrefs.SetInt("LogNow", 1);
 
         //dialogue speed
-        PlayerPrefs.SetFloat("DialogueSpeed", 25f);
+        PlayerPrefs.SetFloat("DialogueSpeed", 10f);
 
         //reset//////////////////////////////////////////////////////////////////
         PlayerPrefs.SetFloat("ScoreAll", 0);
@@ -28,8 +28,9 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetFloat("Score5", 0);
         PlayerPrefs.SetInt("MiniGame", 0);
         //PlayerPrefs.SetInt("ResetPos", 0);
-        PlayerPrefs.SetInt("ResetPos", 6);
-        PlayerPrefs.SetInt("NovelMenu", 0);
+        PlayerPrefs.SetInt("ResetPos", 26);
+        PlayerPrefs.SetInt("NovelMenu", 13);
+        //PlayerPrefs.SetInt("NovelMenu", 0);
 
         PlayerPrefs.SetInt("NovelMenu1", 0);
         PlayerPrefs.SetInt("NovelMenu2", 0);
@@ -43,7 +44,7 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("NovelMenu10", 0);
        
         //int[] startDate = { 10,7 };
-        int[] startDate = { 10, 8 };
+        int[] startDate = { 11, 2 };
 
         PlayerPrefsX.SetIntArray("Date", startDate);
 
@@ -75,7 +76,7 @@ public class reset : MonoBehaviour
         PlayerPrefsX.SetIntArray("ItemNumber10", a);
 
         PlayerPrefs.SetInt("Money", 0);
-        PlayerPrefs.SetFloat("LiedHeart", 0);
+        PlayerPrefs.SetFloat("LiedHeart", 100);
         PlayerPrefs.SetFloat("KleinHeart", 0);
 
         PlayerPrefs.SetInt("Money1", 0);
