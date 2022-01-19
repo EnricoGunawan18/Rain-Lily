@@ -8,10 +8,6 @@ public class DataButtonDisable : MonoBehaviour
 	[SerializeField]
 	Image[] Base;
 	[SerializeField]
-	Image[] Eye;
-	[SerializeField]
-	Image[] Mouth;
-	[SerializeField]
 	Button[] Data;
 
 	[SerializeField]
@@ -82,8 +78,6 @@ public class DataButtonDisable : MonoBehaviour
 			if (dateFile[i][0] == 0)
 			{
 				Base[i].color = new Color(0, 0, 0, 0);
-				Eye[i].color = new Color(0, 0, 0, 0);
-				Mouth[i].color = new Color(0, 0, 0, 0);
 
 				Date[i].text = "EMPTY";
 				if (fileScreen.saveOrLoad == 2)
@@ -98,8 +92,6 @@ public class DataButtonDisable : MonoBehaviour
 			else
 			{
 				Base[i].color = new Color(255, 255, 255, 255);
-				Eye[i].color = new Color(255, 255, 255, 255);
-				Mouth[i].color = new Color(255, 255, 255, 255);
 
 				Date[0].text = dateFile[0][0].ToString() + "/" + dateFile[0][1].ToString();
 				Date[1].text = dateFile[1][0].ToString() + "/" + dateFile[1][1].ToString();
@@ -115,14 +107,10 @@ public class DataButtonDisable : MonoBehaviour
 				if (Lied[i] < Klein[i])
 				{
 					Base[i].sprite = Sprite[3];
-					Eye[i].sprite = Sprite[4];
-					Mouth[i].sprite = Sprite[5];
 				}
 				else
 				{
 					Base[i].sprite = Sprite[0];
-					Eye[i].sprite = Sprite[1];
-					Mouth[i].sprite = Sprite[2];
 				}
 			}
 		}

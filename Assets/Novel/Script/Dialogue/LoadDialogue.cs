@@ -154,6 +154,9 @@ public class LoadDialogue : MonoBehaviour
 	public bool finishTemp11 = false;
 	public bool finishTemp12 = false;
 	public bool finishTemp13 = false;
+	public bool finishTemp14 = false;
+	public bool finishTemp15 = false;
+	public bool finishTemp16 = false;
 
 
 	public bool ItemEffect = false;
@@ -169,8 +172,7 @@ public class LoadDialogue : MonoBehaviour
 	public float voiceTime;
 
 	[SerializeField]
-	GameObject GameShowOnly;
-
+	GameMenu GameMenuScript;
 
 	public List<BackGroundLogs> backgrounds;
 	public List<Dialogue> dialogues;
@@ -374,6 +376,27 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
+		else if (date[0] == 11 && date[1] == 12)
+		{
+			data = LiedDialogue[10].text.Split(new char[] { '$' });
+			if (liedAff >= 60f)
+			{
+				menu = 24;
+				PlayerPrefs.SetInt("NovelMenu", menu);
+			}
+			else
+			{
+				PlayerPrefs.SetInt("LiedFail", 1);
+			}
+
+		}
+		else if (date[0] == 11 && date[1] == 13)
+		{
+			data = LiedDialogue[11].text.Split(new char[] { '$' });
+				menu = 25;
+				PlayerPrefs.SetInt("NovelMenu", menu);
+		}
+
 
 
 		//Lied failed
@@ -775,6 +798,76 @@ public class LoadDialogue : MonoBehaviour
 			resetPos = 45;
 			PlayerPrefs.SetInt("LogNow", 1);
 			for (int i = 1; i < 15; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 24 && resetFrom == 48)
+		{
+			resetPos = 49;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 45; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 25 && resetFrom == 56)
+		{
+			resetPos = 57;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 31; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2130,7 +2223,262 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
+		else if (resetFrom == 49)
+		{
+			for (int i = logNumber; i < 45; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
 
+				if ((row[2] != "" || row[15] != "" || row[17] != "") )
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 50)
+		{
+			for (int i = logNumber; i < 79; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 51)
+		{
+			for (int i = logNumber; i < 112; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 52)
+		{
+			for (int i = logNumber; i < 130; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 53)
+		{
+			for (int i = logNumber; i < 357; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 54)
+		{
+			for (int i = logNumber; i < 385; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 55)
+		{
+			for (int i = logNumber; i < 514; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 57)
+		{
+			for (int i = logNumber; i < 31; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
 
 
 		else if (novelMenu == 0 && resetFrom == 0)
@@ -2353,6 +2701,41 @@ public class LoadDialogue : MonoBehaviour
 			string Filtered6 = tempRow[9].Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
+		if (finishTemp14 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[44].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/end", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[44].Split(new char[] { ',' });
+			string Filtered6 = tempRow[9].Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp15 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[112].Split(new char[] { ',' });
+			string Filtered3 = tempRow[8].Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[112].Split(new char[] { ',' });
+			string Filtered6 = tempRow[9].Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp16 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[357].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/end", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[357].Split(new char[] { ',' });
+			string Filtered6 = tempRow[9].Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
 
 
 	}
@@ -2375,7 +2758,7 @@ public class LoadDialogue : MonoBehaviour
 
 			//background
 
-			if (d.background == "still-006-a")
+			if (d.background.Contains("still-006-a"))
 			{
 				StillImage.sprite = StillSprite[0];
 				StillImage.color = new Color(255, 255, 255, 255);
@@ -2385,7 +2768,7 @@ public class LoadDialogue : MonoBehaviour
 				nameLabel.color = new Color(0, 0, 0, 255);
 				Hide.SetBool("Still", true);
 			}
-			else if (d.background == "still-006-b")
+			else if (d.background.Contains("still-006-b"))
 			{
 				StillImage.sprite = StillSprite[1];
 				StillImage.color = new Color(255, 255, 255, 255);
@@ -2395,7 +2778,7 @@ public class LoadDialogue : MonoBehaviour
 				nameLabel.color = new Color(0, 0, 0, 255);
 				Hide.SetBool("Still", true);
 			}
-			else if (d.background == "still-006-c")
+			else if (d.background.Contains("still-006-c"))
 			{
 				StillImage.sprite = StillSprite[2];
 				StillImage.color = new Color(255, 255, 255, 255);
@@ -2523,12 +2906,6 @@ public class LoadDialogue : MonoBehaviour
 			{
 				backGroundLabel.text = "";
 			}
-
-			string[] textTemp = { backGroundName, backGroundLabel.text, whichLineNow.ToString() };
-			StartCoroutine("BGTextAnim", textTemp);
-
-
-
 
 			//Voice
 			if (autoScroll.automated == false)
@@ -3668,6 +4045,11 @@ public class LoadDialogue : MonoBehaviour
 					Voice.clip = VoiceFile[226];
 					Voice.Play();
 				}
+				else if (d.voice == "V-0604")
+				{
+					Voice.clip = VoiceFile[314];
+					Voice.Play();
+				}
 				else if (d.voice == "V-0606")
 				{
 					Voice.clip = VoiceFile[227];
@@ -4103,11 +4485,7 @@ public class LoadDialogue : MonoBehaviour
 					Voice.clip = VoiceFile[313];
 					Voice.Play();
 				}
-				else if (d.voice == "V-0604")
-				{
-					Voice.clip = VoiceFile[314];
-					Voice.Play();
-				}
+
 
 
 
@@ -4120,237 +4498,6 @@ public class LoadDialogue : MonoBehaviour
 			{
 				Voice.Stop();
 			}
-
-			bool blankAnim = BustUpAnim.GetBool("isBlank");
-			//character body
-			if (d.expression == "")
-			{
-				BustUpAnim.SetBool("isBlank", true);
-			}
-			if (d.expression.Contains("L-01") || d.expression.Contains("L-01a") ||
-				d.expression.Contains("L-01b") || d.expression.Contains("L-02") ||
-				d.expression.Contains("L-02a") || d.expression.Contains("L-03") ||
-				d.expression.Contains("L-04") || d.expression.Contains("L-05") ||
-				d.expression.Contains("L-05a") || d.expression.Contains("L-06") ||
-				d.expression.Contains("L-06a") || d.expression.Contains("L-07") ||
-				d.expression.Contains("L-07a") || d.expression.Contains("L-08") ||
-				d.expression.Contains("L-10") || d.expression.Contains("L-01-ragan") ||
-				d.expression.Contains("L-10a"))
-			{
-				if (blankAnim == true)
-				{
-					BustUpAnim.SetBool("isBlank", false);
-					charaImageNow.color = new Color(255, 255, 255, 255);
-					EyeNow.color = new Color(255, 255, 255, 255);
-					MouthNow.color = new Color(255, 255, 255, 255);
-					yield return new WaitForSeconds(1.5f);
-				}
-				charaImageNow.sprite = charaImage[0];
-			}
-
-			else if (d.expression.Contains("L-09"))
-			{
-				if (blankAnim == true)
-				{
-					BustUpAnim.SetBool("isBlank", false);
-					charaImageNow.color = new Color(255, 255, 255, 255);
-					EyeNow.color = new Color(255, 255, 255, 255);
-					MouthNow.color = new Color(255, 255, 255, 255);
-					yield return new WaitForSeconds(1.5f);
-				}
-				charaImageNow.sprite = charaImage[4];
-			}
-
-			else if (d.expression.Contains("K-01") || d.expression.Contains("K-02") ||
-				d.expression.Contains("K-02a") || d.expression.Contains("K-03") ||
-				d.expression.Contains("K-04") || d.expression.Contains("K-05") ||
-				d.expression.Contains("K-06") || d.expression.Contains("K-07") ||
-				d.expression.Contains("K-08") || d.expression.Contains("K-09") ||
-				d.expression.Contains("K-09a") || d.expression.Contains("K-10") ||
-				d.expression.Contains("K-11"))
-			{
-				if (blankAnim == true)
-				{
-					BustUpAnim.SetBool("isBlank", false);
-					charaImageNow.color = new Color(255, 255, 255, 255);
-					EyeNow.color = new Color(255, 255, 255, 255);
-					MouthNow.color = new Color(255, 255, 255, 255);
-					yield return new WaitForSeconds(1.5f);
-				}
-				charaImageNow.sprite = charaImage[1];
-			}
-
-			else if (d.expression.Contains("T-01") || d.expression.Contains("T-02") ||
-				d.expression.Contains("T-03") || d.expression.Contains("T-03a") ||
-				d.expression.Contains("T-04"))
-			{
-				if (blankAnim == true)
-				{
-					BustUpAnim.SetBool("isBlank", false);
-					charaImageNow.color = new Color(255, 255, 255, 255);
-					EyeNow.color = new Color(255, 255, 255, 255);
-					MouthNow.color = new Color(255, 255, 255, 255);
-					yield return new WaitForSeconds(1.5f);
-				}
-				charaImageNow.sprite = charaImage[2];
-			}
-			else if (d.expression.Contains("G-01") || d.expression.Contains("G-02") ||
-				d.expression.Contains("G-03") || d.expression.Contains("G-04") ||
-				d.expression.Contains("G-05") || d.expression.Contains("G-06") ||
-				d.expression.Contains("G-07"))
-			{
-				if (blankAnim == true)
-				{
-					BustUpAnim.SetBool("isBlank", false);
-					charaImageNow.color = new Color(255, 255, 255, 255);
-					EyeNow.color = new Color(255, 255, 255, 255);
-					MouthNow.color = new Color(255, 255, 255, 255);
-					yield return new WaitForSeconds(1.5f);
-				}
-				charaImageNow.sprite = charaImage[3];
-			}
-			else
-			{
-				BustUpAnim.SetBool("isBlank", true);
-
-				charaImageNow.color = new Color(0, 0, 0, 0);
-
-				EyeNow.color = new Color(0, 0, 0, 0);
-
-				MouthNow.color = new Color(0, 0, 0, 0);
-			}
-
-			//left chara
-			if (d.showtwoone == "")
-			{
-				charaImageNow1.color = new Color(0, 0, 0, 0);
-				EyeNow1.color = new Color(0, 0, 0, 0);
-				MouthNow1.color = new Color(0, 0, 0, 0);
-			}
-			if (d.showtwoone.Contains("L-01") || d.showtwoone.Contains("L-01a") ||
-				d.showtwoone.Contains("L-01b") || d.showtwoone.Contains("L-02") ||
-				d.showtwoone.Contains("L-02a") || d.showtwoone.Contains("L-03") ||
-				d.showtwoone.Contains("L-04") || d.showtwoone.Contains("L-05") ||
-				d.showtwoone.Contains("L-05a") || d.showtwoone.Contains("L-06") ||
-				d.showtwoone.Contains("L-06a") || d.showtwoone.Contains("L-07") ||
-				d.showtwoone.Contains("L-07a") || d.showtwoone.Contains("L-08") ||
-				d.showtwoone.Contains("L-10") || d.showtwoone.Contains("L-01-ragan") ||
-				d.showtwoone.Contains("L-10a"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[0];
-			}
-
-			else if (d.showtwoone.Contains("L-09"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[4];
-			}
-
-			else if (d.showtwoone.Contains("K-01") || d.showtwoone.Contains("K-02") ||
-				d.showtwoone.Contains("K-02a") || d.showtwoone.Contains("K-03") ||
-				d.showtwoone.Contains("K-04") || d.showtwoone.Contains("K-05") ||
-				d.showtwoone.Contains("K-06") || d.showtwoone.Contains("K-07") ||
-				d.showtwoone.Contains("K-08") || d.showtwoone.Contains("K-09") ||
-				d.showtwoone.Contains("K-09a") || d.showtwoone.Contains("K-10") ||
-				d.showtwoone.Contains("K-11"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[1];
-			}
-
-			else if (d.showtwoone.Contains("T-01") || d.showtwoone.Contains("T-02") ||
-				d.showtwoone.Contains("T-03") || d.showtwoone.Contains("T-03a") ||
-				d.showtwoone.Contains("T-04"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[2];
-			}
-			else if (d.showtwoone.Contains("G-01") || d.showtwoone.Contains("G-02") ||
-				d.showtwoone.Contains("G-03") || d.showtwoone.Contains("G-04") ||
-				d.showtwoone.Contains("G-05") || d.showtwoone.Contains("G-06") ||
-				d.showtwoone.Contains("G-07"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[3];
-			}
-			else
-			{
-				charaImageNow1.color = new Color(0, 0, 0, 0);
-
-				EyeNow1.color = new Color(0, 0, 0, 0);
-
-				MouthNow1.color = new Color(0, 0, 0, 0);
-			}
-
-			//right chara
-			if (d.showtwotwo == "")
-			{
-				charaImageNow2.color = new Color(0, 0, 0, 0);
-				EyeNow2.color = new Color(0, 0, 0, 0);
-				MouthNow2.color = new Color(0, 0, 0, 0);
-			}
-			if (d.showtwotwo.Contains("L-01") || d.showtwotwo.Contains("L-01a") ||
-				d.showtwotwo.Contains("L-01b") || d.showtwotwo.Contains("L-02") ||
-				d.showtwotwo.Contains("L-02a") || d.showtwotwo.Contains("L-03") ||
-				d.showtwotwo.Contains("L-04") || d.showtwotwo.Contains("L-05") ||
-				d.showtwotwo.Contains("L-05a") || d.showtwotwo.Contains("L-06") ||
-				d.showtwotwo.Contains("L-06a") || d.showtwotwo.Contains("L-07") ||
-				d.showtwotwo.Contains("L-07a") || d.showtwotwo.Contains("L-08") ||
-				d.showtwotwo.Contains("L-10") || d.showtwotwo.Contains("L-01-ragan") ||
-				d.showtwotwo.Contains("L-10a"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[0];
-			}
-
-			else if (d.showtwotwo.Contains("L-09"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[4];
-			}
-
-			else if (d.showtwotwo.Contains("K-01") || d.showtwotwo.Contains("K-02") ||
-				d.showtwotwo.Contains("K-02a") || d.showtwotwo.Contains("K-03") ||
-				d.showtwotwo.Contains("K-04") || d.showtwotwo.Contains("K-05") ||
-				d.showtwotwo.Contains("K-06") || d.showtwotwo.Contains("K-07") ||
-				d.showtwotwo.Contains("K-08") || d.showtwotwo.Contains("K-09") ||
-				d.showtwotwo.Contains("K-09a") || d.showtwotwo.Contains("K-10") ||
-				d.showtwotwo.Contains("K-11"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[1];
-			}
-
-			else if (d.showtwotwo.Contains("T-01") || d.showtwotwo.Contains("T-02") ||
-				d.showtwotwo.Contains("T-03") || d.showtwotwo.Contains("T-03a") ||
-				d.showtwotwo.Contains("T-04"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[2];
-			}
-			else if (d.showtwotwo.Contains("G-01") || d.showtwotwo.Contains("G-02") ||
-				d.showtwotwo.Contains("G-03") || d.showtwotwo.Contains("G-04") ||
-				d.showtwotwo.Contains("G-05") || d.showtwotwo.Contains("G-06") ||
-				d.showtwotwo.Contains("G-07"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[3];
-			}
-			else if (d.character == "メイア")
-			{
-			}
-			else
-			{
-				charaImageNow2.color = new Color(0, 0, 0, 0);
-
-				EyeNow2.color = new Color(0, 0, 0, 0);
-
-				MouthNow2.color = new Color(0, 0, 0, 0);
-			}
-
-
-
 
 			if (d.showtwoone != "" || d.showtwotwo != "")
 			{
@@ -4366,8 +4513,6 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 			//character expression
-			StopCoroutine("MouthAnim");
-
 			if (d.expression.Contains("L-01"))
 			{
 				StopCoroutine("EyeAnim");
@@ -5594,6 +5739,252 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 
+			//character body
+			bool blankAnim = BustUpAnim.GetBool("isBlank");
+
+			//left chara
+			if (d.showtwoone == "")
+			{
+				charaImageNow1.color = new Color(0, 0, 0, 0);
+				EyeNow1.color = new Color(0, 0, 0, 0);
+				MouthNow1.color = new Color(0, 0, 0, 0);
+			}
+			if (d.showtwoone.Contains("L-01") || d.showtwoone.Contains("L-01a") ||
+				d.showtwoone.Contains("L-01b") || d.showtwoone.Contains("L-02") ||
+				d.showtwoone.Contains("L-02a") || d.showtwoone.Contains("L-03") ||
+				d.showtwoone.Contains("L-04") || d.showtwoone.Contains("L-05") ||
+				d.showtwoone.Contains("L-05a") || d.showtwoone.Contains("L-06") ||
+				d.showtwoone.Contains("L-06a") || d.showtwoone.Contains("L-07") ||
+				d.showtwoone.Contains("L-07a") || d.showtwoone.Contains("L-08") ||
+				d.showtwoone.Contains("L-10") || d.showtwoone.Contains("L-01-ragan") ||
+				d.showtwoone.Contains("L-10a"))
+			{
+				charaImageNow1.color = new Color(255, 255, 255, 255);
+				charaImageNow1.sprite = charaImage[0];
+			}
+
+			else if (d.showtwoone.Contains("L-09"))
+			{
+				charaImageNow1.color = new Color(255, 255, 255, 255);
+				charaImageNow1.sprite = charaImage[4];
+			}
+
+			else if (d.showtwoone.Contains("K-01") || d.showtwoone.Contains("K-02") ||
+				d.showtwoone.Contains("K-02a") || d.showtwoone.Contains("K-03") ||
+				d.showtwoone.Contains("K-04") || d.showtwoone.Contains("K-05") ||
+				d.showtwoone.Contains("K-06") || d.showtwoone.Contains("K-07") ||
+				d.showtwoone.Contains("K-08") || d.showtwoone.Contains("K-09") ||
+				d.showtwoone.Contains("K-09a") || d.showtwoone.Contains("K-10") ||
+				d.showtwoone.Contains("K-11"))
+			{
+				charaImageNow1.color = new Color(255, 255, 255, 255);
+				charaImageNow1.sprite = charaImage[1];
+			}
+
+			else if (d.showtwoone.Contains("T-01") || d.showtwoone.Contains("T-02") ||
+				d.showtwoone.Contains("T-03") || d.showtwoone.Contains("T-03a") ||
+				d.showtwoone.Contains("T-04"))
+			{
+				charaImageNow1.color = new Color(255, 255, 255, 255);
+				charaImageNow1.sprite = charaImage[2];
+			}
+			else if (d.showtwoone.Contains("G-01") || d.showtwoone.Contains("G-02") ||
+				d.showtwoone.Contains("G-03") || d.showtwoone.Contains("G-04") ||
+				d.showtwoone.Contains("G-05") || d.showtwoone.Contains("G-06") ||
+				d.showtwoone.Contains("G-07"))
+			{
+				charaImageNow1.color = new Color(255, 255, 255, 255);
+				charaImageNow1.sprite = charaImage[3];
+			}
+			else
+			{
+				charaImageNow1.color = new Color(0, 0, 0, 0);
+
+				EyeNow1.color = new Color(0, 0, 0, 0);
+
+				MouthNow1.color = new Color(0, 0, 0, 0);
+			}
+
+			//right chara
+			if (d.showtwotwo == "")
+			{
+				charaImageNow2.color = new Color(0, 0, 0, 0);
+				EyeNow2.color = new Color(0, 0, 0, 0);
+				MouthNow2.color = new Color(0, 0, 0, 0);
+			}
+			if (d.showtwotwo.Contains("L-01") || d.showtwotwo.Contains("L-01a") ||
+				d.showtwotwo.Contains("L-01b") || d.showtwotwo.Contains("L-02") ||
+				d.showtwotwo.Contains("L-02a") || d.showtwotwo.Contains("L-03") ||
+				d.showtwotwo.Contains("L-04") || d.showtwotwo.Contains("L-05") ||
+				d.showtwotwo.Contains("L-05a") || d.showtwotwo.Contains("L-06") ||
+				d.showtwotwo.Contains("L-06a") || d.showtwotwo.Contains("L-07") ||
+				d.showtwotwo.Contains("L-07a") || d.showtwotwo.Contains("L-08") ||
+				d.showtwotwo.Contains("L-10") || d.showtwotwo.Contains("L-01-ragan") ||
+				d.showtwotwo.Contains("L-10a"))
+			{
+				charaImageNow2.color = new Color(255, 255, 255, 255);
+				charaImageNow2.sprite = charaImage[0];
+			}
+
+			else if (d.showtwotwo.Contains("L-09"))
+			{
+				charaImageNow2.color = new Color(255, 255, 255, 255);
+				charaImageNow2.sprite = charaImage[4];
+			}
+
+			else if (d.showtwotwo.Contains("K-01") || d.showtwotwo.Contains("K-02") ||
+				d.showtwotwo.Contains("K-02a") || d.showtwotwo.Contains("K-03") ||
+				d.showtwotwo.Contains("K-04") || d.showtwotwo.Contains("K-05") ||
+				d.showtwotwo.Contains("K-06") || d.showtwotwo.Contains("K-07") ||
+				d.showtwotwo.Contains("K-08") || d.showtwotwo.Contains("K-09") ||
+				d.showtwotwo.Contains("K-09a") || d.showtwotwo.Contains("K-10") ||
+				d.showtwotwo.Contains("K-11"))
+			{
+				charaImageNow2.color = new Color(255, 255, 255, 255);
+				charaImageNow2.sprite = charaImage[1];
+			}
+
+			else if (d.showtwotwo.Contains("T-01") || d.showtwotwo.Contains("T-02") ||
+				d.showtwotwo.Contains("T-03") || d.showtwotwo.Contains("T-03a") ||
+				d.showtwotwo.Contains("T-04"))
+			{
+				charaImageNow2.color = new Color(255, 255, 255, 255);
+				charaImageNow2.sprite = charaImage[2];
+			}
+			else if (d.showtwotwo.Contains("G-01") || d.showtwotwo.Contains("G-02") ||
+				d.showtwotwo.Contains("G-03") || d.showtwotwo.Contains("G-04") ||
+				d.showtwotwo.Contains("G-05") || d.showtwotwo.Contains("G-06") ||
+				d.showtwotwo.Contains("G-07"))
+			{
+				charaImageNow2.color = new Color(255, 255, 255, 255);
+				charaImageNow2.sprite = charaImage[3];
+			}
+			else if (d.character == "メイア")
+			{
+			}
+			else
+			{
+				charaImageNow2.color = new Color(0, 0, 0, 0);
+
+				EyeNow2.color = new Color(0, 0, 0, 0);
+
+				MouthNow2.color = new Color(0, 0, 0, 0);
+			}
+
+			//main chara
+			if (d.expression == "")
+			{
+				charaImageNow.color = new Color(0, 0, 0, 0);
+
+				EyeNow.color = new Color(0, 0, 0, 0);
+
+				MouthNow.color = new Color(0, 0, 0, 0);
+
+				BustUpAnim.SetBool("isBlank", true);
+			}
+			if (d.expression.Contains("L-01") || d.expression.Contains("L-01a") ||
+				d.expression.Contains("L-01b") || d.expression.Contains("L-02") ||
+				d.expression.Contains("L-02a") || d.expression.Contains("L-03") ||
+				d.expression.Contains("L-04") || d.expression.Contains("L-05") ||
+				d.expression.Contains("L-05a") || d.expression.Contains("L-06") ||
+				d.expression.Contains("L-06a") || d.expression.Contains("L-07") ||
+				d.expression.Contains("L-07a") || d.expression.Contains("L-08") ||
+				d.expression.Contains("L-10") || d.expression.Contains("L-01-ragan") ||
+				d.expression.Contains("L-10a"))
+			{
+				if (blankAnim == true)
+				{
+					charaImageNow.color = new Color(255, 255, 255, 255);
+					EyeNow.color = new Color(255, 255, 255, 255);
+					MouthNow.color = new Color(255, 255, 255, 255);
+					charaImageNow.sprite = charaImage[0];
+					BustUpAnim.SetBool("isBlank", false);
+					yield return new WaitForSeconds(1.5f);
+				}
+				charaImageNow.sprite = charaImage[0];
+			}
+
+			else if (d.expression.Contains("L-09"))
+			{
+				if (blankAnim == true)
+				{
+					charaImageNow.color = new Color(255, 255, 255, 255);
+					EyeNow.color = new Color(255, 255, 255, 255);
+					MouthNow.color = new Color(255, 255, 255, 255);
+					charaImageNow.sprite = charaImage[4];
+					BustUpAnim.SetBool("isBlank", false);
+					yield return new WaitForSeconds(1.5f);
+				}
+				charaImageNow.sprite = charaImage[4];
+			}
+
+			else if (d.expression.Contains("K-01") || d.expression.Contains("K-02") ||
+				d.expression.Contains("K-02a") || d.expression.Contains("K-03") ||
+				d.expression.Contains("K-04") || d.expression.Contains("K-05") ||
+				d.expression.Contains("K-06") || d.expression.Contains("K-07") ||
+				d.expression.Contains("K-08") || d.expression.Contains("K-09") ||
+				d.expression.Contains("K-09a") || d.expression.Contains("K-10") ||
+				d.expression.Contains("K-11"))
+			{
+				if (blankAnim == true)
+				{
+					charaImageNow.color = new Color(255, 255, 255, 255);
+					EyeNow.color = new Color(255, 255, 255, 255);
+					MouthNow.color = new Color(255, 255, 255, 255);
+					charaImageNow.sprite = charaImage[1];
+					BustUpAnim.SetBool("isBlank", false);
+					yield return new WaitForSeconds(1.5f);
+				}
+				charaImageNow.sprite = charaImage[1];
+			}
+
+			else if (d.expression.Contains("T-01") || d.expression.Contains("T-02") ||
+				d.expression.Contains("T-03") || d.expression.Contains("T-03a") ||
+				d.expression.Contains("T-04"))
+			{
+				if (blankAnim == true)
+				{
+					charaImageNow.color = new Color(255, 255, 255, 255);
+					EyeNow.color = new Color(255, 255, 255, 255);
+					MouthNow.color = new Color(255, 255, 255, 255);
+					charaImageNow.sprite = charaImage[2];
+					BustUpAnim.SetBool("isBlank", false);
+					yield return new WaitForSeconds(1.5f);
+				}
+				charaImageNow.sprite = charaImage[2];
+			}
+			else if (d.expression.Contains("G-01") || d.expression.Contains("G-02") ||
+				d.expression.Contains("G-03") || d.expression.Contains("G-04") ||
+				d.expression.Contains("G-05") || d.expression.Contains("G-06") ||
+				d.expression.Contains("G-07"))
+			{
+				if (blankAnim == true)
+				{
+					charaImageNow.color = new Color(255, 255, 255, 255);
+					EyeNow.color = new Color(255, 255, 255, 255);
+					MouthNow.color = new Color(255, 255, 255, 255);
+					charaImageNow.sprite = charaImage[3];
+					BustUpAnim.SetBool("isBlank", false);
+					yield return new WaitForSeconds(1.5f);
+				}
+				charaImageNow.sprite = charaImage[3];
+			}
+			else
+			{
+				BustUpAnim.SetBool("isBlank", true);
+
+				charaImageNow.color = new Color(0, 0, 0, 0);
+
+				EyeNow.color = new Color(0, 0, 0, 0);
+
+				MouthNow.color = new Color(0, 0, 0, 0);
+			}
+
+
+			//Background Text Show
+			string[] textTemp = { backGroundName, backGroundLabel.text, whichLineNow.ToString() };
+			StartCoroutine("BGTextAnim", textTemp);
+
 			//Bust Up(?)
 			if (d.expression.Contains("BU"))
 			{
@@ -5924,7 +6315,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 			}
 
@@ -5994,7 +6385,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 
 			}
@@ -6061,7 +6452,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 
 			}
@@ -6132,7 +6523,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 
 			}
@@ -6199,7 +6590,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 
 			}
@@ -6268,7 +6659,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 			}
 
@@ -6330,7 +6721,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 			}
 
@@ -6397,7 +6788,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 			}
 
@@ -6464,7 +6855,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 			}
 
@@ -6525,7 +6916,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
 				}
 			}
 
@@ -6592,7 +6983,153 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 
 					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameShowOnly.SetActive(true);
+					GameMenu.SetActive(true);
+				}
+			}
+
+			///////////////////////////////////////////////////////////////////////////////L I E D 11/////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 11 && date[1] == 12 && LiedFail == 0)
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					SlideAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+
+				if (d.id == 1492)
+				{
+					finishTemp14 = true;
+				}
+				if (d.id == 1558)
+				{
+					finishTemp15 = true;
+				}
+				if (d.id == 1803)
+				{
+					finishTemp16 = true;
+				}
+
+
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				if (d.id == 1526 || d.id == 1575 || d.id == 1830)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("TitleScreen");
+				}
+
+
+				if (d.id == 1959)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					GameMenuScript.NextDay();
+				}
+			}
+
+			///////////////////////////////////////////////////////////////////////////////L I E D EP/////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 11 && date[1] == 13 && LiedFail == 0)
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					SlideAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+
+
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				if (d.id == 1989)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("TitleScreen");
 				}
 			}
 
@@ -6691,8 +7228,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
-
 		if (finishTemp2 == true)
 		{
 			float affection = PlayerPrefs.GetFloat("LiedHeart");
@@ -6796,7 +7331,6 @@ public class LoadDialogue : MonoBehaviour
 
 			dialogues.Add(d);
 		}
-
 		if (finishTemp5 == true)
 		{
 			float affection = PlayerPrefs.GetFloat("LiedHeart");
@@ -6875,7 +7409,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		if (finishTemp7 == true)
 		{
 			float affection = PlayerPrefs.GetFloat("LiedHeart");
@@ -7146,6 +7679,114 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
+		if (finishTemp14 == true)
+		{
+			resetPos = 50;
+			finishTemp14 = false;
+			whichLineNow = 45;
+
+			for (int i = 45; i < 79; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp15 == true)
+		{
+			resetPos = 52;
+			finishTemp15 = false;
+			whichLineNow = 113;
+
+			for (int i = 113; i < 130; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp16 == true)
+		{
+			resetPos = 54;
+			finishTemp16 = false;
+			whichLineNow = 358;
+
+			for (int i = 358; i < 385; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
 
 
 		ShowDialogue();
@@ -7195,7 +7836,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		if (finishTemp2 == true)
 		{
 			float affection = PlayerPrefs.GetFloat("LiedHeart");
@@ -7235,7 +7875,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		if (finishTemp3 == true)
 		{
 			float affection = PlayerPrefs.GetFloat("KleinHeart");
@@ -7275,7 +7914,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		if (finishTemp4 == true)
 		{
 			finishTemp4 = false;
@@ -7359,7 +7997,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		if (finishTemp7 == true)
 		{
 			float affection = PlayerPrefs.GetFloat("LiedHeart");
@@ -7592,6 +8229,114 @@ public class LoadDialogue : MonoBehaviour
 			whichLineNow = 16;
 
 			for (int i = 16; i < 54; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp14 == true)
+		{
+			resetPos = 51;
+			finishTemp14 = false;
+			whichLineNow = 79;
+
+			for (int i = 79; i < 112; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp15 == true)
+		{
+			resetPos = 53;
+			finishTemp15 = false;
+			whichLineNow = 130;
+
+			for (int i = 130; i < 357; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp16 == true)
+		{
+			resetPos = 55;
+			finishTemp16 = false;
+			whichLineNow = 385;
+
+			for (int i = 385; i < 514; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 

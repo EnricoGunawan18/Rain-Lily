@@ -106,7 +106,7 @@ public class GameMenu : MonoBehaviour
     }
 
 
-    void NextDay()
+    public void NextDay()
     {
         int[] date = PlayerPrefsX.GetIntArray("Date");
         float liedAff = PlayerPrefs.GetFloat("LiedHeart");
@@ -156,6 +156,14 @@ public class GameMenu : MonoBehaviour
         if (date[0] == 11 && date[1] == 8)
         {
             PlayerPrefs.SetInt("ResetPos", 44);
+        }
+        if (date[0] == 11 && date[1] == 11)
+        {
+            PlayerPrefs.SetInt("ResetPos", 48);
+        }
+        if (date[0] == 11 && date[1] == 12)
+        {
+            PlayerPrefs.SetInt("ResetPos", 56);
         }
 
 
