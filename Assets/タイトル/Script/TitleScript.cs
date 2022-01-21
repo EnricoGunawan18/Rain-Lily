@@ -9,6 +9,7 @@ public class TitleScript : MonoBehaviour
 	[SerializeField]
 	public Button NewGame;
 	public Button LoadGame;
+	public Button Chapter;
 	public Button Game;
 	public Button MemoryGame;
 	public Button[] Files;
@@ -23,6 +24,7 @@ public class TitleScript : MonoBehaviour
 	public GameObject TitleScreen;
 	public GameObject GameScreen;
 	public GameObject NowSaveScreen;
+	public GameObject ChapterScreen;
 
 	[SerializeField]
 	AudioSource ButtonAudioSource;
@@ -39,6 +41,7 @@ public class TitleScript : MonoBehaviour
 		LoadGame.onClick.AddListener(LoadGameStart);
 		Game.onClick.AddListener(GameClicked);
 		MemoryGame.onClick.AddListener(MemoryGameClicked);
+		Chapter.onClick.AddListener(ChapterClicked);
 		TitleScreen.SetActive(true);
 		GameScreen.SetActive(false);
 
@@ -96,6 +99,15 @@ public class TitleScript : MonoBehaviour
 		ButtonAudioSource.Play();
 
 		NowSaveScreen.SetActive(true);
+		TitleScreen.SetActive(false);
+	}
+
+	public void ChapterClicked()
+	{
+		ButtonAudioSource.Stop();
+		ButtonAudioSource.Play();
+
+		ChapterScreen.SetActive(true);
 		TitleScreen.SetActive(false);
 	}
 

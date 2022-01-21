@@ -94,8 +94,7 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	Image MouthNow2;
 
-	[SerializeField]
-	public AudioClip[] VoiceFile;
+	public List<AudioClip> VoiceFile_2;
 
 	[SerializeField]
 	AudioSource ButtonAudioSource;
@@ -2818,85 +2817,175 @@ public class LoadDialogue : MonoBehaviour
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[3];
 			}
+			else if (d.background.Contains("back-003-blue"))
+			{
+				backGroundLabel.text = backgrounds[4].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[4];
+			}
+			else if (d.background.Contains("back-003-pink"))
+			{
+				backGroundLabel.text = backgrounds[3].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[5];
+			}
 			else if (d.background.Contains("back-004-sun"))
 			{
 				backGroundLabel.text = backgrounds[5].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[4];
+				backgroundNow.sprite = background[6];
 			}
 			else if (d.background.Contains("back-004-night"))
 			{
 				backGroundLabel.text = backgrounds[6].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[5];
+				backgroundNow.sprite = background[7];
 			}
 			else if (d.background.Contains("back-005-sun"))
 			{
 				backGroundLabel.text = backgrounds[7].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[6];
+				backgroundNow.sprite = background[8];
 			}
 			else if (d.background.Contains("back-005-night"))
 			{
 				backGroundLabel.text = backgrounds[8].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[7];
+				backgroundNow.sprite = background[9];
 			}
 			else if (d.background.Contains("back-006"))
 			{
 				backGroundLabel.text = backgrounds[9].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[8];
+				backgroundNow.sprite = background[10];
+			}
+			else if (d.background.Contains("back-006-a"))
+			{
+				backGroundLabel.text = backgrounds[11].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[11];
 			}
 			else if (d.background.Contains("back-007"))
 			{
 				backGroundLabel.text = backgrounds[12].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[21];
+				backgroundNow.sprite = background[12];
 			}
 			else if (d.background.Contains("back-008"))
 			{
 				backGroundLabel.text = backgrounds[13].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[25];
+				backgroundNow.sprite = background[13];
 			}
 			else if (d.background.Contains("back-009"))
 			{
 				backGroundLabel.text = backgrounds[14].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[12];
+				backgroundNow.sprite = background[14];
 			}
-
+			else if (d.background.Contains("back-010"))
+			{
+				backGroundLabel.text = backgrounds[15].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[15];
+			}
+			else if (d.background.Contains("back-011"))
+			{
+				backGroundLabel.text = backgrounds[16].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[16];
+			}
+			else if (d.background.Contains("back-012"))
+			{
+				backGroundLabel.text = backgrounds[17].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[17];
+			}
+			else if (d.background.Contains("back-013-night"))
+			{
+				backGroundLabel.text = backgrounds[19].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[20];
+			}
+			else if (d.background.Contains("back-013-pink"))
+			{
+				backGroundLabel.text = backgrounds[20].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[21];
+			}
+			else if (d.background.Contains("back-013-blue"))
+			{
+				backGroundLabel.text = backgrounds[21].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[19];
+			}
+			else if (d.background.Contains("back-013"))
+			{
+				backGroundLabel.text = backgrounds[18].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[18];
+			}
 			else if (d.background.Contains("back-014"))
 			{
 				backGroundLabel.text = backgrounds[22].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[26];
+				backgroundNow.sprite = background[22];
 			}
 			else if (d.background.Contains("back-015-sun"))
 			{
 				backGroundLabel.text = backgrounds[23].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[17];
+				backgroundNow.sprite = background[23];
 			}
 			else if (d.background.Contains("back-015-night"))
 			{
 				backGroundLabel.text = backgrounds[24].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[16];
-			}
-			else if (d.background.Contains("back-013") || d.background.Contains("back-013-night"))
-			{
-				backGroundLabel.text = backgrounds[18].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[3];
+				backgroundNow.sprite = background[24];
 			}
 			else if (d.background.Contains("back-016"))
 			{
 				backGroundLabel.text = backgrounds[25].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[18];
+				backgroundNow.sprite = background[25];
 			}
+			else if (d.background.Contains("back-017"))
+			{
+				backGroundLabel.text = backgrounds[26].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[26];
+			}
+			else if (d.background.Contains("back-019"))
+			{
+				backGroundLabel.text = backgrounds[29].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[27];
+			}
+			else if (d.background.Contains("back-020"))
+			{
+				backGroundLabel.text = backgrounds[30].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[28];
+			}
+			else if (d.background.Contains("back-021"))
+			{
+				backGroundLabel.text = backgrounds[31].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[29];
+			}
+			else if (d.background.Contains("back-022"))
+			{
+				backGroundLabel.text = backgrounds[32].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[30];
+			}
+			else if (d.background.Contains("back-023"))
+			{
+				backGroundLabel.text = "";
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[31];
+			}
+
 			else if (d.background == "暗転")
 			{
 				backGroundLabel.text = "暗転";
@@ -2907,1597 +2996,6 @@ public class LoadDialogue : MonoBehaviour
 				backGroundLabel.text = "";
 			}
 
-			//Voice
-			if (autoScroll.automated == false)
-			{
-				if (d.voice == "V-0065")
-				{
-					Voice.clip = VoiceFile[0];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0067")
-				{
-					Voice.clip = VoiceFile[1];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0069")
-				{
-					Voice.clip = VoiceFile[2];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0071")
-				{
-					Voice.clip = VoiceFile[3];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0072")
-				{
-					Voice.clip = VoiceFile[4];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0074")
-				{
-					Voice.clip = VoiceFile[5];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0076")
-				{
-					Voice.clip = VoiceFile[6];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0077")
-				{
-					Voice.clip = VoiceFile[7];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0080")
-				{
-					Voice.clip = VoiceFile[8];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0083")
-				{
-					Voice.clip = VoiceFile[9];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0086")
-				{
-					Voice.clip = VoiceFile[10];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0089")
-				{
-					Voice.clip = VoiceFile[11];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0091")
-				{
-					Voice.clip = VoiceFile[12];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0092")
-				{
-					Voice.clip = VoiceFile[13];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0093")
-				{
-					Voice.clip = VoiceFile[14];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0095")
-				{
-					Voice.clip = VoiceFile[15];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0097")
-				{
-					Voice.clip = VoiceFile[16];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0099")
-				{
-					Voice.clip = VoiceFile[17];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0100")
-				{
-					Voice.clip = VoiceFile[18];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0101")
-				{
-					Voice.clip = VoiceFile[19];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0103")
-				{
-					Voice.clip = VoiceFile[20];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0105")
-				{
-					Voice.clip = VoiceFile[21];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0107")
-				{
-					Voice.clip = VoiceFile[22];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0109")
-				{
-					Voice.clip = VoiceFile[23];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0111")
-				{
-					Voice.clip = VoiceFile[24];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0115")
-				{
-					Voice.clip = VoiceFile[25];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0118")
-				{
-					Voice.clip = VoiceFile[26];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0124")
-				{
-					Voice.clip = VoiceFile[27];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0126")
-				{
-					Voice.clip = VoiceFile[28];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0133")
-				{
-					Voice.clip = VoiceFile[29];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0136")
-				{
-					Voice.clip = VoiceFile[30];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0142")
-				{
-					Voice.clip = VoiceFile[31];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0144")
-				{
-					Voice.clip = VoiceFile[32];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0148")
-				{
-					Voice.clip = VoiceFile[33];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0150")
-				{
-					Voice.clip = VoiceFile[34];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0152")
-				{
-					Voice.clip = VoiceFile[35];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0153")
-				{
-					Voice.clip = VoiceFile[36];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0155")
-				{
-					Voice.clip = VoiceFile[37];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0158")
-				{
-					Voice.clip = VoiceFile[38];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0161")
-				{
-					Voice.clip = VoiceFile[39];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0172")
-				{
-					Voice.clip = VoiceFile[40];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0186")
-				{
-					Voice.clip = VoiceFile[41];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0189")
-				{
-					Voice.clip = VoiceFile[42];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0191")
-				{
-					Voice.clip = VoiceFile[43];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0192")
-				{
-					Voice.clip = VoiceFile[44];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0194")
-				{
-					Voice.clip = VoiceFile[45];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0196")
-				{
-					Voice.clip = VoiceFile[46];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0197")
-				{
-					Voice.clip = VoiceFile[47];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0199")
-				{
-					Voice.clip = VoiceFile[48];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0204")
-				{
-					Voice.clip = VoiceFile[49];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0206")
-				{
-					Voice.clip = VoiceFile[50];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0207")
-				{
-					Voice.clip = VoiceFile[51];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0209")
-				{
-					Voice.clip = VoiceFile[52];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0211")
-				{
-					Voice.clip = VoiceFile[53];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0213")
-				{
-					Voice.clip = VoiceFile[54];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0214")
-				{
-					Voice.clip = VoiceFile[55];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0216")
-				{
-					Voice.clip = VoiceFile[56];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0217")
-				{
-					Voice.clip = VoiceFile[57];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0218")
-				{
-					Voice.clip = VoiceFile[58];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0220")
-				{
-					Voice.clip = VoiceFile[59];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0221")
-				{
-					Voice.clip = VoiceFile[60];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0225")
-				{
-					Voice.clip = VoiceFile[61];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0227")
-				{
-					Voice.clip = VoiceFile[62];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0228")
-				{
-					Voice.clip = VoiceFile[63];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0229")
-				{
-					Voice.clip = VoiceFile[64];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0231")
-				{
-					Voice.clip = VoiceFile[65];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0232")
-				{
-					Voice.clip = VoiceFile[66];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0237")
-				{
-					Voice.clip = VoiceFile[67];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0240")
-				{
-					Voice.clip = VoiceFile[68];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0242")
-				{
-					Voice.clip = VoiceFile[69];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0244")
-				{
-					Voice.clip = VoiceFile[70];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0245")
-				{
-					Voice.clip = VoiceFile[71];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0248")
-				{
-					Voice.clip = VoiceFile[72];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0250")
-				{
-					Voice.clip = VoiceFile[73];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0257")
-				{
-					Voice.clip = VoiceFile[74];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0259")
-				{
-					Voice.clip = VoiceFile[75];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0263")
-				{
-					Voice.clip = VoiceFile[76];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0265")
-				{
-					Voice.clip = VoiceFile[77];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0269")
-				{
-					Voice.clip = VoiceFile[78];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0271")
-				{
-					Voice.clip = VoiceFile[79];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0274")
-				{
-					Voice.clip = VoiceFile[80];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0278")
-				{
-					Voice.clip = VoiceFile[81];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0280")
-				{
-					Voice.clip = VoiceFile[82];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0281")
-				{
-					Voice.clip = VoiceFile[83];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0283")
-				{
-					Voice.clip = VoiceFile[84];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0286")
-				{
-					Voice.clip = VoiceFile[85];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0290")
-				{
-					Voice.clip = VoiceFile[86];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0294")
-				{
-					Voice.clip = VoiceFile[87];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0296")
-				{
-					Voice.clip = VoiceFile[88];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0298")
-				{
-					Voice.clip = VoiceFile[89];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0300")
-				{
-					Voice.clip = VoiceFile[90];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0302")
-				{
-					Voice.clip = VoiceFile[91];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0303")
-				{
-					Voice.clip = VoiceFile[92];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0304")
-				{
-					Voice.clip = VoiceFile[93];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0308")
-				{
-					Voice.clip = VoiceFile[94];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0314")
-				{
-					Voice.clip = VoiceFile[95];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0316")
-				{
-					Voice.clip = VoiceFile[96];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0318")
-				{
-					Voice.clip = VoiceFile[97];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0320")
-				{
-					Voice.clip = VoiceFile[98];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0322")
-				{
-					Voice.clip = VoiceFile[99];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0324")
-				{
-					Voice.clip = VoiceFile[100];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0326")
-				{
-					Voice.clip = VoiceFile[101];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0328")
-				{
-					Voice.clip = VoiceFile[102];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0330")
-				{
-					Voice.clip = VoiceFile[103];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0332")
-				{
-					Voice.clip = VoiceFile[104];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0333")
-				{
-					Voice.clip = VoiceFile[105];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0335")
-				{
-					Voice.clip = VoiceFile[106];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0337")
-				{
-					Voice.clip = VoiceFile[107];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0342")
-				{
-					Voice.clip = VoiceFile[108];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0344")
-				{
-					Voice.clip = VoiceFile[109];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0345")
-				{
-					Voice.clip = VoiceFile[110];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0347")
-				{
-					Voice.clip = VoiceFile[111];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0350")
-				{
-					Voice.clip = VoiceFile[112];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0352")
-				{
-					Voice.clip = VoiceFile[113];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0354")
-				{
-					Voice.clip = VoiceFile[114];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0357")
-				{
-					Voice.clip = VoiceFile[115];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0358")
-				{
-					Voice.clip = VoiceFile[116];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0360")
-				{
-					Voice.clip = VoiceFile[117];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0362")
-				{
-					Voice.clip = VoiceFile[118];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0364")
-				{
-					Voice.clip = VoiceFile[119];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0366")
-				{
-					Voice.clip = VoiceFile[120];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0370")
-				{
-					Voice.clip = VoiceFile[121];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0372")
-				{
-					Voice.clip = VoiceFile[122];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0374")
-				{
-					Voice.clip = VoiceFile[123];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0376")
-				{
-					Voice.clip = VoiceFile[124];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0380")
-				{
-					Voice.clip = VoiceFile[125];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0382")
-				{
-					Voice.clip = VoiceFile[126];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0384")
-				{
-					Voice.clip = VoiceFile[127];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0386")
-				{
-					Voice.clip = VoiceFile[128];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0388")
-				{
-					Voice.clip = VoiceFile[129];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0390")
-				{
-					Voice.clip = VoiceFile[130];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0393")
-				{
-					Voice.clip = VoiceFile[131];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0395")
-				{
-					Voice.clip = VoiceFile[132];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0397")
-				{
-					Voice.clip = VoiceFile[133];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0398")
-				{
-					Voice.clip = VoiceFile[134];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0399")
-				{
-					Voice.clip = VoiceFile[135];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0405")
-				{
-					Voice.clip = VoiceFile[136];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0407")
-				{
-					Voice.clip = VoiceFile[137];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0409")
-				{
-					Voice.clip = VoiceFile[138];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0411")
-				{
-					Voice.clip = VoiceFile[139];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0413")
-				{
-					Voice.clip = VoiceFile[140];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0415")
-				{
-					Voice.clip = VoiceFile[141];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0417")
-				{
-					Voice.clip = VoiceFile[142];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0419")
-				{
-					Voice.clip = VoiceFile[143];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0424")
-				{
-					Voice.clip = VoiceFile[144];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0426")
-				{
-					Voice.clip = VoiceFile[145];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0428")
-				{
-					Voice.clip = VoiceFile[146];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0430")
-				{
-					Voice.clip = VoiceFile[147];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0432")
-				{
-					Voice.clip = VoiceFile[148];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0434")
-				{
-					Voice.clip = VoiceFile[149];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0437")
-				{
-					Voice.clip = VoiceFile[150];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0439")
-				{
-					Voice.clip = VoiceFile[151];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0442")
-				{
-					Voice.clip = VoiceFile[152];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0444")
-				{
-					Voice.clip = VoiceFile[153];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0445")
-				{
-					Voice.clip = VoiceFile[154];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0447")
-				{
-					Voice.clip = VoiceFile[155];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0451")
-				{
-					Voice.clip = VoiceFile[156];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0453")
-				{
-					Voice.clip = VoiceFile[157];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0455")
-				{
-					Voice.clip = VoiceFile[158];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0457")
-				{
-					Voice.clip = VoiceFile[159];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0458")
-				{
-					Voice.clip = VoiceFile[160];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0460")
-				{
-					Voice.clip = VoiceFile[161];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0462")
-				{
-					Voice.clip = VoiceFile[162];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0464")
-				{
-					Voice.clip = VoiceFile[163];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0465")
-				{
-					Voice.clip = VoiceFile[164];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0468")
-				{
-					Voice.clip = VoiceFile[165];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0470")
-				{
-					Voice.clip = VoiceFile[166];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0472")
-				{
-					Voice.clip = VoiceFile[167];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0474")
-				{
-					Voice.clip = VoiceFile[168];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0476")
-				{
-					Voice.clip = VoiceFile[169];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0477")
-				{
-					Voice.clip = VoiceFile[170];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0479")
-				{
-					Voice.clip = VoiceFile[171];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0480")
-				{
-					Voice.clip = VoiceFile[172];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0482")
-				{
-					Voice.clip = VoiceFile[173];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0484")
-				{
-					Voice.clip = VoiceFile[174];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0486")
-				{
-					Voice.clip = VoiceFile[175];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0488")
-				{
-					Voice.clip = VoiceFile[176];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0490")
-				{
-					Voice.clip = VoiceFile[177];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0491")
-				{
-					Voice.clip = VoiceFile[178];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0493")
-				{
-					Voice.clip = VoiceFile[179];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0494")
-				{
-					Voice.clip = VoiceFile[180];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0496")
-				{
-					Voice.clip = VoiceFile[181];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0498")
-				{
-					Voice.clip = VoiceFile[182];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0500")
-				{
-					Voice.clip = VoiceFile[183];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0501")
-				{
-					Voice.clip = VoiceFile[184];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0503")
-				{
-					Voice.clip = VoiceFile[185];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0505")
-				{
-					Voice.clip = VoiceFile[186];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0507")
-				{
-					Voice.clip = VoiceFile[187];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0509")
-				{
-					Voice.clip = VoiceFile[188];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0510")
-				{
-					Voice.clip = VoiceFile[189];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0512")
-				{
-					Voice.clip = VoiceFile[190];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0519")
-				{
-					Voice.clip = VoiceFile[191];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0526")
-				{
-					Voice.clip = VoiceFile[192];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0529")
-				{
-					Voice.clip = VoiceFile[193];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0531")
-				{
-					Voice.clip = VoiceFile[194];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0534")
-				{
-					Voice.clip = VoiceFile[195];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0536")
-				{
-					Voice.clip = VoiceFile[196];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0538")
-				{
-					Voice.clip = VoiceFile[197];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0539")
-				{
-					Voice.clip = VoiceFile[198];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0541")
-				{
-					Voice.clip = VoiceFile[199];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0542")
-				{
-					Voice.clip = VoiceFile[200];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0544")
-				{
-					Voice.clip = VoiceFile[201];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0546")
-				{
-					Voice.clip = VoiceFile[202];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0549")
-				{
-					Voice.clip = VoiceFile[203];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0551")
-				{
-					Voice.clip = VoiceFile[204];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0553")
-				{
-					Voice.clip = VoiceFile[205];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0555")
-				{
-					Voice.clip = VoiceFile[206];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0558")
-				{
-					Voice.clip = VoiceFile[207];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0560")
-				{
-					Voice.clip = VoiceFile[208];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0562")
-				{
-					Voice.clip = VoiceFile[209];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0564")
-				{
-					Voice.clip = VoiceFile[210];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0568")
-				{
-					Voice.clip = VoiceFile[211];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0570")
-				{
-					Voice.clip = VoiceFile[212];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0572")
-				{
-					Voice.clip = VoiceFile[213];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0574")
-				{
-					Voice.clip = VoiceFile[214];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0576")
-				{
-					Voice.clip = VoiceFile[215];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0580")
-				{
-					Voice.clip = VoiceFile[216];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0581")
-				{
-					Voice.clip = VoiceFile[217];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0584")
-				{
-					Voice.clip = VoiceFile[218];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0586")
-				{
-					Voice.clip = VoiceFile[219];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0588")
-				{
-					Voice.clip = VoiceFile[220];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0591")
-				{
-					Voice.clip = VoiceFile[221];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0593")
-				{
-					Voice.clip = VoiceFile[222];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0595")
-				{
-					Voice.clip = VoiceFile[223];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0597")
-				{
-					Voice.clip = VoiceFile[224];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0599")
-				{
-					Voice.clip = VoiceFile[225];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0601")
-				{
-					Voice.clip = VoiceFile[226];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0604")
-				{
-					Voice.clip = VoiceFile[314];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0606")
-				{
-					Voice.clip = VoiceFile[227];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0608")
-				{
-					Voice.clip = VoiceFile[228];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0613")
-				{
-					Voice.clip = VoiceFile[229];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0615")
-				{
-					Voice.clip = VoiceFile[230];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0617")
-				{
-					Voice.clip = VoiceFile[231];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0619")
-				{
-					Voice.clip = VoiceFile[232];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0621")
-				{
-					Voice.clip = VoiceFile[233];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0623")
-				{
-					Voice.clip = VoiceFile[234];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0626")
-				{
-					Voice.clip = VoiceFile[235];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0628")
-				{
-					Voice.clip = VoiceFile[236];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0630")
-				{
-					Voice.clip = VoiceFile[237];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0632")
-				{
-					Voice.clip = VoiceFile[238];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0634")
-				{
-					Voice.clip = VoiceFile[239];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0637")
-				{
-					Voice.clip = VoiceFile[240];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0639")
-				{
-					Voice.clip = VoiceFile[241];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0642")
-				{
-					Voice.clip = VoiceFile[242];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0644")
-				{
-					Voice.clip = VoiceFile[243];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0646")
-				{
-					Voice.clip = VoiceFile[244];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0648")
-				{
-					Voice.clip = VoiceFile[245];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0650")
-				{
-					Voice.clip = VoiceFile[246];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0652")
-				{
-					Voice.clip = VoiceFile[247];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0654")
-				{
-					Voice.clip = VoiceFile[248];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0656")
-				{
-					Voice.clip = VoiceFile[249];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0657")
-				{
-					Voice.clip = VoiceFile[250];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0659")
-				{
-					Voice.clip = VoiceFile[251];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0661")
-				{
-					Voice.clip = VoiceFile[252];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0687")
-				{
-					Voice.clip = VoiceFile[253];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0690")
-				{
-					Voice.clip = VoiceFile[254];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0692")
-				{
-					Voice.clip = VoiceFile[255];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0694")
-				{
-					Voice.clip = VoiceFile[256];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0697")
-				{
-					Voice.clip = VoiceFile[257];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0699")
-				{
-					Voice.clip = VoiceFile[258];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0703")
-				{
-					Voice.clip = VoiceFile[259];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0705")
-				{
-					Voice.clip = VoiceFile[260];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0709")
-				{
-					Voice.clip = VoiceFile[261];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0711")
-				{
-					Voice.clip = VoiceFile[262];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0714")
-				{
-					Voice.clip = VoiceFile[263];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0716")
-				{
-					Voice.clip = VoiceFile[264];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0719")
-				{
-					Voice.clip = VoiceFile[265];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0721")
-				{
-					Voice.clip = VoiceFile[266];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0723")
-				{
-					Voice.clip = VoiceFile[267];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0725")
-				{
-					Voice.clip = VoiceFile[268];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0727")
-				{
-					Voice.clip = VoiceFile[269];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0730")
-				{
-					Voice.clip = VoiceFile[270];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0732")
-				{
-					Voice.clip = VoiceFile[271];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0734")
-				{
-					Voice.clip = VoiceFile[272];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0735")
-				{
-					Voice.clip = VoiceFile[273];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0736")
-				{
-					Voice.clip = VoiceFile[274];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0737")
-				{
-					Voice.clip = VoiceFile[275];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0739")
-				{
-					Voice.clip = VoiceFile[276];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0741")
-				{
-					Voice.clip = VoiceFile[277];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0743")
-				{
-					Voice.clip = VoiceFile[278];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0745")
-				{
-					Voice.clip = VoiceFile[279];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0746")
-				{
-					Voice.clip = VoiceFile[280];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0750")
-				{
-					Voice.clip = VoiceFile[281];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0752")
-				{
-					Voice.clip = VoiceFile[282];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0754")
-				{
-					Voice.clip = VoiceFile[283];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0757")
-				{
-					Voice.clip = VoiceFile[284];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0759")
-				{
-					Voice.clip = VoiceFile[285];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0761")
-				{
-					Voice.clip = VoiceFile[286];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0762")
-				{
-					Voice.clip = VoiceFile[287];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0767")
-				{
-					Voice.clip = VoiceFile[288];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0771")
-				{
-					Voice.clip = VoiceFile[289];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0774")
-				{
-					Voice.clip = VoiceFile[290];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0775")
-				{
-					Voice.clip = VoiceFile[291];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0777")
-				{
-					Voice.clip = VoiceFile[292];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0780")
-				{
-					Voice.clip = VoiceFile[293];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0782")
-				{
-					Voice.clip = VoiceFile[294];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0785")
-				{
-					Voice.clip = VoiceFile[295];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0787")
-				{
-					Voice.clip = VoiceFile[296];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0791")
-				{
-					Voice.clip = VoiceFile[297];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0792")
-				{
-					Voice.clip = VoiceFile[298];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0799")
-				{
-					Voice.clip = VoiceFile[299];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0800")
-				{
-					Voice.clip = VoiceFile[300];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0801")
-				{
-					Voice.clip = VoiceFile[301];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0802")
-				{
-					Voice.clip = VoiceFile[302];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0803")
-				{
-					Voice.clip = VoiceFile[303];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0804")
-				{
-					Voice.clip = VoiceFile[304];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0805")
-				{
-					Voice.clip = VoiceFile[305];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0806")
-				{
-					Voice.clip = VoiceFile[306];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0807")
-				{
-					Voice.clip = VoiceFile[307];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0808")
-				{
-					Voice.clip = VoiceFile[308];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0809")
-				{
-					Voice.clip = VoiceFile[309];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0810")
-				{
-					Voice.clip = VoiceFile[310];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0811")
-				{
-					Voice.clip = VoiceFile[311];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0812")
-				{
-					Voice.clip = VoiceFile[312];
-					Voice.Play();
-				}
-				else if (d.voice == "V-0813")
-				{
-					Voice.clip = VoiceFile[313];
-					Voice.Play();
-				}
-
-
-
-
-				else
-				{
-					Voice.Stop();
-				}
-			}
-			else
-			{
-				Voice.Stop();
-			}
 
 			if (d.showtwoone != "" || d.showtwotwo != "")
 			{
@@ -5988,11 +4486,50 @@ public class LoadDialogue : MonoBehaviour
 			//Bust Up(?)
 			if (d.expression.Contains("BU"))
 			{
+				bool bustUpNow = BustUpAnim.GetBool("isBig");
 				BustUpAnim.SetBool("isBig", true);
+				if (bustUpNow == false)
+				{
+					yield return new WaitForSeconds(1.5f);
+				}
 			}
 			else
 			{
+				bool bustUpNow = BustUpAnim.GetBool("isBig");
 				BustUpAnim.SetBool("isBig", false);
+				if (bustUpNow == true)
+				{
+					yield return new WaitForSeconds(1.5f);
+				}
+			}
+
+			//Voice
+			if (autoScroll.automated == false)
+			{
+
+				if (d.voice != "")
+				{
+					for (int i = 0; i < VoiceFile_2.Count; i++)
+					{					
+						string temp = VoiceFile_2[i].ToString();
+						temp = temp.Replace(" (UnityEngine.AudioClip)", "");
+						if (d.voice.ToString() == temp.ToString())
+						{
+							Voice.clip = VoiceFile_2[i];
+							Voice.Play();
+							break;
+						}
+					}
+				}
+
+				else
+				{
+					Voice.Stop();
+				}
+			}
+			else
+			{
+				Voice.Stop();
 			}
 
 
@@ -6020,6 +4557,151 @@ public class LoadDialogue : MonoBehaviour
 			else if (d.BGM.Contains("BGM-005"))
 			{
 				BGM.clip = BGMFile[4];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-006"))
+			{
+				BGM.clip = BGMFile[5];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-007"))
+			{
+				BGM.clip = BGMFile[6];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-008"))
+			{
+				BGM.clip = BGMFile[7];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-009"))
+			{
+				BGM.clip = BGMFile[8];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-010"))
+			{
+				BGM.clip = BGMFile[9];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-011"))
+			{
+				BGM.clip = BGMFile[10];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-012"))
+			{
+				BGM.clip = BGMFile[11];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-013"))
+			{
+				BGM.clip = BGMFile[12];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-014"))
+			{
+				BGM.clip = BGMFile[13];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-015"))
+			{
+				BGM.clip = BGMFile[14];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-016"))
+			{
+				BGM.clip = BGMFile[15];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-017"))
+			{
+				BGM.clip = BGMFile[16];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-018"))
+			{
+				BGM.clip = BGMFile[17];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-019"))
+			{
+				BGM.clip = BGMFile[18];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-020"))
+			{
+				BGM.clip = BGMFile[19];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-021"))
+			{
+				BGM.clip = BGMFile[20];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-022"))
+			{
+				BGM.clip = BGMFile[21];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-023"))
+			{
+				BGM.clip = BGMFile[22];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-024"))
+			{
+				BGM.clip = BGMFile[23];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-025"))
+			{
+				BGM.clip = BGMFile[24];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-026"))
+			{
+				BGM.clip = BGMFile[25];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-027"))
+			{
+				BGM.clip = BGMFile[26];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-028"))
+			{
+				BGM.clip = BGMFile[27];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-029"))
+			{
+				BGM.clip = BGMFile[28];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-030"))
+			{
+				BGM.clip = BGMFile[29];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-031"))
+			{
+				BGM.clip = BGMFile[30];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-032"))
+			{
+				BGM.clip = BGMFile[31];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-033"))
+			{
+				BGM.clip = BGMFile[32];
+				BGM.Play();
+			}
+			else if (d.BGM.Contains("BGM-034"))
+			{
+				BGM.clip = BGMFile[33];
 				BGM.Play();
 			}
 			else if (d.BGM == "")
@@ -6077,6 +4759,211 @@ public class LoadDialogue : MonoBehaviour
 				else if (d.SE == "SE-009")
 				{
 					SE.clip = SEFile[8];
+					SE.Play();
+				}
+				else if (d.SE == "SE-010")
+				{
+					SE.clip = SEFile[9];
+					SE.Play();
+				}
+				else if (d.SE == "SE-011")
+				{
+					SE.clip = SEFile[10];
+					SE.Play();
+				}
+				else if (d.SE == "SE-012")
+				{
+					SE.clip = SEFile[11];
+					SE.Play();
+				}
+				else if (d.SE == "SE-013")
+				{
+					SE.clip = SEFile[12];
+					SE.Play();
+				}
+				else if (d.SE == "SE-014")
+				{
+					SE.clip = SEFile[13];
+					SE.Play();
+				}
+				else if (d.SE == "SE-015")
+				{
+					SE.clip = SEFile[14];
+					SE.Play();
+				}
+				else if (d.SE == "SE-016")
+				{
+					SE.clip = SEFile[15];
+					SE.Play();
+				}
+				else if (d.SE == "SE-017")
+				{
+					SE.clip = SEFile[16];
+					SE.Play();
+				}
+				else if (d.SE == "SE-018")
+				{
+					SE.clip = SEFile[17];
+					SE.Play();
+				}
+				else if (d.SE == "SE-019")
+				{
+					SE.clip = SEFile[18];
+					SE.Play();
+				}
+				else if (d.SE == "SE-020")
+				{
+					SE.clip = SEFile[19];
+					SE.Play();
+				}
+				else if (d.SE == "SE-021")
+				{
+					SE.clip = SEFile[20];
+					SE.Play();
+				}
+				else if (d.SE == "SE-022")
+				{
+					SE.clip = SEFile[21];
+					SE.Play();
+				}
+				else if (d.SE == "SE-023")
+				{
+					SE.clip = SEFile[22];
+					SE.Play();
+				}
+				else if (d.SE == "SE-024")
+				{
+					SE.clip = SEFile[23];
+					SE.Play();
+				}
+				else if (d.SE == "SE-025")
+				{
+					SE.clip = SEFile[24];
+					SE.Play();
+				}
+				else if (d.SE == "SE-026")
+				{
+					SE.clip = SEFile[25];
+					SE.Play();
+				}
+				else if (d.SE == "SE-027")
+				{
+					SE.clip = SEFile[26];
+					SE.Play();
+				}
+				else if (d.SE == "SE-028")
+				{
+					SE.clip = SEFile[27];
+					SE.Play();
+				}
+				else if (d.SE == "SE-029")
+				{
+					SE.clip = SEFile[28];
+					SE.Play();
+				}
+				else if (d.SE == "SE-030")
+				{
+					SE.clip = SEFile[29];
+					SE.Play();
+				}
+				else if (d.SE == "SE-031")
+				{
+					SE.clip = SEFile[30];
+					SE.Play();
+				}
+				else if (d.SE == "SE-032")
+				{
+					SE.clip = SEFile[31];
+					SE.Play();
+				}
+				else if (d.SE == "SE-033")
+				{
+					SE.clip = SEFile[32];
+					SE.Play();
+				}
+				else if (d.SE == "SE-034")
+				{
+					SE.clip = SEFile[33];
+					SE.Play();
+				}
+				else if (d.SE == "SE-035")
+				{
+					SE.clip = SEFile[34];
+					SE.Play();
+				}
+				else if (d.SE == "SE-036")
+				{
+					SE.clip = SEFile[35];
+					SE.Play();
+				}
+				else if (d.SE == "SE-037")
+				{
+					SE.clip = SEFile[36];
+					SE.Play();
+				}
+				else if (d.SE == "SE-038")
+				{
+					SE.clip = SEFile[37];
+					SE.Play();
+				}
+				else if (d.SE == "SE-039")
+				{
+					SE.clip = SEFile[38];
+					SE.Play();
+				}
+				else if (d.SE == "SE-040")
+				{
+					SE.clip = SEFile[39];
+					SE.Play();
+				}
+				else if (d.SE == "SE-041")
+				{
+					SE.clip = SEFile[40];
+					SE.Play();
+				}
+				else if (d.SE == "SE-042")
+				{
+					SE.clip = SEFile[41];
+					SE.Play();
+				}
+				else if (d.SE == "SE-043")
+				{
+					SE.clip = SEFile[42];
+					SE.Play();
+				}
+				else if (d.SE == "SE-044")
+				{
+					SE.clip = SEFile[43];
+					SE.Play();
+				}
+				else if (d.SE == "SE-045")
+				{
+					SE.clip = SEFile[44];
+					SE.Play();
+				}
+				else if (d.SE == "SE-046")
+				{
+					SE.clip = SEFile[45];
+					SE.Play();
+				}
+				else if (d.SE == "SE-047")
+				{
+					SE.clip = SEFile[46];
+					SE.Play();
+				}
+				else if (d.SE == "SE-048")
+				{
+					SE.clip = SEFile[47];
+					SE.Play();
+				}
+				else if (d.SE == "SE-049")
+				{
+					SE.clip = SEFile[48];
+					SE.Play();
+				}
+				else if (d.SE == "SE-050")
+				{
+					SE.clip = SEFile[49];
 					SE.Play();
 				}
 				else
