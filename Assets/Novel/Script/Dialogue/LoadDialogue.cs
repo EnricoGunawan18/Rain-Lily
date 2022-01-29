@@ -51,6 +51,7 @@ public class LoadDialogue : MonoBehaviour
 	public Button SecondTwoButton;
 	[SerializeField]
 	public Button QuickSaveButton;
+
 	[SerializeField]
 	GameObject GameMenu;
 	[SerializeField]
@@ -946,7 +947,7 @@ public class LoadDialogue : MonoBehaviour
 
 			resetPos = 6;
 			PlayerPrefs.SetInt("MiniGame", 0);
-			for (int i = 178; i < 189; i++)
+			for (int i = 177; i < 188; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -979,10 +980,10 @@ public class LoadDialogue : MonoBehaviour
 		else if (miniGame == 3 && novelMenu == 0)
 		{
 			PlayerPrefs.SetInt("MiniGame", 0);
-			whichLineNow = 189;
+			whichLineNow = 188;
 			resetPos = 7;
 
-			for (int i = 189; i < 213; i++)
+			for (int i = 188; i < 213; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1016,7 +1017,7 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 1)
 		{
-			for (int i = logNumber; i < 133; i++)
+			for (int i = logNumber; i < 132; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1050,7 +1051,7 @@ public class LoadDialogue : MonoBehaviour
 		else if (resetFrom == 2)
 		{
 
-			for (int i = logNumber; i < 133; i++)
+			for (int i = logNumber; i < 132; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1083,7 +1084,7 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 3)
 		{
-			for (int i = logNumber; i < 171; i++)
+			for (int i = logNumber; i < 169; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1116,7 +1117,7 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 4)
 		{
-			for (int i = logNumber; i < 171; i++)
+			for (int i = logNumber; i < 169; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1149,7 +1150,7 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 5)
 		{
-			for (int i = logNumber; i < 178; i++)
+			for (int i = logNumber; i < 176; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1182,7 +1183,7 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 6)
 		{
-			for (int i = logNumber; i < 189; i++)
+			for (int i = logNumber; i < 187; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1216,7 +1217,7 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 7)
 		{
-			for (int i = logNumber; i < 213; i++)
+			for (int i = logNumber; i < 211; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2556,12 +2557,12 @@ public class LoadDialogue : MonoBehaviour
 		{
 			TwoChoices.SetActive(true);
 
-			string[] tempRow = data[212].Split(new char[] { ',' });
+			string[] tempRow = data[211].Split(new char[] { ',' });
 			string Filtered2 = tempRow[8].Replace("/KleinLove_high", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[212].Split(new char[] { ',' });
+			string[] tempRow2 = data[211].Split(new char[] { ',' });
 			string Filtered5 = tempRow2[9].Replace("/KleinLove_low", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
@@ -2787,12 +2788,62 @@ public class LoadDialogue : MonoBehaviour
 				nameLabel.color = new Color(0, 0, 0, 255);
 				Hide.SetBool("Still", true);
 			}
+			else if (d.background.Contains("still-001"))
+			{
+				StillImage.sprite = StillSprite[3];
+				StillImage.color = new Color(255, 255, 255, 255);
+				DialogueBG.sprite = null;
+				DialogueBG.color = new Color(0, 0, 0, 0);
+				StillDialogueBG.SetActive(true);
+				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
+			}
+			else if (d.background.Contains("still-003"))
+			{
+				StillImage.sprite = StillSprite[4];
+				StillImage.color = new Color(255, 255, 255, 255);
+				DialogueBG.sprite = null;
+				DialogueBG.color = new Color(0, 0, 0, 0);
+				StillDialogueBG.SetActive(true);
+				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
+			}
+			else if (d.background.Contains("still-005-a"))
+			{
+				StillImage.sprite = StillSprite[5];
+				StillImage.color = new Color(255, 255, 255, 255);
+				DialogueBG.sprite = null;
+				DialogueBG.color = new Color(0, 0, 0, 0);
+				StillDialogueBG.SetActive(true);
+				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
+			}
+			else if (d.background.Contains("still-005"))
+			{
+				StillImage.sprite = StillSprite[6];
+				StillImage.color = new Color(255, 255, 255, 255);
+				DialogueBG.sprite = null;
+				DialogueBG.color = new Color(0, 0, 0, 0);
+				StillDialogueBG.SetActive(true);
+				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
+			}
+			else if (d.background.Contains("still-007"))
+			{
+				StillImage.sprite = StillSprite[7];
+				StillImage.color = new Color(255, 255, 255, 255);
+				DialogueBG.sprite = null;
+				DialogueBG.color = new Color(0, 0, 0, 0);
+				StillDialogueBG.SetActive(true);
+				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
+			}
 
 			else
 			{
 				StillImage.color = new Color(0, 0, 0, 0);
 				DialogueBG.sprite = DialogueBGImage;
-				DialogueBG.color = new Color(255, 255, 255, 255);
+				DialogueBG.color = new Color(255f / 255, 255f / 255, 255f/255, 200f/255);
 				StillDialogueBG.SetActive(false);
 				nameLabel.color = new Color(255, 255, 255, 255);
 				Hide.SetBool("Still", false);
@@ -2811,12 +2862,6 @@ public class LoadDialogue : MonoBehaviour
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[2];
 			}
-			else if (d.background.Contains("back-003"))
-			{
-				backGroundLabel.text = backgrounds[2].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[3];
-			}
 			else if (d.background.Contains("back-003-blue"))
 			{
 				backGroundLabel.text = backgrounds[4].bg;
@@ -2828,6 +2873,12 @@ public class LoadDialogue : MonoBehaviour
 				backGroundLabel.text = backgrounds[3].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[5];
+			}
+			else if (d.background.Contains("back-003"))
+			{
+				backGroundLabel.text = backgrounds[2].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[3];
 			}
 			else if (d.background.Contains("back-004-sun"))
 			{
@@ -2853,17 +2904,17 @@ public class LoadDialogue : MonoBehaviour
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[9];
 			}
-			else if (d.background.Contains("back-006"))
-			{
-				backGroundLabel.text = backgrounds[9].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[10];
-			}
 			else if (d.background.Contains("back-006-a"))
 			{
 				backGroundLabel.text = backgrounds[11].bg;
 				backgroundNow.color = new Color(255, 255, 255, 255);
 				backgroundNow.sprite = background[11];
+			}
+			else if (d.background.Contains("back-006"))
+			{
+				backGroundLabel.text = backgrounds[9].bg;
+				backgroundNow.color = new Color(255, 255, 255, 255);
+				backgroundNow.sprite = background[10];
 			}
 			else if (d.background.Contains("back-007"))
 			{
@@ -3011,16 +3062,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 			//character expression
-			if (d.expression.Contains("L-01"))
-			{
-				StopCoroutine("EyeAnim");
-				StopCoroutine("MouthAnim");
-				int[] eyeList = { 0, 1, 2 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.sprite = CharaMouth[2];
-			}
-			else if (d.expression.Contains("L-01a"))
+			 if (d.expression.Contains("L-01a"))
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
@@ -3049,21 +3091,30 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[2];
 			}
-			else if (d.expression.Contains("L-02"))
+			else if (d.expression.Contains("L-01"))
 			{
 				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 6, 7, 8 };
+				StopCoroutine("MouthAnim");
+				int[] eyeList = { 0, 1, 2 };
 				StartCoroutine("EyeAnim", eyeList);
 
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[5];
+				MouthNow.sprite = CharaMouth[2];
 			}
 			else if (d.expression.Contains("L-02a"))
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 9, 10, 11 };
+				StartCoroutine("EyeAnim", eyeList);
+
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[5];
+			}
+			else if (d.expression.Contains("L-02"))
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 6, 7, 8 };
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
@@ -3088,16 +3139,6 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[10];
 			}
-			else if (d.expression.Contains("L-05"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 19, 20, 21 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[14];
-			}
 			else if (d.expression.Contains("L-05a"))
 			{
 				StopCoroutine("EyeAnim");
@@ -3108,21 +3149,31 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[14];
 			}
-			else if (d.expression.Contains("L-06"))
+			else if (d.expression.Contains("L-05"))
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 25, 26, 27 };
+				int[] eyeList = { 19, 20, 21 };
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[17];
+				MouthNow.sprite = CharaMouth[14];
 			}
 			else if (d.expression.Contains("L-06a"))
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 28, 29, 30 };
+				StartCoroutine("EyeAnim", eyeList);
+
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[17];
+			}
+			else if (d.expression.Contains("L-06"))
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 25, 26, 27 };
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
@@ -3179,21 +3230,21 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[33];
 			}
-			else if (d.expression.Contains("K-02"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 43, 44, 45 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[36];
-			}
 			else if (d.expression.Contains("K-02a"))
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 46, 47, 48 };
+				StartCoroutine("EyeAnim", eyeList);
+
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[36];
+			}
+			else if (d.expression.Contains("K-02"))
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 43, 44, 45 };
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
@@ -3256,21 +3307,21 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[54];
 			}
-			else if (d.expression.Contains("K-09"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 65, 66, 67 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[57];
-			}
 			else if (d.expression.Contains("K-09a"))
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 73, 74, 67 };
+				StartCoroutine("EyeAnim", eyeList);
+
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[57];
+			}
+			else if (d.expression.Contains("K-09"))
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 65, 66, 67 };
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
@@ -3386,21 +3437,21 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[90];
 			}
-			else if (d.expression.Contains("T-03"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 98, 99, 100 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[93];
-			}
 			else if (d.expression.Contains("T-03a"))
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 101, 102, 103 };
+				StartCoroutine("EyeAnim", eyeList);
+
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[93];
+			}
+			else if (d.expression.Contains("T-03"))
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 98, 99, 100 };
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
@@ -3419,18 +3470,7 @@ public class LoadDialogue : MonoBehaviour
 
 
 			//left chara
-			if (d.showtwoone.Contains("L-01"))
-			{
-				StopCoroutine("EyeAnim1");
-				StopCoroutine("MouthAnim");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 0, 1, 2 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[2];
-			}
-			else if (d.showtwoone.Contains("L-01a"))
+			if (d.showtwoone.Contains("L-01a"))
 			{
 				StopCoroutine("EyeAnim1");
 				EyeNow1.color = new Color(255, 255, 255, 255);
@@ -3459,21 +3499,32 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow1.color = new Color(255, 255, 255, 255);
 				MouthNow1.sprite = CharaMouth[2];
 			}
-			else if (d.showtwoone.Contains("L-02"))
+			else if (d.showtwoone.Contains("L-01"))
 			{
 				StopCoroutine("EyeAnim1");
+				StopCoroutine("MouthAnim");
 				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 6, 7, 8 };
+				int[] eyeList = { 0, 1, 2 };
 				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[5];
+				MouthNow1.sprite = CharaMouth[2];
 			}
 			else if (d.showtwoone.Contains("L-02a"))
 			{
 				StopCoroutine("EyeAnim1");
 				EyeNow1.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 9, 10, 11 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[5];
+			}
+			else if (d.showtwoone.Contains("L-02"))
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 6, 7, 8 };
 				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
@@ -3498,16 +3549,6 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow1.color = new Color(255, 255, 255, 255);
 				MouthNow1.sprite = CharaMouth[10];
 			}
-			else if (d.showtwoone.Contains("L-05"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 19, 20, 21 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[14];
-			}
 			else if (d.showtwoone.Contains("L-05a"))
 			{
 				StopCoroutine("EyeAnim1");
@@ -3518,21 +3559,31 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow1.color = new Color(255, 255, 255, 255);
 				MouthNow1.sprite = CharaMouth[14];
 			}
-			else if (d.showtwoone.Contains("L-06"))
+			else if (d.showtwoone.Contains("L-05"))
 			{
 				StopCoroutine("EyeAnim1");
 				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 25, 26, 27 };
+				int[] eyeList = { 19, 20, 21 };
 				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[17];
+				MouthNow1.sprite = CharaMouth[14];
 			}
 			else if (d.showtwoone.Contains("L-06a"))
 			{
 				StopCoroutine("EyeAnim1");
 				EyeNow1.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 28, 29, 30 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[17];
+			}
+			else if (d.showtwoone.Contains("L-06"))
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 25, 26, 27 };
 				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
@@ -3589,21 +3640,21 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow1.color = new Color(255, 255, 255, 255);
 				MouthNow1.sprite = CharaMouth[33];
 			}
-			else if (d.showtwoone.Contains("K-02"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 43, 44, 45 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[36];
-			}
 			else if (d.showtwoone.Contains("K-02a"))
 			{
 				StopCoroutine("EyeAnim1");
 				EyeNow1.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 46, 47, 48 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[36];
+			}
+			else if (d.showtwoone.Contains("K-02"))
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 43, 44, 45 };
 				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
@@ -3666,21 +3717,21 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow1.color = new Color(255, 255, 255, 255);
 				MouthNow1.sprite = CharaMouth[54];
 			}
-			else if (d.showtwoone.Contains("K-09"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 65, 66, 67 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[57];
-			}
 			else if (d.showtwoone.Contains("K-09a"))
 			{
 				StopCoroutine("EyeAnim1");
 				EyeNow1.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 73, 74, 67 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[57];
+			}
+			else if (d.showtwoone.Contains("K-09"))
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 65, 66, 67 };
 				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
@@ -3796,21 +3847,21 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow1.color = new Color(255, 255, 255, 255);
 				MouthNow1.sprite = CharaMouth[90];
 			}
-			else if (d.showtwoone.Contains("T-03"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 98, 99, 100 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[93];
-			}
 			else if (d.showtwoone.Contains("T-03a"))
 			{
 				StopCoroutine("EyeAnim1");
 				EyeNow1.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 101, 102, 103 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[93];
+			}
+			else if (d.showtwoone.Contains("T-03"))
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 98, 99, 100 };
 				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
@@ -3828,18 +3879,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 			//right chara
-			if (d.showtwotwo.Contains("L-01"))
-			{
-				StopCoroutine("EyeAnim2");
-				StopCoroutine("MouthAnim");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 0, 1, 2 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[2];
-			}
-			else if (d.showtwotwo.Contains("L-01a"))
+			if (d.showtwotwo.Contains("L-01a"))
 			{
 				StopCoroutine("EyeAnim2");
 				EyeNow2.color = new Color(255, 255, 255, 255);
@@ -3868,21 +3908,32 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow2.color = new Color(255, 255, 255, 255);
 				MouthNow2.sprite = CharaMouth[2];
 			}
-			else if (d.showtwotwo.Contains("L-02"))
+			else if (d.showtwotwo.Contains("L-01"))
 			{
 				StopCoroutine("EyeAnim2");
+				StopCoroutine("MouthAnim");
 				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 6, 7, 8 };
+				int[] eyeList = { 0, 1, 2 };
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[5];
+				MouthNow2.sprite = CharaMouth[2];
 			}
 			else if (d.showtwotwo.Contains("L-02a"))
 			{
 				StopCoroutine("EyeAnim2");
 				EyeNow2.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 9, 10, 11 };
+				StartCoroutine("EyeAnim2", eyeList);
+
+				MouthNow2.color = new Color(255, 255, 255, 255);
+				MouthNow2.sprite = CharaMouth[5];
+			}
+			else if (d.showtwotwo.Contains("L-02"))
+			{
+				StopCoroutine("EyeAnim2");
+				EyeNow2.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 6, 7, 8 };
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
@@ -3907,16 +3958,6 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow2.color = new Color(255, 255, 255, 255);
 				MouthNow2.sprite = CharaMouth[10];
 			}
-			else if (d.showtwotwo.Contains("L-05"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 19, 20, 21 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[14];
-			}
 			else if (d.showtwotwo.Contains("L-05a"))
 			{
 				StopCoroutine("EyeAnim2");
@@ -3927,21 +3968,31 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow2.color = new Color(255, 255, 255, 255);
 				MouthNow2.sprite = CharaMouth[14];
 			}
-			else if (d.showtwotwo.Contains("L-06"))
+			else if (d.showtwotwo.Contains("L-05"))
 			{
 				StopCoroutine("EyeAnim2");
 				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 25, 26, 27 };
+				int[] eyeList = { 19, 20, 21 };
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[17];
+				MouthNow2.sprite = CharaMouth[14];
 			}
 			else if (d.showtwotwo.Contains("L-06a"))
 			{
 				StopCoroutine("EyeAnim2");
 				EyeNow2.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 28, 29, 30 };
+				StartCoroutine("EyeAnim2", eyeList);
+
+				MouthNow2.color = new Color(255, 255, 255, 255);
+				MouthNow2.sprite = CharaMouth[17];
+			}
+			else if (d.showtwotwo.Contains("L-06"))
+			{
+				StopCoroutine("EyeAnim2");
+				EyeNow2.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 25, 26, 27 };
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
@@ -3998,21 +4049,21 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow2.color = new Color(255, 255, 255, 255);
 				MouthNow2.sprite = CharaMouth[33];
 			}
-			else if (d.showtwotwo.Contains("K-02"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 43, 44, 45 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[36];
-			}
 			else if (d.showtwotwo.Contains("K-02a"))
 			{
 				StopCoroutine("EyeAnim2");
 				EyeNow2.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 46, 47, 48 };
+				StartCoroutine("EyeAnim2", eyeList);
+
+				MouthNow2.color = new Color(255, 255, 255, 255);
+				MouthNow2.sprite = CharaMouth[36];
+			}
+			else if (d.showtwotwo.Contains("K-02"))
+			{
+				StopCoroutine("EyeAnim2");
+				EyeNow2.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 43, 44, 45 };
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
@@ -4075,21 +4126,21 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow2.color = new Color(255, 255, 255, 255);
 				MouthNow2.sprite = CharaMouth[54];
 			}
-			else if (d.showtwotwo.Contains("K-09"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 65, 66, 67 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[57];
-			}
 			else if (d.showtwotwo.Contains("K-09a"))
 			{
 				StopCoroutine("EyeAnim2");
 				EyeNow2.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 73, 74, 67 };
+				StartCoroutine("EyeAnim2", eyeList);
+
+				MouthNow2.color = new Color(255, 255, 255, 255);
+				MouthNow2.sprite = CharaMouth[57];
+			}
+			else if (d.showtwotwo.Contains("K-09"))
+			{
+				StopCoroutine("EyeAnim2");
+				EyeNow2.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 65, 66, 67 };
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
@@ -4205,21 +4256,21 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow2.color = new Color(255, 255, 255, 255);
 				MouthNow2.sprite = CharaMouth[90];
 			}
-			else if (d.showtwotwo.Contains("T-03"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 98, 99, 100 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[93];
-			}
 			else if (d.showtwotwo.Contains("T-03a"))
 			{
 				StopCoroutine("EyeAnim2");
 				EyeNow2.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 101, 102, 103 };
+				StartCoroutine("EyeAnim2", eyeList);
+
+				MouthNow2.color = new Color(255, 255, 255, 255);
+				MouthNow2.sprite = CharaMouth[93];
+			}
+			else if (d.showtwotwo.Contains("T-03"))
+			{
+				StopCoroutine("EyeAnim2");
+				EyeNow2.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 98, 99, 100 };
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
@@ -4985,19 +5036,19 @@ public class LoadDialogue : MonoBehaviour
 			}
 			if (d.id == 146)
 			{
-				whichLineNow = 151;
+				whichLineNow = 150;
 			}
 			if (d.id == 154)
 			{
-				whichLineNow = 159;
+				whichLineNow = 158;
 			}
 			if (d.id == 165)
 			{
-				whichLineNow = 171;
+				whichLineNow = 170;
 			}
 			if (d.id == 171)
 			{
-				whichLineNow = 178;
+				whichLineNow = 177;
 			}
 			if (d.id == 180)
 			{
@@ -5005,11 +5056,11 @@ public class LoadDialogue : MonoBehaviour
 			}
 			if (d.id == 210)
 			{
-				whichLineNow = 220;
+				whichLineNow = 219;
 			}
 			if (d.id == 218)
 			{
-				whichLineNow = 229;
+				whichLineNow = 228;
 			}
 			if (d.id == 276)
 			{
@@ -6162,9 +6213,9 @@ public class LoadDialogue : MonoBehaviour
 
 			resetPos = 8;
 			finishTemp3 = false;
-			whichLineNow = 133;
+			whichLineNow = 212;
 
-			for (int i = 213; i < 263; i++)
+			for (int i = 212; i < 263; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -6771,7 +6822,7 @@ public class LoadDialogue : MonoBehaviour
 			resetPos = 9;
 			finishTemp3 = false;
 
-			for (int i = 213; i < 263; i++)
+			for (int i = 212; i < 263; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 

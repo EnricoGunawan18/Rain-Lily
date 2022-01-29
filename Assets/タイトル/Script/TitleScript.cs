@@ -80,6 +80,10 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetFloat("LiedHeart", 0);
 		PlayerPrefs.SetFloat("KleinHeart", 0);
 
+		PlayerPrefs.SetInt("LiedFail", 0);
+		PlayerPrefs.SetInt("KleinFail", 0);
+
+
 		PlayerPrefs.SetInt("CleanNumber", 0);
 		PlayerPrefs.SetInt("CookNumber", 0);
 		PlayerPrefs.SetInt("ShopNumber", 0);
