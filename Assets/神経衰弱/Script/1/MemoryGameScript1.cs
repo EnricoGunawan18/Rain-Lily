@@ -537,7 +537,7 @@ public class MemoryGameScript1 : MonoBehaviour
 				scoreNow -= 100 * (3 - tryAns);
 				Debug.Log(scoreNow);
 				PlayerPrefs.SetFloat("Score1", scoreNow);
-				SceneManager.LoadScene("Stage2");
+				StartCoroutine(waitForNextStage());
 			}
 
 			if (tryAns == 0)
@@ -546,9 +546,15 @@ public class MemoryGameScript1 : MonoBehaviour
 				Debug.Log(scoreNow);
 
 				tryAns = 3;
-				SceneManager.LoadScene("Stage2");
+				StartCoroutine(waitForNextStage());
 			}
 
+		}
+
+		IEnumerator waitForNextStage()
+		{
+			yield return new WaitForSeconds(3f);
+			SceneManager.LoadScene("Stage2");
 		}
 
 		void shuffle()
@@ -568,8 +574,8 @@ public class MemoryGameScript1 : MonoBehaviour
 				count++;
 			}
 
-			NumMat[rando_].transform.position = Vector2.MoveTowards(NumMat[rando_].transform.position, position1, 230f * Time.deltaTime * 2f);
-			NumMat[rando_2].transform.position = Vector2.MoveTowards(NumMat[rando_2].transform.position, position2, 230f * Time.deltaTime * 2f);
+			NumMat[rando_].transform.position = Vector2.MoveTowards(NumMat[rando_].transform.position, position1, 200f * Time.deltaTime * 2f);
+			NumMat[rando_2].transform.position = Vector2.MoveTowards(NumMat[rando_2].transform.position, position2, 200f * Time.deltaTime * 2f);
 
 			if (NumMat[rando_].transform.position.x == position1.x && NumMat[rando_].transform.position.y == position1.y)
 			{

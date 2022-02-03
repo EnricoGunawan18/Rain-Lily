@@ -7,28 +7,30 @@ using UnityEngine.SceneManagement;
 public class Mainmaneger : MonoBehaviour
 {
     [SerializeField]
-    private Button btn1;
+    private Button interruption;
     [SerializeField]
-    private Button btn2 = null;
+    private Button restart;
 
     [SerializeField]
     private int num = 1;
-    [SerializeField]
-    private int num2 = 2;
     [SerializeField]
     private bool Through=true;
 
     void Start()
     {
-        btn1.onClick.AddListener(() => MoveScene(num));
+        interruption.onClick.AddListener(() => MoveScene(num));
         if(Through)
         {
-            btn2.onClick.AddListener(() => MoveScene(num2));
+            restart.onClick.AddListener(() => RestartGame());
         }
     }
 
     void MoveScene(int num)
     {
+        SceneManager.LoadScene(num);
+    }
+
+    private void RestartGame() {
         SceneManager.LoadScene("TitleScreen");
     }
 }

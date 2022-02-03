@@ -20,6 +20,8 @@ public class TitleScript : MonoBehaviour
 	Button CG;
 	[SerializeField]
 	Button PuzzleButton;
+	[SerializeField]
+	Button CookButton;
 
 	public GameObject TitleScreen;
 	public GameObject GameScreen;
@@ -40,7 +42,6 @@ public class TitleScript : MonoBehaviour
 		NewGame.onClick.AddListener(NewGameStart);
 		LoadGame.onClick.AddListener(LoadGameStart);
 		Game.onClick.AddListener(GameClicked);
-		MemoryGame.onClick.AddListener(MemoryGameClicked);
 		Chapter.onClick.AddListener(ChapterClicked);
 		TitleScreen.SetActive(true);
 		GameScreen.SetActive(false);
@@ -59,6 +60,9 @@ public class TitleScript : MonoBehaviour
 		BackMiniGame.onClick.AddListener(Back);
 
 		CG.onClick.AddListener(CGOpen);
+
+		MemoryGame.onClick.AddListener(MemoryGameClicked);
+		CookButton.onClick.AddListener(CookClicked);
 		PuzzleButton.onClick.AddListener(PuzzleClicked);
 	}
 
@@ -133,13 +137,22 @@ public class TitleScript : MonoBehaviour
 		SceneManager.LoadScene("Stage1");
 	}
 
+	public void CookClicked()
+	{
+		ButtonAudioSource.Stop();
+		ButtonAudioSource.Play();
+
+		PlayerPrefs.SetInt("MiniGame", 0);
+		SceneManager.LoadScene("Scene_cook");
+	}
+
 	public void PuzzleClicked()
 	{
 		ButtonAudioSource.Stop();
 		ButtonAudioSource.Play();
 
 		PlayerPrefs.SetInt("MiniGame", 0);
-		SceneManager.LoadScene("Scene_pazle");
+		SceneManager.LoadScene("Scene_pazzle");
 	}
 
 

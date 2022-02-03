@@ -339,45 +339,40 @@ public class EffectScript4 : MonoBehaviour
         {
             float timer1 = Time.time;
             effectTimer1 = timer1 - time1;
+            memorygamescript4.NumMat[0].enabled = false;
 
             Cross[0].SetActive(true);
             Cross[0].transform.position = position1;
             if (effectTimer1 >= 2)
             {
                 Cross[0].SetActive(false);
-                memorygamescript4.clicked[0] = false;
-                one = true;
             }
         }
         if (GameObject.Find("MemoryGameScript4").GetComponent<MemoryGameScript4>().correctEffect[1] == false && GameObject.Find("MemoryGameScript4").GetComponent<MemoryGameScript4>().clicked[1] == true)
         {
             float timer2 = Time.time;
             effectTimer2 = timer2 - time2;
+            memorygamescript4.NumMat[1].enabled = false;
 
             Cross[1].SetActive(true);
             Cross[1].transform.position = position2;
             if (effectTimer2 >= 2)
             {
                 Cross[1].SetActive(false);
-                memorygamescript4.clicked[1] = false;
-                two = true;
-
             }
-
 
         }
         if (GameObject.Find("MemoryGameScript4").GetComponent<MemoryGameScript4>().correctEffect[2] == false && GameObject.Find("MemoryGameScript4").GetComponent<MemoryGameScript4>().clicked[2] == true)
         {
             float timer3 = Time.time;
             effectTimer3 = timer3 - time3;
+            memorygamescript4.NumMat[2].enabled = false;
 
             Cross[2].SetActive(true);
             Cross[2].transform.position = position3;
             if (effectTimer3 >= 2)
             {
                 Cross[2].SetActive(false);
-                memorygamescript4.clicked[2] = false;
-                three = true;
             }
 
 
@@ -386,14 +381,13 @@ public class EffectScript4 : MonoBehaviour
         {
             float timer4 = Time.time;
             effectTimer4 = timer4 - time4;
+            memorygamescript4.NumMat[3].enabled = false;
 
             Cross[3].SetActive(true);
             Cross[3].transform.position = position4;
             if (effectTimer4 >= 2)
             {
                 Cross[3].SetActive(false);
-                memorygamescript4.clicked[3] = false;
-                four = true;
             }
 
 
@@ -402,14 +396,13 @@ public class EffectScript4 : MonoBehaviour
         {
             float timer5 = Time.time;
             effectTimer5 = timer5 - time5;
+            memorygamescript4.NumMat[4].enabled = false;
 
             Cross[4].SetActive(true);
             Cross[4].transform.position = position5;
             if (effectTimer5 >= 2)
             {
                 Cross[4].SetActive(false);
-                memorygamescript4.clicked[4] = false;
-                five = true;
             }
 
         }
@@ -417,14 +410,13 @@ public class EffectScript4 : MonoBehaviour
         {
             float timer6 = Time.time;
             effectTimer6 = timer6 - time6;
+            memorygamescript4.NumMat[5].enabled = false;
 
             Cross[5].SetActive(true);
             Cross[5].transform.position = position6;
             if (effectTimer6 >= 2)
             {
                 Cross[5].SetActive(false);
-                memorygamescript4.clicked[5] = false;
-                six = true;
             }
 
 
@@ -433,14 +425,13 @@ public class EffectScript4 : MonoBehaviour
         {
             float timer7 = Time.time;
             effectTimer7 = timer7 - time7;
+            memorygamescript4.NumMat[6].enabled = false;
 
             Cross[6].SetActive(true);
             Cross[6].transform.position = position7;
             if (effectTimer7 >= 2)
             {
                 Cross[6].SetActive(false);
-                memorygamescript4.clicked[6] = false;
-                seven = true;
             }
 
         }
@@ -448,14 +439,13 @@ public class EffectScript4 : MonoBehaviour
         {
             float timer8 = Time.time;
             effectTimer8 = timer8 - time8;
+            memorygamescript4.NumMat[7].enabled = false;
 
             Cross[7].SetActive(true);
             Cross[7].transform.position = position8;
             if (effectTimer8 >= 2)
             {
                 Cross[7].SetActive(false);
-                memorygamescript4.clicked[7] = false;
-                eight = true;
             }
 
         }
@@ -463,14 +453,13 @@ public class EffectScript4 : MonoBehaviour
         {
             float timer9 = Time.time;
             effectTimer9 = timer9 - time9;
+            memorygamescript4.NumMat[8].enabled = false;
 
             Cross[8].SetActive(true);
             Cross[8].transform.position = position9;
             if (effectTimer9 >= 2)
             {
                 Cross[8].SetActive(false);
-                memorygamescript4.clicked[8] = false;
-                nine = true;
             }
 
         }
@@ -478,14 +467,13 @@ public class EffectScript4 : MonoBehaviour
         {
             float timer10 = Time.time;
             effectTimer10 = timer10 - time10;
+            memorygamescript4.NumMat[9].enabled = false;
 
             Cross[9].SetActive(true);
             Cross[9].transform.position = position10;
             if (effectTimer10 >= 2)
             {
                 Cross[9].SetActive(false);
-                memorygamescript4.clicked[9] = false;
-                ten = true;
             }
         }
     }

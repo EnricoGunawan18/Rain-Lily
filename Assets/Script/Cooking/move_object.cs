@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class move_object : MonoBehaviour
 {
-    private Vector3 screenPoint;
-    private Vector3 offset;
+    private new Camera camera;
+    private GameObject Instant;
+    private Vector3 objectPointInScreen;
 
-    // ’Ç‰Á
-    void OnMouseDown()
+    private void Start()
     {
-        this.screenPoint = Camera.main.WorldToScreenPoint(transform.position);
-        this.offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        camera = Camera.main;
+		if (this.transform.root.gameObject)
+        {
+            Instant = this.transform.root.gameObject;
+        }
     }
-    // ’Ç‰Á
+
+    void OnMouseDown()
+	{
+        objectPointInScreen
+            = camera.WorldToScreenPoint(this.transform.position);
+    }
+
     void OnMouseDrag()
     {
-        Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-        Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + this.offset;
-        transform.position = currentPosition;
+        Vector3 mousePointInScreen
+            = new Vector3(Input.mousePosition.x,
+                          Input.mousePosition.y,
+                          objectPointInScreen.z);
+
+        Vector3 mousePointInWorld = camera.ScreenToWorldPoint(mousePointInScreen);
+        mousePointInWorld.z = this.transform.position.z;
+        this.transform.position = mousePointInWorld;
+        Instant.transform.position = mousePointInWorld;
     }
 }

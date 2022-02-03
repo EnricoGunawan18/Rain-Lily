@@ -720,7 +720,6 @@ GameObject:
   - component: {fileID: 797544440}
   - component: {fileID: 797544439}
   - component: {fileID: 797544438}
-  - component: {fileID: 797544437}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -728,22 +727,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &797544437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797544436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a826a00c00794cf4c88227143f5578bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn1: {fileID: 641002520}
-  btn2: {fileID: 2128116961}
-  num: 1
-  num2: 2
 --- !u!114 &797544438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,7 +820,7 @@ GameObject:
   - component: {fileID: 1065748445}
   - component: {fileID: 1065748444}
   m_Layer: 0
-  m_Name: "\u5C4B\u6577_\u8352"
+  m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -883,7 +866,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b920f9da4cba3d44bb2dde0382b5d957, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6683f1aad7295af428b915b68e8b7d23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7041678300120863114}
   m_Layer: 0
   m_Name: caesar_salad
-  m_TagString: dish
+  m_TagString: ceasar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,25 +93,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7041678300120863094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 139f25bec28e13645b66534e48b527dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 79e452955b563f14e894e6fc02db4f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   finished_image: {fileID: 21300000, guid: 97a7d2fc2e2b5004ca20b636c135a3cd, type: 3}
-  dish: {fileID: 7041678300120863094}
-  m_tag: 0500000007000000040000001400000016000000150000001900000000000000
-  order: 0100000002000000020000000200000003000000030000000300000004000000
-  sprites:
-  - {fileID: 857460937541432962, guid: faa3bb33e77dcfc4bb7738c26f424b15, type: 3}
-  - {fileID: 877159351026074911, guid: 7c241768e9fe11d47ab49dbdd8a960a9, type: 3}
-  - {fileID: 9080742651557062454, guid: 9a89c51183f8a144e9c0b156424d75b2, type: 3}
-  - {fileID: 5268432639227124139, guid: bb802cef672b72e45bd44a4555faa35e, type: 3}
-  - {fileID: 8928171988566646446, guid: abbf889596184b743aeafc838d73696f, type: 3}
-  - {fileID: 8021662944283573943, guid: 973ede6ce321d0642b750043ca6e9381, type: 3}
-  - {fileID: 476392265112354321, guid: f7b653ab737426a419c7788b0b6778b4, type: 3}
-  - {fileID: 8422688927689067817, guid: b6f21e80078affa45aeb67f0558e1713, type: 3}
-  debug_on: 0
-  debugText: {fileID: 0}
-  canvasTran: {fileID: 7041678300120863093}
+  outer: {fileID: 0}
+  inner: {fileID: 0}
+  addScore: 10
 --- !u!61 &7041678300120863114
 BoxCollider2D:
   m_ObjectHideFlags: 0

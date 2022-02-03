@@ -12,6 +12,8 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	TextAsset BGName;
 	[SerializeField]
+	Button[] MinGameButton;
+	[SerializeField]
 	private Text textLabel;
 	[SerializeField]
 	public Text nameLabel;
@@ -122,7 +124,9 @@ public class LoadDialogue : MonoBehaviour
 	Animator BustUpAnim;
 
 	private AudioSource BGM;
-	private AudioSource SE;
+
+	[SerializeField]
+	AudioSource SE;
 
 	[SerializeField]
 	Animator TextBGHide;
@@ -187,6 +191,8 @@ public class LoadDialogue : MonoBehaviour
 		int gameMoneyGet = PlayerPrefs.GetInt("Money");
 		//Debug.Log(gameMoneyGet);
 
+		whichLineNow = PlayerPrefs.GetInt("LogNow");
+
 		charaImageNow.color = new Color(0, 0, 0, 0);
 		EyeNow.color = new Color(0, 0, 0, 0);
 		MouthNow.color = new Color(0, 0, 0, 0);
@@ -201,7 +207,6 @@ public class LoadDialogue : MonoBehaviour
 
 		autoScroll = GameObject.Find("AutoScroll").GetComponent<AutoScroll>();
 		BGM = GameObject.Find("BGM").GetComponent<AudioSource>();
-		SE = GameObject.Find("SE").GetComponent<AudioSource>();
 		nextDialogue.onClick.AddListener(TaskOnClick);
 		FirstTwoButton.onClick.AddListener(FirstButtonClicked);
 		SecondTwoButton.onClick.AddListener(SecondButtonClicked);
@@ -235,7 +240,7 @@ public class LoadDialogue : MonoBehaviour
 		{
 			data = prologue.text.Split(new char[] { '$' });
 		}
-		else if (date[0] == 10 && date[1] == 13)
+		else if (date[0] == 10 && date[1] == 15)
 		{
 			data = LiedDialogue[0].text.Split(new char[] { '$' });
 			if (liedAff >= 10f)
@@ -249,7 +254,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 10 && date[1] == 16)
+		else if (date[0] == 10 && date[1] == 20)
 		{
 			data = LiedDialogue[1].text.Split(new char[] { '$' });
 			if (liedAff >= 15f)
@@ -264,7 +269,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 10 && date[1] == 19)
+		else if (date[0] == 10 && date[1] == 30)
 		{
 			data = LiedDialogue[2].text.Split(new char[] { '$' });
 			if (liedAff >= 20f)
@@ -278,7 +283,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 10 && date[1] == 22)
+		else if (date[0] == 11 && date[1] == 8)
 		{
 			data = LiedDialogue[3].text.Split(new char[] { '$' });
 			if (liedAff >= 25f)
@@ -292,7 +297,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 10 && date[1] == 25)
+		else if (date[0] == 11 && date[1] == 15)
 		{
 			data = LiedDialogue[4].text.Split(new char[] { '$' });
 			if (liedAff >= 30f)
@@ -306,7 +311,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 10 && date[1] == 28)
+		else if (date[0] == 11 && date[1] == 17)
 		{
 			data = LiedDialogue[5].text.Split(new char[] { '$' });
 			if (liedAff >= 35f)
@@ -320,7 +325,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 10 && date[1] == 31)
+		else if (date[0] == 11 && date[1] == 25)
 		{
 			data = LiedDialogue[6].text.Split(new char[] { '$' });
 			if (liedAff >= 40f)
@@ -334,7 +339,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 11 && date[1] == 3)
+		else if (date[0] == 11 && date[1] == 30)
 		{
 			data = LiedDialogue[7].text.Split(new char[] { '$' });
 			if (liedAff >= 45f)
@@ -348,7 +353,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 11 && date[1] == 6)
+		else if (date[0] == 12 && date[1] == 3)
 		{
 			data = LiedDialogue[8].text.Split(new char[] { '$' });
 			if (liedAff >= 50f)
@@ -362,7 +367,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 11 && date[1] == 9)
+		else if (date[0] == 12 && date[1] == 6)
 		{
 			data = LiedDialogue[9].text.Split(new char[] { '$' });
 			if (liedAff >= 55f)
@@ -376,7 +381,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 11 && date[1] == 12)
+		else if (date[0] == 12 && date[1] == 9)
 		{
 			data = LiedDialogue[10].text.Split(new char[] { '$' });
 			if (liedAff >= 60f)
@@ -390,11 +395,11 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-		else if (date[0] == 11 && date[1] == 13)
+		else if (date[0] == 12 && date[1] == 10)
 		{
 			data = LiedDialogue[11].text.Split(new char[] { '$' });
-				menu = 25;
-				PlayerPrefs.SetInt("NovelMenu", menu);
+			menu = 25;
+			PlayerPrefs.SetInt("NovelMenu", menu);
 		}
 
 
@@ -552,7 +557,7 @@ public class LoadDialogue : MonoBehaviour
 		{
 			resetPos = 24;
 			PlayerPrefs.SetInt("LogNow", 1);
-			for (int i = 1; i < 46; i++)
+			for (int i = 1; i < 45; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -910,7 +915,7 @@ public class LoadDialogue : MonoBehaviour
 
 			resetPos = 5;
 			PlayerPrefs.SetInt("MiniGame", 0);
-			for (int i = 171; i < 177; i++)
+			for (int i = 170; i < 177; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1420,7 +1425,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 14)
 		{
-			for (int i = logNumber; i < 92; i++)
+			for (int i = logNumber; i < 93; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1452,7 +1457,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 15)
 		{
-			for (int i = logNumber; i < 92; i++)
+			for (int i = logNumber; i < 93; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1582,7 +1587,7 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 21)
 		{
-			for (int i = logNumber; i < 102; i++)
+			for (int i = logNumber; i < 100; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1614,7 +1619,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 22)
 		{
-			for (int i = logNumber; i < 102; i++)
+			for (int i = logNumber; i < 100; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1808,7 +1813,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 30)
 		{
-			for (int i = logNumber; i < 168; i++)
+			for (int i = logNumber; i < 169; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1840,7 +1845,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 31)
 		{
-			for (int i = logNumber; i < 168; i++)
+			for (int i = logNumber; i < 169; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1936,7 +1941,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 36)
 		{
-			for (int i = logNumber; i < 154; i++)
+			for (int i = logNumber; i < 160; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1968,7 +1973,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 37)
 		{
-			for (int i = logNumber; i < 154; i++)
+			for (int i = logNumber; i < 160; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2033,7 +2038,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 40)
 		{
-			for (int i = logNumber; i < 220; i++)
+			for (int i = logNumber; i < 222; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2065,7 +2070,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 41)
 		{
-			for (int i = logNumber; i < 220; i++)
+			for (int i = logNumber; i < 222; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2229,7 +2234,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				row = data[i].Split(new char[] { ',' });
 
-				if ((row[2] != "" || row[15] != "" || row[17] != "") )
+				if ((row[2] != "" || row[15] != "" || row[17] != ""))
 				{
 					d = new Dialogue();
 					int.TryParse(row[0], out d.id);
@@ -2671,6 +2676,7 @@ public class LoadDialogue : MonoBehaviour
 			string[] tempRow = data[21].Split(new char[] { ',' });
 			string Filtered2 = tempRow[8].Replace("/LiedLove_low", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.fontSize = 28;
 			FirstTwo.text = Filtered3;
 
 			string[] tempRow2 = data[21].Split(new char[] { ',' });
@@ -2698,7 +2704,7 @@ public class LoadDialogue : MonoBehaviour
 			FirstTwo.text = Filtered3;
 
 			string[] tempRow2 = data[15].Split(new char[] { ',' });
-			string Filtered6 = tempRow[9].Replace("\"", "");
+			string Filtered6 = tempRow2[9].Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
 		if (finishTemp14 == true)
@@ -2710,18 +2716,19 @@ public class LoadDialogue : MonoBehaviour
 			FirstTwo.text = Filtered3;
 
 			string[] tempRow2 = data[44].Split(new char[] { ',' });
-			string Filtered6 = tempRow[9].Replace("\"", "");
+			string Filtered6 = tempRow2[9].Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
 		if (finishTemp15 == true)
 		{
 			TwoChoices.SetActive(true);
 			string[] tempRow = data[112].Split(new char[] { ',' });
-			string Filtered3 = tempRow[8].Replace("\"", "");
+			string Filtered2 = tempRow[8].Replace("/end", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
 			string[] tempRow2 = data[112].Split(new char[] { ',' });
-			string Filtered6 = tempRow[9].Replace("\"", "");
+			string Filtered6 = tempRow2[9].Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
 		if (finishTemp16 == true)
@@ -2733,7 +2740,7 @@ public class LoadDialogue : MonoBehaviour
 			FirstTwo.text = Filtered3;
 
 			string[] tempRow2 = data[357].Split(new char[] { ',' });
-			string Filtered6 = tempRow[9].Replace("\"", "");
+			string Filtered6 = tempRow2[9].Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
 
@@ -2749,7 +2756,7 @@ public class LoadDialogue : MonoBehaviour
 	{
 		RectTransform rt = logLabel.GetComponent<RectTransform>();
 
-		foreach (Dialogue d in dialogues)
+		foreach (Dialogue d in dialogues.ToArray())
 		{
 			dialogueManager.next = false;
 			whichLineNow++;
@@ -2843,7 +2850,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				StillImage.color = new Color(0, 0, 0, 0);
 				DialogueBG.sprite = DialogueBGImage;
-				DialogueBG.color = new Color(255f / 255, 255f / 255, 255f/255, 200f/255);
+				DialogueBG.color = new Color(255f / 255, 255f / 255, 255f / 255, 200f / 255);
 				StillDialogueBG.SetActive(false);
 				nameLabel.color = new Color(255, 255, 255, 255);
 				Hide.SetBool("Still", false);
@@ -3062,7 +3069,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 			//character expression
-			 if (d.expression.Contains("L-01a"))
+			if (d.expression.Contains("L-01a"))
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
@@ -3163,7 +3170,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				StopCoroutine("EyeAnim");
 				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 28, 29, 30 };
+				int[] eyeList = { 107, 108, 109 };
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
@@ -3209,6 +3216,16 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[26];
 			}
+			else if (d.expression.Contains("L-10a"))
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 110, 111, 110 };
+				StartCoroutine("EyeAnim", eyeList);
+
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[29];
+			}
 			else if (d.expression.Contains("L-10"))
 			{
 				StopCoroutine("EyeAnim");
@@ -3219,6 +3236,7 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[29];
 			}
+
 
 			else if (d.expression.Contains("K-01"))
 			{
@@ -3356,7 +3374,7 @@ public class LoadDialogue : MonoBehaviour
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[66];
+				MouthNow.sprite = CharaMouth[64];
 			}
 			else if (d.expression.Contains("G-02"))
 			{
@@ -3365,7 +3383,7 @@ public class LoadDialogue : MonoBehaviour
 				EyeNow.sprite = CharaEyes[78];
 
 				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[69];
+				MouthNow.sprite = CharaMouth[67];
 			}
 			else if (d.expression.Contains("G-03"))
 			{
@@ -3395,7 +3413,7 @@ public class LoadDialogue : MonoBehaviour
 				StartCoroutine("EyeAnim", eyeList);
 
 				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[78];
+				MouthNow.sprite = CharaMouth[76];
 			}
 			else if (d.expression.Contains("G-06"))
 			{
@@ -3573,7 +3591,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				StopCoroutine("EyeAnim1");
 				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 28, 29, 30 };
+				int[] eyeList = { 107, 108, 109 };
 				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
@@ -3619,6 +3637,16 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow1.color = new Color(255, 255, 255, 255);
 				MouthNow1.sprite = CharaMouth[26];
 			}
+			else if (d.showtwoone.Contains("L-10a"))
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 110, 111, 110 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[29];
+			}
 			else if (d.showtwoone.Contains("L-10"))
 			{
 				StopCoroutine("EyeAnim1");
@@ -3629,6 +3657,7 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow1.color = new Color(255, 255, 255, 255);
 				MouthNow1.sprite = CharaMouth[29];
 			}
+
 
 			else if (d.showtwoone.Contains("K-01"))
 			{
@@ -3766,7 +3795,7 @@ public class LoadDialogue : MonoBehaviour
 				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[66];
+				MouthNow1.sprite = CharaMouth[64];
 			}
 			else if (d.showtwoone.Contains("G-02"))
 			{
@@ -3775,7 +3804,7 @@ public class LoadDialogue : MonoBehaviour
 				EyeNow1.sprite = CharaEyes[78];
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[69];
+				MouthNow1.sprite = CharaMouth[67];
 			}
 			else if (d.showtwoone.Contains("G-03"))
 			{
@@ -3802,10 +3831,10 @@ public class LoadDialogue : MonoBehaviour
 				StopCoroutine("EyeAnim1");
 				EyeNow1.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 85, 86, 87 };
-				StartCoroutine("EyeAnim11", eyeList);
+				StartCoroutine("EyeAnim1", eyeList);
 
 				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[78];
+				MouthNow1.sprite = CharaMouth[76];
 			}
 			else if (d.showtwoone.Contains("G-06"))
 			{
@@ -3982,7 +4011,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				StopCoroutine("EyeAnim2");
 				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 28, 29, 30 };
+				int[] eyeList = { 107, 108, 109 };
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
@@ -4028,6 +4057,16 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow2.color = new Color(255, 255, 255, 255);
 				MouthNow2.sprite = CharaMouth[26];
 			}
+			else if (d.showtwoone.Contains("L-10a"))
+			{
+				StopCoroutine("EyeAnim2");
+				EyeNow2.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 110, 111, 110 };
+				StartCoroutine("EyeAnim2", eyeList);
+
+				MouthNow2.color = new Color(255, 255, 255, 255);
+				MouthNow2.sprite = CharaMouth[29];
+			}
 			else if (d.showtwotwo.Contains("L-10"))
 			{
 				StopCoroutine("EyeAnim2");
@@ -4038,6 +4077,7 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow2.color = new Color(255, 255, 255, 255);
 				MouthNow2.sprite = CharaMouth[29];
 			}
+
 
 			else if (d.showtwotwo.Contains("K-01"))
 			{
@@ -4175,7 +4215,7 @@ public class LoadDialogue : MonoBehaviour
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[66];
+				MouthNow2.sprite = CharaMouth[64];
 			}
 			else if (d.showtwotwo.Contains("G-02"))
 			{
@@ -4184,7 +4224,7 @@ public class LoadDialogue : MonoBehaviour
 				EyeNow2.sprite = CharaEyes[78];
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[69];
+				MouthNow2.sprite = CharaMouth[67];
 			}
 			else if (d.showtwotwo.Contains("G-03"))
 			{
@@ -4214,7 +4254,7 @@ public class LoadDialogue : MonoBehaviour
 				StartCoroutine("EyeAnim2", eyeList);
 
 				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[78];
+				MouthNow2.sprite = CharaMouth[76];
 			}
 			else if (d.showtwotwo.Contains("G-06"))
 			{
@@ -4555,13 +4595,12 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 			//Voice
-			if (autoScroll.automated == false)
-			{
-
+			if (autoScroll.dialogueIsSkipped == false)
+			{				
 				if (d.voice != "")
 				{
 					for (int i = 0; i < VoiceFile_2.Count; i++)
-					{					
+					{
 						string temp = VoiceFile_2[i].ToString();
 						temp = temp.Replace(" (UnityEngine.AudioClip)", "");
 						if (d.voice.ToString() == temp.ToString())
@@ -4765,254 +4804,254 @@ public class LoadDialogue : MonoBehaviour
 
 			//SE
 
-			if (autoScroll.automated == false)
+			if (autoScroll.dialogueIsSkipped == false)
 			{
-				if (d.SE == "SE-001")
+				if (d.SE.Contains("SE-001"))
 				{
 					SE.clip = SEFile[0];
 					SE.Play();
 				}
-				else if (d.SE == "SE-002")
+				else if (d.SE.Contains("SE-002"))
 				{
 					SE.clip = SEFile[1];
 					SE.Play();
 				}
-				else if (d.SE == "SE-003")
+				else if (d.SE.Contains("SE-003"))
 				{
 					SE.clip = SEFile[2];
 					SE.Play();
 				}
-				else if (d.SE == "SE-004")
+				else if (d.SE.Contains("SE-004"))
 				{
 					SE.clip = SEFile[3];
 					SE.Play();
 				}
-				else if (d.SE == "SE-005")
+				else if (d.SE.Contains("SE-005"))
 				{
 					SE.clip = SEFile[4];
 					SE.Play();
 				}
-				else if (d.SE == "SE-006")
+				else if (d.SE.Contains("SE-006"))
 				{
 					SE.clip = SEFile[5];
 					SE.Play();
 				}
-				else if (d.SE == "SE-007")
+				else if (d.SE.Contains("SE-007"))
 				{
 					SE.clip = SEFile[6];
 					SE.Play();
 				}
-				else if (d.SE == "SE-008")
+				else if (d.SE.Contains("SE-008"))
 				{
 					SE.clip = SEFile[7];
 					SE.Play();
 				}
-				else if (d.SE == "SE-009")
+				else if (d.SE.Contains("SE-009"))
 				{
 					SE.clip = SEFile[8];
 					SE.Play();
 				}
-				else if (d.SE == "SE-010")
+				else if (d.SE.Contains("SE-010"))
 				{
 					SE.clip = SEFile[9];
 					SE.Play();
 				}
-				else if (d.SE == "SE-011")
+				else if (d.SE.Contains("SE-011"))
 				{
 					SE.clip = SEFile[10];
 					SE.Play();
 				}
-				else if (d.SE == "SE-012")
+				else if (d.SE.Contains("SE-012"))
 				{
 					SE.clip = SEFile[11];
 					SE.Play();
 				}
-				else if (d.SE == "SE-013")
+				else if (d.SE.Contains("SE-013"))
 				{
 					SE.clip = SEFile[12];
 					SE.Play();
 				}
-				else if (d.SE == "SE-014")
+				else if (d.SE.Contains("SE-014"))
 				{
 					SE.clip = SEFile[13];
 					SE.Play();
 				}
-				else if (d.SE == "SE-015")
+				else if (d.SE.Contains("SE-015"))
 				{
 					SE.clip = SEFile[14];
 					SE.Play();
 				}
-				else if (d.SE == "SE-016")
+				else if (d.SE.Contains("SE-016"))
 				{
 					SE.clip = SEFile[15];
 					SE.Play();
 				}
-				else if (d.SE == "SE-017")
+				else if (d.SE.Contains("SE-017"))
 				{
 					SE.clip = SEFile[16];
 					SE.Play();
 				}
-				else if (d.SE == "SE-018")
+				else if (d.SE.Contains("SE-018"))
 				{
 					SE.clip = SEFile[17];
 					SE.Play();
 				}
-				else if (d.SE == "SE-019")
+				else if (d.SE.Contains("SE-019"))
 				{
 					SE.clip = SEFile[18];
 					SE.Play();
 				}
-				else if (d.SE == "SE-020")
+				else if (d.SE.Contains("SE-020"))
 				{
 					SE.clip = SEFile[19];
 					SE.Play();
 				}
-				else if (d.SE == "SE-021")
+				else if (d.SE.Contains("SE-021"))
 				{
 					SE.clip = SEFile[20];
 					SE.Play();
 				}
-				else if (d.SE == "SE-022")
+				else if (d.SE.Contains("SE-022"))
 				{
 					SE.clip = SEFile[21];
 					SE.Play();
 				}
-				else if (d.SE == "SE-023")
+				else if (d.SE.Contains("SE-023"))
 				{
 					SE.clip = SEFile[22];
 					SE.Play();
 				}
-				else if (d.SE == "SE-024")
+				else if (d.SE.Contains("SE-024"))
 				{
 					SE.clip = SEFile[23];
 					SE.Play();
 				}
-				else if (d.SE == "SE-025")
+				else if (d.SE.Contains("SE-025"))
 				{
 					SE.clip = SEFile[24];
 					SE.Play();
 				}
-				else if (d.SE == "SE-026")
+				else if (d.SE.Contains("SE-026"))
 				{
 					SE.clip = SEFile[25];
 					SE.Play();
 				}
-				else if (d.SE == "SE-027")
+				else if (d.SE.Contains("SE-027"))
 				{
 					SE.clip = SEFile[26];
 					SE.Play();
 				}
-				else if (d.SE == "SE-028")
+				else if (d.SE.Contains("SE-028"))
 				{
 					SE.clip = SEFile[27];
 					SE.Play();
 				}
-				else if (d.SE == "SE-029")
+				else if (d.SE.Contains("SE-029"))
 				{
 					SE.clip = SEFile[28];
 					SE.Play();
 				}
-				else if (d.SE == "SE-030")
+				else if (d.SE.Contains("SE-030"))
 				{
 					SE.clip = SEFile[29];
 					SE.Play();
 				}
-				else if (d.SE == "SE-031")
+				else if (d.SE.Contains("SE-031"))
 				{
 					SE.clip = SEFile[30];
 					SE.Play();
 				}
-				else if (d.SE == "SE-032")
+				else if (d.SE.Contains("SE-032"))
 				{
 					SE.clip = SEFile[31];
 					SE.Play();
 				}
-				else if (d.SE == "SE-033")
+				else if (d.SE.Contains("SE-033"))
 				{
 					SE.clip = SEFile[32];
 					SE.Play();
 				}
-				else if (d.SE == "SE-034")
+				else if (d.SE.Contains("SE-034"))
 				{
 					SE.clip = SEFile[33];
 					SE.Play();
 				}
-				else if (d.SE == "SE-035")
+				else if (d.SE.Contains("SE-035"))
 				{
 					SE.clip = SEFile[34];
 					SE.Play();
 				}
-				else if (d.SE == "SE-036")
+				else if (d.SE.Contains("SE-036"))
 				{
 					SE.clip = SEFile[35];
 					SE.Play();
 				}
-				else if (d.SE == "SE-037")
+				else if (d.SE.Contains("SE-037"))
 				{
 					SE.clip = SEFile[36];
 					SE.Play();
 				}
-				else if (d.SE == "SE-038")
+				else if (d.SE.Contains("SE-038"))
 				{
 					SE.clip = SEFile[37];
 					SE.Play();
 				}
-				else if (d.SE == "SE-039")
+				else if (d.SE.Contains("SE-039"))
 				{
 					SE.clip = SEFile[38];
 					SE.Play();
 				}
-				else if (d.SE == "SE-040")
+				else if (d.SE.Contains("SE-040"))
 				{
 					SE.clip = SEFile[39];
 					SE.Play();
 				}
-				else if (d.SE == "SE-041")
+				else if (d.SE.Contains("SE-041"))
 				{
 					SE.clip = SEFile[40];
 					SE.Play();
 				}
-				else if (d.SE == "SE-042")
+				else if (d.SE.Contains("SE-042"))
 				{
 					SE.clip = SEFile[41];
 					SE.Play();
 				}
-				else if (d.SE == "SE-043")
+				else if (d.SE.Contains("SE-043"))
 				{
 					SE.clip = SEFile[42];
 					SE.Play();
 				}
-				else if (d.SE == "SE-044")
+				else if (d.SE.Contains("SE-044"))
 				{
 					SE.clip = SEFile[43];
 					SE.Play();
 				}
-				else if (d.SE == "SE-045")
+				else if (d.SE.Contains("SE-045"))
 				{
 					SE.clip = SEFile[44];
 					SE.Play();
 				}
-				else if (d.SE == "SE-046")
+				else if (d.SE.Contains("SE-046"))
 				{
 					SE.clip = SEFile[45];
 					SE.Play();
 				}
-				else if (d.SE == "SE-047")
+				else if (d.SE.Contains("SE-047"))
 				{
 					SE.clip = SEFile[46];
 					SE.Play();
 				}
-				else if (d.SE == "SE-048")
+				else if (d.SE.Contains("SE-048"))
 				{
 					SE.clip = SEFile[47];
 					SE.Play();
 				}
-				else if (d.SE == "SE-049")
+				else if (d.SE.Contains("SE-049"))
 				{
 					SE.clip = SEFile[48];
 					SE.Play();
 				}
-				else if (d.SE == "SE-050")
+				else if (d.SE.Contains("SE-050"))
 				{
 					SE.clip = SEFile[49];
 					SE.Play();
@@ -5126,9 +5165,57 @@ public class LoadDialogue : MonoBehaviour
 			{
 				whichLineNow = 29;
 			}
-			if (d.id == 995)
+			//if (d.id == "995a")
+			//{
+			//	whichLineNow = 33;
+			//}
+			//if (d.id == "995b")
+			//{
+			//	whichLineNow = 34;
+			//}
+			//if (d.id == "996a")
+			//{
+			//	whichLineNow = 35;
+			//}
+			//if (d.id == "996b")
+			//{
+			//	whichLineNow = 36;
+			//}
+			//if (d.id == "997a")
+			//{
+			//	whichLineNow = 37;
+			//}
+			//if (d.id == "997b")
+			//{
+			//	whichLineNow = 38;
+			//}
+			//if (d.id == "998a")
+			//{
+			//	whichLineNow = 39;
+			//}
+			//if (d.id == "998b")
+			//{
+			//	whichLineNow = 40;
+			//}
+			//if (d.id == "999a")
+			//{
+			//	whichLineNow = 41;
+			//}
+			//if (d.id == "999b")
+			//{
+			//	whichLineNow = 42;
+			//}
+			//if (d.id == "1000a")
+			//{
+			//	whichLineNow = 43;
+			//}
+			//if (d.id == "1000b")
+			//{
+			//	whichLineNow = 44;
+			//}
+			if (d.id == 1001)
 			{
-				whichLineNow = 33;
+				whichLineNow = 45;
 			}
 			if (d.id == 1200)
 			{
@@ -5166,8 +5253,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5225,7 +5312,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5243,6 +5330,11 @@ public class LoadDialogue : MonoBehaviour
 				{
 					PlayerPrefs.SetInt("MiniGame", 3);
 					PlayerPrefs.SetInt("NovelMenu", 3);
+					dialogueManager.dialogueSpeed = 0;
+					MiniGameChoose.SetActive(true);
+					MinGameButton[0].interactable = false;
+					MinGameButton[1].interactable = false;
+					MinGameButton[2].interactable = true;
 				}
 
 				if (d.id == 251)
@@ -5258,7 +5350,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 1/////////////////////////////////////////////////////////////////
-			else if (date[0] == 10 && date[1] == 13)
+			else if (date[0] == 10 && date[1] == 15)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5268,10 +5360,9 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
-
 				}
 				else
 				{
@@ -5311,7 +5402,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5330,7 +5421,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 2/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 10 && date[1] == 16 && LiedFail == 0)
+			else if (date[0] == 10 && date[1] == 20 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5340,8 +5431,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5378,7 +5469,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5398,7 +5489,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 3/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 10 && date[1] == 19 && LiedFail == 0)
+			else if (date[0] == 10 && date[1] == 30 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5410,8 +5501,8 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5448,7 +5539,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5468,7 +5559,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 4/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 10 && date[1] == 22 && LiedFail == 0)
+			else if (date[0] == 11 && date[1] == 8 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5478,8 +5569,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5516,7 +5607,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5536,7 +5627,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 5/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 10 && date[1] == 25 && LiedFail == 0)
+			else if (date[0] == 11 && date[1] == 15 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI") || d.id == 662)
 				{
@@ -5546,8 +5637,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5585,7 +5676,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5604,7 +5695,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 6/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 10 && date[1] == 28 && LiedFail == 0)
+			else if (date[0] == 11 && date[1] == 17 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5614,8 +5705,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5647,7 +5738,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5665,7 +5756,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 7/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 10 && date[1] == 31 && LiedFail == 0)
+			else if (date[0] == 11 && date[1] == 25 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5675,8 +5766,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5714,7 +5805,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5732,7 +5823,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 8/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 11 && date[1] == 3 && LiedFail == 0)
+			else if (date[0] == 11 && date[1] == 30 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5742,8 +5833,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5781,7 +5872,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5799,7 +5890,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 9/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 11 && date[1] == 6 && LiedFail == 0)
+			else if (date[0] == 12 && date[1] == 3 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5809,8 +5900,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5842,7 +5933,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5860,7 +5951,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 10/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 11 && date[1] == 9 && LiedFail == 0)
+			else if (date[0] == 12 && date[1] == 6 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5870,8 +5961,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5909,7 +6000,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -5927,7 +6018,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D 11/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 11 && date[1] == 12 && LiedFail == 0)
+			else if (date[0] == 12 && date[1] == 9 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -5937,8 +6028,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -5984,7 +6075,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -6012,7 +6103,7 @@ public class LoadDialogue : MonoBehaviour
 
 			///////////////////////////////////////////////////////////////////////////////L I E D EP/////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 11 && date[1] == 13 && LiedFail == 0)
+			else if (date[0] == 12 && date[1] == 10 && LiedFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -6022,8 +6113,8 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else if (d.background.Contains("SI"))
 				{
-					SlideAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 
 				}
@@ -6056,7 +6147,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
-					SlideAnim.SetBool("Fading", true);
+					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
 				}
 
@@ -6317,7 +6408,7 @@ public class LoadDialogue : MonoBehaviour
 			finishTemp6 = false;
 			whichLineNow = 43;
 
-			for (int i = 43; i < 92; i++)
+			for (int i = 43; i < 93; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -6395,7 +6486,7 @@ public class LoadDialogue : MonoBehaviour
 			finishTemp8 = false;
 			whichLineNow = 45;
 
-			for (int i = 45; i < 102; i++)
+			for (int i = 45; i < 100; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -6473,7 +6564,7 @@ public class LoadDialogue : MonoBehaviour
 			finishTemp10 = false;
 			whichLineNow = 103;
 
-			for (int i = 103; i < 168; i++)
+			for (int i = 103; i < 169; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -6512,7 +6603,7 @@ public class LoadDialogue : MonoBehaviour
 			finishTemp11 = false;
 			whichLineNow = 22;
 
-			for (int i = 22; i < 154; i++)
+			for (int i = 22; i < 160; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -6551,7 +6642,7 @@ public class LoadDialogue : MonoBehaviour
 			finishTemp12 = false;
 			whichLineNow = 66;
 
-			for (int i = 66; i < 220; i++)
+			for (int i = 66; i < 222; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -6905,7 +6996,7 @@ public class LoadDialogue : MonoBehaviour
 			finishTemp6 = false;
 			whichLineNow = 43;
 
-			for (int i = 43; i < 92; i++)
+			for (int i = 43; i < 93; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -6981,7 +7072,7 @@ public class LoadDialogue : MonoBehaviour
 			resetPos = 22;
 			finishTemp8 = false;
 
-			for (int i = 45; i < 102; i++)
+			for (int i = 45; i < 100; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -7054,7 +7145,7 @@ public class LoadDialogue : MonoBehaviour
 			resetPos = 31;
 			finishTemp9 = false;
 
-			for (int i = 103; i < 168; i++)
+			for (int i = 103; i < 169; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -7092,7 +7183,7 @@ public class LoadDialogue : MonoBehaviour
 			resetPos = 37;
 			finishTemp11 = false;
 
-			for (int i = 22; i < 154; i++)
+			for (int i = 22; i < 160; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -7130,7 +7221,7 @@ public class LoadDialogue : MonoBehaviour
 			resetPos = 41;
 			finishTemp12 = false;
 
-			for (int i = 66; i < 220; i++)
+			for (int i = 66; i < 222; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -7319,11 +7410,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FirstLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("FirstLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FirstLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("FirstLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("FirstPos", resetPos);
 
@@ -7357,11 +7448,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("SecondLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("SecondLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("SecondLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("SecondLog", whichLineNow);
 			}
 
 			PlayerPrefs.SetInt("SecondPos", resetPos);
@@ -7396,11 +7487,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("ThirdLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("ThirdLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("ThirdLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("ThirdLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("ThirdPos", resetPos);
 
@@ -7434,11 +7525,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FourthLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("FourthLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FourthLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("FourthLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("FourthPos", resetPos);
 
@@ -7472,11 +7563,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FifthLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("FifthLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FifthLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("FifthLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("FifthPos", resetPos);
 
@@ -7510,11 +7601,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("SixthLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("SixthLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("SixthLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("SixthLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("SixthPos", resetPos);
 
@@ -7548,11 +7639,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("SeventhLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("SeventhLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("SeventhLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("SeventhLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("SeventhPos", resetPos);
 
@@ -7586,11 +7677,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("EighthLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("EighthLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("EighthLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("EighthLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("EighthPos", resetPos);
 
@@ -7624,11 +7715,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("NinthLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("NinthLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("NinthLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("NinthLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("NinthPos", resetPos);
 
@@ -7662,11 +7753,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("TenthLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("TenthLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("TenthLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("TenthLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("TenthPos", resetPos);
 
@@ -7700,11 +7791,11 @@ public class LoadDialogue : MonoBehaviour
 		{
 			if (whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("ZeroLog", startFrom + whichLineNow - 1);
+				PlayerPrefs.SetInt("ZeroLog", whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("ZeroLog", startFrom + whichLineNow);
+				PlayerPrefs.SetInt("ZeroLog", whichLineNow);
 			}
 			PlayerPrefs.SetInt("ZeroPos", resetPos);
 

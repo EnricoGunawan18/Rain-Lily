@@ -20,11 +20,6 @@ public class TimelineStop : MonoBehaviour
 
     public bool StopMorment()
     {
-        if (sw)
-        {
-            return true;
-        }
-
-        return false;
+        return sw;
     }
 }

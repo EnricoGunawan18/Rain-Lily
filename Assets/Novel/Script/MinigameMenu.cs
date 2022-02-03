@@ -51,12 +51,12 @@ public class MinigameMenu : MonoBehaviour
 
         if (date[0] == 10 && date[1] == 7)
         {
-            SceneManager.LoadScene("Scene_pazle");
+            SceneManager.LoadScene("Scene_pazzle");
         }
         else
         {
             PlayerPrefs.SetInt("MiniGame", 4);
-            SceneManager.LoadScene("Scene_pazle");
+            SceneManager.LoadScene("Scene_pazzle");
         }
     }
 
@@ -66,13 +66,13 @@ public class MinigameMenu : MonoBehaviour
 
         if (date[0] == 10 && date[1] == 8)
         {
-            PlayerPrefs.SetInt("NovelMenu", 0);
-            SceneManager.LoadScene("Novel");
+            //PlayerPrefs.SetInt("NovelMenu", 0);
+            SceneManager.LoadScene("Scene_cook");
         }
         else
         {
             PlayerPrefs.SetInt("MiniGame", 5);
-            SceneManager.LoadScene("Stage1");
+            SceneManager.LoadScene("Scene_cook");
         }
     }
 

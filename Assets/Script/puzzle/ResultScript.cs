@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
@@ -6,205 +8,179 @@ using System.Threading.Tasks;
 
 public class ResultScript : MonoBehaviour
 {
-	[SerializeField]
-	private Button retry;
-	[SerializeField]
-	private Button end;
-	[SerializeField]
-	private GameObject resultObject;
-	[SerializeField]
-	private Text text;
-	[SerializeField]
-	private Text gold;
-	[SerializeField]
-	private AddScore _add;
-	[SerializeField]
-	private Image star;
-	[SerializeField]
-	private click_right_effect _effect;
+    [SerializeField]
+    private Button retry;
+    [SerializeField]
+    private Button end;
+    [SerializeField]
+    private int retryScene = 1;
+    [SerializeField]
+    private GameObject resultObject;
+    [SerializeField]
+    private Text text;
+    [SerializeField]
+    private Text gold;
+    [SerializeField]
+    private int baseScore = 1000;
+    [SerializeField]
+    private int upScore = 500;
+    [SerializeField]
+    private Image star;
+    [SerializeField]
+    private Image star_s;
+    [SerializeField]
+    private Click_right_BGM _effect;
 
-	[Space(10)]
+    [Space(10)]
 
-	[SerializeField]
-	private GameObject finish;
+    [SerializeField]
+    private GameObject finish;
+    int gameMoneyGet;
+    float liedPlus;
 
-	private bool stop_W;
-	private Image[] stock = new Image[5];
-	private Transform _patent;
-	private Vector3 _position;
-	int gameMoneyGet;
+    private ScoreHome home = new ScoreHome();
+    private PazzleCookMAnager game = new PazzleCookMAnager();
+    private bool stop_W;
+    private Image[] stock = new Image[5];
+    private int star_gap;
 
-	void Awake()
+    void Awake()
+    {
+        gameMoneyGet = PlayerPrefs.GetInt("Money");
+        Time.timeScale = 1f;
+        star_gap = 120;
+        stop_W = true;
+        game.SetGameStop(false);
+        resultObject.SetActive(false);
+        retry.onClick.AddListener(Retry);
+        end.onClick.AddListener(Quit);
+    }
+
+	private void Update()
 	{
-		gameMoneyGet = PlayerPrefs.GetInt("Money");
-		Time.timeScale = 1f;
-		_position = new Vector3(0f, -3.2f, 0f);
-		_patent = resultObject.transform;
-		stop_W = false;
-		resultObject.SetActive(false);
-		retry.onClick.AddListener(Retry);
-		end.onClick.AddListener(Quit);
+		if (stop_W)
+        {
+            GetTime();
+        }
 	}
 
 	async void ResultSW(bool sw)
-	{
-		if (sw)
-		{
-			_effect.Finish_effect();
-			finish.transform.DOMoveX(0, 2.0f)
-				.SetEase(Ease.OutQuad);
-			await Task.Delay(3000);
-			_effect.Start_bgm();
-			Time.timeScale = 0f;
-		}
-		resultObject.SetActive(sw);
-	}
+    {
+        if (sw)
+        {
+            _effect.Finish_effect();
+            finish.transform.DOMoveX(0,2.0f)
+                .SetEase(Ease.OutQuad);
+            await Task.Delay(3000);
+            _effect.Start_bgm();
+            Time.timeScale = 0f;
+        }
+        resultObject.SetActive(sw);
+    }
 
-	public void GetTime(float value)
-	{
-		if (value <= -360f)
-		{
-			stop_W = true;
-			ResultSW(true);
-			if (_add.GetScore() < 1000)
-			{
-				Star_create(0, 1);
-				gold.text = "金貨を100枚獲得しました";
-				gameMoneyGet += 100;
-				Debug.Log("1");
-			}
-			else if (_add.GetScore() < 1500)
-			{
-				Star_create(75, 2);
-				gold.text = "金貨を300枚獲得しました";
-				gameMoneyGet += 300;
-				Debug.Log("2");
-			}
-			else if (_add.GetScore() < 2000)
-			{
-				Star_create(125, 3);
-				gold.text = "金貨を500枚獲得しました";
-				gameMoneyGet += 500;
-				Debug.Log("3");
-			}
-			else if (_add.GetScore() < 2500)
-			{
-				Star_create(75, 4);
-				gold.text = "金貨を700枚獲得しました";
-				gameMoneyGet += 700;
-				Debug.Log("4");
-			}
-			else
-			{
-				Star_create(125, 5);
-				gold.text = "金貨を1000枚獲得しました";
-				gameMoneyGet += 1000;
-				Debug.Log("5");
-			}
-			text.text = "Score:" + _add.GetScore();
-		}
-		else
-		{
-			ResultSW(false);
-		}
-	}
-	private void Star_create(float numX, int num)
-	{
-		switch (num)
-		{
-			case 1:
-				stock[0] = Instantiate(star, _position, Quaternion.identity);
-				Debug.Log("star1");
-				break;
-			case 2:
-				_position.x += numX;
-				stock[0] = Instantiate(star, _position, Quaternion.identity);
-				_position.x -= numX * 2;
-				stock[1] = Instantiate(star, _position, Quaternion.identity);
-				Debug.Log("star2");
-				break;
-			case 3:
-				stock[0] = Instantiate(star, _position, Quaternion.identity);
-				_position.x += numX;
-				stock[1] = Instantiate(star, _position, Quaternion.identity);
-				_position.x -= numX * 2;
-				stock[2] = Instantiate(star, _position, Quaternion.identity);
-				Debug.Log("star3");
-				break;
-			case 4:
-				_position.x += numX;
-				stock[0] = Instantiate(star, _position, Quaternion.identity);
-				_position.x += numX;
-				stock[1] = Instantiate(star, _position, Quaternion.identity);
-				_position.x -= numX * 2;
-				stock[2] = Instantiate(star, _position, Quaternion.identity);
-				_position.x -= numX;
-				stock[3] = Instantiate(star, _position, Quaternion.identity);
-				Debug.Log("star4");
-				break;
-			case 5:
-				stock[0] = Instantiate(star, _position, Quaternion.identity);
-				_position.x += numX;
-				stock[1] = Instantiate(star, _position, Quaternion.identity);
-				_position.x += numX;
-				stock[2] = Instantiate(star, _position, Quaternion.identity);
-				_position.x -= numX * 3;
-				stock[3] = Instantiate(star, _position, Quaternion.identity);
-				_position.x -= numX;
-				stock[4] = Instantiate(star, _position, Quaternion.identity);
-				Debug.Log("star5");
-				break;
-			default:
-				break;
-		}
-		for (int i = 0; i < num; i++)
-		{
-			stock[i].transform.SetParent(_patent, false);
-		}
-	}
+    private void GetTime()
+    {
+        if (game.TimeValue <= -360f)
+        {
+            stop_W = false;
+            game.SetGameStop(true);
+            ResultSW(true);
+            if (home.GetPazzleScore < baseScore)
+            {
+                Star_create(0);
+                gold.text = "金貨100獲得しました";
+                liedPlus = 3;
+                gameMoneyGet += 100;
+            }
+            else if (home.GetPazzleScore < baseScore+upScore)
+            {
+                Star_create(1);
+                gold.text = "金貨300獲得しました";
+                liedPlus = 4;
+                gameMoneyGet += 300;
+            }
+            else if (home.GetPazzleScore < baseScore+upScore*2)
+            {
+                Star_create(2);
+                gold.text = "金貨500獲得しました";
+                liedPlus = 5;
+                gameMoneyGet += 500;
+            }
+            else if (home.GetPazzleScore < baseScore+upScore*3)
+            {
+                Star_create(3);
+                gold.text = "金貨700獲得しました";
+                liedPlus = 6;
+                gameMoneyGet += 700;
+            }
+            else
+            {
+                Star_create(4);
+                gold.text = "金貨1000獲得しました";
+                liedPlus = 7;
+                gameMoneyGet += 1000;
+            }
+            text.text = "" + home.GetPazzleScore;
+        }
+    }
 
-	private void Retry()
-	{
-		Time.timeScale = 1;
-		SceneManager.LoadScene("Scene_pazle");
-	}
+    private void Star_create(int num)
+    {
+        Vector3 _position = new Vector3(-240f, -70f, 0f);
+        Transform _patent = resultObject.transform;
 
-	private void Quit()
-	{
-		Time.timeScale = 1;
-		int score = _add.GetScore();
-		int miniGame = PlayerPrefs.GetInt("MiniGame");
+        for (int i = 0; i < 5; i++)
+        {
+            if (i > num)
+            {
+                stock[i] = Instantiate(star_s, _position, Quaternion.identity);
+            }
+            else 
+            {
+                stock[i] = Instantiate(star, _position, Quaternion.identity);
+            }
+            stock[i].transform.SetParent(_patent, false);
+            _position.x += star_gap;
+        }
+    }
 
-		if (miniGame == 4)
-		{
-			int cleanTimes = PlayerPrefs.GetInt("CleanNumber");
-			cleanTimes += 1;
-			PlayerPrefs.SetInt("CleanNumber", cleanTimes);
+    private void Retry()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Scene_pazzle");
+    }
 
-			/////////////////////////////////////gameshow
-			float liedHeart = PlayerPrefs.GetFloat("LiedHeart");
-			liedHeart += 10;
-			PlayerPrefs.SetFloat("LiedHeart", liedHeart);
-			/////////////////////////////////////
+    private void Quit()
+    {
+        Time.timeScale = 1;
+        int score = home.GetPazzleScore;
+        int miniGame = PlayerPrefs.GetInt("MiniGame");
 
-			PlayerPrefs.SetInt("Money", gameMoneyGet);
-			PlayerPrefs.SetInt("NovelMenu", 13);
-			SceneManager.LoadScene("Novel");
-		}
-		else if (miniGame == 1)
-		{
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			SceneManager.LoadScene("Novel");
-		}
-		else
-		{
-			PlayerPrefs.SetInt("ScoreClean", score);
-			SceneManager.LoadScene("TitleScreen");
-		}
-	}
+        if (miniGame == 4)
+        {
+            int cleanTimes = PlayerPrefs.GetInt("CleanNumber");
+            cleanTimes += 1;
+            PlayerPrefs.SetInt("CleanNumber", cleanTimes);
 
-	public bool SendStop()
-	{
-		return stop_W;
-	}
+            /////////////////////////////////////gameshow
+            float liedHeart = PlayerPrefs.GetFloat("LiedHeart");
+            liedHeart += liedPlus;
+            PlayerPrefs.SetFloat("LiedHeart", liedHeart);
+            /////////////////////////////////////
+
+            PlayerPrefs.SetInt("Money", gameMoneyGet);
+            PlayerPrefs.SetInt("NovelMenu", 13);
+            SceneManager.LoadScene("Novel");
+        }
+        else if (miniGame == 1)
+        {
+            PlayerPrefs.SetInt("NovelMenu", 0);
+            SceneManager.LoadScene("Novel");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("ScoreClean", score);
+            SceneManager.LoadScene("TitleScreen");
+        }
+    }
 }

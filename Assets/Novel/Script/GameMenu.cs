@@ -117,51 +117,51 @@ public class GameMenu : MonoBehaviour
 
         PlayerPrefs.SetInt("NovelMenu", 12);
 
-        if (date[0] == 10 && date[1] == 12)
+        if (date[0] == 10 && date[1] == 14)
         {
             PlayerPrefs.SetInt("ResetPos", 10);
         }
-        if (date[0] == 10 && date[1] == 15)
+        if (date[0] == 10 && date[1] == 19)
         {
             PlayerPrefs.SetInt("ResetPos", 16);
         }
-        if (date[0] == 10 && date[1] == 18)
+        if (date[0] == 10 && date[1] == 29)
         {
             PlayerPrefs.SetInt("ResetPos", 20);
         }
-        if (date[0] == 10 && date[1] == 21)
+        if (date[0] == 11 && date[1] == 7)
         {
             PlayerPrefs.SetInt("ResetPos", 23);
         }
-        if (date[0] == 10 && date[1] == 24)
+        if (date[0] == 11 && date[1] == 14)
         {
             PlayerPrefs.SetInt("ResetPos", 28);
         }
-        if (date[0] == 10 && date[1] == 27)
+        if (date[0] == 11 && date[1] == 16)
         {
             PlayerPrefs.SetInt("ResetPos", 32);
         }
-        if (date[0] == 10 && date[1] == 30)
+        if (date[0] == 11 && date[1] == 24)
         {
             PlayerPrefs.SetInt("ResetPos", 34);
         }
-        if (date[0] == 11 && date[1] == 2)
+        if (date[0] == 11 && date[1] == 29)
         {
             PlayerPrefs.SetInt("ResetPos", 38);
         }
-        if (date[0] == 11 && date[1] == 5)
+        if (date[0] == 12 && date[1] == 2)
         {
             PlayerPrefs.SetInt("ResetPos", 42);
         }
-        if (date[0] == 11 && date[1] == 8)
+        if (date[0] == 12 && date[1] == 5)
         {
             PlayerPrefs.SetInt("ResetPos", 44);
         }
-        if (date[0] == 11 && date[1] == 11)
+        if (date[0] == 12 && date[1] == 8)
         {
             PlayerPrefs.SetInt("ResetPos", 48);
         }
-        if (date[0] == 11 && date[1] == 12)
+        if (date[0] == 12 && date[1] == 9)
         {
             PlayerPrefs.SetInt("ResetPos", 56);
         }

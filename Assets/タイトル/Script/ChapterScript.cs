@@ -38,11 +38,11 @@ public class ChapterScript : MonoBehaviour
 	AudioSource ButtonAudioSource;
 
 	bool[] isPressed = { false, false, false, false, false, false, false, false, false, false, false, false };
-	int[] month = { 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11 };
-	int[] day = { 7, 13, 16, 19, 22, 25, 28, 31, 3, 6, 9, 12 };
+	int[] month = { 10, 10, 10, 10, 11, 11, 11, 11, 11, 12, 12, 12 };
+	int[] day = { 7, 15, 20, 30, 8, 15, 17, 25, 30, 3, 6, 9 };
 	int[] liedAff = { 0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60 };
 	int[] ResetPos = { 0, 10, 16, 20, 23, 28, 32, 34, 38, 42, 44, 48 };
-	int[] menu = { 0, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 };
+	int[] menu = { 0, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 };
 
 
 	// Start is called before the first frame update
@@ -85,7 +85,8 @@ public class ChapterScript : MonoBehaviour
 			{
 				isPressed[j] = false;
 			}
-			FileDescription.text = chapterList[i].description;
+			string Filter = chapterList[i].description.Replace("\"", "");
+			FileDescription.text = Filter;
 			isPressed[i] = true;
 		}
 		else

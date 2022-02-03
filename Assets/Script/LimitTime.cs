@@ -10,16 +10,16 @@ public class LimitTime : MonoBehaviour
     [SerializeField]
     private float limit = 30.0f;
     [SerializeField]
-    private ResultScript _result;
-    [SerializeField]
     private TimelineStop _stop;
 
     private float rotateValue = 0;
     private Transform _transform;
+    private PazzleCookMAnager game = new PazzleCookMAnager();
     private float turn;
 
     private void Awake()
     {
+        game.TimeValue = 0;
         _transform = sec.GetComponent<Transform>();
         turn = (int)(-360 / limit);
     }
@@ -31,16 +31,14 @@ public class LimitTime : MonoBehaviour
             return;
         }
 
-        if (_stop.StopMorment()||_result.SendStop())
+        if (_stop.StopMorment()||game.GetGameStop())
         {
             return;
         }
 
         rotateValue += turn * Time.deltaTime;
 
-        //Debug.Log(rotateValue + "“x‰ñ‚Á‚½");
-
         _transform.localEulerAngles = new Vector3(0f, 0f, rotateValue);
-        _result.GetTime(rotateValue);
+        game.TimeValue = rotateValue;
     }
 }

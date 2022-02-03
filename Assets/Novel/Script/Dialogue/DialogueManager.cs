@@ -131,10 +131,10 @@ public class DialogueManager : MonoBehaviour
 		{
 			//PlayerPrefs.SetInt("NovelMenu", 0);
 			//SceneManager.LoadScene("Novel");
-			SceneManager.LoadScene("Scene_pazle");
+			SceneManager.LoadScene("Scene_pazzle");
 		}
 
-		if (miniGame == 3 && menu == 5)
+		if (miniGame == 3 && menu == 6)
 		{
 			//PlayerPrefs.SetInt("NovelMenu", 0);
 			//SceneManager.LoadScene("Novel");
@@ -143,8 +143,7 @@ public class DialogueManager : MonoBehaviour
 
 		if (miniGame == 2 && menu == 5)
 		{
-			PlayerPrefs.SetInt("NovelMenu", 0);
-			SceneManager.LoadScene("Novel");
+			SceneManager.LoadScene("Scene_cook");
 		}
 
 		float t = 0;

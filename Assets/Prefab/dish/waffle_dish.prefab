@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4054120886519994389}
   m_Layer: 0
   m_Name: waffle_dish
-  m_TagString: dish
+  m_TagString: waffle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,25 +93,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4054120886519994390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 139f25bec28e13645b66534e48b527dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 79e452955b563f14e894e6fc02db4f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   finished_image: {fileID: 21300000, guid: 5f921fc1b2373cd4da4b6e85b7b93589, type: 3}
-  dish: {fileID: 4054120886519994390}
-  m_tag: 0e0000001100000009000000120000000d0000001b0000001a0000001d000000
-  order: 0000000000000000000000000000000000000000000000000000000000000000
-  sprites:
-  - {fileID: 730935236359750477, guid: 9b7f1dc397f7531439be1f78183bd519, type: 3}
-  - {fileID: 722144620598002476, guid: b7218727c7c2b2648a8c190dfd568c5b, type: 3}
-  - {fileID: 9202413280366232913, guid: f29062e210161fa42b9431944710e719, type: 3}
-  - {fileID: 8751146683675843632, guid: 2e53997fba129ce4c95c52a7336fa908, type: 3}
-  - {fileID: 4512275851340393865, guid: 231365e5e1e81a9499a3de7201c7eb90, type: 3}
-  - {fileID: 4405831631849164068, guid: f5c864362fb0ee14d8df96a414fcaffe, type: 3}
-  - {fileID: 3784801893698220878, guid: 68b2af3595b488d4fbafced9060aba3e, type: 3}
-  - {fileID: 4815532430825901571, guid: 846ee0979b6c2e14ea098c946def9e61, type: 3}
-  debug_on: 0
-  debugText: {fileID: 0}
-  canvasTran: {fileID: 4054120886519994386}
+  outer: {fileID: 0}
+  inner: {fileID: 0}
+  addScore: 10
 --- !u!61 &4054120886519994389
 BoxCollider2D:
   m_ObjectHideFlags: 0

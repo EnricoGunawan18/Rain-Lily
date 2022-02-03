@@ -23,7 +23,7 @@ public class AutoScroll : MonoBehaviour
 	[SerializeField]
 	Animator ScrollAnim;
 
-	bool dialogueIsSkipped = false;
+	public bool dialogueIsSkipped = false;
 	public bool normalSpeed = true;
 	bool autoOpen = false;
 	public bool autoActive = false;
@@ -67,12 +67,14 @@ public class AutoScroll : MonoBehaviour
 	{
 		if (autoActive == false)
 		{
+			dialogueManager.dialogueSpeed = 10f;
 			automated = true;
 			dialogueManager.next = true;
 			autoActive = true;
 		}
 		else
 		{
+			dialogueManager.dialogueSpeed = 10f;
 			automated = false;
 			dialogueManager.next = false;
 			autoActive = false;

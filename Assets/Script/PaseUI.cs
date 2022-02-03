@@ -29,11 +29,5 @@ public class PaseUI : MonoBehaviour
 
             Time.timeScale = 0;
         }
-        else
-        {
-            Destroy(_pause);
-
-            Time.timeScale = 1.0f;
-        }
     }
 }

@@ -11,6 +11,11 @@ public class DataButtonDisable : MonoBehaviour
 	Button[] Data;
 
 	[SerializeField]
+	Image SaveOrLoad;
+	[SerializeField]
+	Sprite[] SaveOrLoadSprite;
+
+	[SerializeField]
 	Sprite[] Sprite;
 
 	[SerializeField]
@@ -70,6 +75,15 @@ public class DataButtonDisable : MonoBehaviour
 
 		Lied[9] = PlayerPrefs.GetFloat("LiedHeart10");
 		Klein[9] = PlayerPrefs.GetFloat("KleinHeart10");
+
+		if (fileScreen.saveOrLoad == 2)
+		{
+			SaveOrLoad.sprite = SaveOrLoadSprite[0];
+		}
+		else if(fileScreen.saveOrLoad == 1)
+		{
+			SaveOrLoad.sprite = SaveOrLoadSprite[1];
+		}
 
 
 

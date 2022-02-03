@@ -8,63 +8,85 @@ public class SaR_cuisine : MonoBehaviour
     [SerializeField]
     private GameObject[] dishs;
     [SerializeField]
+    private GameObject[] dishsList;
+    [SerializeField]
+    private Image finishedImage;
+    [SerializeField]
     private Button comp_bn;
-    [SerializeField]
-    private Image finished_image;
-    [SerializeField]
-    private Text text;
     [SerializeField]
     private Transform canvasTran;
 
-    private GameObject _object;
-    private Vector3 _position = new Vector3();
-    private int Rnum;
-    private finished_nikujaga nikujaga;
-    List<int> remaining =new List<int>();
-    private bool frag=true;
+    private ScoreHome home = new ScoreHome();
+    private PazzleCookMAnager game = new PazzleCookMAnager();
+    private Finished_dish finDish;
+    private GameObject instantObject;
+    private bool frag;
+
     void Start()
     {
-        comp_bn.onClick.AddListener(Receiving_result);
-        _position = canvasTran.position;
-        for (int i = 0; i < dishs.Length; i++)
-		{
-            remaining.Add(i);
-            Debug.Log(remaining[i]);
-		}
-    }
+        comp_bn.onClick.AddListener(Send_cuisine);
 
-    void Update()
-    {
-        send_cuisine();
-
-        //Debug.Log(Rnum);
-    }
-
-    private void send_cuisine()
-    {
-        if (frag)
+        int Rnum = Random.Range(0, dishs.Length);
+        instantObject = Instantiate(dishs[Rnum], canvasTran.position, Quaternion.identity);
+        finDish = instantObject.GetComponent<Finished_dish>();
+        finDish.Send_num(finishedImage);
+        foreach (var item in dishsList)
         {
-            Rnum = remaining[Random.Range(0,remaining.Count)];
-            Instantiate(dishs[Rnum], _position, Quaternion.identity);
-            nikujaga = dishs[Rnum].GetComponent<finished_nikujaga>();
-            nikujaga.Send_num(finished_image);
-            remaining.RemoveAt(Rnum);
-            frag = false;
+            if (item.gameObject.tag == instantObject.tag)
+            {
+                item.gameObject.SetActive(true);
+			}
+			else
+            {
+                item.gameObject.SetActive(false);
+            }
         }
+        frag = false;
     }
 
-    private void Receiving_result()
+	private void Update()
+	{
+		if (game.GetGameStop())
+		{
+            foreach (var item in dishsList)
+            {
+                item.gameObject.SetActive(false);
+            }
+
+            Destroy(instantObject);
+        }
+	}
+
+	private void Send_cuisine()
     {
         if (!frag)
         {
-            _object = GameObject.FindGameObjectWithTag("dish");
+            home.GetCookScore += finDish.Finished_order();
 
-            Destroy(_object);
+            foreach (var item in dishsList)
+            {
+                item.gameObject.SetActive(false);
+            }
+
+            Destroy(instantObject);
             frag = true;
         }
-        else
+
+        if (frag)
         {
-            text.text = "èIóπ";
+            int Rnum = Random.Range(0, dishs.Length);
+            instantObject = Instantiate(dishs[Rnum], canvasTran.position, Quaternion.identity);
+            finDish = instantObject.GetComponent<Finished_dish>();
+            finDish.Send_num(finishedImage);
+			foreach (var item in dishsList)
+			{
+				if (item.gameObject.tag==instantObject.tag)
+				{
+                    item.gameObject.SetActive(true);
+                    break;
+				}
+			}
+            frag = false;
         }
     }
 }

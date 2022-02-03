@@ -45,11 +45,14 @@ public class FinishScript : MonoBehaviour
 
 	int gameMoneyGet;
 
+	float liedHeart;
+
 	void Start()
 	{
 		memorygamescript = GameObject.Find("MemoryGameScript").GetComponent<MemoryGameScript>();
 
 		gameMoneyGet = PlayerPrefs.GetInt("Money");
+		liedHeart = PlayerPrefs.GetFloat("LiedHeart");
 
 		timeReadyStart = Time.time;
 
@@ -97,15 +100,9 @@ public class FinishScript : MonoBehaviour
 			Scoring();
 		}
 
-		else if (miniGame == 2 || miniGame == 3)
+		else if ( miniGame == 3)
 		{
 			PlayerPrefs.SetInt("NovelMenu", 0);
-			SceneManager.LoadScene("Novel");
-		}
-
-		else if (miniGame == 5)
-		{
-			PlayerPrefs.SetInt("NovelMenu", 13);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -114,13 +111,7 @@ public class FinishScript : MonoBehaviour
 			int shopTimes = PlayerPrefs.GetInt("ShopNumber");
 			shopTimes += 1;
 			PlayerPrefs.SetInt("ShopNumber", shopTimes);
-
-			/////////////////////////////////////gameshow
-			float liedHeart = PlayerPrefs.GetFloat("LiedHeart");
-			liedHeart += 10;
 			PlayerPrefs.SetFloat("LiedHeart", liedHeart);
-			/////////////////////////////////////
-
 			PlayerPrefs.SetInt("Money", gameMoneyGet);
 			PlayerPrefs.SetInt("NovelMenu", 11);
 			SceneManager.LoadScene("Novel");
@@ -137,6 +128,7 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 1000;
+			liedHeart += 7;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			Star[2].color = new Color32(255, 255, 255, 255);
@@ -149,6 +141,7 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 700;
+			liedHeart += 6;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			Star[2].color = new Color32(255, 255, 255, 255);
@@ -160,6 +153,7 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 500;
+			liedHeart += 5;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			Star[2].color = new Color32(255, 255, 255, 255);
@@ -170,6 +164,7 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 300;
+			liedHeart += 4;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			MoneyGet.text = "金貨300獲得しました";
@@ -179,6 +174,7 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 100;
+			liedHeart += 3;
 			Star[0].color = new Color32(255, 255, 255, 255);
 			MoneyGet.text = "金貨100獲得しました";
 

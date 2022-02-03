@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class MemoryGameScript4 : MonoBehaviour
 {
-
 	[SerializeField]
 	public Button[] NumMat;
 
 	[SerializeField]
 	public Text command_Text;
+
+	[SerializeField]
+	public AudioClip[] SEFile;
 
 	[SerializeField]
 	public Sprite apple;
@@ -36,6 +38,9 @@ public class MemoryGameScript4 : MonoBehaviour
 	public int rand8;
 	public int rand9;
 	public int rand10;
+
+	[SerializeField]
+	AudioSource SE;
 
 	public int randText;
 	public int randText2;
@@ -737,6 +742,19 @@ public class MemoryGameScript4 : MonoBehaviour
 			timer = Time.time - StartTime;
 		}
 
+		if (timer >= 1 && timer <= 2)
+		{
+			SE.clip = SEFile[0];
+			SE.Play();
+		}
+		else if (timer >= 2.5 && timer <= 3)
+		{
+			SE.Stop();
+			SE.clip = SEFile[1];
+			SE.loop = true;
+			SE.Play();
+		}
+
 		if (timer >= 2.5)
 		{
 			for (int i = 0; i <= 9; i++)
@@ -775,6 +793,8 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (count2 == 5)
 			{
+				SE.loop = false;
+				SE.Stop();
 				scoreTimerStart = Time.time;
 				count2++;
 			}
@@ -814,8 +834,7 @@ public class MemoryGameScript4 : MonoBehaviour
 					scoreNow -= 100 * (3 - tryAns);
 					PlayerPrefs.SetFloat("Score4", scoreNow);
 					Debug.Log(scoreNow);
-					SceneManager.LoadScene("Stage5");
-
+					StartCoroutine(waitForNextStage());
 				}
 			}
 			if (tryAns == 0)
@@ -824,10 +843,17 @@ public class MemoryGameScript4 : MonoBehaviour
 				Debug.Log(scoreNow);
 
 				tryAns = 3;
-				SceneManager.LoadScene("Stage5");
+				StartCoroutine(waitForNextStage());
 			}
 
 		}
+
+		IEnumerator waitForNextStage()
+		{
+			yield return new WaitForSeconds(3f);
+			SceneManager.LoadScene("Stage5");
+		}
+
 
 		void shuffle()
 		{
@@ -852,10 +878,10 @@ public class MemoryGameScript4 : MonoBehaviour
 				count++;
 			}
 
-			NumMat[rando_].transform.position = Vector2.MoveTowards(NumMat[rando_].transform.position, position1, 230f * Time.deltaTime * 2f);
-			NumMat[rando_2].transform.position = Vector2.MoveTowards(NumMat[rando_2].transform.position, position2, 230f * Time.deltaTime * 2f);
-			NumMat[rando_3].transform.position = Vector2.MoveTowards(NumMat[rando_3].transform.position, position3, 230f * Time.deltaTime * 2f);
-			NumMat[rando_4].transform.position = Vector2.MoveTowards(NumMat[rando_4].transform.position, position4, 230f * Time.deltaTime * 2f);
+			NumMat[rando_].transform.position = Vector2.MoveTowards(NumMat[rando_].transform.position, position1, 200f * Time.deltaTime * 2f);
+			NumMat[rando_2].transform.position = Vector2.MoveTowards(NumMat[rando_2].transform.position, position2, 200f * Time.deltaTime * 2f);
+			NumMat[rando_3].transform.position = Vector2.MoveTowards(NumMat[rando_3].transform.position, position3, 200f * Time.deltaTime * 2f);
+			NumMat[rando_4].transform.position = Vector2.MoveTowards(NumMat[rando_4].transform.position, position4, 200f * Time.deltaTime * 2f);
 
 
 			if (NumMat[rando_].transform.position.x == position1.x && NumMat[rando_].transform.position.y == position1.y && NumMat[rando_3].transform.position.x == position3.x && NumMat[rando_3].transform
@@ -910,11 +936,19 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand1 == randText || rand1 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[0] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[0].transform.Rotate(new Vector3(0, 180, 0));
 
@@ -937,11 +971,19 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand2 == randText || rand2 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[1] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[1].transform.Rotate(new Vector3(0, 180, 0));
 
@@ -963,11 +1005,19 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand3 == randText || rand3 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[2] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[2].transform.Rotate(new Vector3(0, 180, 0));
 
@@ -989,11 +1039,19 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand4 == randText || rand4 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[3] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[3].transform.Rotate(new Vector3(0, 180, 0));
 
@@ -1015,11 +1073,19 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand5 == randText || rand5 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[4] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[4].transform.Rotate(new Vector3(0, 180, 0));
 
@@ -1041,11 +1107,19 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand6 == randText || rand6 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[5] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[5].transform.Rotate(new Vector3(0, 180, 0));
 
@@ -1067,11 +1141,19 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand7 == randText || rand7 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[6] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[6].transform.Rotate(new Vector3(0, 180, 0));
 
@@ -1094,11 +1176,19 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand8 == randText || rand8 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[7] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[7].transform.Rotate(new Vector3(0, 180, 0));
 
@@ -1120,17 +1210,26 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand9 == randText || rand9 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[8] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[8].transform.Rotate(new Vector3(0, 180, 0));
 
 			}
 		}
 	}
+
 	public void TenthClick()
 	{
 		if (canBePressed == true)
@@ -1146,11 +1245,19 @@ public class MemoryGameScript4 : MonoBehaviour
 
 			if (rand10 == randText || rand10 == randText2)
 			{
+				SE.Stop();
+				SE.clip = SEFile[2];
+				SE.Play();
+
 				correctEffect[9] = true;
 				correctAns++;
 			}
 			else
 			{
+				SE.Stop();
+				SE.clip = SEFile[3];
+				SE.Play();
+
 				tryAns--;
 				NumMat[9].transform.Rotate(new Vector3(0, 180, 0));
 

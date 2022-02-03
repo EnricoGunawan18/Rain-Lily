@@ -83,11 +83,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FirstLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("FirstLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FirstLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("FirstLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");
@@ -161,11 +161,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("SecondLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("SecondLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("SecondLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("SecondLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");
@@ -239,11 +239,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("ThirdLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("ThirdLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("ThirdLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("ThirdLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");
@@ -317,11 +317,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FourthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("FourthLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FourthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("FourthLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");
@@ -395,11 +395,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FifthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("FifthLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FifthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("FifthLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");
@@ -473,11 +473,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("SixthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("SixthLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("SixthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("SixthLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");
@@ -551,11 +551,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("SeventhLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("SeventhLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("SeventhLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("SeventhLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");
@@ -629,11 +629,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("EighthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("EighthLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("EighthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("EighthLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");
@@ -707,11 +707,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("NinthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("NinthLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("NinthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("NinthLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");
@@ -785,11 +785,11 @@ public class FileScreen : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("TenthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("TenthLog", loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("TenthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("TenthLog", loadDialogue.whichLineNow);
 			}
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 			int[] date = PlayerPrefsX.GetIntArray("Date");

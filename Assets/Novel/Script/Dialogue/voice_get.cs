@@ -9,7 +9,7 @@ public class voice_get : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 65;i < 1987;i++ ){
+        for (int i = 65;i < 1990;i++ ){
             string digi;
             if (i < 100){
                 digi = "00";

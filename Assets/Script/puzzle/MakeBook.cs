@@ -8,15 +8,13 @@ public class MakeBook : MonoBehaviour
     private GameObject[] Peas;
     [SerializeField]
     private GameObject Bomb;
-    [SerializeField]
-    private ResultScript _stop;
 
-    private int even = 0;
-    private int odd = 0;
     private bool sw;
     private bool bsw = false;
     private int suitable = 0;
+    private PazzleCookMAnager game = new PazzleCookMAnager();
     private GameObject[][] books = new GameObject[7][];
+
     void Start()
     {
 		for (int i = 0; i < books.Length; i++)
@@ -39,7 +37,7 @@ public class MakeBook : MonoBehaviour
         NewPeas();
 
         if (Input.GetMouseButtonDown(1)&&!Input.GetMouseButton(0)
-            &&!_stop.SendStop())
+            &&!game.GetGameStop())
         {
             ReSpawnPeas();
         }
@@ -47,15 +45,14 @@ public class MakeBook : MonoBehaviour
 
     void SpawnPeas()
     {
-        even = 0;
-        odd = 0;
+        int even = 0;
+        int odd = 0;
         for (int i = 0; i < 7; i++)
         {
 			if (i % 2 == 0)
 			{
 				for (int j = 0; j < 6; j++)
 				{
-                    //Debug.Log("ãÙêî");
                     int r = Random.Range(0, 5);
                     books[i][j] =
                         Instantiate(Peas[r], new Vector3(-34f + (even * 22), 22f - (j * 14), 140f), Quaternion.identity);
@@ -66,7 +63,6 @@ public class MakeBook : MonoBehaviour
 			{
 				for (int j = 0; j < 5; j++)
                 {
-                    //Debug.Log("äÔêî");
                     int r = Random.Range(0, 5);
                     books[i][j] =
                         Instantiate(Peas[r], new Vector3(-23f + (odd * 22), 15f - (j * 14), 140f), Quaternion.identity);
@@ -87,7 +83,6 @@ public class MakeBook : MonoBehaviour
                 if (books[i][j] == null)
                 {
                     suitable++;
-                    //Debug.Log(i + " " + j);
                     if (suitable >= 6 && sw &&!bsw)
                     {
                         books[i][j] =
@@ -99,7 +94,8 @@ public class MakeBook : MonoBehaviour
                         int r = Random.Range(0, 5);
                         books[i][j] =
                             Instantiate(Peas[r], new Vector3(-34f + (i * 11), 28f + (j * 5), 140f), Quaternion.identity);
-                    }                }
+                    }                
+                }
             }
         }
     }
@@ -117,33 +113,9 @@ public class MakeBook : MonoBehaviour
         SpawnPeas();
     }
 
-    public void BombEx()
+    public void BombEx(bool swich)
     {
-        bsw = true;
-        //Debug.Log("y");
-    }
-
-    public void BombRes()
-    {
-        bsw = false;
-        //Debug.Log("x");
+        bsw = swich;
     }
 }
 
-/* array
-        // Yï˚å¸çÇÇ≥
-        Hex_Height = Hex_Width * Mathf.Sin(60.0f * Mathf.Deg2Rad);
-        
-    	// Xï˚å¸ÇÃÇ∏ÇÍ
-        Hex_Adjust = Hex_Width * Mathf.Cos(60.0f * Mathf.Deg2Rad);
-        
-        float grid_X = Hex_Width * hexPos.x + Hex_Adjust * Mathf.Abs(hexPos.y % 2);
-        float grid_Y = Hex_Height * hexPos.y;
-
-        return new Vector3(grid_X, grid_Y, 0.0f);
-
-        ----------------
-
-        y = j * 20
-        x = i * ( i % 2 * 20 * 0.5 )
- */
