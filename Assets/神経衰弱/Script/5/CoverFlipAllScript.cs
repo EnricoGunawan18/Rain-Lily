@@ -7,6 +7,8 @@ public class CoverFlipAllScript : MonoBehaviour
 {
 	[SerializeField]
 	public Button[] Number;
+	[SerializeField]
+	public Image[] outline;
 
 	public float timeToCover;
 
@@ -29,7 +31,15 @@ public class CoverFlipAllScript : MonoBehaviour
 		if (coverTime >= 2 && coverTime <= 3)
 		{
 			for (int i = 0; i < 10; i++){
+				outline[i].color = new Color(0, 0, 0, 0);
 				Number[i].transform.Rotate(new Vector3(0, 180, 0) * Time.deltaTime);
+			}
+		}
+		else
+		{
+			for (int i = 0; i < 10; i++)
+			{
+				outline[i].color = new Color(255, 255, 255, 255);
 			}
 		}
 	}

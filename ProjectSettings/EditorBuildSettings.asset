@@ -13,7 +13,7 @@ EditorBuildSettings:
     guid: 27ac96d8e6ce7054d84d259a976cb3df
   - enabled: 1
     path: Assets/Scenes/Scene_pazzle.unity
-    guid: a91647da46cd86b4582b8b289344d33c
+    guid: 8b30669dc317d674582ddc7f277d9852
   - enabled: 1
     path: Assets/Scenes/Scene_cook.unity
     guid: eeb14a2832285374cafe1c46ac0734c3

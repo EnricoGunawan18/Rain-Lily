@@ -112,6 +112,7 @@ public class ChapterScript : MonoBehaviour
 			PlayerPrefs.SetInt("CleanNumber", 0);
 			PlayerPrefs.SetInt("CookNumber", 0);
 			PlayerPrefs.SetInt("ShopNumber", 0);
+			PlayerPrefs.SetString("BackgroundClip", "");
 
 			int[] itemNumber = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 

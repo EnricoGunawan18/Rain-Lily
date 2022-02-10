@@ -186,8 +186,12 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	TextAsset[] KleinDialogue;
 
+	bool audioFade = false;
+	string whichBGClip = "";
+
 	private void Start()
 	{
+		Time.timeScale = 1;
 		int gameMoneyGet = PlayerPrefs.GetInt("Money");
 		//Debug.Log(gameMoneyGet);
 
@@ -219,6 +223,30 @@ public class LoadDialogue : MonoBehaviour
 		int countCook = PlayerPrefs.GetInt("CookNumber");
 		int countShop = PlayerPrefs.GetInt("ShopNumber");
 		int menu = PlayerPrefs.GetInt("NovelMenu");
+
+		whichBGClip = PlayerPrefs.GetString("BackgroundClip");
+		Debug.Log(whichBGClip);
+		string digi;
+
+		for (int i = 0; i < 47; i++)
+		{
+			if ((i + 1) < 10)
+			{
+				digi = "00";
+			}
+			else
+			{
+				digi = "0";
+			}
+
+			//Debug.Log(digi + (i + 1).ToString());
+
+			if (whichBGClip == "BGM-" + digi + (i + 1).ToString())
+			{
+				BGM.clip = BGMFile[i];
+				BGM.Play();
+			}
+		}
 
 
 		backData = BGName.text.Split(new char[] { '$' });
@@ -911,11 +939,12 @@ public class LoadDialogue : MonoBehaviour
 		else if (miniGame == 1 && novelMenu == 0)
 		{
 			int[] dateNow = { 10, 8 };
+			whichLineNow = 172;
 			PlayerPrefsX.SetIntArray("Date", dateNow);
 
 			resetPos = 5;
 			PlayerPrefs.SetInt("MiniGame", 0);
-			for (int i = 170; i < 177; i++)
+			for (int i = 172; i < 179; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -948,11 +977,12 @@ public class LoadDialogue : MonoBehaviour
 		else if (miniGame == 2 && novelMenu == 0)
 		{
 			int[] dateNow = { 10, 9 };
+			whichLineNow = 179;
 			PlayerPrefsX.SetIntArray("Date", dateNow);
 
 			resetPos = 6;
 			PlayerPrefs.SetInt("MiniGame", 0);
-			for (int i = 177; i < 188; i++)
+			for (int i = 179; i < 190; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -985,10 +1015,10 @@ public class LoadDialogue : MonoBehaviour
 		else if (miniGame == 3 && novelMenu == 0)
 		{
 			PlayerPrefs.SetInt("MiniGame", 0);
-			whichLineNow = 188;
+			whichLineNow = 190;
 			resetPos = 7;
 
-			for (int i = 188; i < 213; i++)
+			for (int i = 190; i < 213; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1155,7 +1185,7 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 5)
 		{
-			for (int i = logNumber; i < 176; i++)
+			for (int i = logNumber; i < 179; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1188,7 +1218,7 @@ public class LoadDialogue : MonoBehaviour
 
 		else if (resetFrom == 6)
 		{
-			for (int i = logNumber; i < 187; i++)
+			for (int i = logNumber; i < 190; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2562,12 +2592,12 @@ public class LoadDialogue : MonoBehaviour
 		{
 			TwoChoices.SetActive(true);
 
-			string[] tempRow = data[211].Split(new char[] { ',' });
+			string[] tempRow = data[213].Split(new char[] { ',' });
 			string Filtered2 = tempRow[8].Replace("/KleinLove_high", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[211].Split(new char[] { ',' });
+			string[] tempRow2 = data[213].Split(new char[] { ',' });
 			string Filtered5 = tempRow2[9].Replace("/KleinLove_low", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
@@ -4596,7 +4626,7 @@ public class LoadDialogue : MonoBehaviour
 
 			//Voice
 			if (autoScroll.dialogueIsSkipped == false)
-			{				
+			{
 				if (d.voice != "")
 				{
 					for (int i = 0; i < VoiceFile_2.Count; i++)
@@ -4627,179 +4657,236 @@ public class LoadDialogue : MonoBehaviour
 			if (d.BGM.Contains("BGM-001"))
 			{
 				BGM.clip = BGMFile[0];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-002"))
 			{
 				BGM.clip = BGMFile[1];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-003"))
 			{
 				BGM.clip = BGMFile[2];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-004"))
 			{
 				BGM.clip = BGMFile[3];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-005"))
 			{
 				BGM.clip = BGMFile[4];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-006"))
 			{
 				BGM.clip = BGMFile[5];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-007"))
 			{
 				BGM.clip = BGMFile[6];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-008"))
 			{
 				BGM.clip = BGMFile[7];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-009"))
 			{
 				BGM.clip = BGMFile[8];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-010"))
 			{
 				BGM.clip = BGMFile[9];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-011"))
 			{
 				BGM.clip = BGMFile[10];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-012"))
 			{
 				BGM.clip = BGMFile[11];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-013"))
 			{
 				BGM.clip = BGMFile[12];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-014"))
 			{
 				BGM.clip = BGMFile[13];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-015"))
 			{
 				BGM.clip = BGMFile[14];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-016"))
 			{
 				BGM.clip = BGMFile[15];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-017"))
 			{
 				BGM.clip = BGMFile[16];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-018"))
 			{
 				BGM.clip = BGMFile[17];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-019"))
 			{
 				BGM.clip = BGMFile[18];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-020"))
 			{
 				BGM.clip = BGMFile[19];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-021"))
 			{
 				BGM.clip = BGMFile[20];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-022"))
 			{
 				BGM.clip = BGMFile[21];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-023"))
 			{
 				BGM.clip = BGMFile[22];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-024"))
 			{
 				BGM.clip = BGMFile[23];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-025"))
 			{
 				BGM.clip = BGMFile[24];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-026"))
 			{
 				BGM.clip = BGMFile[25];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-027"))
 			{
 				BGM.clip = BGMFile[26];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-028"))
 			{
 				BGM.clip = BGMFile[27];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-029"))
 			{
 				BGM.clip = BGMFile[28];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-030"))
 			{
 				BGM.clip = BGMFile[29];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-031"))
 			{
 				BGM.clip = BGMFile[30];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-032"))
 			{
 				BGM.clip = BGMFile[31];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-033"))
 			{
 				BGM.clip = BGMFile[32];
-				BGM.Play();
 			}
 			else if (d.BGM.Contains("BGM-034"))
 			{
 				BGM.clip = BGMFile[33];
-				BGM.Play();
 			}
+			else if (d.BGM.Contains("BGM-035"))
+			{
+				BGM.clip = BGMFile[34];
+			}
+			else if (d.BGM.Contains("BGM-036"))
+			{
+				BGM.clip = BGMFile[35];
+			}
+			else if (d.BGM.Contains("BGM-037"))
+			{
+				BGM.clip = BGMFile[36];
+			}
+			else if (d.BGM.Contains("BGM-038"))
+			{
+				BGM.clip = BGMFile[37];
+			}
+			else if (d.BGM.Contains("BGM-039"))
+			{
+				BGM.clip = BGMFile[38];
+			}
+			else if (d.BGM.Contains("BGM-040"))
+			{
+				BGM.clip = BGMFile[39];
+			}
+			else if (d.BGM.Contains("BGM-041"))
+			{
+				BGM.clip = BGMFile[40];
+			}
+			else if (d.BGM.Contains("BGM-042"))
+			{
+				BGM.clip = BGMFile[41];
+			}
+			else if (d.BGM.Contains("BGM-043"))
+			{
+				BGM.clip = BGMFile[42];
+			}
+			else if (d.BGM.Contains("BGM-044"))
+			{
+				BGM.clip = BGMFile[43];
+			}
+			else if (d.BGM.Contains("BGM-045"))
+			{
+				BGM.clip = BGMFile[44];
+			}
+			else if (d.BGM.Contains("BGM-046"))
+			{
+				BGM.clip = BGMFile[45];
+			}
+			else if (d.BGM.Contains("BGM-047"))
+			{
+				BGM.clip = BGMFile[46];
+			}
+
 			else if (d.BGM == "")
 			{
 			}
 			else
 			{
 				BGM.Stop();
+			}
+
+
+			float current = 0;
+
+			if (d.BGM.Contains("CO"))
+			{
+				audioFade = false;
+				StopCoroutine("FadeAudio");
+				BGM.Stop();
+			}
+			if (d.BGM.Contains("CI"))
+			{
+				audioFade = false;
+				StopCoroutine("FadeAudio");
+				BGM.volume = 1;
+				BGM.Play();
+			}
+			if (d.BGM.Contains("FI"))
+			{
+				audioFade = true;
+				BGM.Play();
+				StartCoroutine(FadeAudio(current, 0, 1, 2));
+			}
+			if (d.BGM.Contains("FO"))
+			{
+				audioFade = true;
+				StartCoroutine(FadeAudio(current, 1, 0, 2));
+			}
+
+			if (d.BGM != "")
+			{
+				string Filter1 = d.BGM.Replace("/", "");
+				string Filter2 = Filter1.Replace("CI", "");
+				string Filter3 = Filter2.Replace("CO", "");
+				string Filter4 = Filter3.Replace("FI", "");
+				whichBGClip = Filter4.Replace("FO", "");
+				PlayerPrefs.SetString("BackgroundClip", whichBGClip);
 			}
 
 			//SE
@@ -5280,15 +5367,6 @@ public class LoadDialogue : MonoBehaviour
 					finishTemp3 = true;
 				}
 
-
-				if (d.id == 169)
-				{
-					PlayerPrefs.SetInt("MiniGame", 2);
-					PlayerPrefs.SetInt("NovelMenu", 2);
-				}
-
-
-
 				if (autoScroll.automated == false)
 				{
 					yield return new WaitUntil(() => dialogueManager.next == true);
@@ -5320,11 +5398,22 @@ public class LoadDialogue : MonoBehaviour
 				{
 					PlayerPrefs.SetInt("MiniGame", 1);
 					PlayerPrefs.SetInt("NovelMenu", 1);
+					dialogueManager.dialogueSpeed = 0;
+					MiniGameChoose.SetActive(true);
+					MinGameButton[0].interactable = true;
+					MinGameButton[1].interactable = false;
+					MinGameButton[2].interactable = false;
+
 				}
 				if (d.id == 170)
 				{
 					PlayerPrefs.SetInt("MiniGame", 2);
 					PlayerPrefs.SetInt("NovelMenu", 2);
+					dialogueManager.dialogueSpeed = 0;
+					MiniGameChoose.SetActive(true);
+					MinGameButton[0].interactable = false;
+					MinGameButton[1].interactable = true;
+					MinGameButton[2].interactable = false;
 				}
 				if (d.id == 178)
 				{
@@ -6304,9 +6393,9 @@ public class LoadDialogue : MonoBehaviour
 
 			resetPos = 8;
 			finishTemp3 = false;
-			whichLineNow = 212;
+			whichLineNow = 214;
 
-			for (int i = 212; i < 263; i++)
+			for (int i = 214; i < 264; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -6908,12 +6997,13 @@ public class LoadDialogue : MonoBehaviour
 		{
 			float affection = PlayerPrefs.GetFloat("KleinHeart");
 			affection += 2;
+			whichLineNow = 214;
 			PlayerPrefs.SetFloat("KleinHeart", affection);
 
 			resetPos = 9;
 			finishTemp3 = false;
 
-			for (int i = 212; i < 263; i++)
+			for (int i = 214; i < 264; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -7429,12 +7519,15 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail1", LiedFail);
 			PlayerPrefs.SetInt("KleinFail1", KleinFail);
 			PlayerPrefs.SetInt("Money1", money);
 			PlayerPrefs.SetFloat("LiedHeart1", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart1", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip1", backgroundclip);
+
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
@@ -7468,12 +7561,14 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail2", LiedFail);
 			PlayerPrefs.SetInt("KleinFail2", KleinFail);
 			PlayerPrefs.SetInt("Money2", money);
 			PlayerPrefs.SetFloat("LiedHeart2", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart2", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip2", backgroundclip);
 
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
@@ -7506,12 +7601,14 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail3", LiedFail);
 			PlayerPrefs.SetInt("KleinFail3", KleinFail);
 			PlayerPrefs.SetInt("Money3", money);
 			PlayerPrefs.SetFloat("LiedHeart3", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart3", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip3", backgroundclip);
 
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
@@ -7544,12 +7641,14 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail4", LiedFail);
 			PlayerPrefs.SetInt("KleinFail4", KleinFail);
 			PlayerPrefs.SetInt("Money4", money);
 			PlayerPrefs.SetFloat("LiedHeart4", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart4", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip4", backgroundclip);
 
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
@@ -7582,12 +7681,14 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail5", LiedFail);
 			PlayerPrefs.SetInt("KleinFail5", KleinFail);
 			PlayerPrefs.SetInt("Money5", money);
 			PlayerPrefs.SetFloat("LiedHeart5", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart5", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip5", backgroundclip);
 
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
@@ -7620,12 +7721,14 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail6", LiedFail);
 			PlayerPrefs.SetInt("KleinFail6", KleinFail);
 			PlayerPrefs.SetInt("Money6", money);
 			PlayerPrefs.SetFloat("LiedHeart6", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart6", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip6", backgroundclip);
 
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
@@ -7658,12 +7761,14 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail7", LiedFail);
 			PlayerPrefs.SetInt("KleinFail7", KleinFail);
 			PlayerPrefs.SetInt("Money7", money);
 			PlayerPrefs.SetFloat("LiedHeart7", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart7", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip7", backgroundclip);
 
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
@@ -7696,12 +7801,14 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail8", LiedFail);
 			PlayerPrefs.SetInt("KleinFail8", KleinFail);
 			PlayerPrefs.SetInt("Money8", money);
 			PlayerPrefs.SetFloat("LiedHeart8", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart8", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip8", backgroundclip);
 
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
@@ -7734,12 +7841,14 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail9", LiedFail);
 			PlayerPrefs.SetInt("KleinFail9", KleinFail);
 			PlayerPrefs.SetInt("Money9", money);
 			PlayerPrefs.SetFloat("LiedHeart9", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart9", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip9", backgroundclip);
 
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
@@ -7772,6 +7881,7 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail10", LiedFail);
 			PlayerPrefs.SetInt("KleinFail10", KleinFail);
@@ -7782,6 +7892,7 @@ public class LoadDialogue : MonoBehaviour
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
+			PlayerPrefs.SetString("BackgroundClip10", backgroundclip);
 
 			PlayerPrefs.SetInt("CleanNumber10", cleanNumber);
 			PlayerPrefs.SetInt("CookNumber10", cookNumber);
@@ -7810,12 +7921,14 @@ public class LoadDialogue : MonoBehaviour
 			int money = PlayerPrefs.GetInt("Money");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail0", LiedFail);
 			PlayerPrefs.SetInt("KleinFail0", KleinFail);
 			PlayerPrefs.SetInt("Money0", money);
 			PlayerPrefs.SetFloat("LiedHeart0", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart0", kleinAff);
+			PlayerPrefs.SetString("BackgroundClip0", backgroundclip);
 
 			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
 			int cookNumber = PlayerPrefs.GetInt("CookNumber");
@@ -8246,5 +8359,14 @@ public class LoadDialogue : MonoBehaviour
 		}
 	}
 
-
+	public IEnumerator FadeAudio(float current, float start, float end, float duration)
+	{
+		while (current >= 0 && audioFade == true)
+		{
+			current += Time.deltaTime;
+			BGM.volume = Mathf.Lerp(start, end, current / duration);
+			yield return null;
+		}
+		yield break;
+	}
 }

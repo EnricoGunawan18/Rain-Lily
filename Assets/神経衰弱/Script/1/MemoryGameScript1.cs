@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MemoryGameScript1 : MonoBehaviour
 {
-
 	[SerializeField]
 	public Button[] NumMat;
 
@@ -73,11 +72,19 @@ public class MemoryGameScript1 : MonoBehaviour
 	int tryAns = 3;
 
 	//outlines
+	[SerializeField]
 	Outline outline1;
+	[SerializeField]
 	Outline outline2;
+	[SerializeField]
 	Outline outline3;
+	[SerializeField]
 	Outline outline4;
+	[SerializeField]
 	Outline outline5;
+
+	[SerializeField]
+	GameObject[] outline;
 
 
 	List<int> RNG = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
@@ -86,6 +93,11 @@ public class MemoryGameScript1 : MonoBehaviour
 
 	[SerializeField]
 	Sprite BoxBack;
+
+	[SerializeField]
+	Image[] Heart;
+
+	public Sprite heartEmpty;
 
 	// Start is called before the NumMat[0] frame update
 
@@ -98,12 +110,6 @@ public class MemoryGameScript1 : MonoBehaviour
 		//PlayerPrefs.SetFloat("Score3", 0);
 		//PlayerPrefs.SetFloat("Score4", 0);
 		//PlayerPrefs.SetFloat("Score5", 0);
-
-		outline1 = GameObject.Find("Ingredients1").GetComponent<Outline>();
-		outline2 = GameObject.Find("Ingredients2").GetComponent<Outline>();
-		outline3 = GameObject.Find("Ingredients3").GetComponent<Outline>();
-		outline4 = GameObject.Find("Ingredients4").GetComponent<Outline>();
-		outline5 = GameObject.Find("Ingredients5").GetComponent<Outline>();
 
 		rand1 = RNG[Random.Range(0, RNG.Count)];
 		RNG.Remove(rand1);
@@ -479,6 +485,12 @@ public class MemoryGameScript1 : MonoBehaviour
 					outline4.effectColor = Color.black;
 					outline5.effectColor = Color.black;
 
+					outline1.effectDistance = new Vector2(4, 4);
+					outline2.effectDistance = new Vector2(4, 4);
+					outline3.effectDistance = new Vector2(4, 4);
+					outline4.effectDistance = new Vector2(4, 4);
+					outline5.effectDistance = new Vector2(4, 4);
+
 					colorBlock[i] = NumMat[i].colors;
 					colorBlock[i].normalColor = Color.white;
 					NumMat[i].GetComponent<Image>().sprite = BoxBack;
@@ -520,6 +532,12 @@ public class MemoryGameScript1 : MonoBehaviour
 			{
 				correctAns = 0;
 				scoreNow += 1000;
+
+				for (int i = 0; i < 5; i++)
+				{
+					NumMat[i].enabled = false;
+				}
+
 				if (scoreTimer <= 3)
 				{
 					scoreNow += 1000;
@@ -545,6 +563,11 @@ public class MemoryGameScript1 : MonoBehaviour
 				PlayerPrefs.SetFloat("Score1", 0);
 				Debug.Log(scoreNow);
 
+				for (int i = 0; i < 5; i++)
+				{
+					NumMat[i].enabled = false;
+				}
+
 				tryAns = 3;
 				StartCoroutine(waitForNextStage());
 			}
@@ -569,15 +592,15 @@ public class MemoryGameScript1 : MonoBehaviour
 				Randnum.Remove(rando_2);
 
 
-				position2 = NumMat[rando_].transform.position;
-				position1 = NumMat[rando_2].transform.position;
+				position2 = outline[rando_].transform.position;
+				position1 = outline[rando_2].transform.position;
 				count++;
 			}
 
-			NumMat[rando_].transform.position = Vector2.MoveTowards(NumMat[rando_].transform.position, position1, 200f * Time.deltaTime * 2f);
-			NumMat[rando_2].transform.position = Vector2.MoveTowards(NumMat[rando_2].transform.position, position2, 200f * Time.deltaTime * 2f);
+			outline[rando_].transform.position = Vector2.MoveTowards(outline[rando_].transform.position, position1, 200f * Time.deltaTime * 2f);
+			outline[rando_2].transform.position = Vector2.MoveTowards(outline[rando_2].transform.position, position2, 200f * Time.deltaTime * 2f);
 
-			if (NumMat[rando_].transform.position.x == position1.x && NumMat[rando_].transform.position.y == position1.y)
+			if (outline[rando_].transform.position.x == position1.x && outline[rando_].transform.position.y == position1.y)
 			{
 				notShufflePause[count - 1] = true;
 				shuffleColor = false;
@@ -615,6 +638,7 @@ public class MemoryGameScript1 : MonoBehaviour
 			colorBlock[0] = NumMat[0].colors;
 			colorBlock[0].normalColor = Color.white;
 			NumMat[0].colors = colorBlock[0];
+			NumMat[0].enabled = false;
 
 			if (rand1 == randText)
 			{
@@ -632,6 +656,7 @@ public class MemoryGameScript1 : MonoBehaviour
 				SE.Play();
 
 				tryAns--;
+				Heart[tryAns].sprite = heartEmpty;
 				NumMat[0].transform.Rotate(new Vector3(0, 180, 0));
 
 			}
@@ -649,6 +674,7 @@ public class MemoryGameScript1 : MonoBehaviour
 			colorBlock[1] = NumMat[1].colors;
 			colorBlock[1].normalColor = Color.white;
 			NumMat[1].colors = colorBlock[1];
+			NumMat[1].enabled = false;
 
 
 			if (rand2 == randText)
@@ -667,6 +693,7 @@ public class MemoryGameScript1 : MonoBehaviour
 				SE.Play();
 
 				tryAns--;
+				Heart[tryAns].sprite = heartEmpty;
 				NumMat[1].transform.Rotate(new Vector3(0, 180, 0));
 
 			}
@@ -684,6 +711,7 @@ public class MemoryGameScript1 : MonoBehaviour
 			colorBlock[2] = NumMat[2].colors;
 			colorBlock[2].normalColor = Color.white;
 			NumMat[2].colors = colorBlock[2];
+			NumMat[2].enabled = false;
 
 			if (rand3 == randText)
 			{
@@ -701,6 +729,7 @@ public class MemoryGameScript1 : MonoBehaviour
 				SE.Play();
 
 				tryAns--;
+				Heart[tryAns].sprite = heartEmpty;
 				NumMat[2].transform.Rotate(new Vector3(0, 180, 0));
 
 			}
@@ -718,6 +747,7 @@ public class MemoryGameScript1 : MonoBehaviour
 			colorBlock[3] = NumMat[3].colors;
 			colorBlock[3].normalColor = Color.white;
 			NumMat[3].colors = colorBlock[3];
+			NumMat[3].enabled = false;
 
 			if (rand4 == randText)
 			{
@@ -735,6 +765,7 @@ public class MemoryGameScript1 : MonoBehaviour
 				SE.Play();
 
 				tryAns--;
+				Heart[tryAns].sprite = heartEmpty;
 				NumMat[3].transform.Rotate(new Vector3(0, 180, 0));
 
 			}
@@ -752,6 +783,7 @@ public class MemoryGameScript1 : MonoBehaviour
 			colorBlock[4] = NumMat[4].colors;
 			colorBlock[4].normalColor = Color.white;
 			NumMat[4].colors = colorBlock[4];
+			NumMat[4].enabled = false;
 
 			if (rand5 == randText)
 			{
@@ -769,6 +801,7 @@ public class MemoryGameScript1 : MonoBehaviour
 				SE.Play();
 
 				tryAns--;
+				Heart[tryAns].sprite = heartEmpty;
 				NumMat[4].transform.Rotate(new Vector3(0, 180, 0));
 
 			}

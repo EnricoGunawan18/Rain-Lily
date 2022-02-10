@@ -71,6 +71,8 @@ public class TitleScript : MonoBehaviour
 		ButtonAudioSource.Stop();
 		ButtonAudioSource.Play();
 
+		PlayerPrefs.SetString("BackgroundClip", "");
+
 		PlayerPrefs.SetInt("LogNow", 1);
 
 		PlayerPrefs.SetInt("MiniGame", 0);
@@ -176,6 +178,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber1");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail1");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail1");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip1");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -190,6 +193,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}
@@ -215,6 +219,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber2");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail2");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail2");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip2");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -229,6 +234,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}
@@ -254,6 +260,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber3");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail3");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail3");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip3");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -268,6 +275,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}
@@ -293,6 +301,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber4");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail4");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail4");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip4");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -307,6 +316,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}
@@ -332,6 +342,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber5");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail5");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail5");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip5");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -346,6 +357,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}
@@ -371,6 +383,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber6");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail6");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail6");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip6");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -385,6 +398,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}
@@ -409,6 +423,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber7");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail7");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail7");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip7");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -423,6 +438,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}
@@ -448,6 +464,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber8");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail8");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail8");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip8");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -462,6 +479,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}
@@ -487,6 +505,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber9");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail9");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail9");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip9");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -501,6 +520,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}
@@ -526,6 +546,7 @@ public class TitleScript : MonoBehaviour
 		int shopNumber = PlayerPrefs.GetInt("ShopNumber10");
 		int LiedFail = PlayerPrefs.GetInt("LiedFail10");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail10");
+		string backgroundclip = PlayerPrefs.GetString("BackgroundClip10");
 
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -540,6 +561,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("NovelMenu", novelMenu);
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
+		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 		SceneManager.LoadScene("Novel");
 	}

@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 802478743}
   m_Direction: 2
   m_Value: 1.0000002
-  m_Size: 0.6721618
+  m_Size: 0.6721619
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3234,7 +3234,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 341057703}
   m_Direction: 2
   m_Value: 1.0000006
-  m_Size: 0.8306519
+  m_Size: 0.830652
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3850,7 +3850,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 699857687}
   m_Direction: 2
   m_Value: 1.0000006
-  m_Size: 0.8306519
+  m_Size: 0.830652
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6885,7 +6885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1901783995
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7034,7 +7034,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 291043524}
   m_Direction: 2
   m_Value: 1.0000006
-  m_Size: 0.8306519
+  m_Size: 0.830652
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8382,7 +8382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sec: {fileID: 4251266081329766230}
-  limit: 120
+  limit: 60
   _stop: {fileID: 1380263716}
 --- !u!1 &4251266083044724355
 GameObject:

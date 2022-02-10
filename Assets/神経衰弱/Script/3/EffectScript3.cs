@@ -254,99 +254,54 @@ public class EffectScript3 : MonoBehaviour
 
             Cross[0].SetActive(true);
             Cross[0].transform.position = position1;
-            if (effectTimer1 >= 2)
-            {
-                Cross[0].SetActive(false);
-            }
         }
         if (GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().correctEffect[1] == false && GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().clicked[1] == true)
         {
             float timer2 = Time.time;
             effectTimer2 = timer2 - time2;
-            memorygamescript3.NumMat[1].enabled = false;
 
             Cross[1].SetActive(true);
             Cross[1].transform.position = position2;
-            if (effectTimer2 >= 2)
-            {
-                Cross[1].SetActive(false);
-
-            }
-
-
         }
         if (GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().correctEffect[2] == false && GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().clicked[2] == true)
         {
             float timer3 = Time.time;
             effectTimer3 = timer3 - time3;
-            memorygamescript3.NumMat[2].enabled = false;
 
             Cross[2].SetActive(true);
             Cross[2].transform.position = position3;
-            if (effectTimer3 >= 2)
-            {
-                Cross[2].SetActive(false);
-            }
-
-
         }
         if (GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().correctEffect[3] == false && GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().clicked[3] == true)
         {
             float timer4 = Time.time;
             effectTimer4 = timer4 - time4;
-            memorygamescript3.NumMat[3].enabled = false;
 
             Cross[3].SetActive(true);
             Cross[3].transform.position = position4;
-            if (effectTimer4 >= 2)
-            {
-                Cross[3].SetActive(false);
-            }
-
-
         }
         if (GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().correctEffect[4] == false && GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().clicked[4] == true)
         {
             float timer5 = Time.time;
             effectTimer5 = timer5 - time5;
-            memorygamescript3.NumMat[4].enabled = false;
 
             Cross[4].SetActive(true);
             Cross[4].transform.position = position5;
-            if (effectTimer5 >= 2)
-            {
-                Cross[4].SetActive(false);
-            }
-
         }
         if (GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().correctEffect[5] == false && GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().clicked[5] == true)
         {
             float timer6 = Time.time;
             effectTimer6 = timer6 - time6;
-            memorygamescript3.NumMat[5].enabled = false;
 
             Cross[5].SetActive(true);
             Cross[5].transform.position = position6;
-            if (effectTimer6 >= 2)
-            {
-                Cross[5].SetActive(false);
-            }
-
-
         }
         if (GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().correctEffect[6] == false && GameObject.Find("MemoryGameScript3").GetComponent<MemoryGameScript3>().clicked[6] == true)
         {
             float timer7 = Time.time;
             effectTimer7 = timer7 - time7;
-            memorygamescript3.NumMat[6].enabled = false;
 
             Cross[6].SetActive(true);
             Cross[6].transform.position = position7;
-            if (effectTimer7 >= 2)
-            {
-                Cross[6].SetActive(false);
-            }
-
         }
     }
 }

@@ -102,6 +102,7 @@ public class FinishScript : MonoBehaviour
 
 		else if ( miniGame == 3)
 		{
+			PlayerPrefs.SetString("BackgroundClip", "");
 			PlayerPrefs.SetInt("NovelMenu", 0);
 			SceneManager.LoadScene("Novel");
 		}
@@ -114,6 +115,7 @@ public class FinishScript : MonoBehaviour
 			PlayerPrefs.SetFloat("LiedHeart", liedHeart);
 			PlayerPrefs.SetInt("Money", gameMoneyGet);
 			PlayerPrefs.SetInt("NovelMenu", 11);
+			PlayerPrefs.SetString("BackgroundClip", "");
 			SceneManager.LoadScene("Novel");
 		}
 

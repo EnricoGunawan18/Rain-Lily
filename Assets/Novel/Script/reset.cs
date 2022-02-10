@@ -185,5 +185,19 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("NovelMenu0",0);
         PlayerPrefsX.SetIntArray("ItemNumber0", a);
         PlayerPrefsX.SetIntArray("Date0", startDate);
+
+        PlayerPrefs.SetString("BackgroundClip", "");
+        PlayerPrefs.SetString("BackgroundClip1", "");
+        PlayerPrefs.SetString("BackgroundClip2", "");
+        PlayerPrefs.SetString("BackgroundClip3", "");
+        PlayerPrefs.SetString("BackgroundClip4", "");
+        PlayerPrefs.SetString("BackgroundClip5", "");
+        PlayerPrefs.SetString("BackgroundClip6", "");
+        PlayerPrefs.SetString("BackgroundClip7", "");
+        PlayerPrefs.SetString("BackgroundClip8", "");
+        PlayerPrefs.SetString("BackgroundClip9", "");
+        PlayerPrefs.SetString("BackgroundClip10", "");
+        PlayerPrefs.SetString("BackgroundClip0", "");
+
     }
 }

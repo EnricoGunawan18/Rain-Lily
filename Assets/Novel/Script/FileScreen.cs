@@ -99,6 +99,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail1", LiedFail);
 			PlayerPrefs.SetInt("KleinFail1", KleinFail);
@@ -113,6 +114,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("FirstPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber1", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip1", backgroundClip);
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -130,6 +132,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber1");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail1");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail1");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip1");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -144,6 +147,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
@@ -177,6 +181,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail2", LiedFail);
 			PlayerPrefs.SetInt("KleinFail2", KleinFail);
@@ -191,6 +196,8 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("SecondPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber2", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip2", backgroundClip);
+
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -208,6 +215,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber2");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail2");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail2");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip2");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -222,6 +230,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
@@ -255,6 +264,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail3", LiedFail);
 			PlayerPrefs.SetInt("KleinFail3", KleinFail);
@@ -269,6 +279,8 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("ThirdPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber3", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip3", backgroundClip);
+
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -286,6 +298,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber3");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail3");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail3");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip3");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -300,6 +313,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
@@ -333,6 +347,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail4", LiedFail);
 			PlayerPrefs.SetInt("KleinFail4", KleinFail);
@@ -347,6 +362,8 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("FourthPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber4", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip4", backgroundClip);
+
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -364,6 +381,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber4");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail4");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail4");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip4");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -378,6 +396,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
@@ -411,6 +430,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail5", LiedFail);
 			PlayerPrefs.SetInt("KleinFail5", KleinFail);
@@ -425,6 +445,8 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("FifthPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber5", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip5", backgroundClip);
+
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -442,6 +464,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber5");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail5");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail5");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip5");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -456,6 +479,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
@@ -489,6 +513,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail6", LiedFail);
 			PlayerPrefs.SetInt("KleinFail6", KleinFail);
@@ -503,6 +528,8 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("SixthPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber6", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip6", backgroundClip);
+
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -510,6 +537,8 @@ public class FileScreen : MonoBehaviour
 			int log = PlayerPrefs.GetInt("SixthLog");
 			int pos = PlayerPrefs.GetInt("SixthPos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu6");
+			int[] date = PlayerPrefsX.GetIntArray("Date6");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber6");
 			float liedAff = PlayerPrefs.GetFloat("LiedHeart6");
 			float kleinAff = PlayerPrefs.GetFloat("KleinHeart6");
 			int money = PlayerPrefs.GetInt("Money6");
@@ -518,6 +547,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber6");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail6");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail6");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip6");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -527,14 +557,13 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("Money", money);
 			PlayerPrefs.SetFloat("LiedHeart", liedAff);
 			PlayerPrefs.SetFloat("KleinHeart", kleinAff);
+			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
+			PlayerPrefsX.SetIntArray("Date", date);
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
-			int[] date = PlayerPrefsX.GetIntArray("Date6");
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber6");
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
-			PlayerPrefsX.SetIntArray("ItemNumber", ItemNumber);
-			PlayerPrefsX.SetIntArray("Date", date);
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
 		}
@@ -567,6 +596,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail7", LiedFail);
 			PlayerPrefs.SetInt("KleinFail7", KleinFail);
@@ -581,6 +611,8 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("SeventhPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber7", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip7", backgroundClip);
+
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -598,6 +630,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber7");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail7");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail7");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip7");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -612,6 +645,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
@@ -645,6 +679,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail8", LiedFail);
 			PlayerPrefs.SetInt("KleinFail8", KleinFail);
@@ -659,6 +694,8 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("EighthPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber8", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip8", backgroundClip);
+
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -676,6 +713,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber8");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail8");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail8");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip8");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -690,6 +728,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
@@ -723,6 +762,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail9", LiedFail);
 			PlayerPrefs.SetInt("KleinFail9", KleinFail);
@@ -737,6 +777,8 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NinthPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber9", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip9", backgroundClip);
+
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -754,6 +796,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber9");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail9");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail9");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip9");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -768,6 +811,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
@@ -801,6 +845,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 
 			PlayerPrefs.SetInt("LiedFail10", LiedFail);
 			PlayerPrefs.SetInt("KleinFail10", KleinFail);
@@ -815,6 +860,8 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("TenthPos", loadDialogue.resetPos);
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 			PlayerPrefsX.SetIntArray("ItemNumber10", ItemNumber);
+			PlayerPrefs.SetString("BackgroundClip10", backgroundClip);
+
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -832,6 +879,7 @@ public class FileScreen : MonoBehaviour
 			int shopNumber = PlayerPrefs.GetInt("ShopNumber10");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail10");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail10");
+			string backgroundclip = PlayerPrefs.GetString("BackgroundClip10");
 
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
@@ -846,6 +894,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("NovelMenu", novelMenu);
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
+			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
 			SceneManager.LoadScene("Novel");
