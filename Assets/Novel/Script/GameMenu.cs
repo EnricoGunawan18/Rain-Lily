@@ -190,6 +190,10 @@ public class GameMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("ResetPos", 76);
         }
+        if (date[0] == 11 && date[1] == 19)
+        {
+            PlayerPrefs.SetInt("ResetPos", 85);
+        }
 
         date[1]++;
 
