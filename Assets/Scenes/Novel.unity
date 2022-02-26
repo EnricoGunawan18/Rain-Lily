@@ -21949,10 +21949,10 @@ MonoBehaviour:
   finishTemp14: 0
   finishTemp15: 0
   finishTemp16: 0
+  finishTemp17: 0
   ItemEffect: 0
   itemChoose: 0
   resetPos: 0
-  voiceTime: 0
   GameMenuScript: {fileID: 175023559}
   backgrounds: []
   dialogues: []
@@ -21971,6 +21971,17 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 72b0077a4800161428a033e5ab6aeec0, type: 3}
   KleinDialogue:
   - {fileID: 4900000, guid: da36bdcef3fe8cf4aa85ad97ced52a3e, type: 3}
+  - {fileID: 4900000, guid: 90419782e5a4edd4887da56e8d3d93eb, type: 3}
+  - {fileID: 4900000, guid: f506a14e7abc37542b124dfab550bb98, type: 3}
+  - {fileID: 4900000, guid: 3fbe06ff59882da44bbf4bd966e4f6a6, type: 3}
+  - {fileID: 4900000, guid: 6f34e40ab5cdcb7419013662deb5b6e0, type: 3}
+  - {fileID: 4900000, guid: 7f320e2c86ba4ff45b474560b982feb3, type: 3}
+  - {fileID: 4900000, guid: bd799b8d907189d47aa27ac3e0ad824e, type: 3}
+  - {fileID: 4900000, guid: ff96410d78e04394fa56a989df3ac72c, type: 3}
+  - {fileID: 4900000, guid: 15792410edd982b4ebf9e41737df3e7a, type: 3}
+  - {fileID: 4900000, guid: 3ca1583f9d462bc4b949727cd0430ea5, type: 3}
+  - {fileID: 4900000, guid: 6fe26d6e848cd7b4b857918da4c662f7, type: 3}
+  - {fileID: 4900000, guid: e93faa82d6ec52144bbc110751948a4f, type: 3}
 --- !u!4 &1714509505
 Transform:
   m_ObjectHideFlags: 0

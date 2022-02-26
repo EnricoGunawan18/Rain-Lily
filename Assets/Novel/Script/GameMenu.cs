@@ -117,6 +117,8 @@ public class GameMenu : MonoBehaviour
 
         PlayerPrefs.SetInt("NovelMenu", 12);
 
+
+        //Lied
         if (date[0] == 10 && date[1] == 14)
         {
             PlayerPrefs.SetInt("ResetPos", 10);
@@ -167,6 +169,27 @@ public class GameMenu : MonoBehaviour
         }
 
 
+        //Klein
+        if (date[0] == 10 && date[1] == 15)
+        {
+            PlayerPrefs.SetInt("ResetPos", 58);
+        }
+        if (date[0] == 10 && date[1] == 17)
+        {
+            PlayerPrefs.SetInt("ResetPos", 62);
+        }
+        if (date[0] == 10 && date[1] == 24)
+        {
+            PlayerPrefs.SetInt("ResetPos", 66);
+        }
+        if (date[0] == 11 && date[1] == 2)
+        {
+            PlayerPrefs.SetInt("ResetPos", 72);
+        }
+        if (date[0] == 11 && date[1] == 9)
+        {
+            PlayerPrefs.SetInt("ResetPos", 76);
+        }
 
         date[1]++;
 

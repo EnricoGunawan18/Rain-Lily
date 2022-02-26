@@ -161,6 +161,14 @@ public class LoadDialogue : MonoBehaviour
 	public bool finishTemp14 = false;
 	public bool finishTemp15 = false;
 	public bool finishTemp16 = false;
+	public bool finishTemp17 = false;
+	public bool finishTemp18 = false;
+	public bool finishTemp19 = false;
+	public bool finishTemp20 = false;
+	public bool finishTemp21 = false;
+	public bool finishTemp22 = false;
+	public bool finishTemp23 = false;
+	public bool finishTemp24 = false;
 
 
 	public bool ItemEffect = false;
@@ -172,8 +180,6 @@ public class LoadDialogue : MonoBehaviour
 	float speed;
 
 	string backGroundName;
-
-	public float voiceTime;
 
 	[SerializeField]
 	GameMenu GameMenuScript;
@@ -188,6 +194,10 @@ public class LoadDialogue : MonoBehaviour
 
 	bool audioFade = false;
 	string whichBGClip = "";
+
+	bool mouthStop;
+
+	float clipLength;
 
 	private void Start()
 	{
@@ -264,181 +274,283 @@ public class LoadDialogue : MonoBehaviour
 
 		itemData = itemDialogue.text.Split(new char[] { '$' });
 
-		if (date[0] == 10 && (date[1] == 7 || date[1] == 8 || date[1] == 9))
+		if (menu != 13)
 		{
-			data = prologue.text.Split(new char[] { '$' });
-		}
-		else if (date[0] == 10 && date[1] == 15)
-		{
-			data = LiedDialogue[0].text.Split(new char[] { '$' });
-			if (liedAff >= 10f)
+			//Lied
+
+			if (date[0] == 10 && (date[1] == 7 || date[1] == 8 || date[1] == 9))
 			{
-				menu = 14;
+				data = prologue.text.Split(new char[] { '$' });
+			}
+			else if (date[0] == 10 && date[1] == 15)
+			{
+				data = LiedDialogue[0].text.Split(new char[] { '$' });
+				if (liedAff >= 10f)
+				{
+					menu = 14;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 10 && date[1] == 20)
+			{
+				data = LiedDialogue[1].text.Split(new char[] { '$' });
+				if (liedAff >= 15f)
+				{
+					menu = 15;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+					PlayerPrefs.SetInt("CleanNumber", 0);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 10 && date[1] == 30)
+			{
+				data = LiedDialogue[2].text.Split(new char[] { '$' });
+				if (liedAff >= 20f)
+				{
+					menu = 16;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 11 && date[1] == 8)
+			{
+				data = LiedDialogue[3].text.Split(new char[] { '$' });
+				if (liedAff >= 25f)
+				{
+					menu = 17;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 11 && date[1] == 15)
+			{
+				if (liedAff >= 30f)
+				{
+					data = LiedDialogue[4].text.Split(new char[] { '$' });
+					menu = 18;
+					PlayerPrefs.SetInt("KleinFail", 1);
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else if (kleinAff >= 15)
+				{
+					data = KleinDialogue[5].text.Split(new char[] { '$' });
+					menu = 31;
+					PlayerPrefs.SetInt("LiedFail", 1);
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					data = LiedDialogue[4].text.Split(new char[] { '$' });
+					PlayerPrefs.SetInt("LiedFail", 1);
+					PlayerPrefs.SetInt("KleinFail", 1);
+				}
+
+			}
+			else if (date[0] == 11 && date[1] == 17)
+			{
+				data = LiedDialogue[5].text.Split(new char[] { '$' });
+				if (liedAff >= 35f)
+				{
+					menu = 19;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 11 && date[1] == 25)
+			{
+				data = LiedDialogue[6].text.Split(new char[] { '$' });
+				if (liedAff >= 40f)
+				{
+					menu = 20;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 11 && date[1] == 30)
+			{
+				data = LiedDialogue[7].text.Split(new char[] { '$' });
+				if (liedAff >= 45f)
+				{
+					menu = 21;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 12 && date[1] == 3)
+			{
+				data = LiedDialogue[8].text.Split(new char[] { '$' });
+				if (liedAff >= 50f)
+				{
+					menu = 22;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 12 && date[1] == 6)
+			{
+				data = LiedDialogue[9].text.Split(new char[] { '$' });
+				if (liedAff >= 55f)
+				{
+					menu = 23;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 12 && date[1] == 9)
+			{
+				data = LiedDialogue[10].text.Split(new char[] { '$' });
+				if (liedAff >= 60f)
+				{
+					menu = 24;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("LiedFail", 1);
+				}
+
+			}
+			else if (date[0] == 12 && date[1] == 10)
+			{
+				data = LiedDialogue[11].text.Split(new char[] { '$' });
+				menu = 25;
 				PlayerPrefs.SetInt("NovelMenu", menu);
 			}
-			else
+
+			//Klein
+
+			else if (date[0] == 10 && date[1] == 16)
 			{
-				PlayerPrefs.SetInt("LiedFail", 1);
+				data = KleinDialogue[0].text.Split(new char[] { '$' });
+				if (kleinAff >= 10)
+				{
+					menu = 26;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("KleinFail", 1);
+				}
+			}
+			else if (date[0] == 10 && date[1] == 18)
+			{
+				data = KleinDialogue[1].text.Split(new char[] { '$' });
+				if (kleinAff >= 15)
+				{
+					menu = 27;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("KleinFail", 1);
+				}
+			}
+			else if (date[0] == 10 && date[1] == 25)
+			{
+				data = KleinDialogue[2].text.Split(new char[] { '$' });
+				if (kleinAff >= 20)
+				{
+					menu = 28;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("KleinFail", 1);
+				}
+
+			}
+			else if (date[0] == 11 && date[1] == 3)
+			{
+				data = KleinDialogue[3].text.Split(new char[] { '$' });
+				if (kleinAff >= 25)
+				{
+					menu = 29;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("KleinFail", 1);
+				}
+			}
+			else if (date[0] == 11 && date[1] == 10)
+			{
+				data = KleinDialogue[4].text.Split(new char[] { '$' });
+				if (kleinAff >= 30)
+				{
+					menu = 30;
+					PlayerPrefs.SetInt("NovelMenu", menu);
+				}
+				else
+				{
+					PlayerPrefs.SetInt("KleinFail", 1);
+				}
 			}
 
+
+			//Lied failed
+			int liedFail = PlayerPrefs.GetInt("LiedFail");
+			if (liedFail == 1 && ((date[0] == 10 && date[1] == 15) || (date[0] == 10 && date[1] == 20) ||
+				(date[0] == 10 && date[1] == 30) || (date[0] == 11 && date[1] == 8) ||
+				(date[0] == 11 && date[1] == 17) || (date[0] == 11 && date[1] == 25) ||
+				(date[0] == 11 && date[1] == 30) || (date[0] == 12 && date[1] == 6)))
+			{
+				menu = 12;
+			}
+
+			//Klein failed
+			int kleinFail = PlayerPrefs.GetInt("KleinFail");
+			if (kleinFail == 1 && ((date[0] == 10 && date[1] == 16) || (date[0] == 10 && date[1] == 18) ||
+				(date[0] == 10 && date[1] == 25) || (date[0] == 11 && date[1] == 3) ||
+				(date[0] == 11 && date[1] == 10) || (date[0] == 11 && date[1] == 20) ||
+				(date[0] == 11 && date[1] == 27) || (date[0] == 12 && date[1] == 7)))
+			{
+				menu = 12;
+			}
+
+			//Both dates failed
+			if (kleinFail == 1 && liedFail == 1 && ((date[0] == 11 && date[1] == 15) || (date[0] == 12 && date[1] == 3) ||
+				(date[0] == 12 && date[1] == 9) || (date[0] == 12 && date[1] == 10)))
+			{
+				menu = 12;
+			}
 		}
-		else if (date[0] == 10 && date[1] == 20)
-		{
-			data = LiedDialogue[1].text.Split(new char[] { '$' });
-			if (liedAff >= 15f)
-			{
-				menu = 15;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-				PlayerPrefs.SetInt("CleanNumber", 0);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 10 && date[1] == 30)
-		{
-			data = LiedDialogue[2].text.Split(new char[] { '$' });
-			if (liedAff >= 20f)
-			{
-				menu = 16;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 11 && date[1] == 8)
-		{
-			data = LiedDialogue[3].text.Split(new char[] { '$' });
-			if (liedAff >= 25f)
-			{
-				menu = 17;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 11 && date[1] == 15)
-		{
-			data = LiedDialogue[4].text.Split(new char[] { '$' });
-			if (liedAff >= 30f)
-			{
-				menu = 18;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 11 && date[1] == 17)
-		{
-			data = LiedDialogue[5].text.Split(new char[] { '$' });
-			if (liedAff >= 35f)
-			{
-				menu = 19;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 11 && date[1] == 25)
-		{
-			data = LiedDialogue[6].text.Split(new char[] { '$' });
-			if (liedAff >= 40f)
-			{
-				menu = 20;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 11 && date[1] == 30)
-		{
-			data = LiedDialogue[7].text.Split(new char[] { '$' });
-			if (liedAff >= 45f)
-			{
-				menu = 21;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 12 && date[1] == 3)
-		{
-			data = LiedDialogue[8].text.Split(new char[] { '$' });
-			if (liedAff >= 50f)
-			{
-				menu = 22;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 12 && date[1] == 6)
-		{
-			data = LiedDialogue[9].text.Split(new char[] { '$' });
-			if (liedAff >= 55f)
-			{
-				menu = 23;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 12 && date[1] == 9)
-		{
-			data = LiedDialogue[10].text.Split(new char[] { '$' });
-			if (liedAff >= 60f)
-			{
-				menu = 24;
-				PlayerPrefs.SetInt("NovelMenu", menu);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("LiedFail", 1);
-			}
-
-		}
-		else if (date[0] == 12 && date[1] == 10)
-		{
-			data = LiedDialogue[11].text.Split(new char[] { '$' });
-			menu = 25;
-			PlayerPrefs.SetInt("NovelMenu", menu);
-		}
-
-
-
-		//Lied failed
-		int liedFail = PlayerPrefs.GetInt("LiedFail");
-		if (liedFail == 1)
-		{
-			menu = 12;
-		}
-
 
 		if (menu == 0 || menu == 6 || menu == 7 || menu == 8 || menu == 11 || menu >= 14)
 		{
@@ -511,6 +623,8 @@ public class LoadDialogue : MonoBehaviour
 
 		}
 
+
+		//Start Lied
 
 		else if (novelMenu == 14 && resetFrom == 10)
 		{
@@ -933,6 +1047,220 @@ public class LoadDialogue : MonoBehaviour
 		}
 
 
+		//Start Klein
+
+		else if (novelMenu == 26 && resetFrom == 58)
+		{
+			resetPos = 59;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 41; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 27 && resetFrom == 62)
+		{
+			resetPos = 63;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 36; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 28 && resetFrom == 66)
+		{
+			resetPos = 67;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 33; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 29 && resetFrom == 72)
+		{
+			resetPos = 73;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 73; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 30 && resetFrom == 76)
+		{
+			resetPos = 77;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 32; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 31 && resetFrom == 28)
+		{
+			resetPos = 82;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 36; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+
+
 
 		///////////////////////////////////////////////PROLOGUE////////////////////////
 
@@ -1116,7 +1444,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 3)
 		{
 			for (int i = logNumber; i < 169; i++)
@@ -1149,7 +1476,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 4)
 		{
 			for (int i = logNumber; i < 169; i++)
@@ -1182,7 +1508,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 5)
 		{
 			for (int i = logNumber; i < 179; i++)
@@ -1215,7 +1540,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 6)
 		{
 			for (int i = logNumber; i < 190; i++)
@@ -1249,7 +1573,6 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-
 		else if (resetFrom == 7)
 		{
 			for (int i = logNumber; i < 211; i++)
@@ -1283,7 +1606,6 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 		}
-
 		else if (resetFrom == 8)
 		{
 			for (int i = logNumber; i < 263; i++)
@@ -1316,7 +1638,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 9)
 		{
 			for (int i = logNumber; i < 263; i++)
@@ -1387,7 +1708,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 12)
 		{
 			for (int i = logNumber; i < 43; i++)
@@ -1420,7 +1740,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 13)
 		{
 			for (int i = logNumber; i < 17; i++)
@@ -1517,7 +1836,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 17)
 		{
 			for (int i = logNumber; i < 41; i++)
@@ -1614,7 +1932,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 21)
 		{
 			for (int i = logNumber; i < 100; i++)
@@ -1711,7 +2028,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 25)
 		{
 			for (int i = logNumber; i < 92; i++)
@@ -1808,7 +2124,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 29)
 		{
 			for (int i = logNumber; i < 103; i++)
@@ -2033,7 +2348,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-
 		else if (resetFrom == 39)
 		{
 			for (int i = logNumber; i < 65; i++)
@@ -2515,6 +2829,713 @@ public class LoadDialogue : MonoBehaviour
 			}
 		}
 
+		////////////////////////////////////////////Klein /////////////////////////////////////////////////////
+
+		else if (resetFrom == 59)
+		{
+			for (int i = logNumber; i < 41; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 60)
+		{
+			for (int i = logNumber; i < 75; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 61)
+		{
+			for (int i = logNumber; i < 75; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 63)
+		{
+			for (int i = logNumber; i < 36; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != ""))
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 64)
+		{
+			for (int i = logNumber; i < 107; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 65)
+		{
+			for (int i = logNumber; i < 107; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 67)
+		{
+			for (int i = logNumber; i < 33; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != ""))
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 68)
+		{
+			for (int i = logNumber; i < 123; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 69)
+		{
+			for (int i = logNumber; i < 123; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 70)
+		{
+			for (int i = logNumber; i < 137; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 71)
+		{
+			for (int i = logNumber; i < 137; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 73)
+		{
+			for (int i = logNumber; i < 73; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != ""))
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 74)
+		{
+			for (int i = logNumber; i < 123; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 75)
+		{
+			for (int i = logNumber; i < 123; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 77)
+		{
+			for (int i = logNumber; i < 32; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != ""))
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 78)
+		{
+			for (int i = logNumber; i < 69; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 79)
+		{
+			for (int i = logNumber; i < 69; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 80)
+		{
+			for (int i = logNumber; i < 148; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 81)
+		{
+			for (int i = logNumber; i < 148; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 82)
+		{
+			for (int i = logNumber; i < 36; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != ""))
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 83)
+		{
+			for (int i = logNumber; i < 124; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (resetFrom == 84)
+		{
+			for (int i = logNumber; i < 124; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+
 
 		else if (novelMenu == 0 && resetFrom == 0)
 		{
@@ -2572,7 +3593,6 @@ public class LoadDialogue : MonoBehaviour
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
-
 		if (finishTemp2 == true)
 		{
 			TwoChoices.SetActive(true);
@@ -2603,7 +3623,6 @@ public class LoadDialogue : MonoBehaviour
 			SecondTwo.text = Filtered6;
 
 		}
-
 		if (finishTemp4 == true)
 		{
 			TwoChoices.SetActive(true);
@@ -2773,7 +3792,110 @@ public class LoadDialogue : MonoBehaviour
 			string Filtered6 = tempRow2[9].Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
+		if (finishTemp17 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[40].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/KleinLove_low", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
 
+			string[] tempRow2 = data[40].Split(new char[] { ',' });
+			string Filtered5 = tempRow2[9].Replace("/KleinLove_high", "");
+			string Filtered6 = Filtered5.Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp18 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[36].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/KleinLove_high", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[36].Split(new char[] { ',' });
+			string Filtered5 = tempRow2[9].Replace("/KleinLove_low", "");
+			string Filtered6 = Filtered5.Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp19 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[33].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/KleinLove_high", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[33].Split(new char[] { ',' });
+			string Filtered5 = tempRow2[9].Replace("/Klein_gameover", "");
+			string Filtered6 = Filtered5.Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp20 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[123].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/KleinLove_low", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[123].Split(new char[] { ',' });
+			string Filtered5 = tempRow2[9].Replace("/KleinLove_high", "");
+			string Filtered6 = Filtered5.Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp21 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[73].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/KleinLove_low", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[73].Split(new char[] { ',' });
+			string Filtered5 = tempRow2[9].Replace("/KleinLove_high", "");
+			string Filtered6 = Filtered5.Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp22 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[32].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/KleinLove_low", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[32].Split(new char[] { ',' });
+			string Filtered5 = tempRow2[9].Replace("/KleinLove_high", "");
+			string Filtered6 = Filtered5.Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp23 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[69].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/KleinLove_low", "");
+			string Filtered3 = Filtered2.Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[69].Split(new char[] { ',' });
+			string Filtered5 = tempRow2[9].Replace("/KleinLove_low", "");
+			string Filtered6 = Filtered5.Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
+		if (finishTemp24 == true)
+		{
+			TwoChoices.SetActive(true);
+			string[] tempRow = data[36].Split(new char[] { ',' });
+			string Filtered2 = tempRow[8].Replace("/KleinLove_low", "");
+			string Filtered3 = tempRow[8].Replace("\"", "");
+			FirstTwo.text = Filtered3;
+
+			string[] tempRow2 = data[36].Split(new char[] { ',' });
+			string Filtered5 = tempRow2[9].Replace("/KleinLove_low", "");
+			string Filtered6 = tempRow2[9].Replace("\"", "");
+			SecondTwo.text = Filtered6;
+		}
 
 	}
 
@@ -2792,6 +3914,11 @@ public class LoadDialogue : MonoBehaviour
 			whichLineNow++;
 
 			logLabel.text = logLabel.text + d.character + "\n" + d.dialogue + "\n\n";
+
+			//MouthAnimStop
+			StopCoroutine("MouthAnim");
+			StopCoroutine("MouthAnim1");
+			StopCoroutine("MouthAnim2");
 
 			//background
 
@@ -3131,7 +4258,6 @@ public class LoadDialogue : MonoBehaviour
 			else if (d.expression.Contains("L-01"))
 			{
 				StopCoroutine("EyeAnim");
-				StopCoroutine("MouthAnim");
 				int[] eyeList = { 0, 1, 2 };
 				StartCoroutine("EyeAnim", eyeList);
 
@@ -3550,7 +4676,6 @@ public class LoadDialogue : MonoBehaviour
 			else if (d.showtwoone.Contains("L-01"))
 			{
 				StopCoroutine("EyeAnim1");
-				StopCoroutine("MouthAnim");
 				EyeNow1.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 0, 1, 2 };
 				StartCoroutine("EyeAnim1", eyeList);
@@ -3970,7 +5095,6 @@ public class LoadDialogue : MonoBehaviour
 			else if (d.showtwotwo.Contains("L-01"))
 			{
 				StopCoroutine("EyeAnim2");
-				StopCoroutine("MouthAnim");
 				EyeNow2.color = new Color(255, 255, 255, 255);
 				int[] eyeList = { 0, 1, 2 };
 				StartCoroutine("EyeAnim2", eyeList);
@@ -4625,6 +5749,9 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 			//Voice
+
+			mouthStop = true;
+
 			if (autoScroll.dialogueIsSkipped == false)
 			{
 				if (d.voice != "")
@@ -4637,11 +5764,403 @@ public class LoadDialogue : MonoBehaviour
 						{
 							Voice.clip = VoiceFile_2[i];
 							Voice.Play();
+
 							break;
 						}
 					}
-				}
 
+					mouthStop = false;
+
+					//MouthAnim
+					if (d.expression.Contains("L-01"))
+					{
+						StartCoroutine(MouthAnim(0, 1, 2, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-02"))
+					{
+						StartCoroutine(MouthAnim(3, 4, 5, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-03"))
+					{
+						StartCoroutine(MouthAnim(6, 7, 8, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-04"))
+					{
+						StartCoroutine(MouthAnim(9, 10, 11, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-05"))
+					{
+						StartCoroutine(MouthAnim(12, 13, 14, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-06"))
+					{
+						StartCoroutine(MouthAnim(15, 16, 17, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-07"))
+					{
+						StartCoroutine(MouthAnim(18, 19, 20, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-08"))
+					{
+						StartCoroutine(MouthAnim(21, 22, 23, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-09"))
+					{
+						StartCoroutine(MouthAnim(24, 25, 26, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-10"))
+					{
+						StartCoroutine(MouthAnim(27, 28, 29, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-01"))
+					{
+						StartCoroutine(MouthAnim(31, 32, 33, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-02"))
+					{
+						StartCoroutine(MouthAnim(34, 35, 36, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-03"))
+					{
+						StartCoroutine(MouthAnim(37, 38, 39, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-04"))
+					{
+						StartCoroutine(MouthAnim(40, 41, 42, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-05"))
+					{
+						StartCoroutine(MouthAnim(43, 44, 45, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-06"))
+					{
+						StartCoroutine(MouthAnim(46, 47, 48, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-07"))
+					{
+						StartCoroutine(MouthAnim(49, 50, 51, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-08"))
+					{
+						StartCoroutine(MouthAnim(52, 53, 54, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-09"))
+					{
+						StartCoroutine(MouthAnim(55, 56, 57, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-10"))
+					{
+						StartCoroutine(MouthAnim(58, 59, 60, Voice.clip.length));
+					}
+					else if (d.expression.Contains("K-11"))
+					{
+						StartCoroutine(MouthAnim(60, 62, 63, Voice.clip.length));
+					}
+					else if (d.expression.Contains("G-01"))
+					{
+						StartCoroutine(MouthAnim(64, 65, 66, Voice.clip.length));
+					}
+					else if (d.expression.Contains("G-02"))
+					{
+						StartCoroutine(MouthAnim(67, 68, 69, Voice.clip.length));
+					}
+					else if (d.expression.Contains("G-03"))
+					{
+						StartCoroutine(MouthAnim(70, 71, 72, Voice.clip.length));
+					}
+					else if (d.expression.Contains("G-04"))
+					{
+						StartCoroutine(MouthAnim(73, 74, 75, Voice.clip.length));
+					}
+					else if (d.expression.Contains("G-05"))
+					{
+						StartCoroutine(MouthAnim(76, 77, 78, Voice.clip.length));
+					}
+					else if (d.expression.Contains("G-06"))
+					{
+						StartCoroutine(MouthAnim(79, 80, 81, Voice.clip.length));
+					}
+					else if (d.expression.Contains("G-07"))
+					{
+						StartCoroutine(MouthAnim(82, 83, 84, Voice.clip.length));
+					}
+					else if (d.expression.Contains("T-01"))
+					{
+						StartCoroutine(MouthAnim(85, 86, 87, Voice.clip.length));
+					}
+					else if (d.expression.Contains("T-02"))
+					{
+						StartCoroutine(MouthAnim(88, 89, 90, Voice.clip.length));
+					}
+					else if (d.expression.Contains("T-03"))
+					{
+						StartCoroutine(MouthAnim(91, 92, 93, Voice.clip.length));
+					}
+					else if (d.expression.Contains("T-04"))
+					{
+						StartCoroutine(MouthAnim(94, 95, 96, Voice.clip.length));
+					}
+
+
+					if (d.showtwoone.Contains("L-01"))
+					{
+						StartCoroutine(MouthAnim1(0, 1, 2, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("L-02"))
+					{
+						StartCoroutine(MouthAnim1(3, 4, 5, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("L-03"))
+					{
+						StartCoroutine(MouthAnim1(6, 7, 8, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("L-04"))
+					{
+						StartCoroutine(MouthAnim1(9, 10, 11, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("L-05"))
+					{
+						StartCoroutine(MouthAnim1(12, 13, 14, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("L-06"))
+					{
+						StartCoroutine(MouthAnim1(15, 16, 17, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("L-07"))
+					{
+						StartCoroutine(MouthAnim1(18, 19, 20, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("L-08"))
+					{
+						StartCoroutine(MouthAnim1(21, 22, 23, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("L-09"))
+					{
+						StartCoroutine(MouthAnim1(24, 25, 26, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("L-10"))
+					{
+						StartCoroutine(MouthAnim1(27, 28, 29, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-01"))
+					{
+						StartCoroutine(MouthAnim1(31, 32, 33, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-02"))
+					{
+						StartCoroutine(MouthAnim1(34, 35, 36, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-03"))
+					{
+						StartCoroutine(MouthAnim1(37, 38, 39, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-04"))
+					{
+						StartCoroutine(MouthAnim1(40, 41, 42, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-05"))
+					{
+						StartCoroutine(MouthAnim1(43, 44, 45, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-06"))
+					{
+						StartCoroutine(MouthAnim1(46, 47, 48, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-07"))
+					{
+						StartCoroutine(MouthAnim1(49, 50, 51, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-08"))
+					{
+						StartCoroutine(MouthAnim1(52, 53, 54, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-09"))
+					{
+						StartCoroutine(MouthAnim1(55, 56, 57, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-10"))
+					{
+						StartCoroutine(MouthAnim1(58, 59, 60, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("K-11"))
+					{
+						StartCoroutine(MouthAnim1(60, 62, 63, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("G-01"))
+					{
+						StartCoroutine(MouthAnim1(64, 65, 66, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("G-02"))
+					{
+						StartCoroutine(MouthAnim1(67, 68, 69, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("G-03"))
+					{
+						StartCoroutine(MouthAnim1(70, 71, 72, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("G-04"))
+					{
+						StartCoroutine(MouthAnim1(73, 74, 75, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("G-05"))
+					{
+						StartCoroutine(MouthAnim1(76, 77, 78, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("G-06"))
+					{
+						StartCoroutine(MouthAnim1(79, 80, 81, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("G-07"))
+					{
+						StartCoroutine(MouthAnim1(82, 83, 84, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("T-01"))
+					{
+						StartCoroutine(MouthAnim1(85, 86, 87, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("T-02"))
+					{
+						StartCoroutine(MouthAnim1(88, 89, 90, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("T-03"))
+					{
+						StartCoroutine(MouthAnim1(91, 92, 93, Voice.clip.length));
+					}
+					else if (d.showtwoone.Contains("T-04"))
+					{
+						StartCoroutine(MouthAnim1(94, 95, 96, Voice.clip.length));
+					}
+
+
+					if (d.showtwotwo.Contains("L-01"))
+					{
+						StartCoroutine(MouthAnim2(0, 1, 2, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("L-02"))
+					{
+						StartCoroutine(MouthAnim2(3, 4, 5, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("L-03"))
+					{
+						StartCoroutine(MouthAnim2(6, 7, 8, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("L-04"))
+					{
+						StartCoroutine(MouthAnim2(9, 10, 11, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("L-05"))
+					{
+						StartCoroutine(MouthAnim2(12, 13, 14, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("L-06"))
+					{
+						StartCoroutine(MouthAnim2(15, 16, 17, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("L-07"))
+					{
+						StartCoroutine(MouthAnim2(18, 19, 20, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("L-08"))
+					{
+						StartCoroutine(MouthAnim2(21, 22, 23, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("L-09"))
+					{
+						StartCoroutine(MouthAnim2(24, 25, 26, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("L-10"))
+					{
+						StartCoroutine(MouthAnim2(27, 28, 29, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-01"))
+					{
+						StartCoroutine(MouthAnim2(31, 32, 33, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-02"))
+					{
+						StartCoroutine(MouthAnim2(34, 35, 36, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-03"))
+					{
+						StartCoroutine(MouthAnim2(37, 38, 39, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-04"))
+					{
+						StartCoroutine(MouthAnim2(40, 41, 42, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-05"))
+					{
+						StartCoroutine(MouthAnim2(43, 44, 45, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-06"))
+					{
+						StartCoroutine(MouthAnim2(46, 47, 48, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-07"))
+					{
+						StartCoroutine(MouthAnim2(49, 50, 51, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-08"))
+					{
+						StartCoroutine(MouthAnim2(52, 53, 54, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-09"))
+					{
+						StartCoroutine(MouthAnim2(55, 56, 57, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-10"))
+					{
+						StartCoroutine(MouthAnim2(58, 59, 60, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("K-11"))
+					{
+						StartCoroutine(MouthAnim2(60, 62, 63, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("G-01"))
+					{
+						StartCoroutine(MouthAnim2(64, 65, 66, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("G-02"))
+					{
+						StartCoroutine(MouthAnim2(67, 68, 69, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("G-03"))
+					{
+						StartCoroutine(MouthAnim2(70, 71, 72, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("G-04"))
+					{
+						StartCoroutine(MouthAnim2(73, 74, 75, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("G-05"))
+					{
+						StartCoroutine(MouthAnim2(76, 77, 78, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("G-06"))
+					{
+						StartCoroutine(MouthAnim2(79, 80, 81, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("G-07"))
+					{
+						StartCoroutine(MouthAnim2(82, 83, 84, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("T-01"))
+					{
+						StartCoroutine(MouthAnim2(85, 86, 87, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("T-02"))
+					{
+						StartCoroutine(MouthAnim2(88, 89, 90, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("T-03"))
+					{
+						StartCoroutine(MouthAnim2(91, 92, 93, Voice.clip.length));
+					}
+					else if (d.showtwotwo.Contains("T-04"))
+					{
+						StartCoroutine(MouthAnim2(94, 95, 96, Voice.clip.length));
+					}
+				}
 				else
 				{
 					Voice.Stop();
@@ -4651,7 +6170,6 @@ public class LoadDialogue : MonoBehaviour
 			{
 				Voice.Stop();
 			}
-
 
 			//BGM
 			if (d.BGM.Contains("BGM-001"))
@@ -5319,6 +6837,46 @@ public class LoadDialogue : MonoBehaviour
 			if (d.id == 1419)
 			{
 				whichLineNow = 23;
+			}
+			if (d.id == 2031)
+			{
+				whichLineNow = 43;
+			}
+			if (d.id == 2035)
+			{
+				whichLineNow = 47;
+			}
+			if (d.id == 2103)
+			{
+				whichLineNow = 42;
+			}
+			if (d.id == 2109)
+			{
+				whichLineNow = 49;
+			}
+			if (d.id == 2221)
+			{
+				whichLineNow = 61;
+			}
+			if (d.id == 2224)
+			{
+				whichLineNow = 64;
+			}
+			if (d.id == 2286)
+			{
+				whichLineNow = 127;
+			}
+			if (d.id == 2291)
+			{
+				whichLineNow = 132;
+			}
+			if (d.id == 2373)
+			{
+				whichLineNow = 79;
+			}
+			if (d.id == 2378)
+			{
+				whichLineNow = 84;
 			}
 
 
@@ -6253,6 +7811,409 @@ public class LoadDialogue : MonoBehaviour
 
 
 
+			///////////////////////////////////////////////////////////////////////////////K L E I N 1 /////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 10 && date[1] == 16 && KleinFail == 0)
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				if (d.id == 2028)
+				{
+					finishTemp17 = true;
+				}
+
+
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.Play("Sliding", -1, 0);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				if (d.id == 2062)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameMenu.SetActive(true);
+				}
+			}
+
+			///////////////////////////////////////////////////////////////////////////////K L E I N 2 /////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 10 && date[1] == 18 && KleinFail == 0)
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				if (d.id == 2097)
+				{
+					finishTemp18 = true;
+				}
+
+
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.Play("Sliding", -1, 0);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				if (d.id == 2166)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameMenu.SetActive(true);
+				}
+			}
+
+			///////////////////////////////////////////////////////////////////////////////K L E I N 3 /////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 10 && date[1] == 25 && KleinFail == 0)
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				if (d.id == 2193)
+				{
+					finishTemp19 = true;
+				}
+				if (d.id == 2282)
+				{
+					finishTemp20 = true;
+				}
+
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.Play("Sliding", -1, 0);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				if (d.id == 2295)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameMenu.SetActive(true);
+				}
+			}
+
+			///////////////////////////////////////////////////////////////////////////////K L E I N 4 /////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 11 && date[1] == 3 && KleinFail == 0)
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				if (d.id == 2367)
+				{
+					finishTemp21 = true;
+				}
+
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.Play("Sliding", -1, 0);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				if (d.id == 2416)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameMenu.SetActive(true);
+				}
+			}
+
+			///////////////////////////////////////////////////////////////////////////////K L E I N 5 /////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 11 && date[1] == 15 && KleinFail == 0)
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				if (d.id == 2447)
+				{
+					finishTemp22 = true;
+				}
+				if (d.id == 2483)
+				{
+					finishTemp23 = true;
+				}
+
+
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.Play("Sliding", -1, 0);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				if (d.id == 2561)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameMenu.SetActive(true);
+				}
+			}
+
+			///////////////////////////////////////////////////////////////////////////////K L E I N 6 /////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 11 && date[1] == 15 && KleinFail == 0)
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(d.dialogue, textLabel);
+				}
+				if (d.id == 2596)
+				{
+					finishTemp24 = true;
+				}
+
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.Play("Sliding", -1, 0);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				if (d.id == 2683)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					PlayerPrefs.SetInt("NovelMenu", 10);
+					GameMenu.SetActive(true);
+				}
+			}
+
+
+
 			/////////////////////////////////////////////////////////S H O P/////////////////////////////
 			else
 			{
@@ -6905,6 +8866,322 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
+		if (finishTemp17 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 2;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 60;
+			finishTemp17 = false;
+			whichLineNow = 41;
+
+			for (int i = 41; i < 75; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp18 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 5;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 64;
+			finishTemp18 = false;
+			whichLineNow = 37;
+
+			for (int i = 37; i < 107; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp19 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 5;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 68;
+			finishTemp19 = false;
+			whichLineNow = 34;
+
+			for (int i = 34; i < 123; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp20 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 2;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 70;
+			finishTemp20 = false;
+			whichLineNow = 124;
+
+			for (int i = 124; i < 137; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp21 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 2;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 74;
+			finishTemp21 = false;
+			whichLineNow = 74;
+
+			for (int i = 74; i < 123; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp22 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 2;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 78;
+			finishTemp22 = false;
+			whichLineNow = 74;
+
+			for (int i = 33; i < 69; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp23 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 2;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 80;
+			finishTemp23 = false;
+			whichLineNow = 70;
+
+			for (int i = 70; i < 148; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp24 == true)
+		{
+			resetPos = 83;
+			finishTemp24 = false;
+			whichLineNow = 37;
+
+			for (int i = 37; i < 124; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Bonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
 
 
 		ShowDialogue();
@@ -7456,6 +9733,318 @@ public class LoadDialogue : MonoBehaviour
 			whichLineNow = 385;
 
 			for (int i = 385; i < 514; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp17 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 5;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 61;
+			finishTemp17 = false;
+			whichLineNow = 41;
+
+			for (int i = 41; i < 75; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp18 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 2;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 65;
+			finishTemp18 = false;
+			whichLineNow = 37;
+
+			for (int i = 37; i < 107; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp19 == true)
+		{
+			resetPos = 69;
+			finishTemp19 = false;
+			whichLineNow = 34;
+
+			for (int i = 34; i < 123; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp20 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 5;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 71;
+			finishTemp20 = false;
+			whichLineNow = 124;
+
+			for (int i = 124; i < 137; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp21 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 5;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 75;
+			finishTemp21 = false;
+			whichLineNow = 74;
+
+			for (int i = 74; i < 123; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp22 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 5;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 79;
+			finishTemp22 = false;
+			whichLineNow = 74;
+
+			for (int i = 33; i < 69; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp23 == true)
+		{
+			float affection = PlayerPrefs.GetFloat("KleinHeart");
+			affection += 2;
+			PlayerPrefs.SetFloat("KleinHeart", affection);
+
+			resetPos = 81;
+			finishTemp23 = false;
+			whichLineNow = 70;
+
+			for (int i = 70; i < 148; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != "") && row[10] != "Aonly")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		if (finishTemp24 == true)
+		{
+			resetPos = 83;
+			finishTemp24 = false;
+			whichLineNow = 37;
+
+			for (int i = 37; i < 124; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -8316,28 +10905,6 @@ public class LoadDialogue : MonoBehaviour
 	}
 
 
-	//public IEnumerator MouthAnim(int[] mouth)
-	//{
-	//    float timeToClose = 0;
-
-	//    if (timeToClose == voiceTime)
-	//    {
-	//        MouthNow.sprite = CharaMouth[mouth[2]];
-	//        yield break;
-	//    }
-	//    else
-	//    {
-	//        while (true)
-	//        {
-	//            MouthNow.sprite = CharaMouth[mouth[0]];
-	//            yield return new WaitForSeconds(0.1f);
-	//            MouthNow.sprite = CharaMouth[mouth[1]];
-	//            yield return new WaitForSeconds(0.1f);
-	//        }
-	//    }
-	//    //yield return new WaitForSeconds(voiceTime);
-	//}
-
 	public IEnumerator BGTextAnim(string[] x)
 	{
 		if (x[1] == "暗転" || x[1] == "")
@@ -8358,6 +10925,118 @@ public class LoadDialogue : MonoBehaviour
 			TextBGHide.SetBool("TextIsHidden", true);
 		}
 	}
+
+
+
+	public IEnumerator MouthAnim(int mouth1, int mouth2, int mouth3, float voiceTime)
+	{
+		Debug.Log(Voice.clip.length);
+
+		float timeToClose = 0;
+		int i = 0;
+
+		while (timeToClose <= voiceTime && mouthStop == false)
+		{
+			timeToClose += Time.deltaTime;
+
+			if (timeToClose > 0.6 * i)
+			{
+				StopCoroutine("Mouth1");
+				StartCoroutine(Mouth1(mouth1, mouth2, mouth3));
+				i++;
+			}
+
+			Debug.Log(timeToClose);
+			yield return null;
+		}
+		yield break;
+	}
+
+	public IEnumerator MouthAnim1(int mouth1, int mouth2, int mouth3, float voiceTime)
+	{
+		Debug.Log(Voice.clip.length);
+
+		float timeToClose = 0;
+		int i = 0;
+
+		while (timeToClose <= voiceTime && mouthStop == false)
+		{
+			timeToClose += Time.deltaTime;
+
+			if (timeToClose > 0.6 * i)
+			{
+				StopCoroutine("Mouth2");
+				StartCoroutine(Mouth2(mouth1, mouth2, mouth3));
+				i++;
+			}
+
+			Debug.Log(timeToClose);
+			yield return null;
+		}
+		yield break;
+	}
+
+	public IEnumerator MouthAnim2(int mouth1, int mouth2, int mouth3, float voiceTime)
+	{
+		Debug.Log(Voice.clip.length);
+
+		float timeToClose = 0;
+		int i = 0;
+
+		while (timeToClose <= voiceTime && mouthStop == false)
+		{
+			timeToClose += Time.deltaTime;
+
+			if (timeToClose > 0.6 * i)
+			{
+				StopCoroutine("Mouth3");
+				StartCoroutine(Mouth3(mouth1, mouth2, mouth3));
+				i++;
+			}
+
+			Debug.Log(timeToClose);
+			yield return null;
+		}
+		yield break;
+	}
+
+	public IEnumerator Mouth1(int mouth1, int mouth2, int mouth3)
+	{
+		MouthNow.sprite = CharaMouth[mouth2];
+		yield return new WaitForSeconds(0.1f);
+		MouthNow.sprite = CharaMouth[mouth1];
+		yield return new WaitForSeconds(0.1f);
+		MouthNow.sprite = CharaMouth[mouth2];
+		yield return new WaitForSeconds(0.1f);
+		MouthNow.sprite = CharaMouth[mouth3];
+		yield return new WaitForSeconds(0.1f);
+	}
+
+	public IEnumerator Mouth2(int mouth1, int mouth2, int mouth3)
+	{
+		MouthNow1.sprite = CharaMouth[mouth2];
+		yield return new WaitForSeconds(0.1f);
+		MouthNow1.sprite = CharaMouth[mouth1];
+		yield return new WaitForSeconds(0.1f);
+		MouthNow1.sprite = CharaMouth[mouth2];
+		yield return new WaitForSeconds(0.1f);
+		MouthNow1.sprite = CharaMouth[mouth3];
+		yield return new WaitForSeconds(0.1f);
+	}
+
+	public IEnumerator Mouth3(int mouth1, int mouth2, int mouth3)
+	{
+		MouthNow2.sprite = CharaMouth[mouth2];
+		yield return new WaitForSeconds(0.1f);
+		MouthNow2.sprite = CharaMouth[mouth1];
+		yield return new WaitForSeconds(0.1f);
+		MouthNow2.sprite = CharaMouth[mouth2];
+		yield return new WaitForSeconds(0.1f);
+		MouthNow2.sprite = CharaMouth[mouth3];
+		yield return new WaitForSeconds(0.1f);
+	}
+
+
 
 	public IEnumerator FadeAudio(float current, float start, float end, float duration)
 	{

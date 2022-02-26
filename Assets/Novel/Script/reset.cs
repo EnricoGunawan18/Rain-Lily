@@ -29,8 +29,8 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("MiniGame", 0);
         PlayerPrefs.SetInt("ResetPos", 0);
         //PlayerPrefs.SetInt("ResetPos", 26);
-        //PlayerPrefs.SetInt("NovelMenu", 13);
-        PlayerPrefs.SetInt("NovelMenu", 0);
+        PlayerPrefs.SetInt("NovelMenu", 13);
+        //PlayerPrefs.SetInt("NovelMenu", 0);
 
         PlayerPrefs.SetInt("NovelMenu1", 0);
         PlayerPrefs.SetInt("NovelMenu2", 0);
@@ -43,8 +43,8 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("NovelMenu9", 0);
         PlayerPrefs.SetInt("NovelMenu10", 0);
        
-        int[] startDate = { 10,7 };
-        //int[] startDate = { 11, 2 };
+        //int[] startDate = { 10,7 };
+        int[] startDate = { 10, 14 };
 
         PlayerPrefsX.SetIntArray("Date", startDate);
 
@@ -77,7 +77,7 @@ public class reset : MonoBehaviour
 
         PlayerPrefs.SetInt("Money", 0);
         PlayerPrefs.SetFloat("LiedHeart", 0);
-        PlayerPrefs.SetFloat("KleinHeart", 0);
+        PlayerPrefs.SetFloat("KleinHeart", 100);
 
         PlayerPrefs.SetInt("Money1", 0);
         PlayerPrefs.SetFloat("LiedHeart1", 0);
