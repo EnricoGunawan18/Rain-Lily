@@ -36,7 +36,10 @@ public class ResultCook : MonoBehaviour
     [SerializeField]
     private GameObject finish;
     int gameMoneyGet;
-    float LiedPlus;
+    float liedPlus;
+    float kleinPlus;
+    int affPlusLied;
+    int affPlusKlein;
 
     private ScoreHome home = new ScoreHome();
     private PazzleCookMAnager game = new PazzleCookMAnager();
@@ -90,35 +93,70 @@ public class ResultCook : MonoBehaviour
             {
                 Star_create(0);
                 gold.text = "金貨100獲得しました";
-                LiedPlus = 3;
+                if (affPlusLied == 2)
+                {
+                    liedPlus = 3;
+                }
+                if (affPlusKlein == 2)
+                {
+                    kleinPlus = 3;
+                }
                 gameMoneyGet += 100;
             }
             else if (home.GetCookScore < baseScore + upScore)
             {
                 Star_create(1);
                 gold.text = "金貨300獲得しました";
-                LiedPlus = 4;
+                if (affPlusLied == 2)
+                {
+                    liedPlus = 4;
+                }
+                if (affPlusKlein == 2)
+                {
+                    kleinPlus = 4;
+                }
                 gameMoneyGet += 300;
             }
             else if (home.GetCookScore < baseScore + upScore * 2)
             {
                 Star_create(2);
                 gold.text = "金貨500獲得しました";
-                LiedPlus = 5;
+                if (affPlusLied == 2)
+                {
+                    liedPlus = 5;
+                }
+                if (affPlusKlein == 2)
+                {
+                    kleinPlus = 5;
+                }
                 gameMoneyGet += 500;
             }
             else if (home.GetCookScore < baseScore + upScore * 3)
             {
                 Star_create(3);
                 gold.text = "金貨700獲得しました";
-                LiedPlus = 6;
+                if (affPlusLied == 2)
+                {
+                    liedPlus = 6;
+                }
+                if (affPlusKlein == 2)
+                {
+                    kleinPlus = 6;
+                }
                 gameMoneyGet += 700;
             }
             else
             {
                 Star_create(4);
                 gold.text = "金貨1000獲得しました";
-                LiedPlus = 7;
+                if (affPlusLied == 2)
+                {
+                    liedPlus = 7;
+                }
+                if (affPlusKlein == 2)
+                {
+                    kleinPlus = 7;
+                }
                 gameMoneyGet += 1000;
             }
             text.text = "" + home.GetCookScore;
@@ -165,8 +203,12 @@ public class ResultCook : MonoBehaviour
 
             /////////////////////////////////////gameshow
             float liedHeart = PlayerPrefs.GetFloat("LiedHeart");
-            liedHeart += LiedPlus;
+            liedHeart += liedPlus;
             PlayerPrefs.SetFloat("LiedHeart", liedHeart);
+            float kleinHeart = PlayerPrefs.GetFloat("KleinHeart");
+            kleinHeart += kleinPlus;
+            PlayerPrefs.SetFloat("KleinHeart", kleinHeart);
+
             /////////////////////////////////////
 
             PlayerPrefs.SetString("BackgroundClip", "");

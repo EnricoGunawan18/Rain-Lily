@@ -46,6 +46,7 @@ public class FinishScript : MonoBehaviour
 	int gameMoneyGet;
 
 	float liedHeart;
+	float kleinHeart;
 
 	void Start()
 	{
@@ -53,6 +54,7 @@ public class FinishScript : MonoBehaviour
 
 		gameMoneyGet = PlayerPrefs.GetInt("Money");
 		liedHeart = PlayerPrefs.GetFloat("LiedHeart");
+		kleinHeart = PlayerPrefs.GetFloat("KleinHeart");
 
 		timeReadyStart = Time.time;
 
@@ -66,6 +68,8 @@ public class FinishScript : MonoBehaviour
 	void Update()
 	{
 		int miniGame = PlayerPrefs.GetInt("MiniGame");
+		int affUpLied = PlayerPrefs.GetInt("AffUpLied");
+		int affUpKlein = PlayerPrefs.GetInt("AffUpKlein");
 
 		if (finishScreen.GetComponent<FinishScript>().enabled == true && timeStopper == false)
 		{
@@ -113,6 +117,7 @@ public class FinishScript : MonoBehaviour
 			shopTimes += 1;
 			PlayerPrefs.SetInt("ShopNumber", shopTimes);
 			PlayerPrefs.SetFloat("LiedHeart", liedHeart);
+			PlayerPrefs.SetFloat("KleinHeart", kleinHeart);
 			PlayerPrefs.SetInt("Money", gameMoneyGet);
 			PlayerPrefs.SetInt("NovelMenu", 11);
 			PlayerPrefs.SetString("BackgroundClip", "");
@@ -130,7 +135,15 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 1000;
-			liedHeart += 7;
+			if (affUpLied == 3)
+			{
+				liedHeart += 7;
+			}
+			if (affUpKlein == 3)
+			{
+				kleinHeart += 7;
+			}
+
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			Star[2].color = new Color32(255, 255, 255, 255);
@@ -143,7 +156,15 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 700;
-			liedHeart += 6;
+			if (affUpLied == 3)
+			{
+				liedHeart += 6;
+			}
+			if (affUpKlein == 3)
+			{
+				kleinHeart += 8;
+			}
+
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			Star[2].color = new Color32(255, 255, 255, 255);
@@ -155,7 +176,15 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 500;
-			liedHeart += 5;
+			if (affUpLied == 3)
+			{
+				liedHeart += 5;
+			}
+			if (affUpKlein == 3)
+			{
+				kleinHeart += 5;
+			}
+
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			Star[2].color = new Color32(255, 255, 255, 255);
@@ -166,7 +195,15 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 300;
-			liedHeart += 4;
+			if (affUpLied == 3)
+			{
+				liedHeart += 4;
+			}
+			if (affUpKlein == 3)
+			{
+				kleinHeart += 4;
+			}
+
 			Star[0].color = new Color32(255, 255, 255, 255);
 			Star[1].color = new Color32(255, 255, 255, 255);
 			MoneyGet.text = "金貨300獲得しました";
@@ -176,7 +213,15 @@ public class FinishScript : MonoBehaviour
 		{
 			countMoneyStop = true;
 			gameMoneyGet += 100;
-			liedHeart += 3;
+			if (affUpLied == 3)
+			{
+				liedHeart += 3;
+			}
+			if (affUpKlein == 3)
+			{
+				kleinHeart += 3;
+			}
+
 			Star[0].color = new Color32(255, 255, 255, 255);
 			MoneyGet.text = "金貨100獲得しました";
 

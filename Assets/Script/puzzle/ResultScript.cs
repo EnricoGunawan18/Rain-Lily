@@ -37,6 +37,9 @@ public class ResultScript : MonoBehaviour
     private GameObject finish;
     int gameMoneyGet;
     float liedPlus;
+    float kleinPlus;
+    int affPlusLied;
+    int affPlusKlein;
 
     private ScoreHome home = new ScoreHome();
     private PazzleCookMAnager game = new PazzleCookMAnager();
@@ -47,6 +50,8 @@ public class ResultScript : MonoBehaviour
     void Awake()
     {
         gameMoneyGet = PlayerPrefs.GetInt("Money");
+        affPlusLied = PlayerPrefs.GetInt("AffUpLied");
+        affPlusKlein = PlayerPrefs.GetInt("AffUpKlein");
         Time.timeScale = 1f;
         star_gap = 120;
         stop_W = true;
@@ -89,35 +94,71 @@ public class ResultScript : MonoBehaviour
             {
                 Star_create(0);
                 gold.text = "金貨100獲得しました";
-                liedPlus = 3;
+                if (affPlusLied == 1)
+                {
+                    liedPlus = 3;
+                }
+                if (affPlusKlein == 1)
+                {
+                    kleinPlus = 3;
+                }
+
                 gameMoneyGet += 100;
             }
             else if (home.GetPazzleScore < baseScore+upScore)
             {
                 Star_create(1);
                 gold.text = "金貨300獲得しました";
-                liedPlus = 4;
+                if (affPlusLied == 1)
+                {
+                    liedPlus = 4;
+                }
+                if (affPlusKlein == 1)
+                {
+                    kleinPlus = 4;
+                }
                 gameMoneyGet += 300;
             }
             else if (home.GetPazzleScore < baseScore+upScore*2)
             {
                 Star_create(2);
                 gold.text = "金貨500獲得しました";
-                liedPlus = 5;
+                if (affPlusLied == 1)
+                {
+                    liedPlus = 5;
+                }
+                if (affPlusKlein == 1)
+                {
+                    kleinPlus = 5;
+                }
                 gameMoneyGet += 500;
             }
             else if (home.GetPazzleScore < baseScore+upScore*3)
             {
                 Star_create(3);
                 gold.text = "金貨700獲得しました";
-                liedPlus = 6;
+                if (affPlusLied == 1)
+                {
+                    liedPlus = 6;
+                }
+                if (affPlusKlein == 1)
+                {
+                    kleinPlus = 6;
+                }
                 gameMoneyGet += 700;
             }
             else
             {
                 Star_create(4);
                 gold.text = "金貨1000獲得しました";
-                liedPlus = 7;
+                if (affPlusLied == 1)
+                {
+                    liedPlus = 7;
+                }
+                if (affPlusKlein == 1)
+                {
+                    kleinPlus = 7;
+                }
                 gameMoneyGet += 1000;
             }
             text.text = "" + home.GetPazzleScore;
@@ -164,8 +205,11 @@ public class ResultScript : MonoBehaviour
 
             /////////////////////////////////////gameshow
             float liedHeart = PlayerPrefs.GetFloat("LiedHeart");
+            float kleinHeart = PlayerPrefs.GetFloat("KleinHeart");
             liedHeart += liedPlus;
+            kleinHeart += kleinPlus;
             PlayerPrefs.SetFloat("LiedHeart", liedHeart);
+            PlayerPrefs.SetFloat("KleinHeart", kleinHeart);
             /////////////////////////////////////
 
             PlayerPrefs.SetString("BackgroundClip", "");

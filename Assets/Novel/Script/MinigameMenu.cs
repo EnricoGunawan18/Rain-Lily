@@ -18,6 +18,8 @@ public class MinigameMenu : MonoBehaviour
     GameObject MinigameChoose;
     [SerializeField]
     GameObject Menus;
+    [SerializeField]
+    Date dateScript;
 
     DialogueManager dialogueManager;
 
@@ -28,8 +30,6 @@ public class MinigameMenu : MonoBehaviour
     void Start()
     {
         dialogueManager = GameObject.Find("LoadDialogue").GetComponent<DialogueManager>();
-
-        Cook.interactable = false;
 
         Menu.onClick.AddListener(MenuOpen);
         Clean.onClick.AddListener(CleanOpen);
@@ -55,6 +55,15 @@ public class MinigameMenu : MonoBehaviour
         }
         else
         {
+            if (dateScript.lied == 0)
+            {
+                PlayerPrefs.SetInt("AffUpLied", 1);
+            }
+            if (dateScript.klein == 0)
+            {
+                PlayerPrefs.SetInt("AffUpKlein", 1);
+            }
+
             PlayerPrefs.SetInt("MiniGame", 4);
             SceneManager.LoadScene("Scene_pazzle");
         }
@@ -71,6 +80,15 @@ public class MinigameMenu : MonoBehaviour
         }
         else
         {
+            if (dateScript.lied == 1)
+            {
+                PlayerPrefs.SetInt("AffUpLied", 2);
+            }
+            if (dateScript.klein == 1)
+            {
+                PlayerPrefs.SetInt("AffUpKlein", 2);
+            }
+
             PlayerPrefs.SetInt("MiniGame", 5);
             SceneManager.LoadScene("Scene_cook");
         }
@@ -86,6 +104,15 @@ public class MinigameMenu : MonoBehaviour
         }
         else
         {
+            if (dateScript.lied == 2)
+            {
+                PlayerPrefs.SetInt("AffUpLied", 3);
+            }
+            if (dateScript.klein == 2)
+            {
+                PlayerPrefs.SetInt("AffUpKlein", 3);
+            }
+
             PlayerPrefs.SetInt("MiniGame", 6);
             SceneManager.LoadScene("Stage1");
 
