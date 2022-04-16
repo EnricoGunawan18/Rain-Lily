@@ -117,6 +117,8 @@ public class TitleScript : MonoBehaviour
 		ButtonAudioSource.Stop();
 		ButtonAudioSource.Play();
 
+		Time.timeScale = 1;
+
 		ChapterScreen.SetActive(true);
 		TitleScreen.SetActive(false);
 	}
