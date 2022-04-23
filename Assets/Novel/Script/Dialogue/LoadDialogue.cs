@@ -12874,20 +12874,39 @@ public class LoadDialogue : MonoBehaviour
 		}
 	}
 
+	float[] spectrum;
+	float frqLow = 200;
+	float frqHigh = 800;
+	float fMax = 24000;
+
+	float SpectrumVol(float fLow, float fHigh)
+	{
+		fLow = Mathf.Clamp(fLow, 20, fMax);
+		fHigh = Mathf.Clamp(fHigh, fLow, fMax);
+		Voice.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+		int n1 = (int)Mathf.Floor(fLow * 256 / fMax);
+		int n2 = (int)Mathf.Floor(fHigh * 256 / fMax);
+		float sum = 0;
+		for (int i = n1; i <= n2; i++)
+		{
+			sum += spectrum[i];
+		}
+		return sum / (n2 - n1 + 1);
+	}
 
 
 	public IEnumerator MouthAnim(int mouth1, int mouth2, int mouth3, float voiceTime)
 	{
-		Debug.Log(Voice.clip.length);
-
 		float timeToClose = 0;
 		int i = 0;
+		spectrum = new float[256];
 
 		while (timeToClose <= voiceTime && mouthStop == false)
 		{
 			timeToClose += Time.deltaTime;
+			Debug.Log(SpectrumVol(frqLow, frqHigh));
 
-			if (timeToClose > 0.6 * i)
+			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.03f)
 			{
 				StopCoroutine("Mouth1");
 				StartCoroutine(Mouth1(mouth1, mouth2, mouth3));
@@ -12902,16 +12921,16 @@ public class LoadDialogue : MonoBehaviour
 
 	public IEnumerator MouthAnim1(int mouth1, int mouth2, int mouth3, float voiceTime)
 	{
-		Debug.Log(Voice.clip.length);
-
 		float timeToClose = 0;
 		int i = 0;
+		spectrum = new float[256];
 
 		while (timeToClose <= voiceTime && mouthStop == false)
 		{
 			timeToClose += Time.deltaTime;
+			Debug.Log(SpectrumVol(frqLow, frqHigh));
 
-			if (timeToClose > 0.6 * i)
+			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.03f)
 			{
 				StopCoroutine("Mouth2");
 				StartCoroutine(Mouth2(mouth1, mouth2, mouth3));
@@ -12926,18 +12945,19 @@ public class LoadDialogue : MonoBehaviour
 
 	public IEnumerator MouthAnim2(int mouth1, int mouth2, int mouth3, float voiceTime)
 	{
-		Debug.Log(Voice.clip.length);
-
 		float timeToClose = 0;
 		int i = 0;
+		spectrum = new float[256];
 
 		while (timeToClose <= voiceTime && mouthStop == false)
 		{
 			timeToClose += Time.deltaTime;
+			Debug.Log(SpectrumVol(frqLow, frqHigh));
 
-			if (timeToClose > 0.6 * i)
+			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.03f)
 			{
-				StopCoroutine("Mouth3");
+				{
+					StopCoroutine("Mouth3");
 				StartCoroutine(Mouth3(mouth1, mouth2, mouth3));
 				i++;
 			}
