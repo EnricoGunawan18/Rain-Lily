@@ -10,8 +10,6 @@ public class Select_C : MonoBehaviour
     private Button r_bm;         //リートの選択ボタン
     [SerializeField]
     private Button c_bm;        //クラインの選択ボタン
-    //[SerializeField]
-    //private GameObject coverd;
     [SerializeField]
     private Animator reat_anim;
     [SerializeField]
@@ -57,13 +55,11 @@ public class Select_C : MonoBehaviour
 
     private void Change_c()
     {
-        Debug.Log("出現");
+        Debug.Log("クライン 出現");
         reat_anim.SetBool("reat_up", false);
         crin_anim.SetBool("crin_down", false);
-        //coverd.SetActive(true);
         reat_anim.SetBool("reat_down", true);
         crin_anim.SetBool("crin_up", true);
-        //coverd.SetActive(false);
         Check_c = true;
         Check_r = false;
         Check = true;
@@ -71,13 +67,11 @@ public class Select_C : MonoBehaviour
 
     private void Change_r()
     {
-        Debug.Log("出現");
+        Debug.Log("リート　出現");
         reat_anim.SetBool("reat_down", false);
         crin_anim.SetBool("crin_up", false);
-        //coverd.SetActive(true);
         reat_anim.SetBool("reat_up", true);
         crin_anim.SetBool("crin_down", true);
-        //coverd.SetActive(false);
         Check_r = true;
         Check_c = false;
         Check = true;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class still_selected : MonoBehaviour
+public class StillSelected : MonoBehaviour
 {
     [SerializeField]
     private Button still_bn;
@@ -12,7 +12,6 @@ public class still_selected : MonoBehaviour
 
     [SerializeField]
     private Transform CanvasTran;
-
 
     void Start()
     {
@@ -23,5 +22,5 @@ public class still_selected : MonoBehaviour
     private void Pop_still()
 	{
         Instantiate(still, CanvasTran);
-	}
+    }
 }

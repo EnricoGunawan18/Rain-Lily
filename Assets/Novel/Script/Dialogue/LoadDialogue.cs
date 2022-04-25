@@ -12906,7 +12906,7 @@ public class LoadDialogue : MonoBehaviour
 			timeToClose += Time.deltaTime;
 			Debug.Log(SpectrumVol(frqLow, frqHigh));
 
-			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.03f)
+			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.02f)
 			{
 				StopCoroutine("Mouth1");
 				StartCoroutine(Mouth1(mouth1, mouth2, mouth3));
@@ -12930,7 +12930,7 @@ public class LoadDialogue : MonoBehaviour
 			timeToClose += Time.deltaTime;
 			Debug.Log(SpectrumVol(frqLow, frqHigh));
 
-			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.03f)
+			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.02f)
 			{
 				StopCoroutine("Mouth2");
 				StartCoroutine(Mouth2(mouth1, mouth2, mouth3));
@@ -12954,18 +12954,19 @@ public class LoadDialogue : MonoBehaviour
 			timeToClose += Time.deltaTime;
 			Debug.Log(SpectrumVol(frqLow, frqHigh));
 
-			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.03f)
+			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.02f)
 			{
 				{
 					StopCoroutine("Mouth3");
-				StartCoroutine(Mouth3(mouth1, mouth2, mouth3));
-				i++;
-			}
+					StartCoroutine(Mouth3(mouth1, mouth2, mouth3));
+					i++;
+				}
 
-			Debug.Log(timeToClose);
-			yield return null;
+				Debug.Log(timeToClose);
+				yield return null;
+			}
+			yield break;
 		}
-		yield break;
 	}
 
 	public IEnumerator Mouth1(int mouth1, int mouth2, int mouth3)
@@ -12977,7 +12978,7 @@ public class LoadDialogue : MonoBehaviour
 		MouthNow.sprite = CharaMouth[mouth2];
 		yield return new WaitForSeconds(0.1f);
 		MouthNow.sprite = CharaMouth[mouth3];
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.05f);
 	}
 
 	public IEnumerator Mouth2(int mouth1, int mouth2, int mouth3)
@@ -12989,7 +12990,7 @@ public class LoadDialogue : MonoBehaviour
 		MouthNow1.sprite = CharaMouth[mouth2];
 		yield return new WaitForSeconds(0.1f);
 		MouthNow1.sprite = CharaMouth[mouth3];
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.05f);
 	}
 
 	public IEnumerator Mouth3(int mouth1, int mouth2, int mouth3)
@@ -13001,7 +13002,7 @@ public class LoadDialogue : MonoBehaviour
 		MouthNow2.sprite = CharaMouth[mouth2];
 		yield return new WaitForSeconds(0.1f);
 		MouthNow2.sprite = CharaMouth[mouth3];
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.05f);
 	}
 
 

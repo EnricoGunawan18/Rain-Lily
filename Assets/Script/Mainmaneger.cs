@@ -31,6 +31,7 @@ public class Mainmaneger : MonoBehaviour
     }
 
     private void RestartGame() {
-        SceneManager.LoadScene("TitleScreen");
+        Time.timeScale = 1.0f;
+        Destroy(this.gameObject);
     }
 }
