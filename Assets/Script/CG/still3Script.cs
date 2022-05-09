@@ -4,26 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class still1Script : MonoBehaviour
+public class still3Script : MonoBehaviour
 {
-    [SerializeField]
-    Button Play;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Play.onClick.AddListener(PlayButton);
-    }
+	[SerializeField]
+	Button Play;
+	// Start is called before the first frame update
+	void Start()
+	{
+		Play.onClick.AddListener(PlayButton);
+	}
 
-    // Update is called once per frame
-    void PlayButton()
-    {
+	// Update is called once per frame
+	void PlayButton()
+	{
 		PlayerPrefs.SetInt("LogNow", 1);
 
 		PlayerPrefs.SetInt("MiniGame", 0);
-		PlayerPrefs.SetInt("ResetPos", 108);//////////////////change each script pls(Enrico reminder)
-		PlayerPrefs.SetInt("NovelMenu", 24);
+		PlayerPrefs.SetInt("ResetPos", 112);//////////////////change each script pls(Enrico reminder)
+		PlayerPrefs.SetInt("NovelMenu", 25);//////////////////change each script pls(Enrico reminder)
 
-		int[] startDate = { 12, 9 };//////////////////change each script pls(Enrico reminder)
+		int[] startDate = { 12, 10 };//////////////////change each script pls(Enrico reminder)
 		PlayerPrefsX.SetIntArray("Date", startDate);
 
 		PlayerPrefs.SetInt("Money", 0);

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class still1Script : MonoBehaviour
+public class still5Script : MonoBehaviour
 {
     [SerializeField]
     Button Play;
@@ -20,7 +20,7 @@ public class still1Script : MonoBehaviour
 		PlayerPrefs.SetInt("LogNow", 1);
 
 		PlayerPrefs.SetInt("MiniGame", 0);
-		PlayerPrefs.SetInt("ResetPos", 108);//////////////////change each script pls(Enrico reminder)
+		PlayerPrefs.SetInt("ResetPos", 116);//////////////////change each script pls(Enrico reminder)
 		PlayerPrefs.SetInt("NovelMenu", 24);
 
 		int[] startDate = { 12, 9 };//////////////////change each script pls(Enrico reminder)

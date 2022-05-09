@@ -1545,6 +1545,323 @@ public class LoadDialogue : MonoBehaviour
 
 		}
 
+		///////////////////////////////////////////////CG//////////////////////////////
+
+		else if (novelMenu == 24 && resetFrom == 108)
+		{
+			resetPos = 109;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 502; i < 513; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 36 && resetFrom == 110)
+		{
+			resetPos = 111;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 533; i < 541; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 25 && resetFrom == 112)
+		{
+			resetPos = 113;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 25; i < 31; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 37 && resetFrom == 114)
+		{
+			resetPos = 115;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 26; i < 37; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		else if (novelMenu == 24 && resetFrom == 116)
+		{
+			resetPos = 117;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 208; i < 226; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 17 && resetFrom == 118)
+		{
+			resetPos = 119;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 44; i < 67; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 21 && resetFrom == 120)
+		{
+			resetPos = 121;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 129; i < 145; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 28 && resetFrom == 122)
+		{
+			resetPos = 123;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 94; i < 105; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+		else if (novelMenu == 29 && resetFrom == 124)
+		{
+			resetPos = 125;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 50; i < 63; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+
+		}
+
 
 
 		///////////////////////////////////////////////PROLOGUE////////////////////////
@@ -4428,7 +4745,7 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
-		else if (resetFrom == 106)
+		else if (resetFrom == 107)
 		{
 			for (int i = logNumber; i < 37; i++)
 			{
@@ -4984,6 +5301,17 @@ public class LoadDialogue : MonoBehaviour
 				nameLabel.color = new Color(0, 0, 0, 255);
 				Hide.SetBool("Still", true);
 			}
+			else if (d.background.Contains("still-004"))
+			{
+				StillImage.sprite = StillSprite[8];
+				StillImage.color = new Color(255, 255, 255, 255);
+				DialogueBG.sprite = null;
+				DialogueBG.color = new Color(0, 0, 0, 0);
+				StillDialogueBG.SetActive(true);
+				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
+			}
+
 			else if (d.background.Contains("still-005-a"))
 			{
 				StillImage.sprite = StillSprite[5];
@@ -5007,6 +5335,28 @@ public class LoadDialogue : MonoBehaviour
 			else if (d.background.Contains("still-007"))
 			{
 				StillImage.sprite = StillSprite[7];
+				StillImage.color = new Color(255, 255, 255, 255);
+				DialogueBG.sprite = null;
+				DialogueBG.color = new Color(0, 0, 0, 0);
+				StillDialogueBG.SetActive(true);
+				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
+			}
+
+			else if (d.background.Contains("still-008"))
+			{
+				StillImage.sprite = StillSprite[9];
+				StillImage.color = new Color(255, 255, 255, 255);
+				DialogueBG.sprite = null;
+				DialogueBG.color = new Color(0, 0, 0, 0);
+				StillDialogueBG.SetActive(true);
+				nameLabel.color = new Color(0, 0, 0, 255);
+				Hide.SetBool("Still", true);
+			}
+
+			else if (d.background.Contains("still-009"))
+			{
+				StillImage.sprite = StillSprite[10];
 				StillImage.color = new Color(255, 255, 255, 255);
 				DialogueBG.sprite = null;
 				DialogueBG.color = new Color(0, 0, 0, 0);
@@ -8270,6 +8620,17 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 				}
 
+				if (d.id == 589 && resetPos == 119)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("Scene_CG");
+				}
+
+
 				if (d.id == 648)
 				{
 					nameLabel.text = string.Empty;
@@ -8535,6 +8896,17 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 				}
 
+				if (d.id == 1255 && resetPos == 121)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("Scene_CG");
+				}
+
+
 				if (d.id == 1332)
 				{
 					nameLabel.text = string.Empty;
@@ -8748,6 +9120,26 @@ public class LoadDialogue : MonoBehaviour
 					SceneManager.LoadScene("TitleScreen");
 				}
 
+				if (d.id == 1958 && resetPos == 109)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("Scene_CG");
+				}
+
+				if (d.id == 1672 && resetPos == 117)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("Scene_CG");
+				}
+
 
 				if (d.id == 1959)
 				{
@@ -8817,7 +9209,14 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					SceneManager.LoadScene("TitleScreen");
+					if (resetPos == 113)
+					{
+						SceneManager.LoadScene("Scene_CG");
+					}
+					else
+					{
+						SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9012,6 +9411,17 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 				}
 
+				if (d.id == 2264 && resetPos == 123)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("Scene_CG");
+				}
+
+
 				if (d.id == 2295)
 				{
 					nameLabel.text = string.Empty;
@@ -9075,6 +9485,16 @@ public class LoadDialogue : MonoBehaviour
 					textLabel.text = string.Empty;
 					SlideAnim.Play("Sliding", -1, 0);
 					yield return new WaitForSeconds(1.5f);
+				}
+
+				if (d.id == 2357 && resetPos == 125)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("Scene_CG");
 				}
 
 				if (d.id == 2416)
@@ -9548,7 +9968,7 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 				}
 
-				if (d.id == 3356 || d.id == 3468 || d.id == 3827)
+				if (d.id == 3356 || d.id == 3468 || d.id == 3847)
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
@@ -9557,7 +9977,19 @@ public class LoadDialogue : MonoBehaviour
 
 					SceneManager.LoadScene("TitleScreen");
 				}
-				if (d.id == 3847)
+
+				if (d.id == 3761 && resetPos == 111)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("Scene_CG");
+				}
+
+
+				if (d.id == 3827)
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;
@@ -9568,7 +10000,7 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 
-			///////////////////////////////////////////////////////////////////////////////K L E I N 11 /////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////////K L E I N EP /////////////////////////////////////////////////////////////////
 
 			else if (date[0] == 12 && date[1] == 10 && KleinFail == 0)
 			{
@@ -9587,9 +10019,9 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else
 				{
+					Debug.Log("a");
 					yield return dialogueManager.Run(d.dialogue, textLabel);
 				}
-
 
 				if (autoScroll.automated == false)
 				{
@@ -9618,7 +10050,19 @@ public class LoadDialogue : MonoBehaviour
 					yield return new WaitForSeconds(1.5f);
 				}
 
-				if (d.id == 3883)
+
+				if (d.id == 3883 && resetPos == 115)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("Scene_CG");
+				}
+
+
+				else if (d.id == 3883)
 				{
 					nameLabel.text = string.Empty;
 					textLabel.text = string.Empty;

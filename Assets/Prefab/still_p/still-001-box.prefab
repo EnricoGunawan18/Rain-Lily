@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6660040402766895105}
   - component: {fileID: 118720908044675518}
   - component: {fileID: 4780831382204001312}
+  - component: {fileID: 6469622591129270296}
   m_Layer: 5
   m_Name: still-001-box
   m_TagString: Untagged
@@ -77,6 +78,19 @@ MonoBehaviour:
   blindStill: {fileID: 1742713376761708970, guid: 46bf083be4a8f9a4ea8a71ca6f8436e7,
     type: 3}
   CanvasTran: {fileID: 4743020649925891038}
+--- !u!114 &6469622591129270296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271551779621234071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a986eeb6341f39444a95b9d3d6f81e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Play: {fileID: 2381194621113884278}
 --- !u!1 &1835999602218448039
 GameObject:
   m_ObjectHideFlags: 0

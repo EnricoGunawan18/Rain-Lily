@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: 3563541947490863372}
   - component: {fileID: 6806886213939605297}
   - component: {fileID: 729703961371178785}
+  - component: {fileID: 506878239457079355}
   m_Layer: 5
   m_Name: still-009-box
   m_TagString: Untagged
@@ -634,3 +635,16 @@ MonoBehaviour:
   blindStill: {fileID: 1366713685175144012, guid: 8d59e6248b964a742b719c2df9204c2b,
     type: 3}
   CanvasTran: {fileID: 1131581954945486360}
+--- !u!114 &506878239457079355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059287659837955199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b22607d532a6b438b6af6f1d5cc73c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Play: {fileID: 3022144946029952511}
