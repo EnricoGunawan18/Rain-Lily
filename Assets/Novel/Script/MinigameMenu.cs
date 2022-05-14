@@ -26,6 +26,7 @@ public class MinigameMenu : MonoBehaviour
     [SerializeField]
     public AutoScroll autoScroll;
 
+
     // Start is called before the first frame update
     void Start()
     {

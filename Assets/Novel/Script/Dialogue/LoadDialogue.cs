@@ -245,7 +245,7 @@ public class LoadDialogue : MonoBehaviour
 		Debug.Log(whichBGClip);
 		string digi;
 
-		for (int i = 0; i < 47; i++)
+		for (int i = 0; i < 23; i++)
 		{
 			if ((i + 1) < 10)
 			{
@@ -258,13 +258,18 @@ public class LoadDialogue : MonoBehaviour
 
 			//Debug.Log(digi + (i + 1).ToString());
 
-			if (whichBGClip == "BGM-" + digi + (i + 1).ToString())
+			if (whichBGClip.Contains("BGM-" + digi + (i + 1).ToString()))
 			{
 				BGM.clip = BGMFile[i];
 				BGM.Play();
 			}
 		}
 
+		if (whichBGClip.Contains("working_morning"))
+		{
+			BGM.clip = BGMFile[23];
+			BGM.Play();
+		}
 
 		backData = BGName.text.Split(new char[] { '$' });
 
@@ -7626,103 +7631,10 @@ public class LoadDialogue : MonoBehaviour
 			{
 				BGM.clip = BGMFile[22];
 			}
-			else if (d.BGM.Contains("BGM-024"))
+			else if (d.BGM.Contains("working_morning"))
 			{
 				BGM.clip = BGMFile[23];
 			}
-			else if (d.BGM.Contains("BGM-025"))
-			{
-				BGM.clip = BGMFile[24];
-			}
-			else if (d.BGM.Contains("BGM-026"))
-			{
-				BGM.clip = BGMFile[25];
-			}
-			else if (d.BGM.Contains("BGM-027"))
-			{
-				BGM.clip = BGMFile[26];
-			}
-			else if (d.BGM.Contains("BGM-028"))
-			{
-				BGM.clip = BGMFile[27];
-			}
-			else if (d.BGM.Contains("BGM-029"))
-			{
-				BGM.clip = BGMFile[28];
-			}
-			else if (d.BGM.Contains("BGM-030"))
-			{
-				BGM.clip = BGMFile[29];
-			}
-			else if (d.BGM.Contains("BGM-031"))
-			{
-				BGM.clip = BGMFile[30];
-			}
-			else if (d.BGM.Contains("BGM-032"))
-			{
-				BGM.clip = BGMFile[31];
-			}
-			else if (d.BGM.Contains("BGM-033"))
-			{
-				BGM.clip = BGMFile[32];
-			}
-			else if (d.BGM.Contains("BGM-034"))
-			{
-				BGM.clip = BGMFile[33];
-			}
-			else if (d.BGM.Contains("BGM-035"))
-			{
-				BGM.clip = BGMFile[34];
-			}
-			else if (d.BGM.Contains("BGM-036"))
-			{
-				BGM.clip = BGMFile[35];
-			}
-			else if (d.BGM.Contains("BGM-037"))
-			{
-				BGM.clip = BGMFile[36];
-			}
-			else if (d.BGM.Contains("BGM-038"))
-			{
-				BGM.clip = BGMFile[37];
-			}
-			else if (d.BGM.Contains("BGM-039"))
-			{
-				BGM.clip = BGMFile[38];
-			}
-			else if (d.BGM.Contains("BGM-040"))
-			{
-				BGM.clip = BGMFile[39];
-			}
-			else if (d.BGM.Contains("BGM-041"))
-			{
-				BGM.clip = BGMFile[40];
-			}
-			else if (d.BGM.Contains("BGM-042"))
-			{
-				BGM.clip = BGMFile[41];
-			}
-			else if (d.BGM.Contains("BGM-043"))
-			{
-				BGM.clip = BGMFile[42];
-			}
-			else if (d.BGM.Contains("BGM-044"))
-			{
-				BGM.clip = BGMFile[43];
-			}
-			else if (d.BGM.Contains("BGM-045"))
-			{
-				BGM.clip = BGMFile[44];
-			}
-			else if (d.BGM.Contains("BGM-046"))
-			{
-				BGM.clip = BGMFile[45];
-			}
-			else if (d.BGM.Contains("BGM-047"))
-			{
-				BGM.clip = BGMFile[46];
-			}
-
 			else if (d.BGM == "")
 			{
 			}

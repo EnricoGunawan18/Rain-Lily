@@ -14480,6 +14480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1779772297}
   - component: {fileID: 1779772296}
+  - component: {fileID: 1779772298}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -14496,8 +14497,9 @@ AudioSource:
   m_GameObject: {fileID: 1779772295}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 666f8d8775f0b194f942843c0d881c1c, type: 3}
+  OutputAudioMixerGroup: {fileID: -1400365573362199434, guid: 258f1ee874017e6499042bbbc02b044b,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: d021cbd0792e8434299af019c03b36bf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -14597,6 +14599,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1779772298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779772295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d26c58498e020a43837794c888bc037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNames:
+  - Scene_CG
+  - TitleScreen
+  instanceName: BGM
 --- !u!1 &1792279406
 GameObject:
   m_ObjectHideFlags: 0
