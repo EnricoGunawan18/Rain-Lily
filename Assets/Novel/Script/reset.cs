@@ -9,6 +9,8 @@ public class reset : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("StartGame", 0);
+
         //which dialogue
         PlayerPrefs.SetInt("LogNow", 1);
 
@@ -16,11 +18,6 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetFloat("DialogueSpeed", 10f);
 
         //reset//////////////////////////////////////////////////////////////////
-        PlayerPrefs.SetFloat("ScoreAll", 0);
-        PlayerPrefs.SetInt("ScoreClean", 0);
-        PlayerPrefs.SetFloat("ShopHighScore", 0);
-        PlayerPrefs.SetInt("CleanHighScore", 0);
-
         PlayerPrefs.SetFloat("Score1", 0);
         PlayerPrefs.SetFloat("Score2", 0);
         PlayerPrefs.SetFloat("Score3", 0);
@@ -199,5 +196,18 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetString("BackgroundClip10", "");
         PlayerPrefs.SetString("BackgroundClip0", "");
 
+        PlayerPrefs.SetString("PlayerName", "");
+        for (int i = 0; i < 10; i++)
+        {
+            PlayerPrefs.SetString("PlayerName" + i.ToString(), "");
+        }
+
+        PlayerPrefs.SetFloat("ShopHighScore",0);
+        PlayerPrefs.SetInt("CleanHighScore",0);
+        PlayerPrefs.SetInt("CookHighScore",0);
+
+        PlayerPrefs.SetFloat("ScoreAll", 0);
+        PlayerPrefs.SetInt("ScoreCook", 0);
+        PlayerPrefs.SetInt("ScoreClean", 0);
     }
 }

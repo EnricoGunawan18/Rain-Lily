@@ -183,6 +183,32 @@ public class StartGame : MonoBehaviour
 			PlayerPrefsX.SetIntArray("ItemNumber0", a);
 			PlayerPrefsX.SetIntArray("Date0", startDate);
 
+			PlayerPrefs.SetString("BackgroundClip", "");
+			PlayerPrefs.SetString("BackgroundClip1", "");
+			PlayerPrefs.SetString("BackgroundClip2", "");
+			PlayerPrefs.SetString("BackgroundClip3", "");
+			PlayerPrefs.SetString("BackgroundClip4", "");
+			PlayerPrefs.SetString("BackgroundClip5", "");
+			PlayerPrefs.SetString("BackgroundClip6", "");
+			PlayerPrefs.SetString("BackgroundClip7", "");
+			PlayerPrefs.SetString("BackgroundClip8", "");
+			PlayerPrefs.SetString("BackgroundClip9", "");
+			PlayerPrefs.SetString("BackgroundClip10", "");
+			PlayerPrefs.SetString("BackgroundClip0", "");
+
+			PlayerPrefs.SetString("PlayerName", "");
+			for (int i = 0; i < 10; i++)
+			{
+				PlayerPrefs.SetString("PlayerName" + i.ToString(), "");
+			}
+
+			PlayerPrefs.SetFloat("ShopHighScore", 0);
+			PlayerPrefs.SetInt("CleanHighScore", 0);
+			PlayerPrefs.SetInt("CookHighScore", 0);
+
+			PlayerPrefs.SetFloat("ScoreAll", 0);
+			PlayerPrefs.SetInt("ScoreCook", 0);
+			PlayerPrefs.SetInt("ScoreClean", 0);
 		}
 		PlayerPrefs.Save();
 	}

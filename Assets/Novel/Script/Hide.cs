@@ -50,7 +50,7 @@ public class Hide : MonoBehaviour
 			isHidden = true;
 			NextDialogue.SetActive(false);
 		}
-		if (autoScroll.normalSpeed != true)
+		if (Hider.GetBool("Hiding") == true)
 		{
 			AutoHider.SetBool("autoIsHidden", true);
 		}
@@ -65,7 +65,7 @@ public class Hide : MonoBehaviour
 			NextDialogue.SetActive(true);
 			dialogueManager.dialogueSpeed = speed;
 		}
-		if (autoScroll.normalSpeed != true)
+		if (Hider.GetBool("Hiding") == false)
 		{
 			AutoHider.SetBool("autoIsHidden", false);
 		}

@@ -58,7 +58,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail1");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail1");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip1");
+			string nameSave = PlayerPrefs.GetString("PlayerName1");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -90,7 +92,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail2");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail2");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip2");
+			string nameSave = PlayerPrefs.GetString("PlayerName2");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -122,7 +126,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail3");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail3");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip3");
+			string nameSave = PlayerPrefs.GetString("PlayerName3");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -154,7 +160,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail4");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail4");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip4");
+			string nameSave = PlayerPrefs.GetString("PlayerName4");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -186,7 +194,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail5");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail5");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip5");
+			string nameSave = PlayerPrefs.GetString("PlayerName5");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -218,7 +228,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail6");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail6");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip6");
+			string nameSave = PlayerPrefs.GetString("PlayerName6");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -250,7 +262,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail7");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail7");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip7");
+			string nameSave = PlayerPrefs.GetString("PlayerName7");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -282,7 +296,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail8");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail8");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip8");
+			string nameSave = PlayerPrefs.GetString("PlayerName8");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -314,7 +330,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail9");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail9");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip9");
+			string nameSave = PlayerPrefs.GetString("PlayerName9");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -346,7 +364,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail10");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail10");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip10");
+			string nameSave = PlayerPrefs.GetString("PlayerName10");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -378,7 +398,9 @@ public class QLoadSave : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail0");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail0");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip0");
+			string nameSave = PlayerPrefs.GetString("PlayerName0");
 
+			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
 			PlayerPrefs.SetInt("KleinFail", KleinFail);
 			PlayerPrefs.SetInt("CleanNumber", cleanNumber);

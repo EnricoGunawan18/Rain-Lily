@@ -15,6 +15,10 @@ public class TitleScript : MonoBehaviour
 	public Button[] Files;
 	public Button BackButton;
 	public Button BackMiniGame;
+	public Button StartGame;
+
+	public Image MiniGameBG;
+	public Sprite[] MiniGameBGSprite;
 
 	[SerializeField]
 	Button CG;
@@ -27,11 +31,16 @@ public class TitleScript : MonoBehaviour
 	public GameObject GameScreen;
 	public GameObject NowSaveScreen;
 	public GameObject ChapterScreen;
+	public GameObject NameInsert;
+
+	public InputField NameInputField;
+	public Button BackButtonFromName;
 
 	[SerializeField]
 	AudioSource ButtonAudioSource;
 
 	public bool newFile = false;
+	bool[] clicked = { false, false, false };
 
 	// Start is called before the first frame update
 	void Start()
@@ -43,6 +52,7 @@ public class TitleScript : MonoBehaviour
 		LoadGame.onClick.AddListener(LoadGameStart);
 		Game.onClick.AddListener(GameClicked);
 		Chapter.onClick.AddListener(ChapterClicked);
+		StartGame.onClick.AddListener(NameIsFilled);
 		TitleScreen.SetActive(true);
 		GameScreen.SetActive(false);
 
@@ -58,6 +68,7 @@ public class TitleScript : MonoBehaviour
 		Files[9].onClick.AddListener(TenthFile);
 		BackButton.onClick.AddListener(Back);
 		BackMiniGame.onClick.AddListener(Back);
+		BackButtonFromName.onClick.AddListener(Back);
 
 		CG.onClick.AddListener(CGOpen);
 
@@ -68,6 +79,18 @@ public class TitleScript : MonoBehaviour
 
 	public void NewGameStart()
 	{
+		ButtonAudioSource.Stop();
+		ButtonAudioSource.Play();
+
+		NameInsert.SetActive(true);
+		TitleScreen.SetActive(false);
+
+	}
+
+	public void NameIsFilled()
+	{
+		string Name = NameInputField.text;
+
 		ButtonAudioSource.Stop();
 		ButtonAudioSource.Play();
 
@@ -94,6 +117,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("CookNumber", 0);
 		PlayerPrefs.SetInt("ShopNumber", 0);
 
+		PlayerPrefs.SetString("PlayerName", Name);
+
 		int[] itemNumber = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 		PlayerPrefsX.SetIntArray("ItemNumber", itemNumber);
@@ -101,6 +126,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("WhichFile", 0);
 
 		SceneManager.LoadScene("Novel");
+
 	}
 
 	public void LoadGameStart()
@@ -132,31 +158,64 @@ public class TitleScript : MonoBehaviour
 		GameScreen.SetActive(true);
 	}
 
-	public void MemoryGameClicked()
+	public void PuzzleClicked()
 	{
-		ButtonAudioSource.Stop();
-		ButtonAudioSource.Play();
+		if (clicked[0] == false)
+		{
+			MiniGameBG.sprite = MiniGameBGSprite[0];
 
-		PlayerPrefs.SetInt("MiniGame", 0);
-		SceneManager.LoadScene("Stage1");
+			clicked[0] = true;
+			clicked[1] = false;
+			clicked[2] = false;
+		}
+		else
+		{
+			ButtonAudioSource.Stop();
+			ButtonAudioSource.Play();
+
+			PlayerPrefs.SetInt("MiniGame", 0);
+			SceneManager.LoadScene("Scene_pazzle");
+		}
 	}
 
 	public void CookClicked()
 	{
-		ButtonAudioSource.Stop();
-		ButtonAudioSource.Play();
+		if (clicked[1] == false)
+		{
+			MiniGameBG.sprite = MiniGameBGSprite[1];
 
-		PlayerPrefs.SetInt("MiniGame", 0);
-		SceneManager.LoadScene("Scene_cook");
+			clicked[0] = false;
+			clicked[1] = true;
+			clicked[2] = false;
+		}
+		else
+		{
+			ButtonAudioSource.Stop();
+			ButtonAudioSource.Play();
+
+			PlayerPrefs.SetInt("MiniGame", 0);
+			SceneManager.LoadScene("Scene_cook");
+		}
 	}
 
-	public void PuzzleClicked()
+	public void MemoryGameClicked()
 	{
-		ButtonAudioSource.Stop();
-		ButtonAudioSource.Play();
+		if (clicked[2] == false)
+		{
+			MiniGameBG.sprite = MiniGameBGSprite[2];
 
-		PlayerPrefs.SetInt("MiniGame", 0);
-		SceneManager.LoadScene("Scene_pazzle");
+			clicked[0] = false;
+			clicked[1] = false;
+			clicked[2] = true;
+		}
+		else
+		{
+			ButtonAudioSource.Stop();
+			ButtonAudioSource.Play();
+
+			PlayerPrefs.SetInt("MiniGame", 0);
+			SceneManager.LoadScene("Stage1");
+		}
 	}
 
 
@@ -181,7 +240,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail1");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail1");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip1");
+		string nameSave = PlayerPrefs.GetString("PlayerName1");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -222,7 +283,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail2");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail2");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip2");
+		string nameSave = PlayerPrefs.GetString("PlayerName2");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -263,7 +326,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail3");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail3");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip3");
+		string nameSave = PlayerPrefs.GetString("PlayerName3");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -304,7 +369,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail4");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail4");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip4");
+		string nameSave = PlayerPrefs.GetString("PlayerName4");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -345,7 +412,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail5");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail5");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip5");
+		string nameSave = PlayerPrefs.GetString("PlayerName5");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -386,7 +455,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail6");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail6");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip6");
+		string nameSave = PlayerPrefs.GetString("PlayerName6");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -426,7 +497,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail7");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail7");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip7");
+		string nameSave = PlayerPrefs.GetString("PlayerName7");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -467,7 +540,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail8");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail8");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip8");
+		string nameSave = PlayerPrefs.GetString("PlayerName8");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -508,7 +583,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail9");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail9");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip9");
+		string nameSave = PlayerPrefs.GetString("PlayerName9");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -549,7 +626,9 @@ public class TitleScript : MonoBehaviour
 		int LiedFail = PlayerPrefs.GetInt("LiedFail10");
 		int KleinFail = PlayerPrefs.GetInt("KleinFail10");
 		string backgroundclip = PlayerPrefs.GetString("BackgroundClip10");
+		string nameSave = PlayerPrefs.GetString("PlayerName10");
 
+		PlayerPrefs.SetString("PlayerName", nameSave);
 		PlayerPrefs.SetInt("LiedFail", LiedFail);
 		PlayerPrefs.SetInt("KleinFail", KleinFail);
 		PlayerPrefs.SetInt("CleanNumber", cleanNumber);
@@ -570,11 +649,20 @@ public class TitleScript : MonoBehaviour
 
 	public void Back()
 	{
+		////MINIGAME SCREEN
+		for (int i = 0; i < 3; i++)
+		{
+			clicked[i] = false;
+		}
+		MiniGameBG.sprite = MiniGameBGSprite[0];
+
+		////BASIC STUFF
 		ButtonAudioSource.Stop();
 		ButtonAudioSource.Play();
 
 		GameScreen.SetActive(false);
 		NowSaveScreen.SetActive(false);
+		NameInsert.SetActive(false);
 		TitleScreen.SetActive(true);
 		newFile = false;
 	}

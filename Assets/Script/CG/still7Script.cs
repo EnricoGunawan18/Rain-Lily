@@ -38,6 +38,8 @@ public class still7Script : MonoBehaviour
 		PlayerPrefs.SetInt("ShopNumber", 0);
 		PlayerPrefs.SetString("BackgroundClip", "");
 
+		PlayerPrefs.SetString("PlayerName", "");
+
 		int[] itemNumber = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 		PlayerPrefsX.SetIntArray("ItemNumber", itemNumber);

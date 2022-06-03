@@ -5247,7 +5247,17 @@ public class LoadDialogue : MonoBehaviour
 			dialogueManager.next = false;
 			whichLineNow++;
 
-			logLabel.text = logLabel.text + d.character + "\n" + d.dialogue + "\n\n";
+			string MainCharaName = d.character;
+			string DialogueChange = d.dialogue;
+			string NameChange = PlayerPrefs.GetString("PlayerName");
+
+			if (MainCharaName == "メイア" && NameChange != "")
+			{
+				MainCharaName = NameChange;
+				DialogueChange = d.dialogue.Replace("メイア", NameChange);
+			}
+
+			logLabel.text = logLabel.text + MainCharaName + "\n" + DialogueChange + "\n\n";
 
 			//MouthAnimStop
 			StopCoroutine("MouthAnim");
@@ -8158,7 +8168,7 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 
-			nameLabel.text = d.character;
+			nameLabel.text = MainCharaName;
 
 
 			////////////////////////////////////////////////////////////////////////////P R O L O G U E////////////////////////////////////////////////////////////////
@@ -8168,18 +8178,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 
@@ -8277,17 +8287,17 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (d.id == 266)
@@ -8348,18 +8358,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (d.id == 378)
@@ -8416,7 +8426,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
@@ -8424,12 +8434,12 @@ public class LoadDialogue : MonoBehaviour
 					textLabel.text = string.Empty;
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (d.id == 466)
@@ -8486,18 +8496,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (d.id == 613)
@@ -8565,18 +8575,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 
@@ -8633,18 +8643,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (autoScroll.automated == false)
@@ -8694,18 +8704,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (d.id == 983)
@@ -8761,18 +8771,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (d.id == 1179)
@@ -8839,18 +8849,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (autoScroll.automated == false)
@@ -8900,18 +8910,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (d.id == 1411)
@@ -8967,18 +8977,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (d.id == 1492)
@@ -9072,18 +9082,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 
@@ -9142,18 +9152,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				if (d.id == 2028)
 				{
@@ -9208,18 +9218,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				if (d.id == 2097)
 				{
@@ -9274,18 +9284,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				if (d.id == 2193)
 				{
@@ -9354,18 +9364,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				if (d.id == 2367)
 				{
@@ -9429,18 +9439,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				if (d.id == 2447)
 				{
@@ -9499,18 +9509,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				if (d.id == 2596)
 				{
@@ -9564,18 +9574,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				if (d.id == 2771)
 				{
@@ -9634,18 +9644,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				if (d.id == 2962)
 				{
@@ -9699,18 +9709,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				if (d.id == 3069)
 				{
@@ -9764,18 +9774,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (autoScroll.automated == false)
@@ -9825,18 +9835,18 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (d.id == 3331)
@@ -9920,19 +9930,19 @@ public class LoadDialogue : MonoBehaviour
 				{
 					FadeAnim.SetBool("Fading", false);
 					yield return new WaitForSeconds(1.5f);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 				else if (d.background.Contains("SI"))
 				{
 					yield return new WaitForSeconds(1.5f);
 					SlideAnim.Play("NormalFade", -1, 0);
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 
 				}
 				else
 				{
 					Debug.Log("a");
-					yield return dialogueManager.Run(d.dialogue, textLabel);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
 				if (autoScroll.automated == false)
@@ -9989,7 +9999,7 @@ public class LoadDialogue : MonoBehaviour
 			/////////////////////////////////////////////////////////S H O P/////////////////////////////
 			else
 			{
-				yield return dialogueManager.Run(d.dialogue, textLabel);
+				yield return dialogueManager.Run(DialogueChange, textLabel);
 				if (autoScroll.automated == false)
 				{
 					yield return new WaitUntil(() => dialogueManager.next == true);
@@ -12413,7 +12423,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName1", nameSave);
 			PlayerPrefs.SetInt("LiedFail1", LiedFail);
 			PlayerPrefs.SetInt("KleinFail1", KleinFail);
 			PlayerPrefs.SetInt("Money1", money);
@@ -12455,7 +12467,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName2", nameSave);
 			PlayerPrefs.SetInt("LiedFail2", LiedFail);
 			PlayerPrefs.SetInt("KleinFail2", KleinFail);
 			PlayerPrefs.SetInt("Money2", money);
@@ -12495,7 +12509,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName3", nameSave);
 			PlayerPrefs.SetInt("LiedFail3", LiedFail);
 			PlayerPrefs.SetInt("KleinFail3", KleinFail);
 			PlayerPrefs.SetInt("Money3", money);
@@ -12535,7 +12551,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName4", nameSave);
 			PlayerPrefs.SetInt("LiedFail4", LiedFail);
 			PlayerPrefs.SetInt("KleinFail4", KleinFail);
 			PlayerPrefs.SetInt("Money4", money);
@@ -12575,7 +12593,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName5", nameSave);
 			PlayerPrefs.SetInt("LiedFail5", LiedFail);
 			PlayerPrefs.SetInt("KleinFail5", KleinFail);
 			PlayerPrefs.SetInt("Money5", money);
@@ -12615,7 +12635,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName6", nameSave);
 			PlayerPrefs.SetInt("LiedFail6", LiedFail);
 			PlayerPrefs.SetInt("KleinFail6", KleinFail);
 			PlayerPrefs.SetInt("Money6", money);
@@ -12655,7 +12677,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName7", nameSave);
 			PlayerPrefs.SetInt("LiedFail7", LiedFail);
 			PlayerPrefs.SetInt("KleinFail7", KleinFail);
 			PlayerPrefs.SetInt("Money7", money);
@@ -12695,7 +12719,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName8", nameSave);
 			PlayerPrefs.SetInt("LiedFail8", LiedFail);
 			PlayerPrefs.SetInt("KleinFail8", KleinFail);
 			PlayerPrefs.SetInt("Money8", money);
@@ -12735,7 +12761,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName9", nameSave);
 			PlayerPrefs.SetInt("LiedFail9", LiedFail);
 			PlayerPrefs.SetInt("KleinFail9", KleinFail);
 			PlayerPrefs.SetInt("Money9", money);
@@ -12775,7 +12803,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName10", nameSave);
 			PlayerPrefs.SetInt("LiedFail10", LiedFail);
 			PlayerPrefs.SetInt("KleinFail10", KleinFail);
 			PlayerPrefs.SetInt("Money10", money);
@@ -12815,7 +12845,9 @@ public class LoadDialogue : MonoBehaviour
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");
 			int KleinFail = PlayerPrefs.GetInt("KleinFail");
 			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
 
+			PlayerPrefs.SetString("PlayerName0", nameSave);
 			PlayerPrefs.SetInt("LiedFail0", LiedFail);
 			PlayerPrefs.SetInt("KleinFail0", KleinFail);
 			PlayerPrefs.SetInt("Money0", money);
