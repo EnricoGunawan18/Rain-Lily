@@ -42,11 +42,51 @@ public class TitleScript : MonoBehaviour
 	public bool newFile = false;
 	bool[] clicked = { false, false, false };
 
+	[SerializeField]
+	Text Score;
+	public int highScoreClean;
+	public int highScoreCook;
+	public float highScoreShop;
+
+
 	// Start is called before the first frame update
 	void Start()
 	{
 		ButtonAudioSource.Stop();
 		PlayerPrefs.SetFloat("DialogueSpeed", 25f);
+
+		highScoreClean = PlayerPrefs.GetInt("CleanHighScore");
+		highScoreCook = PlayerPrefs.GetInt("CookHighScore");
+		highScoreShop = PlayerPrefs.GetFloat("ShopHighScore");
+
+		//////Clean MiniGame
+		int scoreCleanGet = PlayerPrefs.GetInt("ScoreClean");
+
+		if (highScoreClean <= scoreCleanGet)
+		{
+			highScoreClean = scoreCleanGet;
+			PlayerPrefs.SetInt("ScoreClean", highScoreClean);
+		}
+
+
+		//////Cook MiniGame
+		int scoreCookGet = PlayerPrefs.GetInt("ScoreCook");
+
+		if (highScoreCook <= scoreCookGet)
+		{
+			highScoreCook = scoreCookGet;
+			PlayerPrefs.SetInt("ScoreCook", highScoreCook);
+		}
+
+		//////Shop MiniGame
+		float scoreShopGet = PlayerPrefs.GetFloat("ScoreAll");
+
+		if (highScoreShop <= scoreShopGet)
+		{
+			highScoreShop = scoreShopGet;
+			PlayerPrefs.SetFloat("ScoreAll", highScoreShop);
+		}
+
 
 		NewGame.onClick.AddListener(NewGameStart);
 		LoadGame.onClick.AddListener(LoadGameStart);
@@ -154,6 +194,8 @@ public class TitleScript : MonoBehaviour
 		ButtonAudioSource.Stop();
 		ButtonAudioSource.Play();
 
+		Score.text = "00000";
+
 		TitleScreen.SetActive(false);
 		GameScreen.SetActive(true);
 	}
@@ -162,6 +204,21 @@ public class TitleScript : MonoBehaviour
 	{
 		if (clicked[0] == false)
 		{
+
+			string scoreShow = "";
+			int zero = 10000;
+
+			for (int i = 0; i < 4; i++)
+			{
+				if (highScoreClean < zero)
+				{
+					scoreShow += "0";
+				}
+				zero /= 10;
+			}
+
+			Score.text = scoreShow + highScoreClean.ToString();
+
 			MiniGameBG.sprite = MiniGameBGSprite[0];
 
 			clicked[0] = true;
@@ -182,6 +239,21 @@ public class TitleScript : MonoBehaviour
 	{
 		if (clicked[1] == false)
 		{
+
+			string scoreShow = "";
+			int zero = 10000;
+
+			for (int i = 0; i < 4; i++)
+			{
+				if (highScoreCook < zero)
+				{
+					scoreShow += "0";
+				}
+				zero /= 10;
+			}
+
+			Score.text = scoreShow + highScoreCook.ToString();
+
 			MiniGameBG.sprite = MiniGameBGSprite[1];
 
 			clicked[0] = false;
@@ -202,6 +274,21 @@ public class TitleScript : MonoBehaviour
 	{
 		if (clicked[2] == false)
 		{
+
+			string scoreShow = "";
+			int zero = 10000;
+
+			for (int i = 0; i < 4; i++)
+			{
+				if (highScoreShop < zero)
+				{
+					scoreShow += "0";
+				}
+				zero /= 10;
+			}
+
+			Score.text = scoreShow + highScoreShop.ToString();
+
 			MiniGameBG.sprite = MiniGameBGSprite[2];
 
 			clicked[0] = false;
