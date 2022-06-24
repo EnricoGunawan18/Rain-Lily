@@ -131,7 +131,6 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("LiedFail10", 0);
         PlayerPrefs.SetInt("KleinFail10", 0);
 
-
         PlayerPrefs.SetInt("CleanNumber", 0);
         PlayerPrefs.SetInt("CookNumber", 0);
         PlayerPrefs.SetInt("ShopNumber", 0);
@@ -199,7 +198,7 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetString("PlayerName", "");
         for (int i = 0; i < 10; i++)
         {
-            PlayerPrefs.SetString("PlayerName" + i.ToString(), "");
+            PlayerPrefs.SetString("PlayerName" + i+1.ToString(), "");
         }
 
         PlayerPrefs.SetFloat("ShopHighScore",0);
@@ -209,5 +208,10 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetFloat("ScoreAll", 0);
         PlayerPrefs.SetInt("ScoreCook", 0);
         PlayerPrefs.SetInt("ScoreClean", 0);
+
+        for (int i = 1; i < 13; i++)
+        {
+            PlayerPrefs.SetInt("Still-" + i.ToString(), 1);
+        }
     }
 }

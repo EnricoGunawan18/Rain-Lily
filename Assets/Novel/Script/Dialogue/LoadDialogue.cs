@@ -8510,6 +8510,11 @@ public class LoadDialogue : MonoBehaviour
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
+				if (d.id == 567)
+				{
+					PlayerPrefs.SetInt("Still-6", 1);
+				}
+
 				if (d.id == 613)
 				{
 					finishTemp9 = true;
@@ -8657,6 +8662,11 @@ public class LoadDialogue : MonoBehaviour
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
+				if (d.id == 834)
+				{
+					PlayerPrefs.SetInt("Still-13", 1);
+				}
+
 				if (autoScroll.automated == false)
 				{
 					yield return new WaitUntil(() => dialogueManager.next == true);
@@ -8783,6 +8793,11 @@ public class LoadDialogue : MonoBehaviour
 				else
 				{
 					yield return dialogueManager.Run(DialogueChange, textLabel);
+				}
+
+				if (d.id == 1241)
+				{
+					PlayerPrefs.SetInt("Still-7", 1);
 				}
 
 				if (d.id == 1179)
@@ -8991,6 +9006,15 @@ public class LoadDialogue : MonoBehaviour
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
+				if (d.id == 1948)
+				{
+					PlayerPrefs.SetInt("Still-1", 1);
+				}
+				if (d.id == 1655)
+				{
+					PlayerPrefs.SetInt("Still-5", 1);
+				}
+
 				if (d.id == 1492)
 				{
 					finishTemp14 = true;
@@ -9096,6 +9120,10 @@ public class LoadDialogue : MonoBehaviour
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
+				if (d.id == 1984)
+				{
+					PlayerPrefs.SetInt("Still-3", 1);
+				}
 
 				if (autoScroll.automated == false)
 				{
@@ -9297,6 +9325,11 @@ public class LoadDialogue : MonoBehaviour
 				{
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
+
+				if (d.id == 2254)
+				{
+					PlayerPrefs.SetInt("Still-8", 1);
+				}
 				if (d.id == 2193)
 				{
 					finishTemp19 = true;
@@ -9376,6 +9409,11 @@ public class LoadDialogue : MonoBehaviour
 				else
 				{
 					yield return dialogueManager.Run(DialogueChange, textLabel);
+				}
+
+				if (d.id == 2345)
+				{
+					PlayerPrefs.SetInt("Still-9", 1);
 				}
 				if (d.id == 2367)
 				{
@@ -9849,6 +9887,11 @@ public class LoadDialogue : MonoBehaviour
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
+				if (d.id == 3754)
+				{
+					PlayerPrefs.SetInt("Still-2", 1);
+				}
+
 				if (d.id == 3331)
 				{
 					finishTemp29 = true;
@@ -9943,6 +9986,11 @@ public class LoadDialogue : MonoBehaviour
 				{
 					Debug.Log("a");
 					yield return dialogueManager.Run(DialogueChange, textLabel);
+				}
+
+				if (d.id == 3873)
+				{
+					PlayerPrefs.SetInt("Still-4", 1);
 				}
 
 				if (autoScroll.automated == false)
