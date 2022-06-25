@@ -211,7 +211,7 @@ public class reset : MonoBehaviour
 
         for (int i = 1; i < 13; i++)
         {
-            PlayerPrefs.SetInt("Still-" + i.ToString(), 1);
+            PlayerPrefs.SetInt("Still-" + i.ToString(), 0);
         }
     }
 }
