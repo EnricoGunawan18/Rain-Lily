@@ -64,9 +64,6 @@ public class LoadDialogue : MonoBehaviour
 	GameObject MiniGameChoose;
 
 	[SerializeField]
-	GameObject[] CharacterImage;
-
-	[SerializeField]
 	public Sprite[] CharaEyes;
 	[SerializeField]
 	public Sprite[] CharaMouth;
