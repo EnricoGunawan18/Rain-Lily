@@ -5237,8 +5237,6 @@ public class LoadDialogue : MonoBehaviour
 
 	private IEnumerator DialogueGo()
 	{
-		RectTransform rt = logLabel.GetComponent<RectTransform>();
-
 		foreach (Dialogue d in dialogues.ToArray())
 		{
 			dialogueManager.next = false;

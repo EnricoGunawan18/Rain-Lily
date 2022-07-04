@@ -111,7 +111,7 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 8eef266e6cd5b2045b6cc7b6156edde1
-    name: BGNVol
+    name: BGMVol
   - guid: dec8bd7de31b65049ab402f84ba8fa5f
     name: SEVol
   - guid: e752045cc4a393b41aa6ae736c537292
@@ -122,8 +122,6 @@ AudioMixerController:
     - 8585cbc909279c04a869162220f8965d
     - 5a8d62a4e40a0e741a295bae7f35ee91
     - 1a5c996225bcee4408c4f3f7f14c10bf
-    - a6f4fb3778004914d8d50702a82c3cd8
-    - a8c38f010a24ae64b8b398c406101905
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -140,8 +138,6 @@ AudioMixerGroupController:
   - {fileID: -4645835272348745936}
   - {fileID: 559625626324444323}
   - {fileID: -1356471824964251060}
-  - {fileID: 8128780796335711398}
-  - {fileID: 4990592338268922464}
   m_Volume: 1e4e3b3a854a16b408760bc891adabd5
   m_Pitch: 848369d586d9aed419c6375eea3a6ead
   m_Send: 00000000000000000000000000000000
@@ -177,8 +173,8 @@ AudioMixerSnapshotController:
   m_FloatValues:
     396628815c8b8e243a1c0e2c460a053b: -20
     fe48af1afd83d3e4da20cf1a790b09b5: -20
-    e752045cc4a393b41aa6ae736c537292: -10
-    dec8bd7de31b65049ab402f84ba8fa5f: -20
+    e752045cc4a393b41aa6ae736c537292: -9.999999
+    dec8bd7de31b65049ab402f84ba8fa5f: -19.999998
     8eef266e6cd5b2045b6cc7b6156edde1: -20
   m_TransitionOverrides: {}
 --- !u!243 &559625626324444323

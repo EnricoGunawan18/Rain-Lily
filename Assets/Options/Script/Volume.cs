@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Volume : MonoBehaviour
 {
     [SerializeField]
-    Scrollbar BGMScrollbar;
+    Slider SESlider;
     [SerializeField]
-    AudioSource BGM;
+    Slider BGMSlider;
+
     [SerializeField]
-    Scrollbar SEScrollbar;
-    [SerializeField]
-    AudioSource SE;
+    AudioMixer Master;
 
     // Update is called once per frame
     void Update()
     {
-        BGM.volume = BGMScrollbar.value;
-        SE.volume = SEScrollbar.value;
+        Master.SetFloat("SEVol", SESlider.value);
+        Master.SetFloat("BGMVol", BGMSlider.value);
     }
 }

@@ -17,6 +17,9 @@ public class TitleScript : MonoBehaviour
 	public Button BackMiniGame;
 	public Button StartGame;
 
+	[SerializeField]
+	Button Options;
+
 	public Image MiniGameBG;
 	public Sprite[] MiniGameBGSprite;
 
@@ -92,6 +95,7 @@ public class TitleScript : MonoBehaviour
 		LoadGame.onClick.AddListener(LoadGameStart);
 		Game.onClick.AddListener(GameClicked);
 		Chapter.onClick.AddListener(ChapterClicked);
+		Options.onClick.AddListener(OptionsClicked);
 		StartGame.onClick.AddListener(NameIsFilled);
 		TitleScreen.SetActive(true);
 		GameScreen.SetActive(false);
@@ -198,6 +202,11 @@ public class TitleScript : MonoBehaviour
 
 		TitleScreen.SetActive(false);
 		GameScreen.SetActive(true);
+	}
+
+	void OptionsClicked()
+	{
+		SceneManager.LoadScene("Options");
 	}
 
 	public void PuzzleClicked()
