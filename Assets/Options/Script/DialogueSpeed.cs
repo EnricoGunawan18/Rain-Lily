@@ -16,12 +16,28 @@ public class DialogueSpeed : MonoBehaviour
 
 	DialogueManager dialogueManager;
 
+	float speed;
+
 	// Start is called before the first frame update
 	void Start()
 	{
 		Slow.onClick.AddListener(SlowSpeed);
 		Normal.onClick.AddListener(NormalSpeed);
 		Fast.onClick.AddListener(FastSpeed);
+
+		speed = PlayerPrefs.GetFloat("DialogueSpeed");
+		if( speed == 5)
+		{
+			ChangeColor(1,2,4);
+		}
+		else if( speed == 25)
+		{
+			ChangeColor(0,3,4);
+		}
+		else if( speed == 50)
+		{
+			ChangeColor(0,2,5);
+		}
 	}
 
 	// Update is called once per frame

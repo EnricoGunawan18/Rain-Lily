@@ -56,7 +56,6 @@ public class TitleScript : MonoBehaviour
 	void Start()
 	{
 		ButtonAudioSource.Stop();
-		PlayerPrefs.SetFloat("DialogueSpeed", 25f);
 
 		highScoreClean = PlayerPrefs.GetInt("CleanHighScore");
 		highScoreCook = PlayerPrefs.GetInt("CookHighScore");
@@ -206,6 +205,7 @@ public class TitleScript : MonoBehaviour
 
 	void OptionsClicked()
 	{
+		PlayerPrefs.SetInt("OptionsReturn", 0);
 		SceneManager.LoadScene("Options");
 	}
 

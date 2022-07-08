@@ -14,7 +14,15 @@ public class Volume : MonoBehaviour
     [SerializeField]
     AudioMixer Master;
 
-    // Update is called once per frame
+    float bgm;
+    float se;
+
+    private void Awake() 
+    {
+        SESlider.value = PlayerPrefs.GetFloat("BGM");
+        BGMSlider.value = PlayerPrefs.GetFloat("SE");
+    }
+
     void Update()
     {
         Master.SetFloat("SEVol", SESlider.value);

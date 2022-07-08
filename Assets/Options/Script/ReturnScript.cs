@@ -8,6 +8,11 @@ public class ReturnScript : MonoBehaviour
 {
     [SerializeField]
     Button returnClick;
+    [SerializeField]
+    Slider SESlider;
+    [SerializeField]
+    Slider BGMSlider;
+
 
     int returnTo;
     // Start is called before the first frame update
@@ -19,6 +24,9 @@ public class ReturnScript : MonoBehaviour
 
     void Click()
     {
+        PlayerPrefs.SetFloat("SE", SESlider.value);
+        PlayerPrefs.SetFloat("BGM", BGMSlider.value);
+
         if(returnTo == 0)
         {
             SceneManager.LoadScene("TitleScreen");
