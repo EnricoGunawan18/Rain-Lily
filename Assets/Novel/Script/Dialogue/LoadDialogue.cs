@@ -94,6 +94,19 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	Image MouthNow2;
 
+	[SerializeField]
+	GameObject MeiaImage;
+
+	[SerializeField]
+	Image MeiaMain;
+	[SerializeField]
+	Image MeiaEye;
+	[SerializeField]
+	Image MeiaMouth;
+
+	[SerializeField]
+	Sprite[] MeiaSprite;
+
 	public List<AudioClip> VoiceFile_2;
 
 	[SerializeField]
@@ -203,11 +216,18 @@ public class LoadDialogue : MonoBehaviour
 
 	float clipLength;
 
+	int meiaShow;
+
 	private void Start()
 	{
 		Time.timeScale = 1;
 		int gameMoneyGet = PlayerPrefs.GetInt("Money");
-		//Debug.Log(gameMoneyGet);
+		meiaShow = PlayerPrefs.GetInt("MeiaShow");
+
+		if(meiaShow == 1)
+		{
+			MeiaImage.SetActive(false);
+		}
 
 		whichLineNow = PlayerPrefs.GetInt("LogNow");
 
@@ -1871,12 +1891,12 @@ public class LoadDialogue : MonoBehaviour
 		else if (miniGame == 1 && novelMenu == 0)
 		{
 			int[] dateNow = { 10, 8 };
-			whichLineNow = 172;
+			whichLineNow = 173;
 			PlayerPrefsX.SetIntArray("Date", dateNow);
 
 			resetPos = 5;
 			PlayerPrefs.SetInt("MiniGame", 0);
-			for (int i = 172; i < 179; i++)
+			for (int i = 173; i < 180; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1909,12 +1929,12 @@ public class LoadDialogue : MonoBehaviour
 		else if (miniGame == 2 && novelMenu == 0)
 		{
 			int[] dateNow = { 10, 9 };
-			whichLineNow = 179;
+			whichLineNow = 180;
 			PlayerPrefsX.SetIntArray("Date", dateNow);
 
 			resetPos = 6;
 			PlayerPrefs.SetInt("MiniGame", 0);
-			for (int i = 179; i < 190; i++)
+			for (int i = 180; i < 191; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -1947,10 +1967,10 @@ public class LoadDialogue : MonoBehaviour
 		else if (miniGame == 3 && novelMenu == 0)
 		{
 			PlayerPrefs.SetInt("MiniGame", 0);
-			whichLineNow = 190;
+			whichLineNow = 191;
 			resetPos = 7;
 
-			for (int i = 190; i < 213; i++)
+			for (int i = 191; i < 214; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2050,7 +2070,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 3)
 		{
-			for (int i = logNumber; i < 169; i++)
+			for (int i = logNumber; i < 173; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2082,7 +2102,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 4)
 		{
-			for (int i = logNumber; i < 169; i++)
+			for (int i = logNumber; i < 173; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2114,7 +2134,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 5)
 		{
-			for (int i = logNumber; i < 179; i++)
+			for (int i = logNumber; i < 180; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2146,7 +2166,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 6)
 		{
-			for (int i = logNumber; i < 190; i++)
+			for (int i = logNumber; i < 180; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2179,7 +2199,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 7)
 		{
-			for (int i = logNumber; i < 211; i++)
+			for (int i = logNumber; i < 214; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2212,7 +2232,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 8)
 		{
-			for (int i = logNumber; i < 263; i++)
+			for (int i = logNumber; i < 265; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -2244,7 +2264,7 @@ public class LoadDialogue : MonoBehaviour
 		}
 		else if (resetFrom == 9)
 		{
-			for (int i = logNumber; i < 263; i++)
+			for (int i = logNumber; i < 265; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -4856,12 +4876,12 @@ public class LoadDialogue : MonoBehaviour
 		{
 			TwoChoices.SetActive(true);
 
-			string[] tempRow = data[213].Split(new char[] { ',' });
+			string[] tempRow = data[214].Split(new char[] { ',' });
 			string Filtered2 = tempRow[8].Replace("/KleinLove_high", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = data[213].Split(new char[] { ',' });
+			string[] tempRow2 = data[214].Split(new char[] { ',' });
 			string Filtered5 = tempRow2[9].Replace("/KleinLove_low", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
@@ -5595,6 +5615,38 @@ public class LoadDialogue : MonoBehaviour
 			else
 			{
 
+			}
+
+			//meia expression
+			if(d.mainchara == "")
+			{
+				MeiaMain.color = new Color(0,0,0,0);
+				MeiaEye.color = new Color(0,0,0,0);
+				MeiaMouth.color = new Color(0,0,0,0);
+			}
+			else 
+			{
+				MeiaMain.color = new Color(255,255,255,255);
+				MeiaEye.color = new Color(255,255,255,255);
+				MeiaMouth.color = new Color(255,255,255,255);
+			}
+
+			
+			if(d.mainchara.Contains("M-01a"))
+			{
+				MeiaEye.sprite = MeiaSprite[22];
+				MeiaMouth.sprite = MeiaSprite[23];
+			}
+			else
+			{
+				for( int i = 0; i < 11; i++)
+				{
+					if(d.mainchara.Contains("M-0"+ (i+1).ToString()))
+					{
+						MeiaEye.sprite = MeiaSprite[0+i];
+						MeiaMouth.sprite = MeiaSprite[1+i];
+					}
+				}
 			}
 
 			//character expression
@@ -10141,7 +10193,7 @@ public class LoadDialogue : MonoBehaviour
 			finishTemp2 = false;
 			whichLineNow = 133;
 
-			for (int i = 133; i < 171; i++)
+			for (int i = 133; i < 172; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -10179,9 +10231,9 @@ public class LoadDialogue : MonoBehaviour
 
 			resetPos = 8;
 			finishTemp3 = false;
-			whichLineNow = 214;
+			whichLineNow = 215;
 
-			for (int i = 214; i < 264; i++)
+			for (int i = 215; i < 265; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -11333,7 +11385,7 @@ public class LoadDialogue : MonoBehaviour
 			resetPos = 4;
 			finishTemp2 = false;
 
-			for (int i = 133; i < 171; i++)
+			for (int i = 133; i < 172; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 
@@ -11367,13 +11419,13 @@ public class LoadDialogue : MonoBehaviour
 		{
 			float affection = PlayerPrefs.GetFloat("KleinHeart");
 			affection += 2;
-			whichLineNow = 214;
+			whichLineNow = 215;
 			PlayerPrefs.SetFloat("KleinHeart", affection);
 
 			resetPos = 9;
 			finishTemp3 = false;
 
-			for (int i = 214; i < 264; i++)
+			for (int i = 215; i < 265; i++)
 			{
 				row = data[i].Split(new char[] { ',' });
 

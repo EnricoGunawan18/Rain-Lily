@@ -15,7 +15,11 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("LogNow", 1);
 
         //dialogue speed
-        PlayerPrefs.SetFloat("DialogueSpeed", 10f);
+        PlayerPrefs.SetFloat("DialogueSpeed", 25f);
+
+        //meia Image
+        PlayerPrefs.SetInt("MeiaShow", 0);
+
 
         //reset//////////////////////////////////////////////////////////////////
         PlayerPrefs.SetFloat("Score1", 0);

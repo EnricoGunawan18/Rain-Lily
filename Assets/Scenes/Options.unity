@@ -1782,6 +1782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1682332088}
+  - component: {fileID: 1682332089}
   m_Layer: 0
   m_Name: ShowCharacter
   m_TagString: Untagged
@@ -1803,6 +1804,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1682332089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682332087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c00fb331b65c940bbd6aa222d0baf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onButton: {fileID: 502601477}
+  offButton: {fileID: 1044908373}
+  highlight:
+  - {fileID: 21300000, guid: b275df95dcd72884687b11584644697a, type: 3}
+  - {fileID: 21300000, guid: 36dd243964e95f1468ad9dd586534daa, type: 3}
+  - {fileID: 21300000, guid: a315fe5a4879be242b364b82ad57c969, type: 3}
+  - {fileID: 21300000, guid: bd85813573cff9c4bbc2e9c3485b86ea, type: 3}
 --- !u!1 &1778716800
 GameObject:
   m_ObjectHideFlags: 0
