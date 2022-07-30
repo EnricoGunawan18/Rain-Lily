@@ -35,6 +35,7 @@ public class TitleScript : MonoBehaviour
 	public GameObject NowSaveScreen;
 	public GameObject ChapterScreen;
 	public GameObject NameInsert;
+	public GameObject LoadingScreen;
 
 	public InputField NameInputField;
 	public Button BackButtonFromName;
@@ -167,6 +168,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefsX.SetIntArray("ItemNumber", itemNumber);
 
 		PlayerPrefs.SetInt("WhichFile", 0);
+
+		LoadingScreen.SetActive(true);
 
 		SceneManager.LoadScene("Novel");
 
