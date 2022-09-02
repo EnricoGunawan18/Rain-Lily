@@ -9,6 +9,9 @@ public class Options : MonoBehaviour
     [SerializeField]
     public Button OptionsShow;
 
+    [SerializeField]
+    GameObject novelCanvas;
+
     void Start()
     {
         OptionsShow.onClick.AddListener(OptionsOpening);
@@ -18,6 +21,7 @@ public class Options : MonoBehaviour
     void OptionsOpening()
     {
         PlayerPrefs.SetInt("OptionsReturn", 1);
+        DontDestroyOnLoad(novelCanvas);
 		SceneManager.LoadScene("Options");
     }
 }
