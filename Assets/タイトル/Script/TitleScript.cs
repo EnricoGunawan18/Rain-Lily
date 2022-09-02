@@ -30,6 +30,7 @@ public class TitleScript : MonoBehaviour
 	[SerializeField]
 	Button CookButton;
 
+	public GameObject Titles;
 	public GameObject TitleScreen;
 	public GameObject GameScreen;
 	public GameObject NowSaveScreen;
@@ -209,6 +210,7 @@ public class TitleScript : MonoBehaviour
 	void OptionsClicked()
 	{
 		PlayerPrefs.SetInt("OptionsReturn", 0);
+		DontDestroyOnLoad(Titles);
 		SceneManager.LoadScene("Options");
 	}
 
@@ -768,6 +770,7 @@ public class TitleScript : MonoBehaviour
 
 	void CGOpen()
 	{
+		DontDestroyOnLoad(Titles);
 		SceneManager.LoadScene("Scene_CG");
 	}
 }
