@@ -18,8 +18,11 @@ public class FileScreen : MonoBehaviour
 	Button MenuLoad;
 	[SerializeField]
 	Button Back;
+
 	[SerializeField]
 	GameObject FilePanel;
+	[SerializeField]
+	GameObject LoadingScreen;
 
 	LoadDialogue loadDialogue;
 
@@ -154,6 +157,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -241,6 +245,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -328,6 +333,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -415,6 +421,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -502,6 +509,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -589,6 +597,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -676,6 +685,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -763,6 +773,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -850,6 +861,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -937,6 +949,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
 			Time.timeScale = 1;
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 

@@ -288,6 +288,10 @@ public class LoadDialogue : MonoBehaviour
 				BGM.clip = BGMFile[i];
 				BGM.Play();
 			}
+			else if(whichBGClip == "")
+			{
+				BGM.Stop();
+			}
 		}
 
 		if (whichBGClip.Contains("working_morning"))
