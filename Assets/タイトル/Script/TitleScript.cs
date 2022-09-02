@@ -359,6 +359,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
@@ -402,6 +403,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
 
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
@@ -444,7 +446,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
-
+		
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
@@ -487,7 +490,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
-
+		
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
@@ -530,7 +534,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
-
+		
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
@@ -573,7 +578,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
-
+		
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
@@ -615,7 +621,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
-
+		
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
@@ -658,7 +665,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
-
+		
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
@@ -701,7 +709,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
-
+		
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
@@ -744,7 +753,8 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("LogNow", log);
 		PlayerPrefs.SetInt("ResetPos", pos);
 		PlayerPrefs.SetString("BackgroundClip", backgroundclip);
-
+		
+		LoadingScreen.SetActive(true);
 		SceneManager.LoadScene("Novel");
 	}
 
