@@ -218,24 +218,10 @@ public class LoadDialogue : MonoBehaviour
 
 	int meiaShow;
 
-	private void Awake() 
-	{
-		if(GameObject. Find("Novel") != null)
-		{
-			
-		}
-	}
-
 	private void Start()
 	{
 		Time.timeScale = 1;
 		int gameMoneyGet = PlayerPrefs.GetInt("Money");
-		meiaShow = PlayerPrefs.GetInt("MeiaShow");
-
-		if(meiaShow == 1)
-		{
-			MeiaImage.SetActive(false);
-		}
 
 		whichLineNow = PlayerPrefs.GetInt("LogNow");
 
@@ -697,6 +683,13 @@ public class LoadDialogue : MonoBehaviour
 
 	void Update()
 	{
+		meiaShow = PlayerPrefs.GetInt("MeiaShow");
+
+		if(meiaShow == 1)
+		{
+			MeiaImage.SetActive(false);
+		}
+
 		Continue();
 	}
 

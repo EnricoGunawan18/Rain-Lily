@@ -14,8 +14,6 @@ public class DialogueSpeed : MonoBehaviour
 	[SerializeField]
 	Sprite[] sprite;
 
-	DialogueManager dialogueManager;
-
 	float speed;
 
 	// Start is called before the first frame update

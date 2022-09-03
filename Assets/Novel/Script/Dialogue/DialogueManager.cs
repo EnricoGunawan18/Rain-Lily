@@ -33,8 +33,6 @@ public class DialogueManager : MonoBehaviour
 	{
 		menu = PlayerPrefs.GetInt("NovelMenu");
 
-		dialogueSpeed = PlayerPrefs.GetFloat("DialogueSpeed");
-
 		FadeAnim = GameObject.Find("Fader").GetComponent<Animator>();
 
 		SkipDialogueButton.onClick.AddListener(SkipDialogue);
@@ -42,6 +40,11 @@ public class DialogueManager : MonoBehaviour
 
 	private void Update()
 	{
+		if(dialogueSpeed != 0)
+		{
+			dialogueSpeed = PlayerPrefs.GetFloat("DialogueSpeed");
+		}
+
 		if (isSkipped == false && hide.isHidden == false)
 		{
 			Skipper.SetActive(true);
