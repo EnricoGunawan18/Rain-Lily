@@ -7183,7 +7183,7 @@ public class LoadDialogue : MonoBehaviour
 
 			if (autoScroll.dialogueIsSkipped == false)
 			{
-				if (d.voice != "" && d.id <= 3232)//until voice is inserted on klein only////until klein 10 only
+				if (d.voice != "" && d.id <= 3883)
 				{
 					for (int i = 0; i < VoiceFile_2.Count; i++)
 					{

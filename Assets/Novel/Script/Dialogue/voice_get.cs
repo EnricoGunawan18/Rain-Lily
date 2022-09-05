@@ -170,8 +170,22 @@ public class voice_get : MonoBehaviour
                     _loaddia.VoiceFile_2.Add(file);
                 }
             }
-
-        }
+            else if (i >= 3235 && i <= 3846)
+            {
+                AudioClip file = Resources.Load<AudioClip>("Voice/クライン11章/V-" + digi + i);
+                if (file != null)
+                {
+                    _loaddia.VoiceFile_2.Add(file);
+                }
+            }
+            else if (i >= 3862 && i <= 3883)
+            {
+                AudioClip file = Resources.Load<AudioClip>("Voice/クラインエピローグ/V-" + digi + i);
+                if (file != null)
+                {
+                    _loaddia.VoiceFile_2.Add(file);
+                }
+            }        }
         for (int i= 0 ;i < _loaddia.VoiceFile_2.Count;i++){
             string temp = _loaddia.VoiceFile_2[i].ToString();
             temp = temp.Replace(" (UnityEngine.AudioClip)", "");
