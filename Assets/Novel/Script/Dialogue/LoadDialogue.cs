@@ -5771,6 +5771,16 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[17];
 			}
+			else if (d.expression.Contains("L-07a"))
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 118, 119, 120 };
+				StartCoroutine("EyeAnim", eyeList);
+
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[20];
+			}
 			else if (d.expression.Contains("L-07"))
 			{
 				StopCoroutine("EyeAnim");
@@ -5821,7 +5831,26 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow.color = new Color(255, 255, 255, 255);
 				MouthNow.sprite = CharaMouth[29];
 			}
+			else if (d.expression.Contains("L-11"))
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 121, 122, 123 };
+				StartCoroutine("EyeAnim", eyeList);
 
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[29];
+			}
+			else if (d.expression.Contains("L-12"))
+			{
+				StopCoroutine("EyeAnim");
+				EyeNow.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 124, 125, 126 };
+				StartCoroutine("EyeAnim", eyeList);
+
+				MouthNow.color = new Color(255, 255, 255, 255);
+				MouthNow.sprite = CharaMouth[29];
+			}
 
 			else if (d.expression.Contains("K-01"))
 			{
