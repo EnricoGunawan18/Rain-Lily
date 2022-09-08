@@ -6270,7 +6270,26 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow1.color = new Color(255, 255, 255, 255);
 				MouthNow1.sprite = CharaMouth[29];
 			}
+			else if (d.showtwoone.Contains("L-11"))
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 121, 122, 123 };
+				StartCoroutine("EyeAnim1", eyeList);
 
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[29];
+			}
+			else if (d.showtwoone.Contains("L-12"))
+			{
+				StopCoroutine("EyeAnim1");
+				EyeNow1.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 124, 125, 126 };
+				StartCoroutine("EyeAnim1", eyeList);
+
+				MouthNow1.color = new Color(255, 255, 255, 255);
+				MouthNow1.sprite = CharaMouth[29];
+			}
 
 			else if (d.showtwoone.Contains("K-01"))
 			{
@@ -6689,8 +6708,26 @@ public class LoadDialogue : MonoBehaviour
 				MouthNow2.color = new Color(255, 255, 255, 255);
 				MouthNow2.sprite = CharaMouth[29];
 			}
+			else if (d.showtwotwo.Contains("L-11"))
+			{
+				StopCoroutine("EyeAnim2");
+				EyeNow2.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 121, 122, 123 };
+				StartCoroutine("EyeAnim2", eyeList);
 
+				MouthNow2.color = new Color(255, 255, 255, 255);
+				MouthNow2.sprite = CharaMouth[29];
+			}
+			else if (d.showtwotwo.Contains("L-12"))
+			{
+				StopCoroutine("EyeAnim2");
+				EyeNow2.color = new Color(255, 255, 255, 255);
+				int[] eyeList = { 124, 125, 126 };
+				StartCoroutine("EyeAnim2", eyeList);
 
+				MouthNow2.color = new Color(255, 255, 255, 255);
+				MouthNow2.sprite = CharaMouth[29];
+			}
 			else if (d.showtwotwo.Contains("K-01"))
 			{
 				StopCoroutine("EyeAnim2");
@@ -6958,7 +6995,8 @@ public class LoadDialogue : MonoBehaviour
 				d.showtwoone.Contains("L-06a") || d.showtwoone.Contains("L-07") ||
 				d.showtwoone.Contains("L-07a") || d.showtwoone.Contains("L-08") ||
 				d.showtwoone.Contains("L-10") || d.showtwoone.Contains("L-01-ragan") ||
-				d.showtwoone.Contains("L-10a"))
+				d.showtwoone.Contains("L-10a")||d.showtwoone.Contains("L-11") ||
+				d.showtwoone.Contains("L-12"))
 			{
 				charaImageNow1.color = new Color(255, 255, 255, 255);
 				charaImageNow1.sprite = charaImage[0];
@@ -7021,7 +7059,8 @@ public class LoadDialogue : MonoBehaviour
 				d.showtwotwo.Contains("L-06a") || d.showtwotwo.Contains("L-07") ||
 				d.showtwotwo.Contains("L-07a") || d.showtwotwo.Contains("L-08") ||
 				d.showtwotwo.Contains("L-10") || d.showtwotwo.Contains("L-01-ragan") ||
-				d.showtwotwo.Contains("L-10a"))
+				d.showtwotwo.Contains("L-10a") || d.showtwotwo.Contains("L-11") ||
+				d.showtwotwo.Contains("L-12"))
 			{
 				charaImageNow2.color = new Color(255, 255, 255, 255);
 				charaImageNow2.sprite = charaImage[0];
@@ -7091,7 +7130,8 @@ public class LoadDialogue : MonoBehaviour
 				d.expression.Contains("L-06a") || d.expression.Contains("L-07") ||
 				d.expression.Contains("L-07a") || d.expression.Contains("L-08") ||
 				d.expression.Contains("L-10") || d.expression.Contains("L-01-ragan") ||
-				d.expression.Contains("L-10a"))
+				d.expression.Contains("L-10a") || d.expression.Contains("L-11") ||
+				d.expression.Contains("L-12"))
 			{
 				if (blankAnim == true)
 				{
@@ -7269,6 +7309,14 @@ public class LoadDialogue : MonoBehaviour
 					else if (d.expression.Contains("L-10"))
 					{
 						StartCoroutine(MouthAnim(27, 28, 29, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-11"))
+					{
+						StartCoroutine(MouthAnim(97, 98, 99, Voice.clip.length));
+					}
+					else if (d.expression.Contains("L-12"))
+					{
+						StartCoroutine(MouthAnim(100, 101, 102, Voice.clip.length));
 					}
 					else if (d.expression.Contains("K-01"))
 					{
