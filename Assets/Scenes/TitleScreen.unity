@@ -8770,6 +8770,7 @@ MonoBehaviour:
   chapterList: []
   ChapterScreen: {fileID: 732361040}
   TitleScreen: {fileID: 1411283844}
+  LoadingScreen: {fileID: 179244907}
   BackButton: {fileID: 1162513183}
   ButtonAudioSource: {fileID: 1438915186}
 --- !u!1 &1018835889
@@ -15316,6 +15317,7 @@ MonoBehaviour:
   FileDescription: {fileID: 958386546}
   chapterLogs: {fileID: 0}
   chapterList: []
+  LoadingScreen: {fileID: 179244907}
   ButtonAudioSource: {fileID: 1438915186}
 --- !u!4 &1712505117
 Transform:

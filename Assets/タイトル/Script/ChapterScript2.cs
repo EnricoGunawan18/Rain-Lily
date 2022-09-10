@@ -27,6 +27,10 @@ public class ChapterScript2 : MonoBehaviour
 	public List<ChapterLogs> chapterList;
 
 	[SerializeField]
+	GameObject LoadingScreen;
+
+
+	[SerializeField]
 	AudioSource ButtonAudioSource;
 
 	bool[] isPressed = { false, false, false, false, false, false, false, false, false, false, false, false };
@@ -121,6 +125,7 @@ public class ChapterScript2 : MonoBehaviour
 
 			PlayerPrefs.SetInt("WhichFile", 0);
 
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 	}

@@ -30,6 +30,8 @@ public class ChapterScript : MonoBehaviour
 	GameObject ChapterScreen;
 	[SerializeField]
 	GameObject TitleScreen;
+	[SerializeField]
+	GameObject LoadingScreen;
 
 	[SerializeField]
 	Button BackButton;
@@ -122,6 +124,7 @@ public class ChapterScript : MonoBehaviour
 
 			PlayerPrefs.SetInt("WhichFile", 0);
 
+			LoadingScreen.SetActive(true);
 			SceneManager.LoadScene("Novel");
 		}
 	}

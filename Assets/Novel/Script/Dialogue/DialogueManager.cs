@@ -14,6 +14,9 @@ public class DialogueManager : MonoBehaviour
 	GameObject Skipper;
 
 	[SerializeField]
+	GameObject DialogueIcon;
+
+	[SerializeField]
 	Button[] MinGameButton;
 	[SerializeField]
 	Button SkipDialogueButton;
@@ -31,6 +34,8 @@ public class DialogueManager : MonoBehaviour
 
 	private void Start()
 	{
+		DialogueIcon.SetActive(false);
+
 		menu = PlayerPrefs.GetInt("NovelMenu");
 
 		FadeAnim = GameObject.Find("Fader").GetComponent<Animator>();
@@ -66,6 +71,8 @@ public class DialogueManager : MonoBehaviour
 	{
 		loadDialogue = GetComponent<LoadDialogue>();
 		textLabel.text = string.Empty;
+
+		DialogueIcon.SetActive(false);
 
 		isSkipped = false;
 
@@ -160,7 +167,7 @@ public class DialogueManager : MonoBehaviour
 
 			yield return null;
 		}
-
+		DialogueIcon.SetActive(true);
 		isSkipped = true;
 		textLabel.text = textToType;
 	}

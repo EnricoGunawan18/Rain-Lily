@@ -252,40 +252,6 @@ public class LoadDialogue : MonoBehaviour
 		int countShop = PlayerPrefs.GetInt("ShopNumber");
 		int menu = PlayerPrefs.GetInt("NovelMenu");
 
-		whichBGClip = PlayerPrefs.GetString("BackgroundClip");
-		Debug.Log(whichBGClip);
-		string digi;
-
-		for (int i = 0; i < 23; i++)
-		{
-			if ((i + 1) < 10)
-			{
-				digi = "00";
-			}
-			else
-			{
-				digi = "0";
-			}
-
-			//Debug.Log(digi + (i + 1).ToString());
-
-			if (whichBGClip.Contains("BGM-" + digi + (i + 1).ToString()))
-			{
-				BGM.clip = BGMFile[i];
-				BGM.Play();
-			}
-			else if(whichBGClip == "")
-			{
-				BGM.Stop();
-			}
-		}
-
-		if (whichBGClip.Contains("working_morning"))
-		{
-			BGM.clip = BGMFile[23];
-			BGM.Play();
-		}
-
 		backData = BGName.text.Split(new char[] { '$' });
 
 		for (int i = 1; i < backData.Length - 1; i++)
@@ -4839,7 +4805,7 @@ public class LoadDialogue : MonoBehaviour
 			}
 		}
 
-
+		AudioManager(logNumber);
 		ShowDialogue();
 	}
 
@@ -5251,6 +5217,47 @@ public class LoadDialogue : MonoBehaviour
 			string Filtered5 = tempRow2[9].Replace("/end", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
+		}
+
+	}
+
+	void AudioManager(int num)
+	{
+		string[] firstLine = data[num].Split(new char[] { ',' });
+		string music = firstLine[7];
+
+		whichBGClip = PlayerPrefs.GetString("BackgroundClip");
+		Debug.Log(whichBGClip);
+		string digi;
+
+		for (int i = 0; i < 23; i++)
+		{
+			if ((i + 1) < 10)
+			{
+				digi = "00";
+			}
+			else
+			{
+				digi = "0";
+			}
+
+			//Debug.Log(digi + (i + 1).ToString());
+
+			if (whichBGClip.Contains("BGM-" + digi + (i + 1).ToString()) && music == "")
+			{
+				BGM.clip = BGMFile[i];
+				BGM.Play();
+			}
+			else if(whichBGClip == "")
+			{
+				BGM.Stop();
+			}
+		}
+
+		if (whichBGClip.Contains("working_morning") && music == "")
+		{
+			BGM.clip = BGMFile[23];
+			BGM.Play();
 		}
 
 	}
@@ -7135,6 +7142,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				if (blankAnim == true)
 				{
+					BustUpAnim.SetBool("isLied",true);
 					charaImageNow.color = new Color(255, 255, 255, 255);
 					EyeNow.color = new Color(255, 255, 255, 255);
 					MouthNow.color = new Color(255, 255, 255, 255);
@@ -7149,6 +7157,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				if (blankAnim == true)
 				{
+					BustUpAnim.SetBool("isLied",true);
 					charaImageNow.color = new Color(255, 255, 255, 255);
 					EyeNow.color = new Color(255, 255, 255, 255);
 					MouthNow.color = new Color(255, 255, 255, 255);
@@ -7169,6 +7178,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				if (blankAnim == true)
 				{
+					BustUpAnim.SetBool("isLied",false);
 					charaImageNow.color = new Color(255, 255, 255, 255);
 					EyeNow.color = new Color(255, 255, 255, 255);
 					MouthNow.color = new Color(255, 255, 255, 255);
@@ -7185,6 +7195,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				if (blankAnim == true)
 				{
+					BustUpAnim.SetBool("isLied",false);
 					charaImageNow.color = new Color(255, 255, 255, 255);
 					EyeNow.color = new Color(255, 255, 255, 255);
 					MouthNow.color = new Color(255, 255, 255, 255);
@@ -7201,6 +7212,7 @@ public class LoadDialogue : MonoBehaviour
 			{
 				if (blankAnim == true)
 				{
+					BustUpAnim.SetBool("isLied",false);
 					charaImageNow.color = new Color(255, 255, 255, 255);
 					EyeNow.color = new Color(255, 255, 255, 255);
 					MouthNow.color = new Color(255, 255, 255, 255);
