@@ -39,7 +39,6 @@ public class TitleScript : MonoBehaviour
 	public GameObject LoadingScreen;
 
 	public InputField NameInputField;
-	public Button BackButtonFromName;
 
 	[SerializeField]
 	AudioSource ButtonAudioSource;
@@ -113,7 +112,6 @@ public class TitleScript : MonoBehaviour
 		Files[9].onClick.AddListener(TenthFile);
 		BackButton.onClick.AddListener(Back);
 		BackMiniGame.onClick.AddListener(Back);
-		BackButtonFromName.onClick.AddListener(Back);
 
 		CG.onClick.AddListener(CGOpen);
 
