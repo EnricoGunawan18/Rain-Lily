@@ -29,12 +29,13 @@ public class ResultCook : MonoBehaviour
     [SerializeField]
     private Image star_s;
     [SerializeField]
-    private Click_right_BGM _effect;
+    private Click_right_BGM _sound;
 
     [Space(10)]
 
     [SerializeField]
     private GameObject finish;
+    private bool frag;
     int gameMoneyGet;
     float liedPlus;
     float kleinPlus;
@@ -42,28 +43,26 @@ public class ResultCook : MonoBehaviour
     int affPlusKlein;
 
     private ScoreHome home = new ScoreHome();
-    private PazzleCookMAnager game = new PazzleCookMAnager();
-    private bool stop_W;
+    private GameManage game = new GameManage();
     private Image[] stock = new Image[5];
-    private int star_gap;
 
-    void Awake()
+    public void ResultAwake()
     {
         gameMoneyGet = PlayerPrefs.GetInt("Money");
+        frag = false;
         Time.timeScale = 1f;
-        star_gap = 120;
-        stop_W = true;
         game.SetGameStop(false);
         resultObject.SetActive(false);
         retry.onClick.AddListener(Retry);
         end.onClick.AddListener(Quit);
     }
 
-    private void Update()
+    public void ResultUpdate()
     {
-        if (stop_W)
+        if (game.TimeValue <= -360f&&!frag)
         {
             GetTime();
+            frag = true;
         }
     }
 
@@ -71,11 +70,12 @@ public class ResultCook : MonoBehaviour
     {
         if (sw)
         {
-            _effect.Finish_effect();
+            finish.SetActive(true);
+            _sound.Finish_effect();
             finish.transform.DOMoveX(0, 2.0f)
                 .SetEase(Ease.OutQuad);
             await Task.Delay(3000);
-            _effect.Start_bgm();
+            _sound.Start_bgm();
             Time.timeScale = 0f;
         }
         finish.SetActive(false);
@@ -84,89 +84,86 @@ public class ResultCook : MonoBehaviour
 
     private void GetTime()
     {
-        if (game.TimeValue <= -360f)
+        game.SetGameStop(true);
+        ResultSW(true);
+        if (home.GetCookScore < baseScore)
         {
-            stop_W = false;
-            game.SetGameStop(true);
-            ResultSW(true);
-            if (home.GetCookScore < baseScore)
+            Star_create(0);
+            gold.text = "金貨100獲得しました";
+            if (affPlusLied == 2)
             {
-                Star_create(0);
-                gold.text = "金貨100獲得しました";
-                if (affPlusLied == 2)
-                {
-                    liedPlus = 3;
-                }
-                if (affPlusKlein == 2)
-                {
-                    kleinPlus = 3;
-                }
-                gameMoneyGet += 100;
+                liedPlus = 3;
             }
-            else if (home.GetCookScore < baseScore + upScore)
+            if (affPlusKlein == 2)
             {
-                Star_create(1);
-                gold.text = "金貨300獲得しました";
-                if (affPlusLied == 2)
-                {
-                    liedPlus = 4;
-                }
-                if (affPlusKlein == 2)
-                {
-                    kleinPlus = 4;
-                }
-                gameMoneyGet += 300;
+                kleinPlus = 3;
             }
-            else if (home.GetCookScore < baseScore + upScore * 2)
-            {
-                Star_create(2);
-                gold.text = "金貨500獲得しました";
-                if (affPlusLied == 2)
-                {
-                    liedPlus = 5;
-                }
-                if (affPlusKlein == 2)
-                {
-                    kleinPlus = 5;
-                }
-                gameMoneyGet += 500;
-            }
-            else if (home.GetCookScore < baseScore + upScore * 3)
-            {
-                Star_create(3);
-                gold.text = "金貨700獲得しました";
-                if (affPlusLied == 2)
-                {
-                    liedPlus = 6;
-                }
-                if (affPlusKlein == 2)
-                {
-                    kleinPlus = 6;
-                }
-                gameMoneyGet += 700;
-            }
-            else
-            {
-                Star_create(4);
-                gold.text = "金貨1000獲得しました";
-                if (affPlusLied == 2)
-                {
-                    liedPlus = 7;
-                }
-                if (affPlusKlein == 2)
-                {
-                    kleinPlus = 7;
-                }
-                gameMoneyGet += 1000;
-            }
-            text.text = "" + home.GetCookScore;
+            gameMoneyGet += 100;
         }
+        else if (home.GetCookScore < baseScore + upScore)
+        {
+            Star_create(1);
+            gold.text = "金貨300獲得しました";
+            if (affPlusLied == 2)
+            {
+                liedPlus = 4;
+            }
+            if (affPlusKlein == 2)
+            {
+                kleinPlus = 4;
+            }
+            gameMoneyGet += 300;
+        }
+        else if (home.GetCookScore < baseScore + upScore * 2)
+        {
+            Star_create(2);
+            gold.text = "金貨500獲得しました";
+            if (affPlusLied == 2)
+            {
+                liedPlus = 5;
+            }
+            if (affPlusKlein == 2)
+            {
+                kleinPlus = 5;
+            }
+            gameMoneyGet += 500;
+        }
+        else if (home.GetCookScore < baseScore + upScore * 3)
+        {
+            Star_create(3);
+            gold.text = "金貨700獲得しました";
+            if (affPlusLied == 2)
+            {
+                liedPlus = 6;
+            }
+            if (affPlusKlein == 2)
+            {
+                kleinPlus = 6;
+            }
+            gameMoneyGet += 700;
+        }
+        else
+        {
+            Star_create(4);
+            gold.text = "金貨1000獲得しました";
+            if (affPlusLied == 2)
+            {
+                liedPlus = 7;
+            }
+            if (affPlusKlein == 2)
+            {
+                kleinPlus = 7;
+            }
+            gameMoneyGet += 1000;
+        }
+        text.text = "" + home.GetCookScore;
     }
 
     private void Star_create(int num)
     {
         Vector3 _position = new Vector3(-240f, -70f, 0f);
         Transform _patent = resultObject.transform;
+        int star_gap = 120;
 
         for (int i = 0; i < 5; i++)
         {

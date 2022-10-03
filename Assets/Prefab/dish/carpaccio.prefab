@@ -29,6 +29,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5670147970210105613}
   m_RootOrder: 0
@@ -125,6 +126,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6, y: -2.5, z: 40}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3271570171461405218}
   - {fileID: 7510473016594114487}
@@ -142,6 +144,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -194,11 +197,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e452955b563f14e894e6fc02db4f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finished_image: {fileID: 21300000, guid: 9e7c0288cf16af446afc52de187099a4, type: 3}
-  outer: {fileID: 8598660238514564404}
-  inner: {fileID: 9029108922293586998}
+  finishedImage: {fileID: 21300000, guid: 9e7c0288cf16af446afc52de187099a4, type: 3}
+  ingredients:
+  - {fileID: 4952988145444784525, guid: a9d41c24c4476a642b61153d0e810010, type: 3}
+  - {fileID: 1225453347306364684, guid: f2fca20a12cbf5a4392da8deef3a63bf, type: 3}
+  - {fileID: 4823260408132435859, guid: 9e46c26973394604aab52e232d6e7206, type: 3}
+  - {fileID: 7058271434660059976, guid: faa3bb33e77dcfc4bb7738c26f424b15, type: 3}
+  - {fileID: 8615073097796756235, guid: 0783b5d55a844064f8cb422640962e48, type: 3}
+  outerCount: {fileID: 8064836627588155626}
+  innerCount: {fileID: 8860547807295346747}
   outerScore: 0
   innerScore: 100
+  storage: {fileID: 8444831241721141416, guid: a0209c3b3566ec8448c4d28e66f784c4, type: 3}
 --- !u!1 &8382143248934191147
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +238,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5670147970210105613}
   m_RootOrder: 1

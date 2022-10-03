@@ -6,29 +6,27 @@ using UnityEngine.UI;
 public class Finished_dish : MonoBehaviour
 {
 	[SerializeField]
-	private Sprite finished_image;
+	private Sprite finishedImage;			//完成図
 	[SerializeField]
-	private Collider2D outer;
+	private GameObject[] ingredients;		//食材
 	[SerializeField]
-	private Collider2D inner;
+	private CountObject outerCount;			//皿の外周
 	[SerializeField]
-	private int outerScore = 0;
+	private CountObjectInner innerCount;	//皿の内周
 	[SerializeField]
-	private int innerScore=10;
+	private int outerScore = 0;				//外周のスコアの上がり幅
+	[SerializeField]
+	private int innerScore=10;				//内周のスコアの上がり幅
+	[SerializeField]
+	private RectTransform storage;			//食材を出す場所
 
-	private int score;
-	private CountObject outerCount;
-	private CountObjectInner innerCount;
-
-	void Start()
-	{
-		outerCount = outer.gameObject.GetComponent<CountObject>();
-		innerCount = inner.gameObject.GetComponent<CountObjectInner>();
-		score = 0;
-	}
+	private int score ;
+	private GameObject[] pantry = new GameObject[5];
 
 	public int Finished_order()
 	{
+		score = 0;
+
 		StartCoroutine(StayCollider());
 		score = outerCount.Calculation() * outerScore + innerCount.Calculation() * innerScore;
 		Debug.Log(score);
@@ -37,8 +35,32 @@ public class Finished_dish : MonoBehaviour
 
 	public void Send_num(Image image)
 	{
-		image.sprite = finished_image;
+		image.sprite = finishedImage;
 	}
+
+	public void OutIngredient()
+    {
+		int i = 0;
+		foreach (var item in ingredients)
+		{
+			float x = Random.Range(storage.offsetMin.x, storage.offsetMax.x);
+			//Storageのｘの範囲でランダムに
+			float y = Random.Range(storage.offsetMin.y, storage.offsetMax.y);
+			//Storageのｙの範囲でランダムに
+			Vector3 pos = new Vector3(x, y, 20);
+			//ｚが20～30だと皿や他のに干渉しにくい
+			pantry[i] = Instantiate(item, pos, Quaternion.identity);
+			i++;
+		}
+    }
+
+    public void DishDestroy()
+    {
+		foreach (var item in pantry)
+		{
+			Destroy(item);
+		}
+    }
 
 	private IEnumerator StayCollider()
 	{

@@ -42,12 +42,12 @@ public class ResultScript : MonoBehaviour
     int affPlusKlein;
 
     private ScoreHome home = new ScoreHome();
-    private PazzleCookMAnager game = new PazzleCookMAnager();
+    private GameManage game = new GameManage();
     private bool stop_W;
     private Image[] stock = new Image[5];
     private int star_gap;
 
-    void Awake()
+    public void ResultAwake()
     {
         gameMoneyGet = PlayerPrefs.GetInt("Money");
         affPlusLied = PlayerPrefs.GetInt("AffUpLied");
@@ -61,7 +61,7 @@ public class ResultScript : MonoBehaviour
         end.onClick.AddListener(Quit);
     }
 
-	private void Update()
+	public void ResultUpdate()
 	{
 		if (stop_W)
         {

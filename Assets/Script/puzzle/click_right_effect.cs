@@ -13,13 +13,13 @@ public class click_right_effect : MonoBehaviour
 
     AudioSource audioSource;
 
-    void Start()
+    public void EffectStart()
     {
         //Component‚ðŽæ“¾
         audioSource = GetComponent<AudioSource>();
     }
 
-    void Update()
+    public void EffectUpdate()
     {
         // ‰E
         if (Input.GetMouseButtonDown(1))
