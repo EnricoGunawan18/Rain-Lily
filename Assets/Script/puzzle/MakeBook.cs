@@ -12,10 +12,10 @@ public class MakeBook : MonoBehaviour
     private bool sw;
     private bool bsw = false;
     private int suitable = 0;
-    private GameManage game = new GameManage();
+    private PazzleCookMAnager game = new PazzleCookMAnager();
     private GameObject[][] books = new GameObject[7][];
 
-    public void MakeStart()
+    void Start()
     {
 		for (int i = 0; i < books.Length; i++)
 		{
@@ -32,7 +32,7 @@ public class MakeBook : MonoBehaviour
         SpawnPeas();
     }
 
-    public void MakeUpdate()
+    void Update()
     {
         NewPeas();
 
@@ -43,7 +43,7 @@ public class MakeBook : MonoBehaviour
         }
     }
 
-    private void SpawnPeas()
+    void SpawnPeas()
     {
         int even = 0;
         int odd = 0;
