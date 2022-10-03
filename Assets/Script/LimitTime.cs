@@ -14,7 +14,7 @@ public class LimitTime : MonoBehaviour
 
     private float rotateValue = 0;
     private Transform _transform;
-    private PazzleCookMAnager game = new PazzleCookMAnager();
+    private GameManage game = new GameManage();
     private float turn;
 
     private void Awake()

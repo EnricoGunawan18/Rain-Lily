@@ -13,6 +13,7 @@ public class StillSelected : MonoBehaviour
     [SerializeField]
     private Transform CanvasTran;
 
+
     void Start()
     {
         still_bn.onClick.AddListener(() => Pop_still());
@@ -22,5 +23,5 @@ public class StillSelected : MonoBehaviour
     private void Pop_still()
 	{
         Instantiate(still, CanvasTran);
-    }
+	}
 }
