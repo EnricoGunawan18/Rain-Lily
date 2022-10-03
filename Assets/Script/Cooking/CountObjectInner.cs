@@ -18,6 +18,7 @@ public class CountObjectInner : MonoBehaviour
 				}
 			}
 
+			Debug.Log(other.gameObject);
 			i_hitObjects.Add(other.gameObject);
 		}
 	}
@@ -29,6 +30,8 @@ public class CountObjectInner : MonoBehaviour
 	public int Calculation()
 	{
 		int count = i_hitObjects.Count;
+		Debug.Log(this);
+		Debug.Log(count);
 
 		i_hitObjects.Clear();
 		return count;

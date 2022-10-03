@@ -21,7 +21,7 @@ public class AddScore : MonoBehaviour
     private ScoreHome home = new ScoreHome();
     private int score = 0;
 
-    public void ScoreUpdate()
+    private void Update()
     {
         viewScore.text = "score:" + home.GetPazzleScore;
     }

@@ -17,11 +17,11 @@ public class Tochmaneger : MonoBehaviour
     private click_right_effect _effect;
 
     private Camera camera;
-    private GameManage game = new GameManage();
+    private PazzleCookMAnager game = new PazzleCookMAnager();
     private List<GameObject> Books = new List<GameObject>();
     private GameObject lastBook;
 
-	public void TouchStart()
+	private void Start()
 	{
         camera = Camera.main;
 	}

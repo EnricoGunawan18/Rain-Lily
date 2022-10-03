@@ -6,65 +6,87 @@ using UnityEngine.UI;
 public class SaR_cuisine : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] dishs;     //óøóùÇÃéM
+    private GameObject[] dishs;
     [SerializeField]
-    private Image finishedImage;    //äÆê¨ê}ÇèoÇ∑èÍèä
+    private GameObject[] dishsList;
     [SerializeField]
-    private Button comp_bn;         //äÆê¨É{É^Éì
+    private Image finishedImage;
     [SerializeField]
-    private Transform dishTran;     //éMÇèoÇ∑èÍèä
+    private Button comp_bn;
+    [SerializeField]
+    private Transform canvasTran;
 
     private ScoreHome home = new ScoreHome();
-    private GameManage game = new GameManage();
+    private PazzleCookMAnager game = new PazzleCookMAnager();
     private Finished_dish finDish;
     private GameObject instantObject;
     private bool frag;
 
-    public void CuisineStart()
+    void Start()
     {
-        comp_bn.onClick.AddListener(SendCuisine);
+        comp_bn.onClick.AddListener(Send_cuisine);
 
-        InstantiateDishs();
+        int Rnum = Random.Range(0, dishs.Length);
+        instantObject = Instantiate(dishs[Rnum], canvasTran.position, Quaternion.identity);
+        finDish = instantObject.GetComponent<Finished_dish>();
+        finDish.Send_num(finishedImage);
+        foreach (var item in dishsList)
+        {
+            if (item.gameObject.tag == instantObject.tag)
+            {
+                item.gameObject.SetActive(true);
+			}
+			else
+            {
+                item.gameObject.SetActive(false);
+            }
+        }
+        frag = false;
     }
 
-	public void CuisineUpdate()
+	private void Update()
 	{
-		if (game.GetGameStop()&&!frag)
+		if (game.GetGameStop())
 		{
-            DesCal();
+            foreach (var item in dishsList)
+            {
+                item.gameObject.SetActive(false);
+            }
+
+            Destroy(instantObject);
         }
 	}
 
-	private void SendCuisine()
+	private void Send_cuisine()
     {
         if (!frag)
         {
-            DesCal();
+            home.GetCookScore += finDish.Finished_order();
+
+            foreach (var item in dishsList)
+            {
+                item.gameObject.SetActive(false);
+            }
+
+            Destroy(instantObject);
+            frag = true;
         }
 
         if (frag)
         {
-            InstantiateDishs();
+            int Rnum = Random.Range(0, dishs.Length);
+            instantObject = Instantiate(dishs[Rnum], canvasTran.position, Quaternion.identity);
+            finDish = instantObject.GetComponent<Finished_dish>();
+            finDish.Send_num(finishedImage);
+			foreach (var item in dishsList)
+			{
+				if (item.gameObject.tag==instantObject.tag)
+				{
+                    item.gameObject.SetActive(true);
+                    break;
+				}
+			}
+            frag = false;
         }
-    }
-
-    private void InstantiateDishs()
-    {
-        int Rnum = Random.Range(0, dishs.Length);
-        instantObject = Instantiate(dishs[Rnum], dishTran.position, Quaternion.identity);
-        finDish = instantObject.GetComponent<Finished_dish>();
-        finDish.Send_num(finishedImage);
-        finDish.OutIngredient();
-        frag = false;
-    }
-
-    public void DesCal()
-    {
-        home.GetCookScore += finDish.Finished_order();
-
-        finDish.DishDestroy();
-        Destroy(instantObject);
-
-        frag = true;
     }
 }
