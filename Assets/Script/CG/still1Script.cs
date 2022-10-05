@@ -8,9 +8,6 @@ public class still1Script : MonoBehaviour
 {
     [SerializeField]
     Button Play;
-
-	[SerializeField]
-	GameObject LoadingScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,8 +37,6 @@ public class still1Script : MonoBehaviour
 		PlayerPrefs.SetInt("CookNumber", 0);
 		PlayerPrefs.SetInt("ShopNumber", 0);
 		PlayerPrefs.SetString("BackgroundClip", "");
-
-		PlayerPrefs.SetString("PlayerName", "");
 
 		int[] itemNumber = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 

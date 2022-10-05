@@ -7,7 +7,7 @@ public class Click_right_BGM : MonoBehaviour
     [SerializeField]
     private AudioClip finish;
 
-    private PazzleCookMAnager game = new PazzleCookMAnager();
+    private GameManage game = new GameManage();
     AudioSource audioSource;
 
     void Start()
