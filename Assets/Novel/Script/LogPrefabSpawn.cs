@@ -23,8 +23,6 @@ public class LogPrefabSpawn : MonoBehaviour
     {
         GameObject log;
 
-        count++;
-
         var rectTransform = parent.GetComponent<RectTransform>();
         var height = rectTransform.sizeDelta.y;
 
@@ -35,11 +33,13 @@ public class LogPrefabSpawn : MonoBehaviour
             parent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,height);
         }
 
-        log = Instantiate(logPrefab, new Vector3(0, 160 - (count * 300), 0), Quaternion.identity);
+        log = Instantiate(logPrefab, new Vector3(1230, 870 - (count * 300), 0), Quaternion.identity);
         log.transform.SetParent(parent.transform, true);
 
         logComponent = log.GetComponentInChildren<LogComponent>();
         logComponent.SetName(name);
         logComponent.SetDialogue(sentence);
+
+        count++;
     }
 }

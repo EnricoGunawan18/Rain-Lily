@@ -1783,9 +1783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a673d9c2d9db9645b21b58feafbbb1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logPrefab: {fileID: 3326046299656134670, guid: 76c178330570588428659599c22067b1,
-    type: 3}
-  parent: {fileID: 0}
+  logPrefab: {fileID: 1897222006741667, guid: 76c178330570588428659599c22067b1, type: 3}
+  parent: {fileID: 973983653}
 --- !u!1 &175023558
 GameObject:
   m_ObjectHideFlags: 0
@@ -11172,7 +11171,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 10
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0

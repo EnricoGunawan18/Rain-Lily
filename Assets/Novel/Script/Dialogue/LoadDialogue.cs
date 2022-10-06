@@ -5285,8 +5285,7 @@ public class LoadDialogue : MonoBehaviour
 				DialogueChange = d.dialogue.Replace("メイア", NameChange);
 			}
 
-			//logLabel.text = logLabel.text + MainCharaName + "\n" + DialogueChange + "\n\n";
-			logPrefabSpawn.SpawnLog(NameChange,DialogueChange);
+			logPrefabSpawn.SpawnLog(MainCharaName,DialogueChange);
 
 			//MouthAnimStop
 			StopCoroutine("MouthAnim");
