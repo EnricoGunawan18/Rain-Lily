@@ -20,8 +20,6 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	public Text backGroundLabel;
 	[SerializeField]
-	public Text logLabel;
-	[SerializeField]
 	public Scrollbar logScroll;
 	[SerializeField]
 	private Button nextDialogue;
@@ -78,6 +76,9 @@ public class LoadDialogue : MonoBehaviour
 	GameObject StillDialogueBG;
 	[SerializeField]
 	Image DialogueBG;
+
+	[SerializeField]
+	LogPrefabSpawn logPrefabSpawn;
 
 	[SerializeField]
 	Image EyeNow;
@@ -5284,7 +5285,8 @@ public class LoadDialogue : MonoBehaviour
 				DialogueChange = d.dialogue.Replace("メイア", NameChange);
 			}
 
-			logLabel.text = logLabel.text + MainCharaName + "\n" + DialogueChange + "\n\n";
+			//logLabel.text = logLabel.text + MainCharaName + "\n" + DialogueChange + "\n\n";
+			logPrefabSpawn.SpawnLog(NameChange,DialogueChange);
 
 			//MouthAnimStop
 			StopCoroutine("MouthAnim");
