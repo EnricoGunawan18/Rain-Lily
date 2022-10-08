@@ -18,7 +18,7 @@ public class FileScreen : MonoBehaviour
 	Button MenuLoad;
 	[SerializeField]
 	Button Back;
-
+	
 	[SerializeField]
 	GameObject[] Pages;
 
@@ -53,7 +53,8 @@ public class FileScreen : MonoBehaviour
 
 		for(int i = 0; i < 36; i++)
 		{
-			Files[i].onClick.AddListener(delegate{FileClick(i);});
+			int num = i;
+			Files[i].onClick.AddListener(delegate{FileClick(num);});
 		}
 	}
 

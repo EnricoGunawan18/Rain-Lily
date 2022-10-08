@@ -9,9 +9,13 @@ public class DataButtonDisable : MonoBehaviour
 	GameObject[] Pages;
 	[SerializeField]
 	GameObject[] UICluster;
+	[SerializeField]
+	GameObject[] NoData;
 
 	[SerializeField]
 	Image SaveOrLoad;
+	[SerializeField]
+	Image[] CharacterImage;
 
 	[SerializeField]
 	Sprite[] SaveOrLoadSprite;
@@ -20,12 +24,15 @@ public class DataButtonDisable : MonoBehaviour
 
 	[SerializeField]
 	Text[] Date;
+	[SerializeField]
+	Text[] CharacterName;
 
 	[SerializeField]
 	Button[] Button;
 
 	float[] Lied;
 	float[] Klein;
+	string[] Name;
 
 	int[][] dateFile;
 
@@ -40,7 +47,10 @@ public class DataButtonDisable : MonoBehaviour
 			for(int j = 0; j < 6; j++)
 			{
 				UICluster[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("UI").gameObject;
-				Date[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("UI").transform.Find("Date").GetComponent<Text>();;
+				NoData[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("NoData").gameObject;
+				CharacterImage[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("UI").transform.Find("Character").GetComponent<Image>();
+				Date[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("UI").transform.Find("Date").GetComponent<Text>();
+				CharacterName[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("UI").transform.Find("PlayerName").GetComponent<Text>();
 				Button[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("Button").GetComponent<Button>();
 			}
 		}
@@ -49,12 +59,14 @@ public class DataButtonDisable : MonoBehaviour
 
 		Lied = new float[36];
 		Klein = new float[36];
+		Name = new string[36];
 
 		for(int i = 0; i < 36; i++)
 		{
 			dateFile[i] = PlayerPrefsX.GetIntArray($"Date{i}");
 			Lied[i] = PlayerPrefs.GetFloat($"LiedHeart{i}");
 			Klein[i] = PlayerPrefs.GetFloat($"KleinHeart{i}");
+            Name[i] = PlayerPrefs.GetString($"PlayerName{i}");
 		}
 
 
@@ -73,6 +85,7 @@ public class DataButtonDisable : MonoBehaviour
 			if (dateFile[i][0] == 0)
 			{
 				UICluster[i].SetActive(false);
+				NoData[i].SetActive(true);
 
 				if (fileScreen.saveOrLoad == 2)
 				{
@@ -86,17 +99,25 @@ public class DataButtonDisable : MonoBehaviour
 			else
 			{
 				UICluster[i].SetActive(true);
+				NoData[i].SetActive(false);
 
 				for(int j = 0; j < 36; j++)
 				{
 					Date[j].text = dateFile[j][0].ToString() + "/" + dateFile[j][1].ToString();
+					CharacterName[j].text = Name[j];
 				}				
 
 				if (Lied[i] < Klein[i])
 				{
+					CharacterImage[i].sprite = Sprite[2];
+				}
+				if (Lied[i] > Klein[i])
+				{
+					CharacterImage[i].sprite = Sprite[1];
 				}
 				else
 				{
+					CharacterImage[i].sprite = Sprite[0];
 				}
 			}
 		}
