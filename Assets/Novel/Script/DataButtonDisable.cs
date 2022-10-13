@@ -63,10 +63,10 @@ public class DataButtonDisable : MonoBehaviour
 
 		for(int i = 0; i < 36; i++)
 		{
-			dateFile[i] = PlayerPrefsX.GetIntArray($"Date{i}");
-			Lied[i] = PlayerPrefs.GetFloat($"LiedHeart{i}");
-			Klein[i] = PlayerPrefs.GetFloat($"KleinHeart{i}");
-            Name[i] = PlayerPrefs.GetString($"PlayerName{i}");
+			dateFile[i] = PlayerPrefsX.GetIntArray($"Date{i + 1}");
+			Lied[i] = PlayerPrefs.GetFloat($"LiedHeart{i + 1}");
+			Klein[i] = PlayerPrefs.GetFloat($"KleinHeart{i + 1}");
+            Name[i] = PlayerPrefs.GetString($"PlayerName{i + 1}");
 		}
 
 

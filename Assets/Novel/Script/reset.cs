@@ -7,7 +7,7 @@ public class reset : MonoBehaviour
     [SerializeField]
     public PlayerPrefsX playerPrefsX;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         PlayerPrefs.SetInt("StartGame", 0);
 

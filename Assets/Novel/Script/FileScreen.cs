@@ -54,7 +54,7 @@ public class FileScreen : MonoBehaviour
 		for(int i = 0; i < 36; i++)
 		{
 			int num = i;
-			Files[i].onClick.AddListener(delegate{FileClick(num);});
+			Files[i].onClick.AddListener(delegate{FileClick(num + 1);});
 		}
 	}
 
