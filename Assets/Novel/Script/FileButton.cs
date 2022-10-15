@@ -21,12 +21,11 @@ public class FileButton : MonoBehaviour
     GameObject[] filePanel;
 
     int numNow;
-    int numSwitch;
+    
     // Start is called before the first frame update
     void Start()
     {
         numNow = 0;
-        numSwitch = 0;
 
         for(int i = 0; i < 6; i++)
         {
@@ -37,6 +36,13 @@ public class FileButton : MonoBehaviour
 
     void FileButtonClick(int num)
     {
-        
+        Vector3 position1 = filePanel[numNow].transform.position;
+        Vector3 position2 = filePanel[num].transform.position;
+        filePanel[numNow].transform.position = Vector3.MoveTowards(filePanel[numNow].transform.position, position2, Time.deltaTime * 100f);
+        filePanel[num].transform.position = Vector3.MoveTowards(filePanel[num].transform.position, position1, Time.deltaTime * 100f);
+        if(filePanel[numNow].transform.position == position2)
+        {
+            numNow = num;
+        }
     }
 }
