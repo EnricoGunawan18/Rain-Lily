@@ -871,15 +871,27 @@ MonoBehaviour:
   - {fileID: 1888900912}
   BackButton: {fileID: 154258390}
   BackMiniGame: {fileID: 1384405363}
+  StartGame: {fileID: 0}
+  Options: {fileID: 22940084}
+  MiniGameBG: {fileID: 0}
+  MiniGameBGSprite: []
   CG: {fileID: 1919518050}
   PuzzleButton: {fileID: 1593250754}
   CookButton: {fileID: 154598772}
+  Titles: {fileID: 0}
   TitleScreen: {fileID: 1411283844}
   GameScreen: {fileID: 1188308547}
   NowSaveScreen: {fileID: 1746162493}
   ChapterScreen: {fileID: 732361040}
+  NameInsert: {fileID: 0}
+  LoadingScreen: {fileID: 0}
+  NameInputField: {fileID: 0}
   ButtonAudioSource: {fileID: 1438915186}
   newFile: 0
+  Score: {fileID: 1394266266}
+  highScoreClean: 0
+  highScoreCook: 0
+  highScoreShop: 0
 --- !u!4 &79668777
 Transform:
   m_ObjectHideFlags: 0
@@ -8326,6 +8338,7 @@ MonoBehaviour:
   chapterList: []
   ChapterScreen: {fileID: 732361040}
   TitleScreen: {fileID: 1411283844}
+  LoadingScreen: {fileID: 0}
   BackButton: {fileID: 1162513183}
   ButtonAudioSource: {fileID: 1438915186}
 --- !u!1 &1018835889
@@ -14244,7 +14257,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1655606804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf76ad7005befd4d98692c1ba989dd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9db4dbb735ad37645ba4264d7134b1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1701706594
@@ -14516,6 +14529,7 @@ MonoBehaviour:
   FileDescription: {fileID: 958386546}
   chapterLogs: {fileID: 0}
   chapterList: []
+  LoadingScreen: {fileID: 0}
   ButtonAudioSource: {fileID: 1438915186}
 --- !u!4 &1712505117
 Transform:
