@@ -20,8 +20,6 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	public Text backGroundLabel;
 	[SerializeField]
-	public Text logLabel;
-	[SerializeField]
 	public Scrollbar logScroll;
 	[SerializeField]
 	private Button nextDialogue;
@@ -78,6 +76,9 @@ public class LoadDialogue : MonoBehaviour
 	GameObject StillDialogueBG;
 	[SerializeField]
 	Image DialogueBG;
+
+	[SerializeField]
+	LogPrefabSpawn logPrefabSpawn;
 
 	[SerializeField]
 	Image EyeNow;
@@ -667,7 +668,6 @@ public class LoadDialogue : MonoBehaviour
 		int resetFrom = PlayerPrefs.GetInt("ResetPos");
 		int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 
-		Debug.Log(logNumber);
 
 		if (novelMenu == 11)
 		{
@@ -5227,7 +5227,6 @@ public class LoadDialogue : MonoBehaviour
 		string music = firstLine[7];
 
 		whichBGClip = PlayerPrefs.GetString("BackgroundClip");
-		Debug.Log(whichBGClip);
 		string digi;
 
 		for (int i = 0; i < 23; i++)
@@ -5241,7 +5240,6 @@ public class LoadDialogue : MonoBehaviour
 				digi = "0";
 			}
 
-			//Debug.Log(digi + (i + 1).ToString());
 
 			if (whichBGClip.Contains("BGM-" + digi + (i + 1).ToString()) && music == "")
 			{
@@ -5284,7 +5282,7 @@ public class LoadDialogue : MonoBehaviour
 				DialogueChange = d.dialogue.Replace("メイア", NameChange);
 			}
 
-			logLabel.text = logLabel.text + MainCharaName + "\n" + DialogueChange + "\n\n";
+			logPrefabSpawn.SpawnLog(MainCharaName,DialogueChange);
 
 			//MouthAnimStop
 			StopCoroutine("MouthAnim");
@@ -10125,7 +10123,6 @@ public class LoadDialogue : MonoBehaviour
 				}
 				else
 				{
-					Debug.Log("a");
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
@@ -12585,432 +12582,48 @@ public class LoadDialogue : MonoBehaviour
 
 	void QuickSaveClicked()
 	{
-		int startFrom = PlayerPrefs.GetInt("LogNow");
+		for(int i = 0; i < 36; i++)
+		{
+			if (whichLineNow != 0)
+			{
+				PlayerPrefs.SetInt($"{i}Log", whichLineNow - 1);
+			}
+			else
+			{
+				PlayerPrefs.SetInt($"{i}Log", whichLineNow);
+			}
+			int novelMenu = PlayerPrefs.GetInt("NovelMenu");
+			int[] date = PlayerPrefsX.GetIntArray("Date");
+			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
+			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
+			int money = PlayerPrefs.GetInt("Money");
+			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
+			int cookNumber = PlayerPrefs.GetInt("CookNumber");
+			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
+			int LiedFail = PlayerPrefs.GetInt("LiedFail");
+			int KleinFail = PlayerPrefs.GetInt("KleinFail");
+			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
+			string nameSave = PlayerPrefs.GetString("PlayerName");
+			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
 
+			PlayerPrefs.SetString($"PlayerName{i + 1}", nameSave);
+			PlayerPrefs.SetInt($"LiedFail{i + 1}", LiedFail);
+			PlayerPrefs.SetInt($"KleinFail{i + 1}", KleinFail);
+			PlayerPrefs.SetInt($"CleanNumber{i + 1}", cleanNumber);
+			PlayerPrefs.SetInt($"CookNumber{i + 1}", cookNumber);
+			PlayerPrefs.SetInt($"ShopNumber{i + 1}", shopNumber);
+			PlayerPrefs.SetInt($"Money{i + 1}", money);
+			PlayerPrefs.SetFloat($"LiedHeart{i + 1}", liedAff);
+			PlayerPrefs.SetFloat($"KleinHeart{i + 1}", kleinAff);
+			PlayerPrefsX.SetIntArray($"Date{i + 1}", date);
+			PlayerPrefs.SetInt($"NovelMenu{i + 1}", novelMenu);
+			PlayerPrefs.SetInt($"{i + 1}Pos", resetPos);
+			PlayerPrefsX.SetIntArray($"ItemNumber{i + 1}", ItemNumber);
+			PlayerPrefs.SetString($"BackgroundClip{i + 1}", backgroundClip);
+		}
 		int whichFile = PlayerPrefs.GetInt("WhichFile");
-		if (whichFile == 1)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("FirstLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("FirstLog", whichLineNow);
-			}
-			PlayerPrefs.SetInt("FirstPos", resetPos);
 
-			int file = PlayerPrefs.GetInt("FirstLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date1", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber1", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName1", nameSave);
-			PlayerPrefs.SetInt("LiedFail1", LiedFail);
-			PlayerPrefs.SetInt("KleinFail1", KleinFail);
-			PlayerPrefs.SetInt("Money1", money);
-			PlayerPrefs.SetFloat("LiedHeart1", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart1", kleinAff);
-			PlayerPrefs.SetString("BackgroundClip1", backgroundclip);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-
-			PlayerPrefs.SetInt("CleanNumber1", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber1", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber1", shopNumber);
-
-		}
-		else if (whichFile == 2)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("SecondLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("SecondLog", whichLineNow);
-			}
-
-			PlayerPrefs.SetInt("SecondPos", resetPos);
-
-			int file = PlayerPrefs.GetInt("SecondLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date2", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber2", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName2", nameSave);
-			PlayerPrefs.SetInt("LiedFail2", LiedFail);
-			PlayerPrefs.SetInt("KleinFail2", KleinFail);
-			PlayerPrefs.SetInt("Money2", money);
-			PlayerPrefs.SetFloat("LiedHeart2", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart2", kleinAff);
-			PlayerPrefs.SetString("BackgroundClip2", backgroundclip);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-
-			PlayerPrefs.SetInt("CleanNumber2", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber2", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber2", shopNumber);
-		}
-		else if (whichFile == 3)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("ThirdLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("ThirdLog", whichLineNow);
-			}
-			PlayerPrefs.SetInt("ThirdPos", resetPos);
-
-			int file = PlayerPrefs.GetInt("ThirdLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date3", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber3", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName3", nameSave);
-			PlayerPrefs.SetInt("LiedFail3", LiedFail);
-			PlayerPrefs.SetInt("KleinFail3", KleinFail);
-			PlayerPrefs.SetInt("Money3", money);
-			PlayerPrefs.SetFloat("LiedHeart3", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart3", kleinAff);
-			PlayerPrefs.SetString("BackgroundClip3", backgroundclip);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-
-			PlayerPrefs.SetInt("CleanNumber3", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber3", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber3", shopNumber);
-		}
-		else if (whichFile == 4)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("FourthLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("FourthLog", whichLineNow);
-			}
-			PlayerPrefs.SetInt("FourthPos", resetPos);
-
-			int file = PlayerPrefs.GetInt("FourthLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date4", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber4", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName4", nameSave);
-			PlayerPrefs.SetInt("LiedFail4", LiedFail);
-			PlayerPrefs.SetInt("KleinFail4", KleinFail);
-			PlayerPrefs.SetInt("Money4", money);
-			PlayerPrefs.SetFloat("LiedHeart4", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart4", kleinAff);
-			PlayerPrefs.SetString("BackgroundClip4", backgroundclip);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-
-			PlayerPrefs.SetInt("CleanNumber4", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber4", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber4", shopNumber);
-		}
-		else if (whichFile == 5)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("FifthLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("FifthLog", whichLineNow);
-			}
-			PlayerPrefs.SetInt("FifthPos", resetPos);
-
-			int file = PlayerPrefs.GetInt("FifthLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date5", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber5", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName5", nameSave);
-			PlayerPrefs.SetInt("LiedFail5", LiedFail);
-			PlayerPrefs.SetInt("KleinFail5", KleinFail);
-			PlayerPrefs.SetInt("Money5", money);
-			PlayerPrefs.SetFloat("LiedHeart5", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart5", kleinAff);
-			PlayerPrefs.SetString("BackgroundClip5", backgroundclip);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-
-			PlayerPrefs.SetInt("CleanNumber5", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber5", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber5", shopNumber);
-		}
-		else if (whichFile == 6)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("SixthLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("SixthLog", whichLineNow);
-			}
-			PlayerPrefs.SetInt("SixthPos", resetPos);
-
-			int file = PlayerPrefs.GetInt("SixthLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date6", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber6", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName6", nameSave);
-			PlayerPrefs.SetInt("LiedFail6", LiedFail);
-			PlayerPrefs.SetInt("KleinFail6", KleinFail);
-			PlayerPrefs.SetInt("Money6", money);
-			PlayerPrefs.SetFloat("LiedHeart6", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart6", kleinAff);
-			PlayerPrefs.SetString("BackgroundClip6", backgroundclip);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-
-			PlayerPrefs.SetInt("CleanNumber6", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber6", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber6", shopNumber);
-		}
-		else if (whichFile == 7)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("SeventhLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("SeventhLog", whichLineNow);
-			}
-			PlayerPrefs.SetInt("SeventhPos", resetPos);
-
-			int file = PlayerPrefs.GetInt("SeventhLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date7", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber7", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName7", nameSave);
-			PlayerPrefs.SetInt("LiedFail7", LiedFail);
-			PlayerPrefs.SetInt("KleinFail7", KleinFail);
-			PlayerPrefs.SetInt("Money7", money);
-			PlayerPrefs.SetFloat("LiedHeart7", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart7", kleinAff);
-			PlayerPrefs.SetString("BackgroundClip7", backgroundclip);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-
-			PlayerPrefs.SetInt("CleanNumber7", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber7", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber7", shopNumber);
-		}
-		else if (whichFile == 8)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("EighthLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("EighthLog", whichLineNow);
-			}
-			PlayerPrefs.SetInt("EighthPos", resetPos);
-
-			int file = PlayerPrefs.GetInt("EighthLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date8", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber8", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName8", nameSave);
-			PlayerPrefs.SetInt("LiedFail8", LiedFail);
-			PlayerPrefs.SetInt("KleinFail8", KleinFail);
-			PlayerPrefs.SetInt("Money8", money);
-			PlayerPrefs.SetFloat("LiedHeart8", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart8", kleinAff);
-			PlayerPrefs.SetString("BackgroundClip8", backgroundclip);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-
-			PlayerPrefs.SetInt("CleanNumber8", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber8", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber8", shopNumber);
-		}
-		else if (whichFile == 9)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("NinthLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("NinthLog", whichLineNow);
-			}
-			PlayerPrefs.SetInt("NinthPos", resetPos);
-
-			int file = PlayerPrefs.GetInt("NinthLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date9", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber9", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName9", nameSave);
-			PlayerPrefs.SetInt("LiedFail9", LiedFail);
-			PlayerPrefs.SetInt("KleinFail9", KleinFail);
-			PlayerPrefs.SetInt("Money9", money);
-			PlayerPrefs.SetFloat("LiedHeart9", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart9", kleinAff);
-			PlayerPrefs.SetString("BackgroundClip9", backgroundclip);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-
-			PlayerPrefs.SetInt("CleanNumber9", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber9", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber9", shopNumber);
-		}
-		else if (whichFile == 10)
-		{
-			if (whichLineNow != 0)
-			{
-				PlayerPrefs.SetInt("TenthLog", whichLineNow - 1);
-			}
-			else
-			{
-				PlayerPrefs.SetInt("TenthLog", whichLineNow);
-			}
-			PlayerPrefs.SetInt("TenthPos", resetPos);
-
-			int file = PlayerPrefs.GetInt("TenthLog");
-			PlayerPrefs.SetInt("LogNow", file);
-			int[] date = PlayerPrefsX.GetIntArray("Date");
-			PlayerPrefsX.SetIntArray("Date10", date);
-			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
-			PlayerPrefsX.SetIntArray("ItemNumber10", ItemNumber);
-			float liedAff = PlayerPrefs.GetFloat("LiedHeart");
-			float kleinAff = PlayerPrefs.GetFloat("KleinHeart");
-			int money = PlayerPrefs.GetInt("Money");
-			int LiedFail = PlayerPrefs.GetInt("LiedFail");
-			int KleinFail = PlayerPrefs.GetInt("KleinFail");
-			string backgroundclip = PlayerPrefs.GetString("BackgroundClip");
-			string nameSave = PlayerPrefs.GetString("PlayerName");
-
-			PlayerPrefs.SetString("PlayerName10", nameSave);
-			PlayerPrefs.SetInt("LiedFail10", LiedFail);
-			PlayerPrefs.SetInt("KleinFail10", KleinFail);
-			PlayerPrefs.SetInt("Money10", money);
-			PlayerPrefs.SetFloat("LiedHeart10", liedAff);
-			PlayerPrefs.SetFloat("KleinHeart10", kleinAff);
-
-			int cleanNumber = PlayerPrefs.GetInt("CleanNumber");
-			int cookNumber = PlayerPrefs.GetInt("CookNumber");
-			int shopNumber = PlayerPrefs.GetInt("ShopNumber");
-			PlayerPrefs.SetString("BackgroundClip10", backgroundclip);
-
-			PlayerPrefs.SetInt("CleanNumber10", cleanNumber);
-			PlayerPrefs.SetInt("CookNumber10", cookNumber);
-			PlayerPrefs.SetInt("ShopNumber10", shopNumber);
-		}
-		else if (whichFile == 0)
+		if (whichFile == 0)
 		{
 			if (whichLineNow != 0)
 			{
@@ -13055,12 +12668,7 @@ public class LoadDialogue : MonoBehaviour
 
 		whichLineNow = 0;
 	}
-
-
-
-
-
-
+	
 	public void CharacterItemChoose()
 	{
 		dialogues.Clear();
@@ -13481,7 +13089,6 @@ public class LoadDialogue : MonoBehaviour
 		while (timeToClose <= voiceTime && mouthStop == false)
 		{
 			timeToClose += Time.deltaTime;
-			Debug.Log(SpectrumVol(frqLow, frqHigh));
 
 			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.02f)
 			{
@@ -13490,7 +13097,6 @@ public class LoadDialogue : MonoBehaviour
 				i++;
 			}
 
-			Debug.Log(timeToClose);
 			yield return null;
 		}
 		yield break;
@@ -13505,7 +13111,6 @@ public class LoadDialogue : MonoBehaviour
 		while (timeToClose <= voiceTime && mouthStop == false)
 		{
 			timeToClose += Time.deltaTime;
-			Debug.Log(SpectrumVol(frqLow, frqHigh));
 
 			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.02f)
 			{
@@ -13514,7 +13119,6 @@ public class LoadDialogue : MonoBehaviour
 				i++;
 			}
 
-			Debug.Log(timeToClose);
 			yield return null;
 		}
 		yield break;
@@ -13529,7 +13133,6 @@ public class LoadDialogue : MonoBehaviour
 		while (timeToClose <= voiceTime && mouthStop == false)
 		{
 			timeToClose += Time.deltaTime;
-			Debug.Log(SpectrumVol(frqLow, frqHigh));
 
 			if (timeToClose > 0.6 * i && SpectrumVol(frqLow, frqHigh) > 0.02f)
 			{
@@ -13539,7 +13142,6 @@ public class LoadDialogue : MonoBehaviour
 					i++;
 				}
 
-				Debug.Log(timeToClose);
 				yield return null;
 			}
 			yield break;

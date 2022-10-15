@@ -44,15 +44,15 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FirstLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("1Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FirstLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("1Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("FirstPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("1Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("FirstLog");
+			int file = PlayerPrefs.GetInt("1Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date1", date);
@@ -82,16 +82,16 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("SecondLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("2Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("SecondLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("2Log", startFrom + loadDialogue.whichLineNow);
 			}
 
-			PlayerPrefs.SetInt("SecondPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("2Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("SecondLog");
+			int file = PlayerPrefs.GetInt("2Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date2", date);
@@ -122,15 +122,15 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("ThirdLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("3Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("ThirdLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("3Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("ThirdPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("3Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("ThirdLog");
+			int file = PlayerPrefs.GetInt("3Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date3", date);
@@ -161,15 +161,15 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FourthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("4Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FourthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("4Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("FourthPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("4Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("FourthLog");
+			int file = PlayerPrefs.GetInt("4Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date4", date);
@@ -200,15 +200,15 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FifthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("5Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FifthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("5Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("FifthPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("5Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("FifthLog");
+			int file = PlayerPrefs.GetInt("5Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date5", date);
@@ -239,15 +239,15 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("SixthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("6Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("SixthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("6Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("SixthPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("6Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("SixthLog");
+			int file = PlayerPrefs.GetInt("6Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date6", date);
@@ -278,15 +278,15 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("SeventhLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("7Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("SeventhLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("7Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("SeventhPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("7Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("SeventhLog");
+			int file = PlayerPrefs.GetInt("7Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date7", date);
@@ -317,15 +317,15 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("EighthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("8Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("EighthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("8Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("EighthPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("8Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("EighthLog");
+			int file = PlayerPrefs.GetInt("8Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date8", date);
@@ -356,15 +356,15 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("NinthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("9Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("NinthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("9Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("NinthPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("9Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("NinthLog");
+			int file = PlayerPrefs.GetInt("9Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date9", date);
@@ -395,15 +395,15 @@ public class GameShowOnly : MonoBehaviour
 		{
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("TenthLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("10Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("TenthLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("10Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("TenthPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("10Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("TenthLog");
+			int file = PlayerPrefs.GetInt("10Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date10", date);
@@ -436,15 +436,15 @@ public class GameShowOnly : MonoBehaviour
 
 			if (loadDialogue.whichLineNow != 0)
 			{
-				PlayerPrefs.SetInt("FirstLog", startFrom + loadDialogue.whichLineNow - 1);
+				PlayerPrefs.SetInt("1Log", startFrom + loadDialogue.whichLineNow - 1);
 			}
 			else
 			{
-				PlayerPrefs.SetInt("FirstLog", startFrom + loadDialogue.whichLineNow);
+				PlayerPrefs.SetInt("1Log", startFrom + loadDialogue.whichLineNow);
 			}
-			PlayerPrefs.SetInt("FirstPos", loadDialogue.resetPos);
+			PlayerPrefs.SetInt("1Pos", loadDialogue.resetPos);
 
-			int file = PlayerPrefs.GetInt("FirstLog");
+			int file = PlayerPrefs.GetInt("1Log");
 			PlayerPrefs.SetInt("LogNow", file);
 			
 			PlayerPrefsX.SetIntArray("Date1", date);

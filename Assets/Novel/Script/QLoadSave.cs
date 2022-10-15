@@ -44,8 +44,8 @@ public class QLoadSave : MonoBehaviour
 		int whichFile = PlayerPrefs.GetInt("WhichFile");
 		if (whichFile == 1)
 		{
-			int log = PlayerPrefs.GetInt("FirstLog");
-			int pos = PlayerPrefs.GetInt("FirstPos");
+			int log = PlayerPrefs.GetInt("1Log");
+			int pos = PlayerPrefs.GetInt("1Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu1");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber1");
 			int[] date = PlayerPrefsX.GetIntArray("Date1");
@@ -78,8 +78,8 @@ public class QLoadSave : MonoBehaviour
 		}
 		else if (whichFile == 2)
 		{
-			int log = PlayerPrefs.GetInt("SecondLog");
-			int pos = PlayerPrefs.GetInt("SecondPos");
+			int log = PlayerPrefs.GetInt("2Log");
+			int pos = PlayerPrefs.GetInt("2Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu2");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber2");
 			int[] date = PlayerPrefsX.GetIntArray("Date2");
@@ -112,8 +112,8 @@ public class QLoadSave : MonoBehaviour
 		}
 		else if (whichFile == 3)
 		{
-			int log = PlayerPrefs.GetInt("ThirdLog");
-			int pos = PlayerPrefs.GetInt("ThirdPos");
+			int log = PlayerPrefs.GetInt("3Log");
+			int pos = PlayerPrefs.GetInt("3Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu3");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber3");
 			int[] date = PlayerPrefsX.GetIntArray("Date3");
@@ -146,8 +146,8 @@ public class QLoadSave : MonoBehaviour
 		}
 		else if (whichFile == 4)
 		{
-			int log = PlayerPrefs.GetInt("FourthLog");
-			int pos = PlayerPrefs.GetInt("FourthPos");
+			int log = PlayerPrefs.GetInt("4Log");
+			int pos = PlayerPrefs.GetInt("4Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu4");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber4");
 			int[] date = PlayerPrefsX.GetIntArray("Date4");
@@ -180,8 +180,8 @@ public class QLoadSave : MonoBehaviour
 		}
 		else if (whichFile == 5)
 		{
-			int log = PlayerPrefs.GetInt("FifthLog");
-			int pos = PlayerPrefs.GetInt("FifthPos");
+			int log = PlayerPrefs.GetInt("5Log");
+			int pos = PlayerPrefs.GetInt("5Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu5");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber5");
 			int[] date = PlayerPrefsX.GetIntArray("Date5");
@@ -214,8 +214,8 @@ public class QLoadSave : MonoBehaviour
 		}
 		else if (whichFile == 6)
 		{
-			int log = PlayerPrefs.GetInt("SixthLog");
-			int pos = PlayerPrefs.GetInt("SixthPos");
+			int log = PlayerPrefs.GetInt("6Log");
+			int pos = PlayerPrefs.GetInt("6Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu6");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber6");
 			int[] date = PlayerPrefsX.GetIntArray("Date6");
@@ -248,8 +248,8 @@ public class QLoadSave : MonoBehaviour
 		}
 		else if (whichFile == 7)
 		{
-			int log = PlayerPrefs.GetInt("SeventhLog");
-			int pos = PlayerPrefs.GetInt("SeventhPos");
+			int log = PlayerPrefs.GetInt("7Log");
+			int pos = PlayerPrefs.GetInt("7Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu7");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber7");
 			int[] date = PlayerPrefsX.GetIntArray("Date7");
@@ -282,8 +282,8 @@ public class QLoadSave : MonoBehaviour
 		}
 		else if (whichFile == 8)
 		{
-			int log = PlayerPrefs.GetInt("EighthLog");
-			int pos = PlayerPrefs.GetInt("EighthPos");
+			int log = PlayerPrefs.GetInt("8Log");
+			int pos = PlayerPrefs.GetInt("8Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu8");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber8");
 			int[] date = PlayerPrefsX.GetIntArray("Date8");
@@ -316,8 +316,8 @@ public class QLoadSave : MonoBehaviour
 		}
 		else if (whichFile == 9)
 		{
-			int log = PlayerPrefs.GetInt("NinthLog");
-			int pos = PlayerPrefs.GetInt("NinthPos");
+			int log = PlayerPrefs.GetInt("9Log");
+			int pos = PlayerPrefs.GetInt("9Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu9");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber9");
 			int[] date = PlayerPrefsX.GetIntArray("Date9");
@@ -350,8 +350,8 @@ public class QLoadSave : MonoBehaviour
 		}
 		else if (whichFile == 10)
 		{
-			int log = PlayerPrefs.GetInt("TenthLog");
-			int pos = PlayerPrefs.GetInt("TenthPos");
+			int log = PlayerPrefs.GetInt("10Log");
+			int pos = PlayerPrefs.GetInt("10Pos");
 			int novelMenu = PlayerPrefs.GetInt("NovelMenu10");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber10");
 			int[] date = PlayerPrefsX.GetIntArray("Date10");
