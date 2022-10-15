@@ -275,6 +275,7 @@ public class LoadDialogue : MonoBehaviour
 			if (date[0] == 10 && (date[1] == 7 || date[1] == 8 || date[1] == 9))
 			{
 				data = prologue.text.Split(new char[] { '$' });
+					PlayerPrefs.SetString("ChapterTitle", "Prologue");
 			}
 			else if (date[0] == 10 && date[1] == 15)
 			{
@@ -282,6 +283,7 @@ public class LoadDialogue : MonoBehaviour
 				if (liedAff >= 10f)
 				{
 					menu = 14;
+					PlayerPrefs.SetString("ChapterTitle", "Episode1");
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
 				else
@@ -296,6 +298,7 @@ public class LoadDialogue : MonoBehaviour
 				if (liedAff >= 15f)
 				{
 					menu = 15;
+					PlayerPrefs.SetString("ChapterTitle", "Episode2");
 					PlayerPrefs.SetInt("NovelMenu", menu);
 					PlayerPrefs.SetInt("CleanNumber", 0);
 				}
@@ -311,6 +314,7 @@ public class LoadDialogue : MonoBehaviour
 				if (liedAff >= 20f)
 				{
 					menu = 16;
+					PlayerPrefs.SetString("ChapterTitle", "Episode3");
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
 				else
@@ -324,6 +328,7 @@ public class LoadDialogue : MonoBehaviour
 				data = LiedDialogue[3].text.Split(new char[] { '$' });
 				if (liedAff >= 25f)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode4");
 					menu = 17;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -339,6 +344,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					data = LiedDialogue[4].text.Split(new char[] { '$' });
 					menu = 18;
+					PlayerPrefs.SetString("ChapterTitle", "Episode5");
 					PlayerPrefs.SetInt("KleinFail", 1);
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -346,6 +352,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					data = KleinDialogue[5].text.Split(new char[] { '$' });
 					menu = 31;
+					PlayerPrefs.SetString("ChapterTitle", "Episode6");
 					PlayerPrefs.SetInt("LiedFail", 1);
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -362,6 +369,7 @@ public class LoadDialogue : MonoBehaviour
 				data = LiedDialogue[5].text.Split(new char[] { '$' });
 				if (liedAff >= 35f)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode6");
 					menu = 19;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -376,6 +384,7 @@ public class LoadDialogue : MonoBehaviour
 				data = LiedDialogue[6].text.Split(new char[] { '$' });
 				if (liedAff >= 40f)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode7");
 					menu = 20;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -390,6 +399,7 @@ public class LoadDialogue : MonoBehaviour
 				data = LiedDialogue[7].text.Split(new char[] { '$' });
 				if (liedAff >= 45f)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode8");
 					menu = 21;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -405,6 +415,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					data = LiedDialogue[8].text.Split(new char[] { '$' });
 					menu = 22;
+					PlayerPrefs.SetString("ChapterTitle", "Episode9");
 					PlayerPrefs.SetInt("KleinFail", 1);
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -412,6 +423,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					data = KleinDialogue[8].text.Split(new char[] { '$' });
 					menu = 34;
+					PlayerPrefs.SetString("ChapterTitle", "Episode9");
 					PlayerPrefs.SetInt("LiedFail", 1);
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -429,6 +441,7 @@ public class LoadDialogue : MonoBehaviour
 				if (liedAff >= 55f)
 				{
 					menu = 23;
+					PlayerPrefs.SetString("ChapterTitle", "Episode10");
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
 				else
@@ -443,6 +456,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					data = LiedDialogue[10].text.Split(new char[] { '$' });
 					menu = 24;
+					PlayerPrefs.SetString("ChapterTitle", "Episode11");
 					PlayerPrefs.SetInt("KleinFail", 1);
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -450,6 +464,7 @@ public class LoadDialogue : MonoBehaviour
 				{
 					data = KleinDialogue[10].text.Split(new char[] { '$' });
 					menu = 36;
+					PlayerPrefs.SetString("ChapterTitle", "Episode11");
 					PlayerPrefs.SetInt("LiedFail", 1);
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -467,12 +482,14 @@ public class LoadDialogue : MonoBehaviour
 				{
 					data = LiedDialogue[11].text.Split(new char[] { '$' });
 					menu = 25;
+					PlayerPrefs.SetString("ChapterTitle", "Epilogue");
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
 				else
 				{
 					data = KleinDialogue[11].text.Split(new char[] { '$' });
 					menu = 37;
+					PlayerPrefs.SetString("ChapterTitle", "Epilogue");
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
 			}
@@ -485,6 +502,7 @@ public class LoadDialogue : MonoBehaviour
 				if (kleinAff >= 10)
 				{
 					menu = 26;
+					PlayerPrefs.SetString("ChapterTitle", "Episode1");
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
 				else
@@ -498,6 +516,7 @@ public class LoadDialogue : MonoBehaviour
 				if (kleinAff >= 15)
 				{
 					menu = 27;
+					PlayerPrefs.SetString("ChapterTitle", "Episode2");
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
 				else
@@ -510,6 +529,7 @@ public class LoadDialogue : MonoBehaviour
 				data = KleinDialogue[2].text.Split(new char[] { '$' });
 				if (kleinAff >= 20)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode3");
 					menu = 28;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -524,6 +544,7 @@ public class LoadDialogue : MonoBehaviour
 				data = KleinDialogue[3].text.Split(new char[] { '$' });
 				if (kleinAff >= 25)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode4");
 					menu = 29;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -537,6 +558,7 @@ public class LoadDialogue : MonoBehaviour
 				data = KleinDialogue[4].text.Split(new char[] { '$' });
 				if (kleinAff >= 30)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode5");
 					menu = 30;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -550,6 +572,7 @@ public class LoadDialogue : MonoBehaviour
 				data = KleinDialogue[6].text.Split(new char[] { '$' });
 				if (kleinAff >= 40)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode7");
 					menu = 32;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -563,6 +586,7 @@ public class LoadDialogue : MonoBehaviour
 				data = KleinDialogue[7].text.Split(new char[] { '$' });
 				if (kleinAff >= 45)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode8");
 					menu = 33;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}
@@ -576,6 +600,7 @@ public class LoadDialogue : MonoBehaviour
 				data = KleinDialogue[9].text.Split(new char[] { '$' });
 				if (kleinAff >= 55)
 				{
+					PlayerPrefs.SetString("ChapterTitle", "Episode10");
 					menu = 35;
 					PlayerPrefs.SetInt("NovelMenu", menu);
 				}

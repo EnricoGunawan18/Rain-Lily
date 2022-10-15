@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DateTime = System.DateTime;
 
 public class FileScreen : MonoBehaviour
 {
@@ -114,6 +115,8 @@ public class FileScreen : MonoBehaviour
 			string backgroundClip = PlayerPrefs.GetString("BackgroundClip");
 			string nameSave = PlayerPrefs.GetString("PlayerName");
 			int[] ItemNumber = PlayerPrefsX.GetIntArray("ItemNumber");
+			string todayDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+			string chapter = PlayerPrefs.GetString("ChapterTitle");
 
 			PlayerPrefs.SetString($"PlayerName{num}", nameSave);
 			PlayerPrefs.SetInt($"LiedFail{num}", LiedFail);
@@ -129,6 +132,9 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt($"{num}Pos", loadDialogue.resetPos);
 			PlayerPrefsX.SetIntArray($"ItemNumber{num}", ItemNumber);
 			PlayerPrefs.SetString($"BackgroundClip{num}", backgroundClip);
+			PlayerPrefs.SetString($"TodayDate{num}", todayDate);
+			PlayerPrefs.SetString($"ChapterTitle{num}", chapter);
+			
 			ReturnToGame();
 		}
 		else if (saveOrLoad == 2)
@@ -150,6 +156,7 @@ public class FileScreen : MonoBehaviour
 			int KleinFail = PlayerPrefs.GetInt($"KleinFail{num}");
 			string backgroundclip = PlayerPrefs.GetString($"BackgroundClip{num}");
 			string nameSave = PlayerPrefs.GetString($"PlayerName{num}");
+			string chapter = PlayerPrefs.GetString($"ChapterTitle{num}");
 
 			PlayerPrefs.SetString("PlayerName", nameSave);
 			PlayerPrefs.SetInt("LiedFail", LiedFail);
@@ -166,6 +173,7 @@ public class FileScreen : MonoBehaviour
 			PlayerPrefs.SetInt("LogNow", log);
 			PlayerPrefs.SetInt("ResetPos", pos);
 			PlayerPrefs.SetString("BackgroundClip", backgroundclip);
+			PlayerPrefs.SetString("ChapterTitle", chapter);
 
 			Time.timeScale = 1;
 			LoadingScreen.SetActive(true);

@@ -26,6 +26,10 @@ public class DataButtonDisable : MonoBehaviour
 	Text[] Date;
 	[SerializeField]
 	Text[] CharacterName;
+	[SerializeField]
+	Text[] TodayDate;
+	[SerializeField]
+	Text[] ChapterText;
 
 	[SerializeField]
 	Button[] Button;
@@ -33,6 +37,8 @@ public class DataButtonDisable : MonoBehaviour
 	float[] Lied;
 	float[] Klein;
 	string[] Name;
+	string[] SaveDate;
+	string[] Chapter;
 
 	int[][] dateFile;
 
@@ -52,6 +58,8 @@ public class DataButtonDisable : MonoBehaviour
 				Date[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("UI").transform.Find("Date").GetComponent<Text>();
 				CharacterName[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("UI").transform.Find("PlayerName").GetComponent<Text>();
 				Button[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("Button").GetComponent<Button>();
+				TodayDate[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("UI").transform.Find("SaveTime").GetComponent<Text>();
+				ChapterText[(i * 6)+j] = Pages[i].transform.Find($"File ({j})").transform.Find("UI").transform.Find("Chapter").GetComponent<Text>();
 			}
 		}
 
@@ -60,6 +68,8 @@ public class DataButtonDisable : MonoBehaviour
 		Lied = new float[36];
 		Klein = new float[36];
 		Name = new string[36];
+		SaveDate = new string[36];
+		Chapter = new string[36];
 
 		for(int i = 0; i < 36; i++)
 		{
@@ -67,6 +77,8 @@ public class DataButtonDisable : MonoBehaviour
 			Lied[i] = PlayerPrefs.GetFloat($"LiedHeart{i + 1}");
 			Klein[i] = PlayerPrefs.GetFloat($"KleinHeart{i + 1}");
             Name[i] = PlayerPrefs.GetString($"PlayerName{i + 1}");
+			SaveDate[i] = PlayerPrefs.GetString($"TodayDate{i + 1}");
+			Chapter[i] = PlayerPrefs.GetString($"ChapterTitle{i + 1}");
 		}
 
 
@@ -105,6 +117,8 @@ public class DataButtonDisable : MonoBehaviour
 				{
 					Date[j].text = dateFile[j][0].ToString() + "/" + dateFile[j][1].ToString();
 					CharacterName[j].text = Name[j];
+					TodayDate[j].text = SaveDate[j];
+					ChapterText[j].text = Chapter[j];
 				}				
 
 				if (Lied[i] < Klein[i])

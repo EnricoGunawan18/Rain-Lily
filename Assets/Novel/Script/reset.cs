@@ -60,6 +60,8 @@ public class reset : MonoBehaviour
             PlayerPrefs.SetInt($"ShopNumber{i+1}", 0);
             PlayerPrefs.SetString($"BackgroundClip{i+1}", "");
             PlayerPrefs.SetString($"PlayerName{i}","");
+			PlayerPrefs.SetString($"TodayDate{i}", "");
+			PlayerPrefs.SetString($"ChapterTitle{i}", "");
         }
 
         PlayerPrefsX.SetIntArray("ItemNumber", a);
