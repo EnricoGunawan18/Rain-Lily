@@ -21,28 +21,56 @@ public class FileButton : MonoBehaviour
     GameObject[] filePanel;
 
     int numNow;
+    bool[] isNum;
+
+    Vector3 position1;
+    Vector3 position2;
     
     // Start is called before the first frame update
     void Start()
     {
         numNow = 0;
 
+        isNum = new bool[6];
+        for( int i = 0; i < 6; i++)
+        {
+            isNum[i] = false;
+        }
+
         for(int i = 0; i < 6; i++)
         {
             int num = i;
-			buttons[i].onClick.AddListener(delegate{FileButtonClick(num);});
+			buttons[num].onClick.AddListener(delegate{FileButtonClick(num);});
+        }
+    }
+
+    void Update()
+    {
+        for( int i = 0; i < 6; i++)
+        {
+            if(isNum[i] == true)
+            {
+                float time = 0;
+                time += Time.unscaledDeltaTime;
+
+                buttons[numNow].image.sprite = unpressed[numNow];
+                buttons[i].image.sprite = pressed[i];
+
+                filePanel[numNow].transform.position = Vector3.MoveTowards(filePanel[numNow].transform.position, position2, Time.unscaledDeltaTime * 1920f);
+                filePanel[i].transform.position = Vector3.MoveTowards(filePanel[i].transform.position, position1, Time.unscaledDeltaTime * 1920f);
+                if(filePanel[numNow].transform.position == position2)
+                {
+                    numNow = i;
+                    isNum[i] = false;
+                }
+            }
         }
     }
 
     void FileButtonClick(int num)
     {
-        Vector3 position1 = filePanel[numNow].transform.position;
-        Vector3 position2 = filePanel[num].transform.position;
-        filePanel[numNow].transform.position = Vector3.MoveTowards(filePanel[numNow].transform.position, position2, Time.deltaTime * 100f);
-        filePanel[num].transform.position = Vector3.MoveTowards(filePanel[num].transform.position, position1, Time.deltaTime * 100f);
-        if(filePanel[numNow].transform.position == position2)
-        {
-            numNow = num;
-        }
+        position1 = filePanel[numNow].transform.position;
+        position2 = filePanel[num].transform.position;
+        isNum[num] = true;
     }
 }
