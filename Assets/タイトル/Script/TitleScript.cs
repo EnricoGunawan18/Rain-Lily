@@ -38,6 +38,9 @@ public class TitleScript : MonoBehaviour
 	public GameObject NameInsert;
 	public GameObject LoadingScreen;
 
+	[SerializeField]
+	public GameObject[] PlayMark;
+
 	public InputField NameInputField;
 
 	[SerializeField]
@@ -233,6 +236,10 @@ public class TitleScript : MonoBehaviour
 
 			MiniGameBG.sprite = MiniGameBGSprite[0];
 
+			PlayMark[0].SetActive(true);
+			PlayMark[1].SetActive(false);
+			PlayMark[2].SetActive(false);
+
 			clicked[0] = true;
 			clicked[1] = false;
 			clicked[2] = false;
@@ -268,6 +275,10 @@ public class TitleScript : MonoBehaviour
 
 			MiniGameBG.sprite = MiniGameBGSprite[1];
 
+			PlayMark[0].SetActive(false);
+			PlayMark[1].SetActive(true);
+			PlayMark[2].SetActive(false);
+
 			clicked[0] = false;
 			clicked[1] = true;
 			clicked[2] = false;
@@ -302,6 +313,10 @@ public class TitleScript : MonoBehaviour
 			Score.text = scoreShow + highScoreShop.ToString();
 
 			MiniGameBG.sprite = MiniGameBGSprite[2];
+
+			PlayMark[0].SetActive(false);
+			PlayMark[1].SetActive(false);
+			PlayMark[2].SetActive(true);
 
 			clicked[0] = false;
 			clicked[1] = false;
@@ -762,6 +777,7 @@ public class TitleScript : MonoBehaviour
 		for (int i = 0; i < 3; i++)
 		{
 			clicked[i] = false;
+			PlayMark[i].SetActive(false);
 		}
 		MiniGameBG.sprite = MiniGameBGSprite[0];
 

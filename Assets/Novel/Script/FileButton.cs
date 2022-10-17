@@ -31,6 +31,9 @@ public class FileButton : MonoBehaviour
     {
         numNow = 0;
 
+        position1 = filePanel[0].transform.position;
+        position2 = filePanel[1].transform.position;
+
         isNum = new bool[6];
         for( int i = 0; i < 6; i++)
         {
@@ -41,6 +44,8 @@ public class FileButton : MonoBehaviour
         {
             int num = i;
 			buttons[num].onClick.AddListener(delegate{FileButtonClick(num);});
+            leftButton.onClick.AddListener(LeftButtonClick);
+            rightButton.onClick.AddListener(RightButtonClick);
         }
     }
 
@@ -69,8 +74,22 @@ public class FileButton : MonoBehaviour
 
     void FileButtonClick(int num)
     {
-        position1 = filePanel[numNow].transform.position;
-        position2 = filePanel[num].transform.position;
         isNum[num] = true;
+    }
+
+    void LeftButtonClick()
+    {
+        if(numNow > 0)
+        {
+            isNum[numNow - 1] = true;
+        }
+    }
+    
+    void RightButtonClick()
+    {
+        if(numNow < buttons.Length - 1)
+        {
+            isNum[numNow + 1] = true;
+        }
     }
 }
