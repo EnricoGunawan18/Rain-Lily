@@ -693,27 +693,29 @@ public class LoadDialogue : MonoBehaviour
 		int resetFrom = PlayerPrefs.GetInt("ResetPos");
 		int novelMenu = PlayerPrefs.GetInt("NovelMenu");
 
-
 		if (novelMenu == 11)
 		{
-			string[] tempRow = itemData[3].Split(new char[] { ',' });
+			string[] tempRow = itemData[1].Split(new char[] { ',' });
 
-			if (tempRow[2] != "" || tempRow[12] != "" || tempRow[14] != "")
-			{
-				d = new Dialogue();
-				int.TryParse(tempRow[0], out d.id);
-				d.character = tempRow[1];
-				d.dialogue = tempRow[2];
-				d.expression = tempRow[4];
-				d.background = tempRow[7];
-				d.BGM = tempRow[11];
-				d.SE = tempRow[12];
-				d.voice = tempRow[13];
-				d.note = tempRow[14];
-
-				dialogues.Add(d);
-			}
-
+			int.TryParse(tempRow[0], out d.id);
+			d.character = tempRow[1];
+			d.dialogue = tempRow[2];
+			d.mainchara = tempRow[3];
+			d.expression = tempRow[4];
+			d.showtwoone = tempRow[5];
+			d.showtwotwo = tempRow[6];
+			d.background = tempRow[7];
+			d.firstchoose = tempRow[8];
+			d.secondchoose = tempRow[9];
+			d.choicetextshow = tempRow[10];
+			d.objecteffect = tempRow[11];
+			d.itemimage = tempRow[12];
+			d.effect = tempRow[13];
+			d.BGM = tempRow[14];
+			d.SE = tempRow[15];
+			d.voice = tempRow[16];
+			d.note = tempRow[17];
+			dialogues.Add(d);
 		}
 
 
@@ -4829,8 +4831,9 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 		}
+		int menu = PlayerPrefs.GetInt("NovelMenu");
 
-		AudioManager(logNumber);
+		AudioManager(logNumber);		
 		ShowDialogue();
 	}
 
@@ -4887,14 +4890,14 @@ public class LoadDialogue : MonoBehaviour
 		{
 			TwoChoices.SetActive(true);
 
-			string[] tempRow = itemData[4].Split(new char[] { ',' });
-			string Filtered1 = tempRow[2].Replace("『", "");
+			string[] tempRow = itemData[2].Split(new char[] { ',' });
+			string Filtered1 = tempRow[8].Replace("『", "");
 			string Filtered2 = Filtered1.Replace("』", "");
 			string Filtered3 = Filtered2.Replace("\"", "");
 			FirstTwo.text = Filtered3;
 
-			string[] tempRow2 = itemData[5].Split(new char[] { ',' });
-			string Filtered4 = tempRow2[2].Replace("『", "");
+			string[] tempRow2 = itemData[2].Split(new char[] { ',' });
+			string Filtered4 = tempRow2[9].Replace("『", "");
 			string Filtered5 = Filtered4.Replace("』", "");
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
@@ -5243,7 +5246,6 @@ public class LoadDialogue : MonoBehaviour
 			string Filtered6 = Filtered5.Replace("\"", "");
 			SecondTwo.text = Filtered6;
 		}
-
 	}
 
 	void AudioManager(int num)

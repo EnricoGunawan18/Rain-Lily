@@ -67,14 +67,16 @@ public class AutoScroll : MonoBehaviour
 	{
 		if (autoActive == false)
 		{
-			dialogueManager.dialogueSpeed = 10f;
+			dialogueManager.dialogueSpeed = 25f;
+			PlayerPrefs.SetFloat("DialogueSpeed",dialogueManager.dialogueSpeed);
 			automated = true;
 			dialogueManager.next = true;
 			autoActive = true;
 		}
 		else
 		{
-			dialogueManager.dialogueSpeed = 10f;
+			dialogueManager.dialogueSpeed = 25f;
+			PlayerPrefs.SetFloat("DialogueSpeed",dialogueManager.dialogueSpeed);
 			automated = false;
 			dialogueManager.next = false;
 			autoActive = false;
@@ -87,7 +89,7 @@ public class AutoScroll : MonoBehaviour
 	{
 		autoOpen = true;
 
-		ScrollAnim.SetBool("isOpening", true);
+		//ScrollAnim.SetBool("isOpening", true);
 	}
 
 
@@ -95,7 +97,7 @@ public class AutoScroll : MonoBehaviour
 	{
 		autoOpen = false;
 
-		ScrollAnim.SetBool("isOpening", false);
+		//ScrollAnim.SetBool("isOpening", false);
 	}
 
 	public void DialogueSkipped()
@@ -104,6 +106,7 @@ public class AutoScroll : MonoBehaviour
 		automated = true;
 		dialogueManager.next = true;
 		dialogueManager.dialogueSpeed = 400f;
+		PlayerPrefs.SetFloat("DialogueSpeed",dialogueManager.dialogueSpeed);
 	}
 
 	public void DialogueUnskipped()
@@ -111,6 +114,7 @@ public class AutoScroll : MonoBehaviour
 		dialogueIsSkipped = false;
 		automated = false;
 		dialogueManager.next = false;
-		dialogueManager.dialogueSpeed = 10f;
+		dialogueManager.dialogueSpeed = 25f;
+		PlayerPrefs.SetFloat("DialogueSpeed",dialogueManager.dialogueSpeed);
 	}
 }

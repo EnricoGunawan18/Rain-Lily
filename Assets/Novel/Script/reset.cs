@@ -30,11 +30,11 @@ public class reset : MonoBehaviour
         PlayerPrefs.SetInt("MiniGame", 0);
         PlayerPrefs.SetInt("ResetPos", 0);
         //PlayerPrefs.SetInt("ResetPos", 26);
-        PlayerPrefs.SetInt("NovelMenu", 12);
-        //PlayerPrefs.SetInt("NovelMenu", 0);
+        //PlayerPrefs.SetInt("NovelMenu", 12);
+        PlayerPrefs.SetInt("NovelMenu", 0);
        
-        //int[] startDate = { 10,7 };
-        int[] startDate = { 10, 10 };
+        int[] startDate = { 10,7 };
+        //int[] startDate = { 10, 10 };
 
         PlayerPrefsX.SetIntArray("Date", startDate);
 
