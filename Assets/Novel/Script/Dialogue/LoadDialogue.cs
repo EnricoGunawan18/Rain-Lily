@@ -695,26 +695,28 @@ public class LoadDialogue : MonoBehaviour
 
 		if (novelMenu == 11)
 		{
-			string[] tempRow = itemData[1].Split(new char[] { ',' });
+			row = itemData[1].Split(new char[] { ',' });
 
-			int.TryParse(tempRow[0], out d.id);
-			d.character = tempRow[1];
-			d.dialogue = tempRow[2];
-			d.mainchara = tempRow[3];
-			d.expression = tempRow[4];
-			d.showtwoone = tempRow[5];
-			d.showtwotwo = tempRow[6];
-			d.background = tempRow[7];
-			d.firstchoose = tempRow[8];
-			d.secondchoose = tempRow[9];
-			d.choicetextshow = tempRow[10];
-			d.objecteffect = tempRow[11];
-			d.itemimage = tempRow[12];
-			d.effect = tempRow[13];
-			d.BGM = tempRow[14];
-			d.SE = tempRow[15];
-			d.voice = tempRow[16];
-			d.note = tempRow[17];
+			d = new Dialogue();
+			int.TryParse(row[0], out d.id);
+			d.character = row[1];
+			d.dialogue = row[2];
+			d.mainchara = row[3];
+			d.expression = row[4];
+			d.showtwoone = row[5];
+			d.showtwotwo = row[6];
+			d.background = row[7];
+			d.firstchoose = row[8];
+			d.secondchoose = row[9];
+			d.choicetextshow = row[10];
+			d.objecteffect = row[11];
+			d.itemimage = row[12];
+			d.effect = row[13];
+			d.BGM = row[14];
+			d.SE = row[15];
+			d.voice = row[16];
+			d.note = row[17];
+
 			dialogues.Add(d);
 		}
 
@@ -4833,7 +4835,10 @@ public class LoadDialogue : MonoBehaviour
 		}
 		int menu = PlayerPrefs.GetInt("NovelMenu");
 
-		AudioManager(logNumber);		
+		if(menu != 11)
+		{
+			AudioManager(logNumber);		
+		}
 		ShowDialogue();
 	}
 
@@ -10390,19 +10395,27 @@ public class LoadDialogue : MonoBehaviour
 			EraseButton2.SetActive(false);
 			EraseButton3.SetActive(false);
 
-			itemRow = itemData[8].Split(new char[] { ',' });
+			row = itemData[3].Split(new char[] { ',' });
 
 			d = new Dialogue();
-			int.TryParse(itemRow[0], out d.id);
-			d.character = itemRow[1];
-			d.dialogue = itemRow[2];
-			d.expression = itemRow[4];
-			d.background = itemRow[7];
-			d.BGM = itemRow[11];
-			d.SE = itemRow[12];
-			d.voice = "";
-			d.note = itemRow[13];
-
+			int.TryParse(row[0], out d.id);
+			d.character = row[1];
+			d.dialogue = row[2];
+			d.mainchara = row[3];
+			d.expression = row[4];
+			d.showtwoone = row[5];
+			d.showtwotwo = row[6];
+			d.background = row[7];
+			d.firstchoose = row[8];
+			d.secondchoose = row[9];
+			d.choicetextshow = row[10];
+			d.objecteffect = row[11];
+			d.itemimage = row[12];
+			d.effect = row[13];
+			d.BGM = row[14];
+			d.SE = row[15];
+			d.voice = row[16];
+			d.note = row[17];
 			dialogues.Add(d);
 		}
 		if (finishTemp5 == true)
@@ -12699,19 +12712,27 @@ public class LoadDialogue : MonoBehaviour
 	public void CharacterItemChoose()
 	{
 		dialogues.Clear();
-		itemRow = itemData[10].Split(new char[] { ',' });
+		row = itemData[4].Split(new char[] { ',' });
 
 		d = new Dialogue();
-		int.TryParse(itemRow[0], out d.id);
-		d.character = itemRow[1];
-		d.dialogue = itemRow[2];
-		d.expression = itemRow[4];
-		d.background = itemRow[7];
-		d.BGM = itemRow[11];
-		d.SE = itemRow[12];
-		d.voice = "";
-		d.note = itemRow[13];
-
+		int.TryParse(row[0], out d.id);
+		d.character = row[1];
+		d.dialogue = row[2];
+		d.mainchara = row[3];
+		d.expression = row[4];
+		d.showtwoone = row[5];
+		d.showtwotwo = row[6];
+		d.background = row[7];
+		d.firstchoose = row[8];
+		d.secondchoose = row[9];
+		d.choicetextshow = row[10];
+		d.objecteffect = row[11];
+		d.itemimage = row[12];
+		d.effect = row[13];
+		d.BGM = row[14];
+		d.SE = row[15];
+		d.voice = row[16];
+		d.note = row[17];
 		dialogues.Add(d);
 
 		ShowDialogue();
@@ -12721,31 +12742,28 @@ public class LoadDialogue : MonoBehaviour
 	public void RiitItem()
 	{
 		dialogues.Clear();
-		itemRow = itemData[17].Split(new char[] { ',' });
+		row = itemData[5].Split(new char[] { ',' });
 
 		d = new Dialogue();
-		int.TryParse(itemRow[0], out d.id);
-		d.character = itemRow[1];
-		d.dialogue = itemRow[2];
-		d.expression = itemRow[4];
-		d.background = itemRow[7];
-		d.BGM = itemRow[11];
-		d.SE = itemRow[12];
-		d.voice = "";
-		d.note = itemRow[13];
-
-		dialogues.Add(d);
-
-		d = new Dialogue();
-		int.TryParse("999", out d.id);
-		d.character = "";
-		d.dialogue = "";
-		d.expression = "";
-		d.background = "";
-		d.BGM = "";
-		d.SE = "";
-		d.note = "giveitem";
-
+		int.TryParse(row[0], out d.id);
+		d.character = row[1];
+		d.dialogue = row[2];
+		d.mainchara = row[3];
+		d.expression = row[4];
+		d.showtwoone = row[5];
+		d.showtwotwo = row[6];
+		d.background = row[7];
+		d.firstchoose = row[8];
+		d.secondchoose = row[9];
+		d.choicetextshow = row[10];
+		d.objecteffect = row[11];
+		d.itemimage = row[12];
+		d.effect = row[13];
+		d.BGM = row[14];
+		d.SE = row[15];
+		d.voice = row[16];
+		d.note = row[17];
+		
 		dialogues.Add(d);
 
 		itemChoose = true;
@@ -12756,42 +12774,34 @@ public class LoadDialogue : MonoBehaviour
 	public void KleinItem()
 	{
 		dialogues.Clear();
-		itemRow = itemData[29].Split(new char[] { ',' });
+		row = itemData[9].Split(new char[] { ',' });
 
 		d = new Dialogue();
-		int.TryParse(itemRow[0], out d.id);
-		d.character = itemRow[1];
-		d.dialogue = itemRow[2];
-		d.expression = itemRow[4];
-		d.background = itemRow[7];
-		d.BGM = itemRow[11];
-		d.SE = itemRow[12];
-		d.voice = "";
-		d.note = itemRow[13];
-
-		dialogues.Add(d);
-
-		d = new Dialogue();
-		int.TryParse("999", out d.id);
-		d.character = "";
-		d.dialogue = "";
-		d.expression = "";
-		d.background = "";
-		d.BGM = "";
-		d.SE = "";
-		d.note = "giveitem";
-
+		int.TryParse(row[0], out d.id);
+		d.character = row[1];
+		d.dialogue = row[2];
+		d.mainchara = row[3];
+		d.expression = row[4];
+		d.showtwoone = row[5];
+		d.showtwotwo = row[6];
+		d.background = row[7];
+		d.firstchoose = row[8];
+		d.secondchoose = row[9];
+		d.choicetextshow = row[10];
+		d.objecteffect = row[11];
+		d.itemimage = row[12];
+		d.effect = row[13];
+		d.BGM = row[14];
+		d.SE = row[15];
+		d.voice = row[16];
+		d.note = row[17];
+		
 		dialogues.Add(d);
 
 		itemChoose = true;
 
 		ShowDialogue();
 	}
-
-
-
-
-
 
 	public void RiitEffect(int feel)
 	{
@@ -12804,18 +12814,27 @@ public class LoadDialogue : MonoBehaviour
 		{
 			affection += 5;
 
-			itemRow = itemData[22].Split(new char[] { ',' });
+			row = itemData[8].Split(new char[] { ',' });
 
 			d = new Dialogue();
-			int.TryParse(itemRow[0], out d.id);
-			d.character = itemRow[1];
-			d.dialogue = itemRow[2];
-			d.expression = itemRow[4];
-			d.background = itemRow[7];
-			d.BGM = itemRow[11];
-			d.SE = itemRow[12];
-			d.voice = "";
-			d.note = itemRow[13];
+			int.TryParse(row[0], out d.id);
+			d.character = row[1];
+			d.dialogue = row[2];
+			d.mainchara = row[3];
+			d.expression = row[4];
+			d.showtwoone = row[5];
+			d.showtwotwo = row[6];
+			d.background = row[7];
+			d.firstchoose = row[8];
+			d.secondchoose = row[9];
+			d.choicetextshow = row[10];
+			d.objecteffect = row[11];
+			d.itemimage = row[12];
+			d.effect = row[13];
+			d.BGM = row[14];
+			d.SE = row[15];
+			d.voice = row[16];
+			d.note = row[17];
 
 			dialogues.Add(d);
 		}
@@ -12824,18 +12843,27 @@ public class LoadDialogue : MonoBehaviour
 		{
 			affection += 3;
 
-			itemRow = itemData[21].Split(new char[] { ',' });
+			row = itemData[7].Split(new char[] { ',' });
 
 			d = new Dialogue();
-			int.TryParse(itemRow[0], out d.id);
-			d.character = itemRow[1];
-			d.dialogue = itemRow[2];
-			d.expression = itemRow[4];
-			d.background = itemRow[7];
-			d.BGM = itemRow[11];
-			d.SE = itemRow[12];
-			d.voice = "";
-			d.note = itemRow[13];
+			int.TryParse(row[0], out d.id);
+			d.character = row[1];
+			d.dialogue = row[2];
+			d.mainchara = row[3];
+			d.expression = row[4];
+			d.showtwoone = row[5];
+			d.showtwotwo = row[6];
+			d.background = row[7];
+			d.firstchoose = row[8];
+			d.secondchoose = row[9];
+			d.choicetextshow = row[10];
+			d.objecteffect = row[11];
+			d.itemimage = row[12];
+			d.effect = row[13];
+			d.BGM = row[14];
+			d.SE = row[15];
+			d.voice = row[16];
+			d.note = row[17];
 
 			dialogues.Add(d);
 		}
@@ -12844,35 +12872,32 @@ public class LoadDialogue : MonoBehaviour
 		{
 			affection += 2;
 
-			itemRow = itemData[20].Split(new char[] { ',' });
+			row = itemData[6].Split(new char[] { ',' });
 
 			d = new Dialogue();
-			int.TryParse(itemRow[0], out d.id);
-			d.character = itemRow[1];
-			d.dialogue = itemRow[2];
-			d.expression = itemRow[4];
-			d.background = itemRow[7];
-			d.BGM = itemRow[11];
-			d.SE = itemRow[12];
-			d.voice = "";
-			d.note = itemRow[13];
+			int.TryParse(row[0], out d.id);
+			d.character = row[1];
+			d.dialogue = row[2];
+			d.mainchara = row[3];
+			d.expression = row[4];
+			d.showtwoone = row[5];
+			d.showtwotwo = row[6];
+			d.background = row[7];
+			d.firstchoose = row[8];
+			d.secondchoose = row[9];
+			d.choicetextshow = row[10];
+			d.objecteffect = row[11];
+			d.itemimage = row[12];
+			d.effect = row[13];
+			d.BGM = row[14];
+			d.SE = row[15];
+			d.voice = row[16];
+			d.note = row[17];
 
 			dialogues.Add(d);
 		}
 
 		PlayerPrefs.SetFloat("LiedHeart", affection);
-
-		d = new Dialogue();
-		int.TryParse("999", out d.id);
-		d.character = "";
-		d.dialogue = "";
-		d.expression = "";
-		d.background = "";
-		d.BGM = "";
-		d.SE = "";
-		d.note = "giveitem";
-
-		dialogues.Add(d);
 
 		ShowDialogue();
 
@@ -12890,18 +12915,27 @@ public class LoadDialogue : MonoBehaviour
 		{
 			affection += 5;
 
-			itemRow = itemData[34].Split(new char[] { ',' });
+			row = itemData[12].Split(new char[] { ',' });
 
 			d = new Dialogue();
-			int.TryParse(itemRow[0], out d.id);
-			d.character = itemRow[1];
-			d.dialogue = itemRow[2];
-			d.expression = itemRow[4];
-			d.background = itemRow[7];
-			d.BGM = itemRow[11];
-			d.SE = itemRow[12];
-			d.voice = "";
-			d.note = itemRow[13];
+			int.TryParse(row[0], out d.id);
+			d.character = row[1];
+			d.dialogue = row[2];
+			d.mainchara = row[3];
+			d.expression = row[4];
+			d.showtwoone = row[5];
+			d.showtwotwo = row[6];
+			d.background = row[7];
+			d.firstchoose = row[8];
+			d.secondchoose = row[9];
+			d.choicetextshow = row[10];
+			d.objecteffect = row[11];
+			d.itemimage = row[12];
+			d.effect = row[13];
+			d.BGM = row[14];
+			d.SE = row[15];
+			d.voice = row[16];
+			d.note = row[17];
 
 			dialogues.Add(d);
 		}
@@ -12910,18 +12944,27 @@ public class LoadDialogue : MonoBehaviour
 		{
 			affection += 3;
 
-			itemRow = itemData[33].Split(new char[] { ',' });
+			row = itemData[11].Split(new char[] { ',' });
 
 			d = new Dialogue();
-			int.TryParse(itemRow[0], out d.id);
-			d.character = itemRow[1];
-			d.dialogue = itemRow[2];
-			d.expression = itemRow[4];
-			d.background = itemRow[7];
-			d.BGM = itemRow[11];
-			d.SE = itemRow[12];
-			d.voice = "";
-			d.note = itemRow[13];
+			int.TryParse(row[0], out d.id);
+			d.character = row[1];
+			d.dialogue = row[2];
+			d.mainchara = row[3];
+			d.expression = row[4];
+			d.showtwoone = row[5];
+			d.showtwotwo = row[6];
+			d.background = row[7];
+			d.firstchoose = row[8];
+			d.secondchoose = row[9];
+			d.choicetextshow = row[10];
+			d.objecteffect = row[11];
+			d.itemimage = row[12];
+			d.effect = row[13];
+			d.BGM = row[14];
+			d.SE = row[15];
+			d.voice = row[16];
+			d.note = row[17];
 
 			dialogues.Add(d);
 		}
@@ -12930,35 +12973,32 @@ public class LoadDialogue : MonoBehaviour
 		{
 			affection += 2;
 
-			itemRow = itemData[32].Split(new char[] { ',' });
+			row = itemData[10].Split(new char[] { ',' });
 
 			d = new Dialogue();
-			int.TryParse(itemRow[0], out d.id);
-			d.character = itemRow[1];
-			d.dialogue = itemRow[2];
-			d.expression = itemRow[4];
-			d.background = itemRow[7];
-			d.BGM = itemRow[11];
-			d.SE = itemRow[12];
-			d.voice = "";
-			d.note = itemRow[13];
+			int.TryParse(row[0], out d.id);
+			d.character = row[1];
+			d.dialogue = row[2];
+			d.mainchara = row[3];
+			d.expression = row[4];
+			d.showtwoone = row[5];
+			d.showtwotwo = row[6];
+			d.background = row[7];
+			d.firstchoose = row[8];
+			d.secondchoose = row[9];
+			d.choicetextshow = row[10];
+			d.objecteffect = row[11];
+			d.itemimage = row[12];
+			d.effect = row[13];
+			d.BGM = row[14];
+			d.SE = row[15];
+			d.voice = row[16];
+			d.note = row[17];
 
 			dialogues.Add(d);
 		}
 
 		PlayerPrefs.SetFloat("KleinHeart", affection);
-
-		d = new Dialogue();
-		int.TryParse("999", out d.id);
-		d.character = "";
-		d.dialogue = "";
-		d.expression = "";
-		d.background = "";
-		d.BGM = "";
-		d.SE = "";
-		d.note = "giveitem";
-
-		dialogues.Add(d);
 
 		ShowDialogue();
 
