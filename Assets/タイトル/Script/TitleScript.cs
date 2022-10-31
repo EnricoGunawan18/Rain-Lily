@@ -65,6 +65,8 @@ public class TitleScript : MonoBehaviour
 		highScoreCook = PlayerPrefs.GetInt("CookHighScore");
 		highScoreShop = PlayerPrefs.GetFloat("ShopHighScore");
 
+		LoadingScreen.SetActive(false);
+
 		//////Clean MiniGame
 		int scoreCleanGet = PlayerPrefs.GetInt("ScoreClean");
 
@@ -92,7 +94,6 @@ public class TitleScript : MonoBehaviour
 			highScoreShop = scoreShopGet;
 			PlayerPrefs.SetFloat("ScoreAll", highScoreShop);
 		}
-
 
 		NewGame.onClick.AddListener(NewGameStart);
 		LoadGame.onClick.AddListener(LoadGameStart);
@@ -174,7 +175,6 @@ public class TitleScript : MonoBehaviour
 		LoadingScreen.SetActive(true);
 
 		SceneManager.LoadScene("Novel");
-
 	}
 
 	public void LoadGameStart()
