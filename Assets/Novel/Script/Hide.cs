@@ -8,8 +8,6 @@ public class Hide : MonoBehaviour
 	[SerializeField]
 	private GameObject CanvasMain;
 	[SerializeField]
-	private GameObject AutoHide;
-	[SerializeField]
 	private Button HideButton;
 	[SerializeField]
 	private Button ShowAll;
@@ -32,7 +30,6 @@ public class Hide : MonoBehaviour
 	void Start()
 	{
 		Hider = CanvasMain.GetComponent<Animator>();
-		AutoHider = AutoHide.GetComponent<Animator>();
 
 		autoScroll = GameObject.Find("AutoScroll").GetComponent<AutoScroll>();
 
@@ -50,10 +47,6 @@ public class Hide : MonoBehaviour
 			isHidden = true;
 			NextDialogue.SetActive(false);
 		}
-		if (Hider.GetBool("Hiding") == true)
-		{
-			AutoHider.SetBool("autoIsHidden", true);
-		}
 	}
 
 	private void Showing()
@@ -64,10 +57,6 @@ public class Hide : MonoBehaviour
 			isHidden = false;
 			NextDialogue.SetActive(true);
 			dialogueManager.dialogueSpeed = speed;
-		}
-		if (Hider.GetBool("Hiding") == false)
-		{
-			AutoHider.SetBool("autoIsHidden", false);
 		}
 	}
 }

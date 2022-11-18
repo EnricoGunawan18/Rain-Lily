@@ -32,24 +32,11 @@ public class AutoScroll : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		ScrollBar.onClick.AddListener(ScrollShow);
 		Pausing.onClick.AddListener(SkipDialogue);
 		Auto.onClick.AddListener(AutoDialogue);
-
 	}
 
-	// Update is called once per frame
-	private void ScrollShow()
-	{
-		if (autoOpen == false)
-		{
-			ScrollOpen();
-		}
-		else
-		{
-			ScrollClose();
-		}
-	}
+
 
 	private void SkipDialogue()
 	{
@@ -84,21 +71,6 @@ public class AutoScroll : MonoBehaviour
 	}
 
 	//button conditions
-
-	public void ScrollOpen()
-	{
-		autoOpen = true;
-
-		//ScrollAnim.SetBool("isOpening", true);
-	}
-
-
-	public void ScrollClose()
-	{
-		autoOpen = false;
-
-		//ScrollAnim.SetBool("isOpening", false);
-	}
 
 	public void DialogueSkipped()
 	{
