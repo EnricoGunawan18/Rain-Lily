@@ -7,21 +7,12 @@ using TMPro;
 public class AutoScroll : MonoBehaviour
 {
 	[SerializeField]
-	public Button ScrollBar;
-	[SerializeField]
-	public GameObject ScrollSlide;
-	[SerializeField]
 	public Button Pausing;
 	[SerializeField]
 	public Button Auto;
-	[SerializeField]
-	private TMP_Text autoSign;
 
 	[SerializeField]
 	private DialogueManager dialogueManager;
-
-	[SerializeField]
-	Animator ScrollAnim;
 
 	public bool dialogueIsSkipped = false;
 	public bool normalSpeed = true;

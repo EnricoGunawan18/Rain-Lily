@@ -16,17 +16,11 @@ public class QLoadSave : MonoBehaviour
 	[SerializeField]
 	GameObject QuickLoadAsker;
 
-	[SerializeField]
-	LoadDialogue loadDialogue;
-
 	GameObject loadDialogueGameObject;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		loadDialogueGameObject = GameObject.Find("LoadDialogue");
-		loadDialogue = loadDialogueGameObject.GetComponent<LoadDialogue>();
-
 		QuickLoad.onClick.AddListener(QuickLoadClick);
 		QuickLoadYes.onClick.AddListener(QuickLoadYesClick);
 		QuickLoadNo.onClick.AddListener(QuickLoadNoClick);
