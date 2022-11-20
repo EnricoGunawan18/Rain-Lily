@@ -5,7 +5,7 @@ using UnityEngine;
 public class voice_get : MonoBehaviour
 {
     [SerializeField] LoadDialogue _loaddia;
-    public List<string> voice_name;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -185,13 +185,7 @@ public class voice_get : MonoBehaviour
                 {
                     _loaddia.VoiceFile_2.Add(file);
                 }
-            }        }
-        for (int i= 0 ;i < _loaddia.VoiceFile_2.Count;i++){
-            string temp = _loaddia.VoiceFile_2[i].ToString();
-            temp = temp.Replace(" (UnityEngine.AudioClip)", "");
-            voice_name.Add(temp);
-
+            }        
         }
     }
-
 }
