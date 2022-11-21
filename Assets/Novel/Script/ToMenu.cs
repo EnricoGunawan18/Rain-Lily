@@ -20,7 +20,7 @@ public class ToMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AffectionReturn.onClick.AddListener(Return);
+        AffectionReturn.onClick.AddListener(ReturnAffection);
         ItemsReturn.onClick.AddListener(Return);
     }
 
@@ -28,7 +28,11 @@ public class ToMenu : MonoBehaviour
     void Return()
     {
         Menu.SetActive(true);
-        AffectionScreen.SetActive(false);
         ItemsScreen.SetActive(false);
+    }
+
+    void ReturnAffection()
+    {
+        AffectionScreen.SetActive(false);
     }
 }

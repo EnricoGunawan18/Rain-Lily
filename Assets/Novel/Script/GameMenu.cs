@@ -72,7 +72,7 @@ public class GameMenu : MonoBehaviour
 	// Update is called once per frame
 	void affectionOpen()
 	{
-		Menu.SetActive(false);
+		//Menu.SetActive(false);
 		AffectionScreen.SetActive(true);
 	}
 
