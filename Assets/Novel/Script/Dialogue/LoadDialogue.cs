@@ -5685,8 +5685,8 @@ public class LoadDialogue : MonoBehaviour
 				{
 					if(d.mainchara.Contains("M-0"+ (i+1).ToString()))
 					{
-						MeiaEye.sprite = MeiaSprite[0+i];
-						MeiaMouth.sprite = MeiaSprite[1+i];
+						MeiaEye.sprite = MeiaSprite[i * 2];
+						MeiaMouth.sprite = MeiaSprite[1 + (i * 2)];
 					}
 				}
 			}
