@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
+
 public class LoadDialogue : MonoBehaviour
 {
 	[SerializeField]
@@ -108,8 +110,6 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	Sprite[] MeiaSprite;
 
-	public List<AudioClip> VoiceFile_2;
-
 	[SerializeField]
 	AudioSource ButtonAudioSource;
 
@@ -156,6 +156,7 @@ public class LoadDialogue : MonoBehaviour
 	string[] itemRow;
 	public int whichLineNow = 0;
 	public bool waitForFadeAnim = false;
+
 	public bool finishTemp1 = false;
 	public bool finishTemp2 = false;
 	public bool finishTemp3 = false;
@@ -188,14 +189,37 @@ public class LoadDialogue : MonoBehaviour
 	public bool finishTemp30 = false;
 	public bool finishTemp31 = false;
 
-
 	public bool ItemEffect = false;
 	public bool itemChoose = false;
 	public int resetPos = 0;
 
+    public int id;//0
+    public string character;//1
+    public string dialogue;//2
+    public string mainchara;//3
+    public string expression;//4
+    public string showtwoone;//5
+    public string showtwotwo;//6
+    public string back;//7
+
+    public string firstchoose;//8
+    public string secondchoose;//9
+    public string choicetextshow;//10
+
+    public string objecteffect;//11
+    public string itemimage;//12
+    public string effect;//13
+    public string music;//14
+    public string sound;//15
+    public string voice;//16
+    public string note;//17
+
 	bool shopDecide = true;
 
 	float speed;
+
+	bool manager;
+	bool voiceManager;
 
 	string backGroundName;
 
@@ -210,6 +234,8 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	TextAsset[] KleinDialogue;
 
+    AssetBundle assetBundle;
+
 	bool audioFade = false;
 	string whichBGClip = "";
 
@@ -223,6 +249,8 @@ public class LoadDialogue : MonoBehaviour
 	{
 		Time.timeScale = 1;
 		int gameMoneyGet = PlayerPrefs.GetInt("Money");
+
+        assetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "voice"));
 
 		whichLineNow = PlayerPrefs.GetInt("LogNow");
 
@@ -683,6 +711,10 @@ public class LoadDialogue : MonoBehaviour
 		}
 
 		Continue();
+		if(manager == true)
+		{
+			Manage();
+		}
 	}
 
 
@@ -5297,6 +5329,2587 @@ public class LoadDialogue : MonoBehaviour
 		StartCoroutine(DialogueGo());
 	}
 
+	void Manage()
+	{
+		if (back.Contains("still-006-a"))
+		{
+			StillImage.sprite = StillSprite[0];
+			StillImage.color = new Color(255, 255, 255, 255);
+			DialogueBG.sprite = null;
+			DialogueBG.color = new Color(0, 0, 0, 0);
+			StillDialogueBG.SetActive(true);
+			nameLabel.color = new Color(0, 0, 0, 255);
+			Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-006-b"))
+		{
+		    StillImage.sprite = StillSprite[1];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-006-c"))
+		{
+		    StillImage.sprite = StillSprite[2];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-001"))
+		{
+		    StillImage.sprite = StillSprite[3];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-003"))
+		{
+		    StillImage.sprite = StillSprite[4];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-004"))
+		{
+		    StillImage.sprite = StillSprite[8];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-005-a"))
+		{
+		    StillImage.sprite = StillSprite[5];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-005"))
+		{
+		    StillImage.sprite = StillSprite[6];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-007"))
+		{
+		    StillImage.sprite = StillSprite[7];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-008"))
+		{
+		    StillImage.sprite = StillSprite[9];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-009"))
+		{
+		    StillImage.sprite = StillSprite[10];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(0, 0, 0, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else
+		{
+		    StillImage.color = new Color(0, 0, 0, 0);
+		    DialogueBG.sprite = DialogueBGImage;
+		    DialogueBG.color = new Color(255f / 255, 255f / 255, 255f / 255, 200f / 255);
+		    StillDialogueBG.SetActive(false);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", false);
+		}
+		if (back.Contains("back-001"))
+		{
+		    backGroundLabel.text = backgrounds[0].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[1];
+		}
+		else if (back.Contains("back-002"))
+		{
+		    backGroundLabel.text = backgrounds[1].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[2];
+		}
+		else if (back.Contains("back-003-blue"))
+		{
+		    backGroundLabel.text = backgrounds[4].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[4];
+		}
+		else if (back.Contains("back-003-pink"))
+		{
+		    backGroundLabel.text = backgrounds[3].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[5];
+		}
+		else if (back.Contains("back-003"))
+		{
+		    backGroundLabel.text = backgrounds[2].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[3];
+		}
+		else if (back.Contains("back-004-sun"))
+		{
+		    backGroundLabel.text = backgrounds[5].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[6];
+		}
+		else if (back.Contains("back-004-night"))
+		{
+		    backGroundLabel.text = backgrounds[6].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[7];
+		}
+		else if (back.Contains("back-005-sun"))
+		{
+		    backGroundLabel.text = backgrounds[7].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[8];
+		}
+		else if (back.Contains("back-005-night"))
+		{
+		    backGroundLabel.text = backgrounds[8].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[9];
+		}
+		else if (back.Contains("back-006-a"))
+		{
+		    backGroundLabel.text = backgrounds[11].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[11];
+		}
+		else if (back.Contains("back-006"))
+		{
+		    backGroundLabel.text = backgrounds[9].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[10];
+		}
+		else if (back.Contains("back-007"))
+		{
+		    backGroundLabel.text = backgrounds[12].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[12];
+		}
+		else if (back.Contains("back-008"))
+		{
+		    backGroundLabel.text = backgrounds[13].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[13];
+		}
+		else if (back.Contains("back-009"))
+		{
+		    backGroundLabel.text = backgrounds[14].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[14];
+		}
+		else if (back.Contains("back-010"))
+		{
+		    backGroundLabel.text = backgrounds[15].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[15];
+		}
+		else if (back.Contains("back-011"))
+		{
+		    backGroundLabel.text = backgrounds[16].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[16];
+		}
+		else if (back.Contains("back-012"))
+		{
+		    backGroundLabel.text = backgrounds[17].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[17];
+		}
+		else if (back.Contains("back-013-night"))
+		{
+		    backGroundLabel.text = backgrounds[19].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[20];
+		}
+		else if (back.Contains("back-013-pink"))
+		{
+		    backGroundLabel.text = backgrounds[20].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[21];
+		}
+		else if (back.Contains("back-013-blue"))
+		{
+		    backGroundLabel.text = backgrounds[21].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[19];
+		}
+		else if (back.Contains("back-013"))
+		{
+		    backGroundLabel.text = backgrounds[18].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[18];
+		}
+		else if (back.Contains("back-014"))
+		{
+		    backGroundLabel.text = backgrounds[22].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[22];
+		}
+		else if (back.Contains("back-015-sun"))
+		{
+		    backGroundLabel.text = backgrounds[23].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[23];
+		}
+		else if (back.Contains("back-015-night"))
+		{
+		    backGroundLabel.text = backgrounds[24].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[24];
+		}
+		else if (back.Contains("back-016"))
+		{
+		    backGroundLabel.text = backgrounds[25].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[25];
+		}
+		else if (back.Contains("back-017"))
+		{
+		    backGroundLabel.text = backgrounds[26].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[26];
+		}
+		else if (back.Contains("back-019"))
+		{
+		    backGroundLabel.text = backgrounds[29].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[27];
+		}
+		else if (back.Contains("back-020"))
+		{
+		    backGroundLabel.text = backgrounds[30].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[28];
+		}
+		else if (back.Contains("back-021"))
+		{
+		    backGroundLabel.text = backgrounds[31].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[29];
+		}
+		else if (back.Contains("back-022"))
+		{
+		    backGroundLabel.text = backgrounds[32].bg;
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[30];
+		}
+		else if (back.Contains("back-023"))
+		{
+		    backGroundLabel.text = "";
+		    backgroundNow.color = new Color(255, 255, 255, 255);
+		    backgroundNow.sprite = background[31];
+		}
+		else if (back == "暗転")
+		{
+			backGroundLabel.text = "暗転";
+			backgroundNow.color = new Color(0, 0, 0, 255);
+		}
+		else
+		{
+			backGroundLabel.text = "";
+		}
+
+        //meia expression
+		if(mainchara == "")
+		{
+		    MeiaMain.color = new Color(0,0,0,0);
+		    MeiaEye.color = new Color(0,0,0,0);
+		    MeiaMouth.color = new Color(0,0,0,0);
+		}
+		else 
+		{
+		    MeiaMain.color = new Color(255,255,255,255);
+		    MeiaEye.color = new Color(255,255,255,255);
+		    MeiaMouth.color = new Color(255,255,255,255);
+		}
+
+		if(mainchara.Contains("M-01a"))
+		{
+		    MeiaEye.sprite = MeiaSprite[22];
+		    MeiaMouth.sprite = MeiaSprite[23];
+		}
+		else
+		{
+		    for( int i = 0; i < 11; i++)
+		    {
+		        if(mainchara.Contains("M-0"+ (i+1).ToString()))
+		        {
+		            MeiaEye.sprite = MeiaSprite[i * 2];
+		            MeiaMouth.sprite = MeiaSprite[1 + (i * 2)];
+		        }
+		    }
+		}	
+
+		if (showtwoone != "" || showtwotwo != "")
+		{
+			charaImageNow.color = new Color(0, 0, 0, 0);
+			EyeNow.color = new Color(0, 0, 0, 0);
+			MouthNow.color = new Color(0, 0, 0, 0);
+		}
+		//character expression
+		if (expression.Contains("L-01a"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    EyeNow.sprite = CharaEyes[2];
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[2];
+		}
+		else if (expression.Contains("L-01b"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 3, 4, 5 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[2];
+		}
+		else if (expression.Contains("L-01-ragan"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 3, 4, 5 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[2];
+		}
+		else if (expression.Contains("L-01"))
+		{
+		    StopCoroutine("EyeAnim");
+		    int[] eyeList = { 0, 1, 2 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.sprite = CharaMouth[2];
+		}
+		else if (expression.Contains("L-02a"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 9, 10, 11 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[5];
+		}
+		else if (expression.Contains("L-02"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 6, 7, 8 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[5];
+		}
+		else if (expression.Contains("L-03"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 12, 13, 14 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[8];
+		}
+		else if (expression.Contains("L-04"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    EyeNow.sprite = CharaEyes[18];
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[10];
+		}
+		else if (expression.Contains("L-05a"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 22, 23, 24 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[14];
+		}
+		else if (expression.Contains("L-05"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 19, 20, 21 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[14];
+		}
+		else if (expression.Contains("L-06a"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 107, 108, 109 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[17];
+		}
+		else if (expression.Contains("L-06"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 25, 26, 27 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[17];
+		}
+		else if (expression.Contains("L-07a"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 118, 119, 120 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[20];
+		}
+		else if (expression.Contains("L-07"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 31, 32, 33 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[20];
+		}
+		else if (expression.Contains("L-08"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 34, 35, 36 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[23];
+		}
+		else if (expression.Contains("L-09"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 37, 38, 39 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[26];
+		}
+		else if (expression.Contains("L-10a"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 110, 111, 110 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[29];
+		}
+		else if (expression.Contains("L-10"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 40, 41, 40 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[29];
+		}
+		else if (expression.Contains("L-11"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 121, 122, 123 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[29];
+		}
+		else if (expression.Contains("L-12"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 124, 125, 126 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[29];
+		}
+		else if (expression.Contains("K-01"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 43, 44, 45 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[33];
+		}
+		else if (expression.Contains("K-02a"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 46, 47, 48 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[36];
+		}
+		else if (expression.Contains("K-02"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 43, 44, 45 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[36];
+		}
+		else if (expression.Contains("K-03"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    EyeNow.sprite = CharaEyes[49];
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[39];
+		}
+		else if (expression.Contains("K-04"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 50, 51, 52 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[42];
+		}
+		else if (expression.Contains("K-05"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 53, 54, 55 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[45];
+		}
+		else if (expression.Contains("K-06"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 56, 57, 58 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[48];
+		}
+		else if (expression.Contains("K-07"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 59, 60, 61 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[51];
+		}
+		else if (expression.Contains("K-08"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 62, 63, 64 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[54];
+		}
+		else if (expression.Contains("K-09a"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 73, 74, 67 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[57];
+		}
+		else if (expression.Contains("K-09"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 65, 66, 67 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[57];
+		}
+		else if (expression.Contains("K-10"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 68, 69, 70 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[60];
+		}
+		else if (expression.Contains("K-11"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 71, 72, 71 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[63];
+		}
+		else if (expression.Contains("G-01"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 75, 76, 77 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[64];
+		}
+		else if (expression.Contains("G-02"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    EyeNow.sprite = CharaEyes[78];
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[67];
+		}
+		else if (expression.Contains("G-03"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 79, 80, 81 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[72];
+		}
+		else if (expression.Contains("G-04"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 82, 83, 84 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[75];
+		}
+		else if (expression.Contains("G-05"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 85, 86, 87 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[76];
+		}
+		else if (expression.Contains("G-06"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 88, 89, 90 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[81];
+		}
+		else if (expression.Contains("G-07"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 91, 92, 93 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[84];
+		}
+		else if (expression.Contains("T-01"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 94, 95, 96 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[87];
+		}
+		else if (expression.Contains("T-02"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    EyeNow.sprite = CharaEyes[97];
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[90];
+		}
+		else if (expression.Contains("T-03a"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 101, 102, 103 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[93];
+		}
+		else if (expression.Contains("T-03"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 98, 99, 100 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[93];
+		}
+		else if (expression.Contains("T-04"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 104, 105, 106 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[96];
+		}	
+		    //left chara
+		    if (showtwoone.Contains("L-01a"))
+		    {
+		        StopCoroutine("EyeAnim1");
+		        EyeNow1.color = new Color(255, 255, 255, 255);
+		        EyeNow1.sprite = CharaEyes[2];
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[2];
+            }
+            else if (showtwoone.Contains("L-01b"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 3, 4, 5 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[2];
+            }
+            else if (showtwoone.Contains("L-01-ragan"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 3, 4, 5 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[2];
+            }
+            else if (showtwoone.Contains("L-01"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 0, 1, 2 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[2];
+            }
+            else if (showtwoone.Contains("L-02a"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 9, 10, 11 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[5];
+            }
+            else if (showtwoone.Contains("L-02"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 6, 7, 8 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[5];
+            }
+            else if (showtwoone.Contains("L-03"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 12, 13, 14 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[8];
+            }
+            else if (showtwoone.Contains("L-04"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                EyeNow1.sprite = CharaEyes[18];
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[10];
+            }
+            else if (showtwoone.Contains("L-05a"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 22, 23, 24 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[14];
+            }
+            else if (showtwoone.Contains("L-05"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 19, 20, 21 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[14];
+            }
+            else if (showtwoone.Contains("L-06a"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 107, 108, 109 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[17];
+            }
+            else if (showtwoone.Contains("L-06"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 25, 26, 27 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[17];
+            }
+            else if (showtwoone.Contains("L-07"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 31, 32, 33 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[20];
+            }
+            else if (showtwoone.Contains("L-08"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 34, 35, 36 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[23];
+            }
+            else if (showtwoone.Contains("L-09"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 37, 38, 39 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[26];
+            }
+            else if (showtwoone.Contains("L-10a"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 110, 111, 110 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[29];
+            }
+            else if (showtwoone.Contains("L-10"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 40, 41, 40 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[29];
+            }
+            else if (showtwoone.Contains("L-11"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 121, 122, 123 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[29];
+            }
+            else if (showtwoone.Contains("L-12"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 124, 125, 126 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[29];
+            }
+
+            else if (showtwoone.Contains("K-01"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 43, 44, 45 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[33];
+            }
+            else if (showtwoone.Contains("K-02a"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 46, 47, 48 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[36];
+            }
+            else if (showtwoone.Contains("K-02"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 43, 44, 45 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[36];
+            }
+            else if (showtwoone.Contains("K-03"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                EyeNow1.sprite = CharaEyes[49];
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[39];
+            }
+            else if (showtwoone.Contains("K-04"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 50, 51, 52 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[42];
+            }
+            else if (showtwoone.Contains("K-05"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 53, 54, 55 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[45];
+            }
+            else if (showtwoone.Contains("K-06"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 56, 57, 58 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[48];
+            }
+            else if (showtwoone.Contains("K-07"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 59, 60, 61 };
+                StartCoroutine("EyeAnim1", eyeList);
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[51];
+            }
+            else if (showtwoone.Contains("K-08"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 62, 63, 64 };
+                StartCoroutine("EyeAnim1", eyeList);
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[54];
+            }
+            else if (showtwoone.Contains("K-09a"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 73, 74, 67 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[57];
+            }
+            else if (showtwoone.Contains("K-09"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 65, 66, 67 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[57];
+            }
+            else if (showtwoone.Contains("K-10"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 68, 69, 70 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[60];
+            }
+            else if (showtwoone.Contains("K-11"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 71, 72, 71 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[63];
+            }
+
+            else if (showtwoone.Contains("G-01"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 75, 76, 77 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[64];
+            }
+            else if (showtwoone.Contains("G-02"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                EyeNow1.sprite = CharaEyes[78];
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[67];
+            }
+            else if (showtwoone.Contains("G-03"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 79, 80, 81 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[72];
+            }
+            else if (showtwoone.Contains("G-04"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 82, 83, 84 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[75];
+            }
+            else if (showtwoone.Contains("G-05"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 85, 86, 87 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[76];
+            }
+            else if (showtwoone.Contains("G-06"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 88, 89, 90 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[81];
+            }
+            else if (showtwoone.Contains("G-07"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 91, 92, 93 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[84];
+            }
+
+            else if (showtwoone.Contains("T-01"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 94, 95, 96 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[87];
+            }
+            else if (showtwoone.Contains("T-02"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                EyeNow1.sprite = CharaEyes[97];
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[90];
+            }
+            else if (showtwoone.Contains("T-03a"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 101, 102, 103 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[93];
+            }
+            else if (showtwoone.Contains("T-03"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 98, 99, 100 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[93];
+            }
+            else if (showtwoone.Contains("T-04"))
+            {
+                StopCoroutine("EyeAnim1");
+                EyeNow1.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 104, 105, 106 };
+                StartCoroutine("EyeAnim1", eyeList);
+
+                MouthNow1.color = new Color(255, 255, 255, 255);
+                MouthNow1.sprite = CharaMouth[96];
+            }
+
+            //right chara
+            if (showtwotwo.Contains("L-01a"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                EyeNow2.sprite = CharaEyes[2];
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[2];
+            }
+            else if (showtwotwo.Contains("L-01b"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 3, 4, 5 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[2];
+            }
+            else if (showtwotwo.Contains("L-01-ragan"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 3, 4, 5 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[2];
+            }
+            else if (showtwotwo.Contains("L-01"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 0, 1, 2 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[2];
+            }
+            else if (showtwotwo.Contains("L-02a"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 9, 10, 11 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[5];
+            }
+            else if (showtwotwo.Contains("L-02"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 6, 7, 8 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[5];
+            }
+            else if (showtwotwo.Contains("L-03"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 12, 13, 14 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[8];
+            }
+            else if (showtwotwo.Contains("L-04"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                EyeNow2.sprite = CharaEyes[18];
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[10];
+            }
+            else if (showtwotwo.Contains("L-05a"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 22, 23, 24 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[14];
+            }
+            else if (showtwotwo.Contains("L-05"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 19, 20, 21 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[14];
+            }
+            else if (showtwotwo.Contains("L-06a"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 107, 108, 109 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[17];
+            }
+            else if (showtwotwo.Contains("L-06"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 25, 26, 27 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[17];
+            }
+            else if (showtwotwo.Contains("L-07"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 31, 32, 33 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[20];
+            }
+            else if (showtwotwo.Contains("L-08"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 34, 35, 36 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[23];
+            }
+            else if (showtwotwo.Contains("L-09"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 37, 38, 39 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[26];
+            }
+            else if (showtwoone.Contains("L-10a"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 110, 111, 110 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[29];
+            }
+            else if (showtwotwo.Contains("L-10"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 40, 41, 40 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[29];
+            }
+            else if (showtwotwo.Contains("L-11"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 121, 122, 123 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[29];
+            }
+            else if (showtwotwo.Contains("L-12"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 124, 125, 126 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[29];
+            }
+            else if (showtwotwo.Contains("K-01"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 43, 44, 45 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[33];
+            }
+            else if (showtwotwo.Contains("K-02a"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 46, 47, 48 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[36];
+            }
+            else if (showtwotwo.Contains("K-02"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 43, 44, 45 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[36];
+            }
+            else if (showtwotwo.Contains("K-03"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                EyeNow2.sprite = CharaEyes[49];
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[39];
+            }
+            else if (showtwotwo.Contains("K-04"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 50, 51, 52 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[42];
+            }
+            else if (showtwotwo.Contains("K-05"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 53, 54, 55 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[45];
+            }
+            else if (showtwotwo.Contains("K-06"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 56, 57, 58 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[48];
+            }
+            else if (showtwotwo.Contains("K-07"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 59, 60, 61 };
+                StartCoroutine("EyeAnim2", eyeList);
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[51];
+            }
+            else if (showtwotwo.Contains("K-08"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 62, 63, 64 };
+                StartCoroutine("EyeAnim2", eyeList);
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[54];
+            }
+            else if (showtwotwo.Contains("K-09a"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 73, 74, 67 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[57];
+            }
+            else if (showtwotwo.Contains("K-09"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 65, 66, 67 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[57];
+            }
+            else if (showtwotwo.Contains("K-10"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 68, 69, 70 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[60];
+            }
+            else if (showtwotwo.Contains("K-11"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 71, 72, 71 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[63];
+            }
+
+            else if (showtwotwo.Contains("G-01"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 75, 76, 77 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[64];
+            }
+            else if (showtwotwo.Contains("G-02"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                EyeNow2.sprite = CharaEyes[78];
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[67];
+            }
+            else if (showtwotwo.Contains("G-03"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 79, 80, 81 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[72];
+            }
+            else if (showtwotwo.Contains("G-04"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 82, 83, 84 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[75];
+            }
+            else if (showtwotwo.Contains("G-05"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 85, 86, 87 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[76];
+            }
+            else if (showtwotwo.Contains("G-06"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 88, 89, 90 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[81];
+            }
+            else if (showtwotwo.Contains("G-07"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 91, 92, 93 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[84];
+            }
+
+            else if (showtwotwo.Contains("T-01"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 94, 95, 96 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[87];
+            }
+            else if (showtwotwo.Contains("T-02"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                EyeNow2.sprite = CharaEyes[97];
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[90];
+            }
+            else if (showtwotwo.Contains("T-03a"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 101, 102, 103 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[93];
+            }
+            else if (showtwotwo.Contains("T-03"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 98, 99, 100 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[93];
+            }
+            else if (showtwotwo.Contains("T-04"))
+            {
+                StopCoroutine("EyeAnim2");
+                EyeNow2.color = new Color(255, 255, 255, 255);
+                int[] eyeList = { 104, 105, 106 };
+                StartCoroutine("EyeAnim2", eyeList);
+
+                MouthNow2.color = new Color(255, 255, 255, 255);
+                MouthNow2.sprite = CharaMouth[96];
+            }
+
+            //left chara
+            if (showtwoone == "")
+            {
+                charaImageNow1.color = new Color(0, 0, 0, 0);
+                EyeNow1.color = new Color(0, 0, 0, 0);
+                MouthNow1.color = new Color(0, 0, 0, 0);
+            }
+            if (showtwoone.Contains("L-01") || showtwoone.Contains("L-01a") ||
+                showtwoone.Contains("L-01b") || showtwoone.Contains("L-02") ||
+                showtwoone.Contains("L-02a") || showtwoone.Contains("L-03") ||
+                showtwoone.Contains("L-04") || showtwoone.Contains("L-05") ||
+                showtwoone.Contains("L-05a") || showtwoone.Contains("L-06") ||
+                showtwoone.Contains("L-06a") || showtwoone.Contains("L-07") ||
+                showtwoone.Contains("L-07a") || showtwoone.Contains("L-08") ||
+                showtwoone.Contains("L-10") || showtwoone.Contains("L-01-ragan") ||
+                showtwoone.Contains("L-10a")||showtwoone.Contains("L-11") ||
+                showtwoone.Contains("L-12"))
+            {
+                charaImageNow1.color = new Color(255, 255, 255, 255);
+                charaImageNow1.sprite = charaImage[0];
+            }
+
+            else if (showtwoone.Contains("L-09"))
+            {
+                charaImageNow1.color = new Color(255, 255, 255, 255);
+                charaImageNow1.sprite = charaImage[4];
+            }
+
+            else if (showtwoone.Contains("K-01") || showtwoone.Contains("K-02") ||
+                showtwoone.Contains("K-02a") || showtwoone.Contains("K-03") ||
+                showtwoone.Contains("K-04") || showtwoone.Contains("K-05") ||
+                showtwoone.Contains("K-06") || showtwoone.Contains("K-07") ||
+                showtwoone.Contains("K-08") || showtwoone.Contains("K-09") ||
+                showtwoone.Contains("K-09a") || showtwoone.Contains("K-10") ||
+                showtwoone.Contains("K-11"))
+            {
+                charaImageNow1.color = new Color(255, 255, 255, 255);
+                charaImageNow1.sprite = charaImage[1];
+            }
+
+            else if (showtwoone.Contains("T-01") || showtwoone.Contains("T-02") ||
+                showtwoone.Contains("T-03") || showtwoone.Contains("T-03a") ||
+                showtwoone.Contains("T-04"))
+            {
+                charaImageNow1.color = new Color(255, 255, 255, 255);
+                charaImageNow1.sprite = charaImage[2];
+            }
+            else if (showtwoone.Contains("G-01") || showtwoone.Contains("G-02") ||
+                showtwoone.Contains("G-03") || showtwoone.Contains("G-04") ||
+                showtwoone.Contains("G-05") || showtwoone.Contains("G-06") ||
+                showtwoone.Contains("G-07"))
+            {
+                charaImageNow1.color = new Color(255, 255, 255, 255);
+                charaImageNow1.sprite = charaImage[3];
+            }
+            else
+            {
+                charaImageNow1.color = new Color(0, 0, 0, 0);
+
+                EyeNow1.color = new Color(0, 0, 0, 0);
+
+                MouthNow1.color = new Color(0, 0, 0, 0);
+            }
+
+            //right chara
+            if (showtwotwo == "")
+            {
+                charaImageNow2.color = new Color(0, 0, 0, 0);
+                EyeNow2.color = new Color(0, 0, 0, 0);
+                MouthNow2.color = new Color(0, 0, 0, 0);
+            }
+            if (showtwotwo.Contains("L-01") || showtwotwo.Contains("L-01a") ||
+                showtwotwo.Contains("L-01b") || showtwotwo.Contains("L-02") ||
+                showtwotwo.Contains("L-02a") || showtwotwo.Contains("L-03") ||
+                showtwotwo.Contains("L-04") || showtwotwo.Contains("L-05") ||
+                showtwotwo.Contains("L-05a") || showtwotwo.Contains("L-06") ||
+                showtwotwo.Contains("L-06a") || showtwotwo.Contains("L-07") ||
+                showtwotwo.Contains("L-07a") || showtwotwo.Contains("L-08") ||
+                showtwotwo.Contains("L-10") || showtwotwo.Contains("L-01-ragan") ||
+                showtwotwo.Contains("L-10a") || showtwotwo.Contains("L-11") ||
+                showtwotwo.Contains("L-12"))
+            {
+                charaImageNow2.color = new Color(255, 255, 255, 255);
+                charaImageNow2.sprite = charaImage[0];
+            }
+
+            else if (showtwotwo.Contains("L-09"))
+            {
+                charaImageNow2.color = new Color(255, 255, 255, 255);
+                charaImageNow2.sprite = charaImage[4];
+            }
+
+            else if (showtwotwo.Contains("K-01") || showtwotwo.Contains("K-02") ||
+                showtwotwo.Contains("K-02a") || showtwotwo.Contains("K-03") ||
+                showtwotwo.Contains("K-04") || showtwotwo.Contains("K-05") ||
+                showtwotwo.Contains("K-06") || showtwotwo.Contains("K-07") ||
+                showtwotwo.Contains("K-08") || showtwotwo.Contains("K-09") ||
+                showtwotwo.Contains("K-09a") || showtwotwo.Contains("K-10") ||
+                showtwotwo.Contains("K-11"))
+            {
+                charaImageNow2.color = new Color(255, 255, 255, 255);
+                charaImageNow2.sprite = charaImage[1];
+            }
+
+            else if (showtwotwo.Contains("T-01") || showtwotwo.Contains("T-02") ||
+                showtwotwo.Contains("T-03") || showtwotwo.Contains("T-03a") ||
+                showtwotwo.Contains("T-04"))
+            {
+                charaImageNow2.color = new Color(255, 255, 255, 255);
+                charaImageNow2.sprite = charaImage[2];
+            }
+            else if (showtwotwo.Contains("G-01") || showtwotwo.Contains("G-02") ||
+                showtwotwo.Contains("G-03") || showtwotwo.Contains("G-04") ||
+                showtwotwo.Contains("G-05") || showtwotwo.Contains("G-06") ||
+                showtwotwo.Contains("G-07"))
+            {
+                charaImageNow2.color = new Color(255, 255, 255, 255);
+                charaImageNow2.sprite = charaImage[3];
+            }
+            else if (d.character == "メイア")
+            {
+            }
+            else
+            {
+                charaImageNow2.color = new Color(0, 0, 0, 0);
+
+                EyeNow2.color = new Color(0, 0, 0, 0);
+
+                MouthNow2.color = new Color(0, 0, 0, 0);
+            }
+            if (autoScroll.dialogueIsSkipped == false)
+            {
+                if (voice != "" && id <= 3883)
+                {
+                	AudioClip file = assetBundle.LoadAsset<AudioClip>(voice.ToString());
+					Voice.clip = file;
+					Voice.Play();
+
+                    mouthStop = false;
+
+                    //MouthAnim
+                    if (expression.Contains("L-01"))
+                    {
+                        StartCoroutine(MouthAnim(0, 1, 2, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-02"))
+                    {
+                        StartCoroutine(MouthAnim(3, 4, 5, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-03"))
+                    {
+                        StartCoroutine(MouthAnim(6, 7, 8, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-04"))
+                    {
+                        StartCoroutine(MouthAnim(9, 10, 11, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-05"))
+                    {
+                        StartCoroutine(MouthAnim(12, 13, 14, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-06"))
+                    {
+                        StartCoroutine(MouthAnim(15, 16, 17, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-07"))
+                    {
+                        StartCoroutine(MouthAnim(18, 19, 20, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-08"))
+                    {
+                        StartCoroutine(MouthAnim(21, 22, 23, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-09"))
+                    {
+                        StartCoroutine(MouthAnim(24, 25, 26, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-10"))
+                    {
+                        StartCoroutine(MouthAnim(27, 28, 29, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-11"))
+                    {
+                        StartCoroutine(MouthAnim(97, 98, 99, Voice.clip.length));
+                    }
+                    else if (expression.Contains("L-12"))
+                    {
+                        StartCoroutine(MouthAnim(100, 101, 102, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-01"))
+                    {
+                        StartCoroutine(MouthAnim(31, 32, 33, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-02"))
+                    {
+                        StartCoroutine(MouthAnim(34, 35, 36, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-03"))
+                    {
+                        StartCoroutine(MouthAnim(37, 38, 39, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-04"))
+                    {
+                        StartCoroutine(MouthAnim(40, 41, 42, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-05"))
+                    {
+                        StartCoroutine(MouthAnim(43, 44, 45, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-06"))
+                    {
+                        StartCoroutine(MouthAnim(46, 47, 48, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-07"))
+                    {
+                        StartCoroutine(MouthAnim(49, 50, 51, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-08"))
+                    {
+                        StartCoroutine(MouthAnim(52, 53, 54, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-09"))
+                    {
+                        StartCoroutine(MouthAnim(55, 56, 57, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-10"))
+                    {
+                        StartCoroutine(MouthAnim(58, 59, 60, Voice.clip.length));
+                    }
+                    else if (expression.Contains("K-11"))
+                    {
+                        StartCoroutine(MouthAnim(60, 62, 63, Voice.clip.length));
+                    }
+                    else if (expression.Contains("G-01"))
+                    {
+                        StartCoroutine(MouthAnim(64, 65, 66, Voice.clip.length));
+                    }
+                    else if (expression.Contains("G-02"))
+                    {
+                        StartCoroutine(MouthAnim(67, 68, 69, Voice.clip.length));
+                    }
+                    else if (expression.Contains("G-03"))
+                    {
+                        StartCoroutine(MouthAnim(70, 71, 72, Voice.clip.length));
+                    }
+                    else if (expression.Contains("G-04"))
+                    {
+                        StartCoroutine(MouthAnim(73, 74, 75, Voice.clip.length));
+                    }
+                    else if (expression.Contains("G-05"))
+                    {
+                        StartCoroutine(MouthAnim(76, 77, 78, Voice.clip.length));
+                    }
+                    else if (expression.Contains("G-06"))
+                    {
+                        StartCoroutine(MouthAnim(79, 80, 81, Voice.clip.length));
+                    }
+                    else if (expression.Contains("G-07"))
+                    {
+                        StartCoroutine(MouthAnim(82, 83, 84, Voice.clip.length));
+                    }
+                    else if (expression.Contains("T-01"))
+                    {
+                        StartCoroutine(MouthAnim(85, 86, 87, Voice.clip.length));
+                    }
+                    else if (expression.Contains("T-02"))
+                    {
+                        StartCoroutine(MouthAnim(88, 89, 90, Voice.clip.length));
+                    }
+                    else if (expression.Contains("T-03"))
+                    {
+                        StartCoroutine(MouthAnim(91, 92, 93, Voice.clip.length));
+                    }
+                    else if (expression.Contains("T-04"))
+                    {
+                        StartCoroutine(MouthAnim(94, 95, 96, Voice.clip.length));
+                    }
+
+                    if (showtwoone.Contains("L-01"))
+                    {
+                        StartCoroutine(MouthAnim1(0, 1, 2, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("L-02"))
+                    {
+                        StartCoroutine(MouthAnim1(3, 4, 5, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("L-03"))
+                    {
+                        StartCoroutine(MouthAnim1(6, 7, 8, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("L-04"))
+                    {
+                        StartCoroutine(MouthAnim1(9, 10, 11, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("L-05"))
+                    {
+                        StartCoroutine(MouthAnim1(12, 13, 14, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("L-06"))
+                    {
+                        StartCoroutine(MouthAnim1(15, 16, 17, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("L-07"))
+                    {
+                        StartCoroutine(MouthAnim1(18, 19, 20, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("L-08"))
+                    {
+                        StartCoroutine(MouthAnim1(21, 22, 23, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("L-09"))
+                    {
+                        StartCoroutine(MouthAnim1(24, 25, 26, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("L-10"))
+                    {
+                        StartCoroutine(MouthAnim1(27, 28, 29, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-01"))
+                    {
+                        StartCoroutine(MouthAnim1(31, 32, 33, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-02"))
+                    {
+                        StartCoroutine(MouthAnim1(34, 35, 36, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-03"))
+                    {
+                        StartCoroutine(MouthAnim1(37, 38, 39, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-04"))
+                    {
+                        StartCoroutine(MouthAnim1(40, 41, 42, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-05"))
+                    {
+                        StartCoroutine(MouthAnim1(43, 44, 45, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-06"))
+                    {
+                        StartCoroutine(MouthAnim1(46, 47, 48, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-07"))
+                    {
+                        StartCoroutine(MouthAnim1(49, 50, 51, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-08"))
+                    {
+                        StartCoroutine(MouthAnim1(52, 53, 54, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-09"))
+                    {
+                        StartCoroutine(MouthAnim1(55, 56, 57, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-10"))
+                    {
+                        StartCoroutine(MouthAnim1(58, 59, 60, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("K-11"))
+                    {
+                        StartCoroutine(MouthAnim1(60, 62, 63, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("G-01"))
+                    {
+                        StartCoroutine(MouthAnim1(64, 65, 66, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("G-02"))
+                    {
+                        StartCoroutine(MouthAnim1(67, 68, 69, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("G-03"))
+                    {
+                        StartCoroutine(MouthAnim1(70, 71, 72, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("G-04"))
+                    {
+                        StartCoroutine(MouthAnim1(73, 74, 75, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("G-05"))
+                    {
+                        StartCoroutine(MouthAnim1(76, 77, 78, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("G-06"))
+                    {
+                        StartCoroutine(MouthAnim1(79, 80, 81, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("G-07"))
+                    {
+                        StartCoroutine(MouthAnim1(82, 83, 84, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("T-01"))
+                    {
+                        StartCoroutine(MouthAnim1(85, 86, 87, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("T-02"))
+                    {
+                        StartCoroutine(MouthAnim1(88, 89, 90, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("T-03"))
+                    {
+                        StartCoroutine(MouthAnim1(91, 92, 93, Voice.clip.length));
+                    }
+                    else if (showtwoone.Contains("T-04"))
+                    {
+                        StartCoroutine(MouthAnim1(94, 95, 96, Voice.clip.length));
+                    }
+
+                    if (showtwotwo.Contains("L-01"))
+                    {
+                        StartCoroutine(MouthAnim2(0, 1, 2, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("L-02"))
+                    {
+                        StartCoroutine(MouthAnim2(3, 4, 5, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("L-03"))
+                    {
+                        StartCoroutine(MouthAnim2(6, 7, 8, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("L-04"))
+                    {
+                        StartCoroutine(MouthAnim2(9, 10, 11, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("L-05"))
+                    {
+                        StartCoroutine(MouthAnim2(12, 13, 14, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("L-06"))
+                    {
+                        StartCoroutine(MouthAnim2(15, 16, 17, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("L-07"))
+                    {
+                        StartCoroutine(MouthAnim2(18, 19, 20, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("L-08"))
+                    {
+                        StartCoroutine(MouthAnim2(21, 22, 23, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("L-09"))
+                    {
+                        StartCoroutine(MouthAnim2(24, 25, 26, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("L-10"))
+                    {
+                        StartCoroutine(MouthAnim2(27, 28, 29, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-01"))
+                    {
+                        StartCoroutine(MouthAnim2(31, 32, 33, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-02"))
+                    {
+                        StartCoroutine(MouthAnim2(34, 35, 36, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-03"))
+                    {
+                        StartCoroutine(MouthAnim2(37, 38, 39, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-04"))
+                    {
+                        StartCoroutine(MouthAnim2(40, 41, 42, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-05"))
+                    {
+                        StartCoroutine(MouthAnim2(43, 44, 45, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-06"))
+                    {
+                        StartCoroutine(MouthAnim2(46, 47, 48, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-07"))
+                    {
+                        StartCoroutine(MouthAnim2(49, 50, 51, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-08"))
+                    {
+                        StartCoroutine(MouthAnim2(52, 53, 54, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-09"))
+                    {
+                        StartCoroutine(MouthAnim2(55, 56, 57, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-10"))
+                    {
+                        StartCoroutine(MouthAnim2(58, 59, 60, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("K-11"))
+                    {
+                        StartCoroutine(MouthAnim2(60, 62, 63, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("G-01"))
+                    {
+                        StartCoroutine(MouthAnim2(64, 65, 66, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("G-02"))
+                    {
+                        StartCoroutine(MouthAnim2(67, 68, 69, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("G-03"))
+                    {
+                        StartCoroutine(MouthAnim2(70, 71, 72, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("G-04"))
+                    {
+                        StartCoroutine(MouthAnim2(73, 74, 75, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("G-05"))
+                    {
+                        StartCoroutine(MouthAnim2(76, 77, 78, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("G-06"))
+                    {
+                        StartCoroutine(MouthAnim2(79, 80, 81, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("G-07"))
+                    {
+                        StartCoroutine(MouthAnim2(82, 83, 84, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("T-01"))
+                    {
+                        StartCoroutine(MouthAnim2(85, 86, 87, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("T-02"))
+                    {
+                        StartCoroutine(MouthAnim2(88, 89, 90, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("T-03"))
+                    {
+                        StartCoroutine(MouthAnim2(91, 92, 93, Voice.clip.length));
+                    }
+                    else if (showtwotwo.Contains("T-04"))
+                    {
+                        StartCoroutine(MouthAnim2(94, 95, 96, Voice.clip.length));
+                    }
+                }
+                else
+                {
+                    Voice.Stop();
+                }
+            }
+            else
+            {
+                Voice.Stop();
+            }
+		//Background Text Show
+		string[] textTemp = { backGroundName, backGroundLabel.text, whichLineNow.ToString() };
+		StartCoroutine("BGTextAnim", textTemp);
+
+//BGM
+            if (music.Contains("BGM-001"))
+            {
+                BGM.clip = BGMFile[0];
+            }
+            else if (music.Contains("BGM-002"))
+            {
+                BGM.clip = BGMFile[1];
+            }
+            else if (music.Contains("BGM-003"))
+            {
+                BGM.clip = BGMFile[2];
+            }
+            else if (music.Contains("BGM-004"))
+            {
+                BGM.clip = BGMFile[3];
+            }
+            else if (music.Contains("BGM-005"))
+            {
+                BGM.clip = BGMFile[4];
+            }
+            else if (music.Contains("BGM-006"))
+            {
+                BGM.clip = BGMFile[5];
+            }
+            else if (music.Contains("BGM-007"))
+            {
+                BGM.clip = BGMFile[6];
+            }
+            else if (music.Contains("BGM-008"))
+            {
+                BGM.clip = BGMFile[7];
+            }
+            else if (music.Contains("BGM-009"))
+            {
+                BGM.clip = BGMFile[8];
+            }
+            else if (music.Contains("BGM-010"))
+            {
+                BGM.clip = BGMFile[9];
+            }
+            else if (music.Contains("BGM-011"))
+            {
+                BGM.clip = BGMFile[10];
+            }
+            else if (music.Contains("BGM-012"))
+            {
+                BGM.clip = BGMFile[11];
+            }
+            else if (music.Contains("BGM-013"))
+            {
+                BGM.clip = BGMFile[12];
+            }
+            else if (music.Contains("BGM-014"))
+            {
+                BGM.clip = BGMFile[13];
+            }
+            else if (music.Contains("BGM-015"))
+            {
+                BGM.clip = BGMFile[14];
+            }
+            else if (music.Contains("BGM-016"))
+            {
+                BGM.clip = BGMFile[15];
+            }
+            else if (music.Contains("BGM-017"))
+            {
+                BGM.clip = BGMFile[16];
+            }
+            else if (music.Contains("BGM-018"))
+            {
+                BGM.clip = BGMFile[17];
+            }
+            else if (music.Contains("BGM-019"))
+            {
+                BGM.clip = BGMFile[18];
+            }
+            else if (music.Contains("BGM-020"))
+            {
+                BGM.clip = BGMFile[19];
+            }
+            else if (music.Contains("BGM-021"))
+            {
+                BGM.clip = BGMFile[20];
+            }
+            else if (music.Contains("BGM-022"))
+            {
+                BGM.clip = BGMFile[21];
+            }
+            else if (music.Contains("BGM-023"))
+            {
+                BGM.clip = BGMFile[22];
+            }
+            else if (music.Contains("working_morning"))
+            {
+                BGM.clip = BGMFile[23];
+            }
+            else if (music == "")
+            {
+            }
+            else
+            {
+                BGM.Stop();
+            }
+
+            float current = 0;
+
+            if (music.Contains("CO"))
+            {
+                audioFade = false;
+                StopCoroutine("FadeAudio");
+                BGM.Stop();
+            }
+            if (music.Contains("CI"))
+            {
+                audioFade = false;
+                StopCoroutine("FadeAudio");
+                BGM.volume = 1;
+                BGM.Play();
+            }
+            if (music.Contains("FI"))
+            {
+                audioFade = true;
+                BGM.Play();
+                StartCoroutine(FadeAudio(current, 0, 1, 2));
+            }
+            if (music.Contains("FO"))
+            {
+                audioFade = true;
+                StartCoroutine(FadeAudio(current, 1, 0, 2));
+            }
+
+            if (music != "")
+            {
+                string Filter1 = music.Replace("/", "");
+                string Filter2 = Filter1.Replace("CI", "");
+                string Filter3 = Filter2.Replace("CO", "");
+                string Filter4 = Filter3.Replace("FI", "");
+                whichBGClip = Filter4.Replace("FO", "");
+                PlayerPrefs.SetString("BackgroundClip", whichBGClip);
+            }
+
+if (autoScroll.dialogueIsSkipped == false)
+            {
+                if (sound.Contains("SE-001"))
+                {
+                    SE.clip = SEFile[0];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-002"))
+                {
+                    SE.clip = SEFile[1];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-003"))
+                {
+                    SE.clip = SEFile[2];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-004"))
+                {
+                    SE.clip = SEFile[3];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-005"))
+                {
+                    SE.clip = SEFile[4];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-006"))
+                {
+                    SE.clip = SEFile[5];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-007"))
+                {
+                    SE.clip = SEFile[6];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-008"))
+                {
+                    SE.clip = SEFile[7];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-009"))
+                {
+                    SE.clip = SEFile[8];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-010"))
+                {
+                    SE.clip = SEFile[9];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-011"))
+                {
+                    SE.clip = SEFile[10];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-012"))
+                {
+                    SE.clip = SEFile[11];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-013"))
+                {
+                    SE.clip = SEFile[12];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-014"))
+                {
+                    SE.clip = SEFile[13];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-015"))
+                {
+                    SE.clip = SEFile[14];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-016"))
+                {
+                    SE.clip = SEFile[15];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-017"))
+                {
+                    SE.clip = SEFile[16];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-018"))
+                {
+                    SE.clip = SEFile[17];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-019"))
+                {
+                    SE.clip = SEFile[18];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-020"))
+                {
+                    SE.clip = SEFile[19];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-021"))
+                {
+                    SE.clip = SEFile[20];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-022"))
+                {
+                    SE.clip = SEFile[21];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-023"))
+                {
+                    SE.clip = SEFile[22];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-024"))
+                {
+                    SE.clip = SEFile[23];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-025"))
+                {
+                    SE.clip = SEFile[24];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-026"))
+                {
+                    SE.clip = SEFile[25];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-027"))
+                {
+                    SE.clip = SEFile[26];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-028"))
+                {
+                    SE.clip = SEFile[27];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-029"))
+                {
+                    SE.clip = SEFile[28];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-030"))
+                {
+                    SE.clip = SEFile[29];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-031"))
+                {
+                    SE.clip = SEFile[30];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-032"))
+                {
+                    SE.clip = SEFile[31];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-033"))
+                {
+                    SE.clip = SEFile[32];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-034"))
+                {
+                    SE.clip = SEFile[33];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-035"))
+                {
+                    SE.clip = SEFile[34];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-036"))
+                {
+                    SE.clip = SEFile[35];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-037"))
+                {
+                    SE.clip = SEFile[36];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-038"))
+                {
+                    SE.clip = SEFile[37];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-039"))
+                {
+                    SE.clip = SEFile[38];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-040"))
+                {
+                    SE.clip = SEFile[39];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-041"))
+                {
+                    SE.clip = SEFile[40];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-042"))
+                {
+                    SE.clip = SEFile[41];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-043"))
+                {
+                    SE.clip = SEFile[42];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-044"))
+                {
+                    SE.clip = SEFile[43];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-045"))
+                {
+                    SE.clip = SEFile[44];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-046"))
+                {
+                    SE.clip = SEFile[45];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-047"))
+                {
+                    SE.clip = SEFile[46];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-048"))
+                {
+                    SE.clip = SEFile[47];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-049"))
+                {
+                    SE.clip = SEFile[48];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-050"))
+                {
+                    SE.clip = SEFile[49];
+                    SE.Play();
+                }
+                else
+                {
+                    SE.Stop();
+                }
+            }
+
+		manager = false;
+	}	
+
+
 	private IEnumerator DialogueGo()
 	{
 		foreach (Dialogue d in dialogues.ToArray())
@@ -5323,1830 +7936,28 @@ public class LoadDialogue : MonoBehaviour
 
 			//background
 
-			if (d.background.Contains("still-006-a"))
-			{
-				StillImage.sprite = StillSprite[0];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-			else if (d.background.Contains("still-006-b"))
-			{
-				StillImage.sprite = StillSprite[1];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-			else if (d.background.Contains("still-006-c"))
-			{
-				StillImage.sprite = StillSprite[2];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-			else if (d.background.Contains("still-001"))
-			{
-				StillImage.sprite = StillSprite[3];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-			else if (d.background.Contains("still-003"))
-			{
-				StillImage.sprite = StillSprite[4];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-			else if (d.background.Contains("still-004"))
-			{
-				StillImage.sprite = StillSprite[8];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-
-			else if (d.background.Contains("still-005-a"))
-			{
-				StillImage.sprite = StillSprite[5];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-			else if (d.background.Contains("still-005"))
-			{
-				StillImage.sprite = StillSprite[6];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-			else if (d.background.Contains("still-007"))
-			{
-				StillImage.sprite = StillSprite[7];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-
-			else if (d.background.Contains("still-008"))
-			{
-				StillImage.sprite = StillSprite[9];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-
-			else if (d.background.Contains("still-009"))
-			{
-				StillImage.sprite = StillSprite[10];
-				StillImage.color = new Color(255, 255, 255, 255);
-				DialogueBG.sprite = null;
-				DialogueBG.color = new Color(0, 0, 0, 0);
-				StillDialogueBG.SetActive(true);
-				nameLabel.color = new Color(0, 0, 0, 255);
-				Hide.SetBool("Still", true);
-			}
-
-			else
-			{
-				StillImage.color = new Color(0, 0, 0, 0);
-				DialogueBG.sprite = DialogueBGImage;
-				DialogueBG.color = new Color(255f / 255, 255f / 255, 255f / 255, 200f / 255);
-				StillDialogueBG.SetActive(false);
-				nameLabel.color = new Color(255, 255, 255, 255);
-				Hide.SetBool("Still", false);
-			}
-
-
-			if (d.background.Contains("back-001"))
-			{
-				backGroundLabel.text = backgrounds[0].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[1];
-			}
-			else if (d.background.Contains("back-002"))
-			{
-				backGroundLabel.text = backgrounds[1].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[2];
-			}
-			else if (d.background.Contains("back-003-blue"))
-			{
-				backGroundLabel.text = backgrounds[4].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[4];
-			}
-			else if (d.background.Contains("back-003-pink"))
-			{
-				backGroundLabel.text = backgrounds[3].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[5];
-			}
-			else if (d.background.Contains("back-003"))
-			{
-				backGroundLabel.text = backgrounds[2].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[3];
-			}
-			else if (d.background.Contains("back-004-sun"))
-			{
-				backGroundLabel.text = backgrounds[5].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[6];
-			}
-			else if (d.background.Contains("back-004-night"))
-			{
-				backGroundLabel.text = backgrounds[6].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[7];
-			}
-			else if (d.background.Contains("back-005-sun"))
-			{
-				backGroundLabel.text = backgrounds[7].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[8];
-			}
-			else if (d.background.Contains("back-005-night"))
-			{
-				backGroundLabel.text = backgrounds[8].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[9];
-			}
-			else if (d.background.Contains("back-006-a"))
-			{
-				backGroundLabel.text = backgrounds[11].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[11];
-			}
-			else if (d.background.Contains("back-006"))
-			{
-				backGroundLabel.text = backgrounds[9].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[10];
-			}
-			else if (d.background.Contains("back-007"))
-			{
-				backGroundLabel.text = backgrounds[12].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[12];
-			}
-			else if (d.background.Contains("back-008"))
-			{
-				backGroundLabel.text = backgrounds[13].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[13];
-			}
-			else if (d.background.Contains("back-009"))
-			{
-				backGroundLabel.text = backgrounds[14].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[14];
-			}
-			else if (d.background.Contains("back-010"))
-			{
-				backGroundLabel.text = backgrounds[15].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[15];
-			}
-			else if (d.background.Contains("back-011"))
-			{
-				backGroundLabel.text = backgrounds[16].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[16];
-			}
-			else if (d.background.Contains("back-012"))
-			{
-				backGroundLabel.text = backgrounds[17].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[17];
-			}
-			else if (d.background.Contains("back-013-night"))
-			{
-				backGroundLabel.text = backgrounds[19].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[20];
-			}
-			else if (d.background.Contains("back-013-pink"))
-			{
-				backGroundLabel.text = backgrounds[20].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[21];
-			}
-			else if (d.background.Contains("back-013-blue"))
-			{
-				backGroundLabel.text = backgrounds[21].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[19];
-			}
-			else if (d.background.Contains("back-013"))
-			{
-				backGroundLabel.text = backgrounds[18].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[18];
-			}
-			else if (d.background.Contains("back-014"))
-			{
-				backGroundLabel.text = backgrounds[22].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[22];
-			}
-			else if (d.background.Contains("back-015-sun"))
-			{
-				backGroundLabel.text = backgrounds[23].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[23];
-			}
-			else if (d.background.Contains("back-015-night"))
-			{
-				backGroundLabel.text = backgrounds[24].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[24];
-			}
-			else if (d.background.Contains("back-016"))
-			{
-				backGroundLabel.text = backgrounds[25].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[25];
-			}
-			else if (d.background.Contains("back-017"))
-			{
-				backGroundLabel.text = backgrounds[26].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[26];
-			}
-			else if (d.background.Contains("back-019"))
-			{
-				backGroundLabel.text = backgrounds[29].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[27];
-			}
-			else if (d.background.Contains("back-020"))
-			{
-				backGroundLabel.text = backgrounds[30].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[28];
-			}
-			else if (d.background.Contains("back-021"))
-			{
-				backGroundLabel.text = backgrounds[31].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[29];
-			}
-			else if (d.background.Contains("back-022"))
-			{
-				backGroundLabel.text = backgrounds[32].bg;
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[30];
-			}
-			else if (d.background.Contains("back-023"))
-			{
-				backGroundLabel.text = "";
-				backgroundNow.color = new Color(255, 255, 255, 255);
-				backgroundNow.sprite = background[31];
-			}
-
-			else if (d.background == "暗転")
-			{
-				backGroundLabel.text = "暗転";
-				backgroundNow.color = new Color(0, 0, 0, 255);
-			}
-			else
-			{
-				backGroundLabel.text = "";
-			}
-
-
-			if (d.showtwoone != "" || d.showtwotwo != "")
-			{
-				charaImageNow.color = new Color(0, 0, 0, 0);
-
-				EyeNow.color = new Color(0, 0, 0, 0);
-
-				MouthNow.color = new Color(0, 0, 0, 0);
-			}
-			else
-			{
-
-			}
-
-			//meia expression
-			if(d.mainchara == "")
-			{
-				MeiaMain.color = new Color(0,0,0,0);
-				MeiaEye.color = new Color(0,0,0,0);
-				MeiaMouth.color = new Color(0,0,0,0);
-			}
-			else 
-			{
-				MeiaMain.color = new Color(255,255,255,255);
-				MeiaEye.color = new Color(255,255,255,255);
-				MeiaMouth.color = new Color(255,255,255,255);
-			}
-
-			
-			if(d.mainchara.Contains("M-01a"))
-			{
-				MeiaEye.sprite = MeiaSprite[22];
-				MeiaMouth.sprite = MeiaSprite[23];
-			}
-			else
-			{
-				for( int i = 0; i < 11; i++)
-				{
-					if(d.mainchara.Contains("M-0"+ (i+1).ToString()))
-					{
-						MeiaEye.sprite = MeiaSprite[i * 2];
-						MeiaMouth.sprite = MeiaSprite[1 + (i * 2)];
-					}
-				}
-			}
-
-			//character expression
-			if (d.expression.Contains("L-01a"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				EyeNow.sprite = CharaEyes[2];
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[2];
-			}
-			else if (d.expression.Contains("L-01b"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 3, 4, 5 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[2];
-			}
-			else if (d.expression.Contains("L-01-ragan"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 3, 4, 5 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[2];
-			}
-			else if (d.expression.Contains("L-01"))
-			{
-				StopCoroutine("EyeAnim");
-				int[] eyeList = { 0, 1, 2 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.sprite = CharaMouth[2];
-			}
-			else if (d.expression.Contains("L-02a"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 9, 10, 11 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[5];
-			}
-			else if (d.expression.Contains("L-02"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 6, 7, 8 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[5];
-			}
-			else if (d.expression.Contains("L-03"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 12, 13, 14 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[8];
-			}
-			else if (d.expression.Contains("L-04"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				EyeNow.sprite = CharaEyes[18];
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[10];
-			}
-			else if (d.expression.Contains("L-05a"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 22, 23, 24 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[14];
-			}
-			else if (d.expression.Contains("L-05"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 19, 20, 21 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[14];
-			}
-			else if (d.expression.Contains("L-06a"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 107, 108, 109 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[17];
-			}
-			else if (d.expression.Contains("L-06"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 25, 26, 27 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[17];
-			}
-			else if (d.expression.Contains("L-07a"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 118, 119, 120 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[20];
-			}
-			else if (d.expression.Contains("L-07"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 31, 32, 33 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[20];
-			}
-			else if (d.expression.Contains("L-08"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 34, 35, 36 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[23];
-			}
-			else if (d.expression.Contains("L-09"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 37, 38, 39 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[26];
-			}
-			else if (d.expression.Contains("L-10a"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 110, 111, 110 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[29];
-			}
-			else if (d.expression.Contains("L-10"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 40, 41, 40 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[29];
-			}
-			else if (d.expression.Contains("L-11"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 121, 122, 123 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[29];
-			}
-			else if (d.expression.Contains("L-12"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 124, 125, 126 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[29];
-			}
-
-			else if (d.expression.Contains("K-01"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 43, 44, 45 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[33];
-			}
-			else if (d.expression.Contains("K-02a"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 46, 47, 48 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[36];
-			}
-			else if (d.expression.Contains("K-02"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 43, 44, 45 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[36];
-			}
-			else if (d.expression.Contains("K-03"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				EyeNow.sprite = CharaEyes[49];
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[39];
-			}
-			else if (d.expression.Contains("K-04"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 50, 51, 52 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[42];
-			}
-			else if (d.expression.Contains("K-05"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 53, 54, 55 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[45];
-			}
-			else if (d.expression.Contains("K-06"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 56, 57, 58 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[48];
-			}
-			else if (d.expression.Contains("K-07"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 59, 60, 61 };
-				StartCoroutine("EyeAnim", eyeList);
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[51];
-			}
-			else if (d.expression.Contains("K-08"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 62, 63, 64 };
-				StartCoroutine("EyeAnim", eyeList);
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[54];
-			}
-			else if (d.expression.Contains("K-09a"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 73, 74, 67 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[57];
-			}
-			else if (d.expression.Contains("K-09"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 65, 66, 67 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[57];
-			}
-			else if (d.expression.Contains("K-10"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 68, 69, 70 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[60];
-			}
-			else if (d.expression.Contains("K-11"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 71, 72, 71 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[63];
-			}
-
-			else if (d.expression.Contains("G-01"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 75, 76, 77 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[64];
-			}
-			else if (d.expression.Contains("G-02"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				EyeNow.sprite = CharaEyes[78];
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[67];
-			}
-			else if (d.expression.Contains("G-03"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 79, 80, 81 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[72];
-			}
-			else if (d.expression.Contains("G-04"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 82, 83, 84 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[75];
-			}
-			else if (d.expression.Contains("G-05"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 85, 86, 87 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[76];
-			}
-			else if (d.expression.Contains("G-06"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 88, 89, 90 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[81];
-			}
-			else if (d.expression.Contains("G-07"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 91, 92, 93 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[84];
-			}
-
-			else if (d.expression.Contains("T-01"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 94, 95, 96 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[87];
-			}
-			else if (d.expression.Contains("T-02"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				EyeNow.sprite = CharaEyes[97];
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[90];
-			}
-			else if (d.expression.Contains("T-03a"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 101, 102, 103 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[93];
-			}
-			else if (d.expression.Contains("T-03"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 98, 99, 100 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[93];
-			}
-			else if (d.expression.Contains("T-04"))
-			{
-				StopCoroutine("EyeAnim");
-				EyeNow.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 104, 105, 106 };
-				StartCoroutine("EyeAnim", eyeList);
-
-				MouthNow.color = new Color(255, 255, 255, 255);
-				MouthNow.sprite = CharaMouth[96];
-			}
-
-
-			//left chara
-			if (d.showtwoone.Contains("L-01a"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				EyeNow1.sprite = CharaEyes[2];
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[2];
-			}
-			else if (d.showtwoone.Contains("L-01b"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 3, 4, 5 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[2];
-			}
-			else if (d.showtwoone.Contains("L-01-ragan"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 3, 4, 5 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[2];
-			}
-			else if (d.showtwoone.Contains("L-01"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 0, 1, 2 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[2];
-			}
-			else if (d.showtwoone.Contains("L-02a"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 9, 10, 11 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[5];
-			}
-			else if (d.showtwoone.Contains("L-02"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 6, 7, 8 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[5];
-			}
-			else if (d.showtwoone.Contains("L-03"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 12, 13, 14 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[8];
-			}
-			else if (d.showtwoone.Contains("L-04"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				EyeNow1.sprite = CharaEyes[18];
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[10];
-			}
-			else if (d.showtwoone.Contains("L-05a"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 22, 23, 24 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[14];
-			}
-			else if (d.showtwoone.Contains("L-05"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 19, 20, 21 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[14];
-			}
-			else if (d.showtwoone.Contains("L-06a"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 107, 108, 109 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[17];
-			}
-			else if (d.showtwoone.Contains("L-06"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 25, 26, 27 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[17];
-			}
-			else if (d.showtwoone.Contains("L-07"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 31, 32, 33 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[20];
-			}
-			else if (d.showtwoone.Contains("L-08"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 34, 35, 36 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[23];
-			}
-			else if (d.showtwoone.Contains("L-09"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 37, 38, 39 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[26];
-			}
-			else if (d.showtwoone.Contains("L-10a"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 110, 111, 110 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[29];
-			}
-			else if (d.showtwoone.Contains("L-10"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 40, 41, 40 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[29];
-			}
-			else if (d.showtwoone.Contains("L-11"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 121, 122, 123 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[29];
-			}
-			else if (d.showtwoone.Contains("L-12"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 124, 125, 126 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[29];
-			}
-
-			else if (d.showtwoone.Contains("K-01"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 43, 44, 45 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[33];
-			}
-			else if (d.showtwoone.Contains("K-02a"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 46, 47, 48 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[36];
-			}
-			else if (d.showtwoone.Contains("K-02"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 43, 44, 45 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[36];
-			}
-			else if (d.showtwoone.Contains("K-03"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				EyeNow1.sprite = CharaEyes[49];
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[39];
-			}
-			else if (d.showtwoone.Contains("K-04"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 50, 51, 52 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[42];
-			}
-			else if (d.showtwoone.Contains("K-05"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 53, 54, 55 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[45];
-			}
-			else if (d.showtwoone.Contains("K-06"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 56, 57, 58 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[48];
-			}
-			else if (d.showtwoone.Contains("K-07"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 59, 60, 61 };
-				StartCoroutine("EyeAnim1", eyeList);
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[51];
-			}
-			else if (d.showtwoone.Contains("K-08"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 62, 63, 64 };
-				StartCoroutine("EyeAnim1", eyeList);
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[54];
-			}
-			else if (d.showtwoone.Contains("K-09a"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 73, 74, 67 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[57];
-			}
-			else if (d.showtwoone.Contains("K-09"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 65, 66, 67 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[57];
-			}
-			else if (d.showtwoone.Contains("K-10"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 68, 69, 70 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[60];
-			}
-			else if (d.showtwoone.Contains("K-11"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 71, 72, 71 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[63];
-			}
-
-			else if (d.showtwoone.Contains("G-01"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 75, 76, 77 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[64];
-			}
-			else if (d.showtwoone.Contains("G-02"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				EyeNow1.sprite = CharaEyes[78];
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[67];
-			}
-			else if (d.showtwoone.Contains("G-03"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 79, 80, 81 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[72];
-			}
-			else if (d.showtwoone.Contains("G-04"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 82, 83, 84 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[75];
-			}
-			else if (d.showtwoone.Contains("G-05"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 85, 86, 87 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[76];
-			}
-			else if (d.showtwoone.Contains("G-06"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 88, 89, 90 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[81];
-			}
-			else if (d.showtwoone.Contains("G-07"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 91, 92, 93 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[84];
-			}
-
-			else if (d.showtwoone.Contains("T-01"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 94, 95, 96 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[87];
-			}
-			else if (d.showtwoone.Contains("T-02"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				EyeNow1.sprite = CharaEyes[97];
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[90];
-			}
-			else if (d.showtwoone.Contains("T-03a"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 101, 102, 103 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[93];
-			}
-			else if (d.showtwoone.Contains("T-03"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 98, 99, 100 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[93];
-			}
-			else if (d.showtwoone.Contains("T-04"))
-			{
-				StopCoroutine("EyeAnim1");
-				EyeNow1.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 104, 105, 106 };
-				StartCoroutine("EyeAnim1", eyeList);
-
-				MouthNow1.color = new Color(255, 255, 255, 255);
-				MouthNow1.sprite = CharaMouth[96];
-			}
-
-			//right chara
-			if (d.showtwotwo.Contains("L-01a"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				EyeNow2.sprite = CharaEyes[2];
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[2];
-			}
-			else if (d.showtwotwo.Contains("L-01b"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 3, 4, 5 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[2];
-			}
-			else if (d.showtwotwo.Contains("L-01-ragan"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 3, 4, 5 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[2];
-			}
-			else if (d.showtwotwo.Contains("L-01"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 0, 1, 2 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[2];
-			}
-			else if (d.showtwotwo.Contains("L-02a"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 9, 10, 11 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[5];
-			}
-			else if (d.showtwotwo.Contains("L-02"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 6, 7, 8 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[5];
-			}
-			else if (d.showtwotwo.Contains("L-03"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 12, 13, 14 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[8];
-			}
-			else if (d.showtwotwo.Contains("L-04"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				EyeNow2.sprite = CharaEyes[18];
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[10];
-			}
-			else if (d.showtwotwo.Contains("L-05a"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 22, 23, 24 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[14];
-			}
-			else if (d.showtwotwo.Contains("L-05"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 19, 20, 21 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[14];
-			}
-			else if (d.showtwotwo.Contains("L-06a"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 107, 108, 109 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[17];
-			}
-			else if (d.showtwotwo.Contains("L-06"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 25, 26, 27 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[17];
-			}
-			else if (d.showtwotwo.Contains("L-07"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 31, 32, 33 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[20];
-			}
-			else if (d.showtwotwo.Contains("L-08"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 34, 35, 36 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[23];
-			}
-			else if (d.showtwotwo.Contains("L-09"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 37, 38, 39 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[26];
-			}
-			else if (d.showtwoone.Contains("L-10a"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 110, 111, 110 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[29];
-			}
-			else if (d.showtwotwo.Contains("L-10"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 40, 41, 40 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[29];
-			}
-			else if (d.showtwotwo.Contains("L-11"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 121, 122, 123 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[29];
-			}
-			else if (d.showtwotwo.Contains("L-12"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 124, 125, 126 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[29];
-			}
-			else if (d.showtwotwo.Contains("K-01"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 43, 44, 45 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[33];
-			}
-			else if (d.showtwotwo.Contains("K-02a"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 46, 47, 48 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[36];
-			}
-			else if (d.showtwotwo.Contains("K-02"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 43, 44, 45 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[36];
-			}
-			else if (d.showtwotwo.Contains("K-03"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				EyeNow2.sprite = CharaEyes[49];
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[39];
-			}
-			else if (d.showtwotwo.Contains("K-04"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 50, 51, 52 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[42];
-			}
-			else if (d.showtwotwo.Contains("K-05"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 53, 54, 55 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[45];
-			}
-			else if (d.showtwotwo.Contains("K-06"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 56, 57, 58 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[48];
-			}
-			else if (d.showtwotwo.Contains("K-07"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 59, 60, 61 };
-				StartCoroutine("EyeAnim2", eyeList);
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[51];
-			}
-			else if (d.showtwotwo.Contains("K-08"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 62, 63, 64 };
-				StartCoroutine("EyeAnim2", eyeList);
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[54];
-			}
-			else if (d.showtwotwo.Contains("K-09a"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 73, 74, 67 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[57];
-			}
-			else if (d.showtwotwo.Contains("K-09"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 65, 66, 67 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[57];
-			}
-			else if (d.showtwotwo.Contains("K-10"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 68, 69, 70 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[60];
-			}
-			else if (d.showtwotwo.Contains("K-11"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 71, 72, 71 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[63];
-			}
-
-			else if (d.showtwotwo.Contains("G-01"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 75, 76, 77 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[64];
-			}
-			else if (d.showtwotwo.Contains("G-02"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				EyeNow2.sprite = CharaEyes[78];
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[67];
-			}
-			else if (d.showtwotwo.Contains("G-03"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 79, 80, 81 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[72];
-			}
-			else if (d.showtwotwo.Contains("G-04"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 82, 83, 84 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[75];
-			}
-			else if (d.showtwotwo.Contains("G-05"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 85, 86, 87 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[76];
-			}
-			else if (d.showtwotwo.Contains("G-06"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 88, 89, 90 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[81];
-			}
-			else if (d.showtwotwo.Contains("G-07"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 91, 92, 93 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[84];
-			}
-
-			else if (d.showtwotwo.Contains("T-01"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 94, 95, 96 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[87];
-			}
-			else if (d.showtwotwo.Contains("T-02"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				EyeNow2.sprite = CharaEyes[97];
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[90];
-			}
-			else if (d.showtwotwo.Contains("T-03a"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 101, 102, 103 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[93];
-			}
-			else if (d.showtwotwo.Contains("T-03"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 98, 99, 100 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[93];
-			}
-			else if (d.showtwotwo.Contains("T-04"))
-			{
-				StopCoroutine("EyeAnim2");
-				EyeNow2.color = new Color(255, 255, 255, 255);
-				int[] eyeList = { 104, 105, 106 };
-				StartCoroutine("EyeAnim2", eyeList);
-
-				MouthNow2.color = new Color(255, 255, 255, 255);
-				MouthNow2.sprite = CharaMouth[96];
-			}
-
+    		id = d.id;//0
+    		character = d.character;//1
+    		dialogue = d.dialogue;//2
+    		mainchara = d.mainchara;//3
+    		expression = d. expression;//4
+    		showtwoone = d.showtwoone;//5
+    		showtwotwo = d.showtwotwo;//6
+    		back = d.background;//7
+    		firstchoose = d.firstchoose;//8
+    		secondchoose = d.secondchoose;//9
+    		choicetextshow = d.choicetextshow;//10
+    		objecteffect = d.objecteffect;//11
+    		itemimage = d.itemimage;//12
+    		effect = d.effect;//13
+    		music = d.BGM;//14
+    		sound = d.SE;//15
+    		voice = d.voice;//16
+    		note = d.note;//17
 
 			//character body
 			bool blankAnim = BustUpAnim.GetBool("isBlank");
 
-			//left chara
-			if (d.showtwoone == "")
-			{
-				charaImageNow1.color = new Color(0, 0, 0, 0);
-				EyeNow1.color = new Color(0, 0, 0, 0);
-				MouthNow1.color = new Color(0, 0, 0, 0);
-			}
-			if (d.showtwoone.Contains("L-01") || d.showtwoone.Contains("L-01a") ||
-				d.showtwoone.Contains("L-01b") || d.showtwoone.Contains("L-02") ||
-				d.showtwoone.Contains("L-02a") || d.showtwoone.Contains("L-03") ||
-				d.showtwoone.Contains("L-04") || d.showtwoone.Contains("L-05") ||
-				d.showtwoone.Contains("L-05a") || d.showtwoone.Contains("L-06") ||
-				d.showtwoone.Contains("L-06a") || d.showtwoone.Contains("L-07") ||
-				d.showtwoone.Contains("L-07a") || d.showtwoone.Contains("L-08") ||
-				d.showtwoone.Contains("L-10") || d.showtwoone.Contains("L-01-ragan") ||
-				d.showtwoone.Contains("L-10a")||d.showtwoone.Contains("L-11") ||
-				d.showtwoone.Contains("L-12"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[0];
-			}
-
-			else if (d.showtwoone.Contains("L-09"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[4];
-			}
-
-			else if (d.showtwoone.Contains("K-01") || d.showtwoone.Contains("K-02") ||
-				d.showtwoone.Contains("K-02a") || d.showtwoone.Contains("K-03") ||
-				d.showtwoone.Contains("K-04") || d.showtwoone.Contains("K-05") ||
-				d.showtwoone.Contains("K-06") || d.showtwoone.Contains("K-07") ||
-				d.showtwoone.Contains("K-08") || d.showtwoone.Contains("K-09") ||
-				d.showtwoone.Contains("K-09a") || d.showtwoone.Contains("K-10") ||
-				d.showtwoone.Contains("K-11"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[1];
-			}
-
-			else if (d.showtwoone.Contains("T-01") || d.showtwoone.Contains("T-02") ||
-				d.showtwoone.Contains("T-03") || d.showtwoone.Contains("T-03a") ||
-				d.showtwoone.Contains("T-04"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[2];
-			}
-			else if (d.showtwoone.Contains("G-01") || d.showtwoone.Contains("G-02") ||
-				d.showtwoone.Contains("G-03") || d.showtwoone.Contains("G-04") ||
-				d.showtwoone.Contains("G-05") || d.showtwoone.Contains("G-06") ||
-				d.showtwoone.Contains("G-07"))
-			{
-				charaImageNow1.color = new Color(255, 255, 255, 255);
-				charaImageNow1.sprite = charaImage[3];
-			}
-			else
-			{
-				charaImageNow1.color = new Color(0, 0, 0, 0);
-
-				EyeNow1.color = new Color(0, 0, 0, 0);
-
-				MouthNow1.color = new Color(0, 0, 0, 0);
-			}
-
-			//right chara
-			if (d.showtwotwo == "")
-			{
-				charaImageNow2.color = new Color(0, 0, 0, 0);
-				EyeNow2.color = new Color(0, 0, 0, 0);
-				MouthNow2.color = new Color(0, 0, 0, 0);
-			}
-			if (d.showtwotwo.Contains("L-01") || d.showtwotwo.Contains("L-01a") ||
-				d.showtwotwo.Contains("L-01b") || d.showtwotwo.Contains("L-02") ||
-				d.showtwotwo.Contains("L-02a") || d.showtwotwo.Contains("L-03") ||
-				d.showtwotwo.Contains("L-04") || d.showtwotwo.Contains("L-05") ||
-				d.showtwotwo.Contains("L-05a") || d.showtwotwo.Contains("L-06") ||
-				d.showtwotwo.Contains("L-06a") || d.showtwotwo.Contains("L-07") ||
-				d.showtwotwo.Contains("L-07a") || d.showtwotwo.Contains("L-08") ||
-				d.showtwotwo.Contains("L-10") || d.showtwotwo.Contains("L-01-ragan") ||
-				d.showtwotwo.Contains("L-10a") || d.showtwotwo.Contains("L-11") ||
-				d.showtwotwo.Contains("L-12"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[0];
-			}
-
-			else if (d.showtwotwo.Contains("L-09"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[4];
-			}
-
-			else if (d.showtwotwo.Contains("K-01") || d.showtwotwo.Contains("K-02") ||
-				d.showtwotwo.Contains("K-02a") || d.showtwotwo.Contains("K-03") ||
-				d.showtwotwo.Contains("K-04") || d.showtwotwo.Contains("K-05") ||
-				d.showtwotwo.Contains("K-06") || d.showtwotwo.Contains("K-07") ||
-				d.showtwotwo.Contains("K-08") || d.showtwotwo.Contains("K-09") ||
-				d.showtwotwo.Contains("K-09a") || d.showtwotwo.Contains("K-10") ||
-				d.showtwotwo.Contains("K-11"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[1];
-			}
-
-			else if (d.showtwotwo.Contains("T-01") || d.showtwotwo.Contains("T-02") ||
-				d.showtwotwo.Contains("T-03") || d.showtwotwo.Contains("T-03a") ||
-				d.showtwotwo.Contains("T-04"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[2];
-			}
-			else if (d.showtwotwo.Contains("G-01") || d.showtwotwo.Contains("G-02") ||
-				d.showtwotwo.Contains("G-03") || d.showtwotwo.Contains("G-04") ||
-				d.showtwotwo.Contains("G-05") || d.showtwotwo.Contains("G-06") ||
-				d.showtwotwo.Contains("G-07"))
-			{
-				charaImageNow2.color = new Color(255, 255, 255, 255);
-				charaImageNow2.sprite = charaImage[3];
-			}
-			else if (d.character == "メイア")
-			{
-			}
-			else
-			{
-				charaImageNow2.color = new Color(0, 0, 0, 0);
-
-				EyeNow2.color = new Color(0, 0, 0, 0);
-
-				MouthNow2.color = new Color(0, 0, 0, 0);
-			}
 
 			//main chara
 			if (d.expression == "")
@@ -7264,10 +8075,6 @@ public class LoadDialogue : MonoBehaviour
 			}
 
 
-			//Background Text Show
-			string[] textTemp = { backGroundName, backGroundLabel.text, whichLineNow.ToString() };
-			StartCoroutine("BGTextAnim", textTemp);
-
 			//Bust Up(?)
 			if (d.expression.Contains("BU"))
 			{
@@ -7288,1052 +8095,10 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 
+			manager = true;
+
 			//Voice
-
 			mouthStop = true;
-
-			if (autoScroll.dialogueIsSkipped == false)
-			{
-				if (d.voice != "" && d.id <= 3883)
-				{
-					for (int i = 0; i < VoiceFile_2.Count; i++)
-					{
-						string temp = VoiceFile_2[i].ToString();
-						temp = temp.Replace(" (UnityEngine.AudioClip)", "");
-						if (d.voice.ToString() == temp.ToString())
-						{
-							Voice.clip = VoiceFile_2[i];
-							Voice.Play();
-
-							break;
-						}
-					}
-
-					mouthStop = false;
-
-					//MouthAnim
-					if (d.expression.Contains("L-01"))
-					{
-						StartCoroutine(MouthAnim(0, 1, 2, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-02"))
-					{
-						StartCoroutine(MouthAnim(3, 4, 5, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-03"))
-					{
-						StartCoroutine(MouthAnim(6, 7, 8, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-04"))
-					{
-						StartCoroutine(MouthAnim(9, 10, 11, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-05"))
-					{
-						StartCoroutine(MouthAnim(12, 13, 14, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-06"))
-					{
-						StartCoroutine(MouthAnim(15, 16, 17, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-07"))
-					{
-						StartCoroutine(MouthAnim(18, 19, 20, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-08"))
-					{
-						StartCoroutine(MouthAnim(21, 22, 23, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-09"))
-					{
-						StartCoroutine(MouthAnim(24, 25, 26, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-10"))
-					{
-						StartCoroutine(MouthAnim(27, 28, 29, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-11"))
-					{
-						StartCoroutine(MouthAnim(97, 98, 99, Voice.clip.length));
-					}
-					else if (d.expression.Contains("L-12"))
-					{
-						StartCoroutine(MouthAnim(100, 101, 102, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-01"))
-					{
-						StartCoroutine(MouthAnim(31, 32, 33, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-02"))
-					{
-						StartCoroutine(MouthAnim(34, 35, 36, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-03"))
-					{
-						StartCoroutine(MouthAnim(37, 38, 39, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-04"))
-					{
-						StartCoroutine(MouthAnim(40, 41, 42, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-05"))
-					{
-						StartCoroutine(MouthAnim(43, 44, 45, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-06"))
-					{
-						StartCoroutine(MouthAnim(46, 47, 48, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-07"))
-					{
-						StartCoroutine(MouthAnim(49, 50, 51, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-08"))
-					{
-						StartCoroutine(MouthAnim(52, 53, 54, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-09"))
-					{
-						StartCoroutine(MouthAnim(55, 56, 57, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-10"))
-					{
-						StartCoroutine(MouthAnim(58, 59, 60, Voice.clip.length));
-					}
-					else if (d.expression.Contains("K-11"))
-					{
-						StartCoroutine(MouthAnim(60, 62, 63, Voice.clip.length));
-					}
-					else if (d.expression.Contains("G-01"))
-					{
-						StartCoroutine(MouthAnim(64, 65, 66, Voice.clip.length));
-					}
-					else if (d.expression.Contains("G-02"))
-					{
-						StartCoroutine(MouthAnim(67, 68, 69, Voice.clip.length));
-					}
-					else if (d.expression.Contains("G-03"))
-					{
-						StartCoroutine(MouthAnim(70, 71, 72, Voice.clip.length));
-					}
-					else if (d.expression.Contains("G-04"))
-					{
-						StartCoroutine(MouthAnim(73, 74, 75, Voice.clip.length));
-					}
-					else if (d.expression.Contains("G-05"))
-					{
-						StartCoroutine(MouthAnim(76, 77, 78, Voice.clip.length));
-					}
-					else if (d.expression.Contains("G-06"))
-					{
-						StartCoroutine(MouthAnim(79, 80, 81, Voice.clip.length));
-					}
-					else if (d.expression.Contains("G-07"))
-					{
-						StartCoroutine(MouthAnim(82, 83, 84, Voice.clip.length));
-					}
-					else if (d.expression.Contains("T-01"))
-					{
-						StartCoroutine(MouthAnim(85, 86, 87, Voice.clip.length));
-					}
-					else if (d.expression.Contains("T-02"))
-					{
-						StartCoroutine(MouthAnim(88, 89, 90, Voice.clip.length));
-					}
-					else if (d.expression.Contains("T-03"))
-					{
-						StartCoroutine(MouthAnim(91, 92, 93, Voice.clip.length));
-					}
-					else if (d.expression.Contains("T-04"))
-					{
-						StartCoroutine(MouthAnim(94, 95, 96, Voice.clip.length));
-					}
-
-
-					if (d.showtwoone.Contains("L-01"))
-					{
-						StartCoroutine(MouthAnim1(0, 1, 2, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("L-02"))
-					{
-						StartCoroutine(MouthAnim1(3, 4, 5, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("L-03"))
-					{
-						StartCoroutine(MouthAnim1(6, 7, 8, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("L-04"))
-					{
-						StartCoroutine(MouthAnim1(9, 10, 11, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("L-05"))
-					{
-						StartCoroutine(MouthAnim1(12, 13, 14, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("L-06"))
-					{
-						StartCoroutine(MouthAnim1(15, 16, 17, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("L-07"))
-					{
-						StartCoroutine(MouthAnim1(18, 19, 20, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("L-08"))
-					{
-						StartCoroutine(MouthAnim1(21, 22, 23, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("L-09"))
-					{
-						StartCoroutine(MouthAnim1(24, 25, 26, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("L-10"))
-					{
-						StartCoroutine(MouthAnim1(27, 28, 29, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-01"))
-					{
-						StartCoroutine(MouthAnim1(31, 32, 33, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-02"))
-					{
-						StartCoroutine(MouthAnim1(34, 35, 36, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-03"))
-					{
-						StartCoroutine(MouthAnim1(37, 38, 39, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-04"))
-					{
-						StartCoroutine(MouthAnim1(40, 41, 42, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-05"))
-					{
-						StartCoroutine(MouthAnim1(43, 44, 45, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-06"))
-					{
-						StartCoroutine(MouthAnim1(46, 47, 48, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-07"))
-					{
-						StartCoroutine(MouthAnim1(49, 50, 51, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-08"))
-					{
-						StartCoroutine(MouthAnim1(52, 53, 54, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-09"))
-					{
-						StartCoroutine(MouthAnim1(55, 56, 57, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-10"))
-					{
-						StartCoroutine(MouthAnim1(58, 59, 60, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("K-11"))
-					{
-						StartCoroutine(MouthAnim1(60, 62, 63, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("G-01"))
-					{
-						StartCoroutine(MouthAnim1(64, 65, 66, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("G-02"))
-					{
-						StartCoroutine(MouthAnim1(67, 68, 69, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("G-03"))
-					{
-						StartCoroutine(MouthAnim1(70, 71, 72, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("G-04"))
-					{
-						StartCoroutine(MouthAnim1(73, 74, 75, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("G-05"))
-					{
-						StartCoroutine(MouthAnim1(76, 77, 78, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("G-06"))
-					{
-						StartCoroutine(MouthAnim1(79, 80, 81, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("G-07"))
-					{
-						StartCoroutine(MouthAnim1(82, 83, 84, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("T-01"))
-					{
-						StartCoroutine(MouthAnim1(85, 86, 87, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("T-02"))
-					{
-						StartCoroutine(MouthAnim1(88, 89, 90, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("T-03"))
-					{
-						StartCoroutine(MouthAnim1(91, 92, 93, Voice.clip.length));
-					}
-					else if (d.showtwoone.Contains("T-04"))
-					{
-						StartCoroutine(MouthAnim1(94, 95, 96, Voice.clip.length));
-					}
-
-
-					if (d.showtwotwo.Contains("L-01"))
-					{
-						StartCoroutine(MouthAnim2(0, 1, 2, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("L-02"))
-					{
-						StartCoroutine(MouthAnim2(3, 4, 5, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("L-03"))
-					{
-						StartCoroutine(MouthAnim2(6, 7, 8, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("L-04"))
-					{
-						StartCoroutine(MouthAnim2(9, 10, 11, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("L-05"))
-					{
-						StartCoroutine(MouthAnim2(12, 13, 14, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("L-06"))
-					{
-						StartCoroutine(MouthAnim2(15, 16, 17, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("L-07"))
-					{
-						StartCoroutine(MouthAnim2(18, 19, 20, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("L-08"))
-					{
-						StartCoroutine(MouthAnim2(21, 22, 23, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("L-09"))
-					{
-						StartCoroutine(MouthAnim2(24, 25, 26, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("L-10"))
-					{
-						StartCoroutine(MouthAnim2(27, 28, 29, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-01"))
-					{
-						StartCoroutine(MouthAnim2(31, 32, 33, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-02"))
-					{
-						StartCoroutine(MouthAnim2(34, 35, 36, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-03"))
-					{
-						StartCoroutine(MouthAnim2(37, 38, 39, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-04"))
-					{
-						StartCoroutine(MouthAnim2(40, 41, 42, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-05"))
-					{
-						StartCoroutine(MouthAnim2(43, 44, 45, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-06"))
-					{
-						StartCoroutine(MouthAnim2(46, 47, 48, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-07"))
-					{
-						StartCoroutine(MouthAnim2(49, 50, 51, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-08"))
-					{
-						StartCoroutine(MouthAnim2(52, 53, 54, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-09"))
-					{
-						StartCoroutine(MouthAnim2(55, 56, 57, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-10"))
-					{
-						StartCoroutine(MouthAnim2(58, 59, 60, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("K-11"))
-					{
-						StartCoroutine(MouthAnim2(60, 62, 63, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("G-01"))
-					{
-						StartCoroutine(MouthAnim2(64, 65, 66, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("G-02"))
-					{
-						StartCoroutine(MouthAnim2(67, 68, 69, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("G-03"))
-					{
-						StartCoroutine(MouthAnim2(70, 71, 72, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("G-04"))
-					{
-						StartCoroutine(MouthAnim2(73, 74, 75, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("G-05"))
-					{
-						StartCoroutine(MouthAnim2(76, 77, 78, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("G-06"))
-					{
-						StartCoroutine(MouthAnim2(79, 80, 81, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("G-07"))
-					{
-						StartCoroutine(MouthAnim2(82, 83, 84, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("T-01"))
-					{
-						StartCoroutine(MouthAnim2(85, 86, 87, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("T-02"))
-					{
-						StartCoroutine(MouthAnim2(88, 89, 90, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("T-03"))
-					{
-						StartCoroutine(MouthAnim2(91, 92, 93, Voice.clip.length));
-					}
-					else if (d.showtwotwo.Contains("T-04"))
-					{
-						StartCoroutine(MouthAnim2(94, 95, 96, Voice.clip.length));
-					}
-				}
-				else
-				{
-					Voice.Stop();
-				}
-			}
-			else
-			{
-				Voice.Stop();
-			}
-
-			//BGM
-			if (d.BGM.Contains("BGM-001"))
-			{
-				BGM.clip = BGMFile[0];
-			}
-			else if (d.BGM.Contains("BGM-002"))
-			{
-				BGM.clip = BGMFile[1];
-			}
-			else if (d.BGM.Contains("BGM-003"))
-			{
-				BGM.clip = BGMFile[2];
-			}
-			else if (d.BGM.Contains("BGM-004"))
-			{
-				BGM.clip = BGMFile[3];
-			}
-			else if (d.BGM.Contains("BGM-005"))
-			{
-				BGM.clip = BGMFile[4];
-			}
-			else if (d.BGM.Contains("BGM-006"))
-			{
-				BGM.clip = BGMFile[5];
-			}
-			else if (d.BGM.Contains("BGM-007"))
-			{
-				BGM.clip = BGMFile[6];
-			}
-			else if (d.BGM.Contains("BGM-008"))
-			{
-				BGM.clip = BGMFile[7];
-			}
-			else if (d.BGM.Contains("BGM-009"))
-			{
-				BGM.clip = BGMFile[8];
-			}
-			else if (d.BGM.Contains("BGM-010"))
-			{
-				BGM.clip = BGMFile[9];
-			}
-			else if (d.BGM.Contains("BGM-011"))
-			{
-				BGM.clip = BGMFile[10];
-			}
-			else if (d.BGM.Contains("BGM-012"))
-			{
-				BGM.clip = BGMFile[11];
-			}
-			else if (d.BGM.Contains("BGM-013"))
-			{
-				BGM.clip = BGMFile[12];
-			}
-			else if (d.BGM.Contains("BGM-014"))
-			{
-				BGM.clip = BGMFile[13];
-			}
-			else if (d.BGM.Contains("BGM-015"))
-			{
-				BGM.clip = BGMFile[14];
-			}
-			else if (d.BGM.Contains("BGM-016"))
-			{
-				BGM.clip = BGMFile[15];
-			}
-			else if (d.BGM.Contains("BGM-017"))
-			{
-				BGM.clip = BGMFile[16];
-			}
-			else if (d.BGM.Contains("BGM-018"))
-			{
-				BGM.clip = BGMFile[17];
-			}
-			else if (d.BGM.Contains("BGM-019"))
-			{
-				BGM.clip = BGMFile[18];
-			}
-			else if (d.BGM.Contains("BGM-020"))
-			{
-				BGM.clip = BGMFile[19];
-			}
-			else if (d.BGM.Contains("BGM-021"))
-			{
-				BGM.clip = BGMFile[20];
-			}
-			else if (d.BGM.Contains("BGM-022"))
-			{
-				BGM.clip = BGMFile[21];
-			}
-			else if (d.BGM.Contains("BGM-023"))
-			{
-				BGM.clip = BGMFile[22];
-			}
-			else if (d.BGM.Contains("working_morning"))
-			{
-				BGM.clip = BGMFile[23];
-			}
-			else if (d.BGM == "")
-			{
-			}
-			else
-			{
-				BGM.Stop();
-			}
-
-
-			float current = 0;
-
-			if (d.BGM.Contains("CO"))
-			{
-				audioFade = false;
-				StopCoroutine("FadeAudio");
-				BGM.Stop();
-			}
-			if (d.BGM.Contains("CI"))
-			{
-				audioFade = false;
-				StopCoroutine("FadeAudio");
-				BGM.volume = 1;
-				BGM.Play();
-			}
-			if (d.BGM.Contains("FI"))
-			{
-				audioFade = true;
-				BGM.Play();
-				StartCoroutine(FadeAudio(current, 0, 1, 2));
-			}
-			if (d.BGM.Contains("FO"))
-			{
-				audioFade = true;
-				StartCoroutine(FadeAudio(current, 1, 0, 2));
-			}
-
-			if (d.BGM != "")
-			{
-				string Filter1 = d.BGM.Replace("/", "");
-				string Filter2 = Filter1.Replace("CI", "");
-				string Filter3 = Filter2.Replace("CO", "");
-				string Filter4 = Filter3.Replace("FI", "");
-				whichBGClip = Filter4.Replace("FO", "");
-				PlayerPrefs.SetString("BackgroundClip", whichBGClip);
-			}
-
-			//SE
-
-			if (autoScroll.dialogueIsSkipped == false)
-			{
-				if (d.SE.Contains("SE-001"))
-				{
-					SE.clip = SEFile[0];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-002"))
-				{
-					SE.clip = SEFile[1];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-003"))
-				{
-					SE.clip = SEFile[2];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-004"))
-				{
-					SE.clip = SEFile[3];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-005"))
-				{
-					SE.clip = SEFile[4];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-006"))
-				{
-					SE.clip = SEFile[5];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-007"))
-				{
-					SE.clip = SEFile[6];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-008"))
-				{
-					SE.clip = SEFile[7];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-009"))
-				{
-					SE.clip = SEFile[8];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-010"))
-				{
-					SE.clip = SEFile[9];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-011"))
-				{
-					SE.clip = SEFile[10];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-012"))
-				{
-					SE.clip = SEFile[11];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-013"))
-				{
-					SE.clip = SEFile[12];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-014"))
-				{
-					SE.clip = SEFile[13];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-015"))
-				{
-					SE.clip = SEFile[14];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-016"))
-				{
-					SE.clip = SEFile[15];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-017"))
-				{
-					SE.clip = SEFile[16];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-018"))
-				{
-					SE.clip = SEFile[17];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-019"))
-				{
-					SE.clip = SEFile[18];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-020"))
-				{
-					SE.clip = SEFile[19];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-021"))
-				{
-					SE.clip = SEFile[20];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-022"))
-				{
-					SE.clip = SEFile[21];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-023"))
-				{
-					SE.clip = SEFile[22];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-024"))
-				{
-					SE.clip = SEFile[23];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-025"))
-				{
-					SE.clip = SEFile[24];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-026"))
-				{
-					SE.clip = SEFile[25];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-027"))
-				{
-					SE.clip = SEFile[26];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-028"))
-				{
-					SE.clip = SEFile[27];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-029"))
-				{
-					SE.clip = SEFile[28];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-030"))
-				{
-					SE.clip = SEFile[29];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-031"))
-				{
-					SE.clip = SEFile[30];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-032"))
-				{
-					SE.clip = SEFile[31];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-033"))
-				{
-					SE.clip = SEFile[32];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-034"))
-				{
-					SE.clip = SEFile[33];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-035"))
-				{
-					SE.clip = SEFile[34];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-036"))
-				{
-					SE.clip = SEFile[35];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-037"))
-				{
-					SE.clip = SEFile[36];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-038"))
-				{
-					SE.clip = SEFile[37];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-039"))
-				{
-					SE.clip = SEFile[38];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-040"))
-				{
-					SE.clip = SEFile[39];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-041"))
-				{
-					SE.clip = SEFile[40];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-042"))
-				{
-					SE.clip = SEFile[41];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-043"))
-				{
-					SE.clip = SEFile[42];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-044"))
-				{
-					SE.clip = SEFile[43];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-045"))
-				{
-					SE.clip = SEFile[44];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-046"))
-				{
-					SE.clip = SEFile[45];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-047"))
-				{
-					SE.clip = SEFile[46];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-048"))
-				{
-					SE.clip = SEFile[47];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-049"))
-				{
-					SE.clip = SEFile[48];
-					SE.Play();
-				}
-				else if (d.SE.Contains("SE-050"))
-				{
-					SE.clip = SEFile[49];
-					SE.Play();
-				}
-				else
-				{
-					SE.Stop();
-				}
-			}
-
-
-			//loads
-
-			if (d.id == 54)
-			{
-				whichLineNow = 56;
-			}
-			if (d.id == 139)
-			{
-				whichLineNow = 143;
-			}
-			if (d.id == 146)
-			{
-				whichLineNow = 150;
-			}
-			if (d.id == 154)
-			{
-				whichLineNow = 158;
-			}
-			if (d.id == 165)
-			{
-				whichLineNow = 170;
-			}
-			if (d.id == 171)
-			{
-				whichLineNow = 177;
-			}
-			if (d.id == 180)
-			{
-				whichLineNow = 188;
-			}
-			if (d.id == 210)
-			{
-				whichLineNow = 219;
-			}
-			if (d.id == 218)
-			{
-				whichLineNow = 228;
-			}
-			if (d.id == 276)
-			{
-				whichLineNow = 26;
-			}
-			if (d.id == 280)
-			{
-				whichLineNow = 31;
-			}
-			if (d.id == 295)
-			{
-				whichLineNow = 47;
-			}
-			if (d.id == 299)
-			{
-				whichLineNow = 51;
-			}
-			if (d.id == 392)
-			{
-				whichLineNow = 54;
-			}
-			if (d.id == 417)
-			{
-				whichLineNow = 80;
-			}
-			if (d.id == 517)
-			{
-				whichLineNow = 97;
-			}
-			if (d.id == 631)
-			{
-				whichLineNow = 109;
-			}
-			if (d.id == 642)
-			{
-				whichLineNow = 121;
-			}
-			if (d.id == 784)
-			{
-				whichLineNow = 138;
-			}
-			if (d.id == 790)
-			{
-				whichLineNow = 144;
-			}
-			if (d.id == 792)
-			{
-				whichLineNow = 146;
-			}
-			if (d.id == 793)
-			{
-				whichLineNow = 147;
-			}
-			if (d.id == 794)
-			{
-				whichLineNow = 148;
-			}
-			if (d.id == 795)
-			{
-				whichLineNow = 149;
-			}
-			if (d.id == 991)
-			{
-				whichLineNow = 29;
-			}
-			//if (d.id == "995a")
-			//{
-			//	whichLineNow = 33;
-			//}
-			//if (d.id == "995b")
-			//{
-			//	whichLineNow = 34;
-			//}
-			//if (d.id == "996a")
-			//{
-			//	whichLineNow = 35;
-			//}
-			//if (d.id == "996b")
-			//{
-			//	whichLineNow = 36;
-			//}
-			//if (d.id == "997a")
-			//{
-			//	whichLineNow = 37;
-			//}
-			//if (d.id == "997b")
-			//{
-			//	whichLineNow = 38;
-			//}
-			//if (d.id == "998a")
-			//{
-			//	whichLineNow = 39;
-			//}
-			//if (d.id == "998b")
-			//{
-			//	whichLineNow = 40;
-			//}
-			//if (d.id == "999a")
-			//{
-			//	whichLineNow = 41;
-			//}
-			//if (d.id == "999b")
-			//{
-			//	whichLineNow = 42;
-			//}
-			//if (d.id == "1000a")
-			//{
-			//	whichLineNow = 43;
-			//}
-			//if (d.id == "1000b")
-			//{
-			//	whichLineNow = 44;
-			//}
-			if (d.id == 1001)
-			{
-				whichLineNow = 45;
-			}
-			if (d.id == 1200)
-			{
-				whichLineNow = 86;
-			}
-			if (d.id == 1210)
-			{
-				whichLineNow = 96;
-			}
-			if (d.id == 1415)
-			{
-				whichLineNow = 19;
-			}
-			if (d.id == 1419)
-			{
-				whichLineNow = 23;
-			}
-			if (d.id == 2031)
-			{
-				whichLineNow = 43;
-			}
-			if (d.id == 2035)
-			{
-				whichLineNow = 47;
-			}
-			if (d.id == 2103)
-			{
-				whichLineNow = 42;
-			}
-			if (d.id == 2109)
-			{
-				whichLineNow = 49;
-			}
-			if (d.id == 2221)
-			{
-				whichLineNow = 61;
-			}
-			if (d.id == 2224)
-			{
-				whichLineNow = 64;
-			}
-			if (d.id == 2286)
-			{
-				whichLineNow = 127;
-			}
-			if (d.id == 2291)
-			{
-				whichLineNow = 132;
-			}
-			if (d.id == 2373)
-			{
-				whichLineNow = 79;
-			}
-			if (d.id == 2378)
-			{
-				whichLineNow = 84;
-			}
-
 
 			int[] date = PlayerPrefsX.GetIntArray("Date");
 			int LiedFail = PlayerPrefs.GetInt("LiedFail");

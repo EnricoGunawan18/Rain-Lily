@@ -42087,7 +42087,6 @@ GameObject:
   - component: {fileID: 1714509505}
   - component: {fileID: 1714509504}
   - component: {fileID: 1714509506}
-  - component: {fileID: 1714509507}
   m_Layer: 0
   m_Name: LoadDialogue
   m_TagString: Untagged
@@ -42558,7 +42557,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9206b6aa7fab09d47967199fec74f1c6, type: 3}
   - {fileID: 21300000, guid: 36ec5c25bfc667b4fa06437af07fcc58, type: 3}
   - {fileID: 21300000, guid: 5dd8bfa835f027348b0f0697f203c699, type: 3}
-  VoiceFile_2: []
   ButtonAudioSource: {fileID: 57720509}
   EraseButton1: {fileID: 1085264006}
   EraseButton2: {fileID: 1468935036}
@@ -42609,6 +42607,24 @@ MonoBehaviour:
   ItemEffect: 0
   itemChoose: 0
   resetPos: 0
+  id: 0
+  character: 
+  dialogue: 
+  mainchara: 
+  expression: 
+  showtwoone: 
+  showtwotwo: 
+  back: 
+  firstchoose: 
+  secondchoose: 
+  choicetextshow: 
+  objecteffect: 
+  itemimage: 
+  effect: 
+  music: 
+  sound: 
+  voice: 
+  note: 
   GameMenuScript: {fileID: 175023559}
   backgrounds: []
   dialogues: []
@@ -42678,19 +42694,6 @@ MonoBehaviour:
   dialogueSpeed: 200
   next: 0
   isSkipped: 0
---- !u!114 &1714509507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714509503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb70335e67a8bf64cad2b7ba35552367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _loaddia: {fileID: 1714509504}
 --- !u!1 &1715682249
 GameObject:
   m_ObjectHideFlags: 0
