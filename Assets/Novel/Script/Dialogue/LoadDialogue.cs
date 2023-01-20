@@ -234,7 +234,7 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	TextAsset[] KleinDialogue;
 
-    AssetBundle assetBundle;
+    static AssetBundle assetBundle;
 
 	bool audioFade = false;
 	string whichBGClip = "";
@@ -250,7 +250,10 @@ public class LoadDialogue : MonoBehaviour
 		Time.timeScale = 1;
 		int gameMoneyGet = PlayerPrefs.GetInt("Money");
 
-        assetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "voice"));
+		if(assetBundle == null)
+		{
+        	assetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "voice"));
+		}
 
 		whichLineNow = PlayerPrefs.GetInt("LogNow");
 
