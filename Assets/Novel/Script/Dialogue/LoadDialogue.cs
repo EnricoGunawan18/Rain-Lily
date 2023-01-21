@@ -711,6 +711,10 @@ public class LoadDialogue : MonoBehaviour
 		{
 			Manage();
 		}
+		if(voiceManager == true)
+		{
+			VoiceManage();
+		}
 	}
 
 
@@ -5325,6 +5329,678 @@ public class LoadDialogue : MonoBehaviour
 		StartCoroutine(DialogueGo());
 	}
 
+	void VoiceManage()
+	{
+		if (autoScroll.dialogueIsSkipped == false)
+    	{
+			if (voice != "" && id <= 3883 && dialogueManager.next == false)
+			{
+        		AudioClip file = assetBundle.LoadAsset<AudioClip>(voice.ToString());
+				Voice.clip = file;
+				Voice.Play();
+				
+				mouthStop = false;
+    			//MouthAnim
+ 				if (expression.Contains("L-01"))
+				{
+					StartCoroutine(MouthAnim(0, 1, 2, Voice.clip.length));
+				}
+				else if (expression.Contains("L-02"))
+            	{
+            	    StartCoroutine(MouthAnim(3, 4, 5, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-03"))
+            	{
+            	    StartCoroutine(MouthAnim(6, 7, 8, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-04"))
+            	{
+            	    StartCoroutine(MouthAnim(9, 10, 11, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-05"))
+            	{
+            	    StartCoroutine(MouthAnim(12, 13, 14, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-06"))
+            	{
+            	    StartCoroutine(MouthAnim(15, 16, 17, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-07"))
+            	{
+            	    StartCoroutine(MouthAnim(18, 19, 20, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-08"))
+            	{
+            	    StartCoroutine(MouthAnim(21, 22, 23, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-09"))
+            	{
+            	    StartCoroutine(MouthAnim(24, 25, 26, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-10"))
+            	{
+            	    StartCoroutine(MouthAnim(27, 28, 29, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-11"))
+            	{
+            	    StartCoroutine(MouthAnim(97, 98, 99, Voice.clip.length));
+            	}
+            	else if (expression.Contains("L-12"))
+            	{
+            	    StartCoroutine(MouthAnim(100, 101, 102, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-01"))
+            	{
+            	    StartCoroutine(MouthAnim(31, 32, 33, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-02"))
+            	{
+            	    StartCoroutine(MouthAnim(34, 35, 36, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-03"))
+            	{
+            	    StartCoroutine(MouthAnim(37, 38, 39, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-04"))
+            	{
+            	    StartCoroutine(MouthAnim(40, 41, 42, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-05"))
+            	{
+            	    StartCoroutine(MouthAnim(43, 44, 45, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-06"))
+            	{
+            	    StartCoroutine(MouthAnim(46, 47, 48, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-07"))
+            	{
+            	    StartCoroutine(MouthAnim(49, 50, 51, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-08"))
+            	{
+            	    StartCoroutine(MouthAnim(52, 53, 54, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-09"))
+            	{
+            	    StartCoroutine(MouthAnim(55, 56, 57, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-10"))
+            	{
+            	    StartCoroutine(MouthAnim(58, 59, 60, Voice.clip.length));
+            	}
+            	else if (expression.Contains("K-11"))
+            	{
+            	    StartCoroutine(MouthAnim(60, 62, 63, Voice.clip.length));
+            	}
+            	else if (expression.Contains("G-01"))
+            	{
+            	    StartCoroutine(MouthAnim(64, 65, 66, Voice.clip.length));
+            	}
+            	else if (expression.Contains("G-02"))
+            	{
+            	    StartCoroutine(MouthAnim(67, 68, 69, Voice.clip.length));
+            	}
+            	else if (expression.Contains("G-03"))
+            	{
+            	    StartCoroutine(MouthAnim(70, 71, 72, Voice.clip.length));
+            	}
+            	else if (expression.Contains("G-04"))
+            	{
+            	    StartCoroutine(MouthAnim(73, 74, 75, Voice.clip.length));
+            	}
+            	else if (expression.Contains("G-05"))
+            	{
+            	    StartCoroutine(MouthAnim(76, 77, 78, Voice.clip.length));
+            	}
+            	else if (expression.Contains("G-06"))
+            	{
+            	    StartCoroutine(MouthAnim(79, 80, 81, Voice.clip.length));
+            	}
+            	else if (expression.Contains("G-07"))
+            	{
+            	    StartCoroutine(MouthAnim(82, 83, 84, Voice.clip.length));
+            	}
+            	else if (expression.Contains("T-01"))
+            	{
+            	    StartCoroutine(MouthAnim(85, 86, 87, Voice.clip.length));
+            	}
+            	else if (expression.Contains("T-02"))
+            	{
+            	    StartCoroutine(MouthAnim(88, 89, 90, Voice.clip.length));
+            	}
+            	else if (expression.Contains("T-03"))
+            	{
+            	    StartCoroutine(MouthAnim(91, 92, 93, Voice.clip.length));
+            	}
+            	else if (expression.Contains("T-04"))
+            	{
+            	    StartCoroutine(MouthAnim(94, 95, 96, Voice.clip.length));
+            	}
+
+            	if (showtwoone.Contains("L-01"))
+            	{
+            	    StartCoroutine(MouthAnim1(0, 1, 2, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("L-02"))
+            	{
+            	    StartCoroutine(MouthAnim1(3, 4, 5, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("L-03"))
+            	{
+            	    StartCoroutine(MouthAnim1(6, 7, 8, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("L-04"))
+            	{
+            	    StartCoroutine(MouthAnim1(9, 10, 11, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("L-05"))
+            	{
+            	    StartCoroutine(MouthAnim1(12, 13, 14, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("L-06"))
+            	{
+            	    StartCoroutine(MouthAnim1(15, 16, 17, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("L-07"))
+            	{
+            	    StartCoroutine(MouthAnim1(18, 19, 20, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("L-08"))
+            	{
+            	    StartCoroutine(MouthAnim1(21, 22, 23, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("L-09"))
+            	{
+            	    StartCoroutine(MouthAnim1(24, 25, 26, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("L-10"))
+            	{
+            	    StartCoroutine(MouthAnim1(27, 28, 29, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-01"))
+            	{
+            	    StartCoroutine(MouthAnim1(31, 32, 33, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-02"))
+            	{
+            	    StartCoroutine(MouthAnim1(34, 35, 36, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-03"))
+            	{
+            	    StartCoroutine(MouthAnim1(37, 38, 39, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-04"))
+            	{
+            	    StartCoroutine(MouthAnim1(40, 41, 42, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-05"))
+            	{
+            	    StartCoroutine(MouthAnim1(43, 44, 45, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-06"))
+            	{
+            	    StartCoroutine(MouthAnim1(46, 47, 48, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-07"))
+            	{
+            	    StartCoroutine(MouthAnim1(49, 50, 51, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-08"))
+            	{
+            	    StartCoroutine(MouthAnim1(52, 53, 54, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-09"))
+            	{
+            	    StartCoroutine(MouthAnim1(55, 56, 57, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-10"))
+            	{
+            	    StartCoroutine(MouthAnim1(58, 59, 60, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("K-11"))
+            	{
+            	    StartCoroutine(MouthAnim1(60, 62, 63, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("G-01"))
+            	{
+            	    StartCoroutine(MouthAnim1(64, 65, 66, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("G-02"))
+            	{
+            	    StartCoroutine(MouthAnim1(67, 68, 69, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("G-03"))
+            	{
+            	    StartCoroutine(MouthAnim1(70, 71, 72, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("G-04"))
+            	{
+            	    StartCoroutine(MouthAnim1(73, 74, 75, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("G-05"))
+            	{
+            	    StartCoroutine(MouthAnim1(76, 77, 78, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("G-06"))
+            	{
+            	    StartCoroutine(MouthAnim1(79, 80, 81, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("G-07"))
+            	{
+            	    StartCoroutine(MouthAnim1(82, 83, 84, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("T-01"))
+            	{
+            	    StartCoroutine(MouthAnim1(85, 86, 87, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("T-02"))
+            	{
+            	    StartCoroutine(MouthAnim1(88, 89, 90, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("T-03"))
+            	{
+            	    StartCoroutine(MouthAnim1(91, 92, 93, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("T-04"))
+            	{
+            	    StartCoroutine(MouthAnim1(94, 95, 96, Voice.clip.length));
+            	}
+
+            	if (showtwotwo.Contains("L-01"))
+            	{
+            	    StartCoroutine(MouthAnim2(0, 1, 2, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("L-02"))
+            	{
+            	    StartCoroutine(MouthAnim2(3, 4, 5, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("L-03"))
+            	{
+            	    StartCoroutine(MouthAnim2(6, 7, 8, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("L-04"))
+            	{
+            	    StartCoroutine(MouthAnim2(9, 10, 11, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("L-05"))
+            	{
+            	    StartCoroutine(MouthAnim2(12, 13, 14, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("L-06"))
+            	{
+            	    StartCoroutine(MouthAnim2(15, 16, 17, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("L-07"))
+            	{
+            	    StartCoroutine(MouthAnim2(18, 19, 20, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("L-08"))
+            	{
+            	    StartCoroutine(MouthAnim2(21, 22, 23, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("L-09"))
+            	{
+            	    StartCoroutine(MouthAnim2(24, 25, 26, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("L-10"))
+            	{
+            	    StartCoroutine(MouthAnim2(27, 28, 29, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-01"))
+            	{
+            	    StartCoroutine(MouthAnim2(31, 32, 33, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-02"))
+            	{
+            	    StartCoroutine(MouthAnim2(34, 35, 36, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-03"))
+            	{
+            	    StartCoroutine(MouthAnim2(37, 38, 39, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-04"))
+            	{
+            	    StartCoroutine(MouthAnim2(40, 41, 42, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-05"))
+            	{
+            	    StartCoroutine(MouthAnim2(43, 44, 45, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-06"))
+            	{
+            	    StartCoroutine(MouthAnim2(46, 47, 48, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-07"))
+            	{
+            	    StartCoroutine(MouthAnim2(49, 50, 51, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-08"))
+            	{
+            	    StartCoroutine(MouthAnim2(52, 53, 54, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-09"))
+            	{
+            	    StartCoroutine(MouthAnim2(55, 56, 57, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-10"))
+            	{
+            	    StartCoroutine(MouthAnim2(58, 59, 60, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("K-11"))
+            	{
+            	    StartCoroutine(MouthAnim2(60, 62, 63, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("G-01"))
+            	{
+            	    StartCoroutine(MouthAnim2(64, 65, 66, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("G-02"))
+            	{
+            	    StartCoroutine(MouthAnim2(67, 68, 69, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("G-03"))
+            	{
+            	    StartCoroutine(MouthAnim2(70, 71, 72, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("G-04"))
+            	{
+            	    StartCoroutine(MouthAnim2(73, 74, 75, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("G-05"))
+            	{
+            	    StartCoroutine(MouthAnim2(76, 77, 78, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("G-06"))
+            	{
+            	    StartCoroutine(MouthAnim2(79, 80, 81, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("G-07"))
+            	{
+            	    StartCoroutine(MouthAnim2(82, 83, 84, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("T-01"))
+            	{
+            	    StartCoroutine(MouthAnim2(85, 86, 87, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("T-02"))
+            	{
+            	    StartCoroutine(MouthAnim2(88, 89, 90, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("T-03"))
+            	{
+            	    StartCoroutine(MouthAnim2(91, 92, 93, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("T-04"))
+            	{
+            	    StartCoroutine(MouthAnim2(94, 95, 96, Voice.clip.length));
+            	}
+			}
+        	else
+        	{
+    	    	Voice.Stop();
+    		}
+			if (autoScroll.dialogueIsSkipped == false)
+            {
+                if (sound.Contains("SE-001"))
+                {
+                    SE.clip = SEFile[0];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-002"))
+                {
+                    SE.clip = SEFile[1];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-003"))
+                {
+                    SE.clip = SEFile[2];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-004"))
+                {
+                    SE.clip = SEFile[3];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-005"))
+                {
+                    SE.clip = SEFile[4];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-006"))
+                {
+                    SE.clip = SEFile[5];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-007"))
+                {
+                    SE.clip = SEFile[6];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-008"))
+                {
+                    SE.clip = SEFile[7];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-009"))
+                {
+                    SE.clip = SEFile[8];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-010"))
+                {
+                    SE.clip = SEFile[9];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-011"))
+                {
+                    SE.clip = SEFile[10];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-012"))
+                {
+                    SE.clip = SEFile[11];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-013"))
+                {
+                    SE.clip = SEFile[12];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-014"))
+                {
+                    SE.clip = SEFile[13];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-015"))
+                {
+                    SE.clip = SEFile[14];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-016"))
+                {
+                    SE.clip = SEFile[15];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-017"))
+                {
+                    SE.clip = SEFile[16];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-018"))
+                {
+                    SE.clip = SEFile[17];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-019"))
+                {
+                    SE.clip = SEFile[18];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-020"))
+                {
+                    SE.clip = SEFile[19];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-021"))
+                {
+                    SE.clip = SEFile[20];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-022"))
+                {
+                    SE.clip = SEFile[21];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-023"))
+                {
+                    SE.clip = SEFile[22];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-024"))
+                {
+                    SE.clip = SEFile[23];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-025"))
+                {
+                    SE.clip = SEFile[24];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-026"))
+                {
+                    SE.clip = SEFile[25];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-027"))
+                {
+                    SE.clip = SEFile[26];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-028"))
+                {
+                    SE.clip = SEFile[27];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-029"))
+                {
+                    SE.clip = SEFile[28];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-030"))
+                {
+                    SE.clip = SEFile[29];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-031"))
+                {
+                    SE.clip = SEFile[30];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-032"))
+                {
+                    SE.clip = SEFile[31];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-033"))
+                {
+                    SE.clip = SEFile[32];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-034"))
+                {
+                    SE.clip = SEFile[33];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-035"))
+                {
+                    SE.clip = SEFile[34];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-036"))
+                {
+                    SE.clip = SEFile[35];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-037"))
+                {
+                    SE.clip = SEFile[36];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-038"))
+                {
+                    SE.clip = SEFile[37];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-039"))
+                {
+                    SE.clip = SEFile[38];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-040"))
+                {
+                    SE.clip = SEFile[39];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-041"))
+                {
+                    SE.clip = SEFile[40];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-042"))
+                {
+                    SE.clip = SEFile[41];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-043"))
+                {
+                    SE.clip = SEFile[42];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-044"))
+                {
+                    SE.clip = SEFile[43];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-045"))
+                {
+                    SE.clip = SEFile[44];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-046"))
+                {
+                    SE.clip = SEFile[45];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-047"))
+                {
+                    SE.clip = SEFile[46];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-048"))
+                {
+                    SE.clip = SEFile[47];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-049"))
+                {
+                    SE.clip = SEFile[48];
+                    SE.Play();
+                }
+                else if (sound.Contains("SE-050"))
+                {
+                    SE.clip = SEFile[49];
+                    SE.Play();
+                }
+                else
+                {
+                    SE.Stop();
+                }
+        	}
+		}
+		voiceManager = false;
+	}
+
 	void Manage()
 	{
 		if (back.Contains("still-006-a"))
@@ -7104,421 +7780,6 @@ public class LoadDialogue : MonoBehaviour
 
                 MouthNow2.color = new Color(0, 0, 0, 0);
             }
-            if (autoScroll.dialogueIsSkipped == false)
-            {
-                if (voice != "" && id <= 3883 && dialogueManager.next == false)
-                {
-                	AudioClip file = assetBundle.LoadAsset<AudioClip>(voice.ToString());
-					Voice.clip = file;
-					Voice.Play();
-
-                    mouthStop = false;
-
-                    //MouthAnim
-                    if (expression.Contains("L-01"))
-                    {
-                        StartCoroutine(MouthAnim(0, 1, 2, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-02"))
-                    {
-                        StartCoroutine(MouthAnim(3, 4, 5, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-03"))
-                    {
-                        StartCoroutine(MouthAnim(6, 7, 8, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-04"))
-                    {
-                        StartCoroutine(MouthAnim(9, 10, 11, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-05"))
-                    {
-                        StartCoroutine(MouthAnim(12, 13, 14, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-06"))
-                    {
-                        StartCoroutine(MouthAnim(15, 16, 17, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-07"))
-                    {
-                        StartCoroutine(MouthAnim(18, 19, 20, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-08"))
-                    {
-                        StartCoroutine(MouthAnim(21, 22, 23, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-09"))
-                    {
-                        StartCoroutine(MouthAnim(24, 25, 26, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-10"))
-                    {
-                        StartCoroutine(MouthAnim(27, 28, 29, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-11"))
-                    {
-                        StartCoroutine(MouthAnim(97, 98, 99, Voice.clip.length));
-                    }
-                    else if (expression.Contains("L-12"))
-                    {
-                        StartCoroutine(MouthAnim(100, 101, 102, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-01"))
-                    {
-                        StartCoroutine(MouthAnim(31, 32, 33, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-02"))
-                    {
-                        StartCoroutine(MouthAnim(34, 35, 36, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-03"))
-                    {
-                        StartCoroutine(MouthAnim(37, 38, 39, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-04"))
-                    {
-                        StartCoroutine(MouthAnim(40, 41, 42, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-05"))
-                    {
-                        StartCoroutine(MouthAnim(43, 44, 45, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-06"))
-                    {
-                        StartCoroutine(MouthAnim(46, 47, 48, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-07"))
-                    {
-                        StartCoroutine(MouthAnim(49, 50, 51, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-08"))
-                    {
-                        StartCoroutine(MouthAnim(52, 53, 54, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-09"))
-                    {
-                        StartCoroutine(MouthAnim(55, 56, 57, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-10"))
-                    {
-                        StartCoroutine(MouthAnim(58, 59, 60, Voice.clip.length));
-                    }
-                    else if (expression.Contains("K-11"))
-                    {
-                        StartCoroutine(MouthAnim(60, 62, 63, Voice.clip.length));
-                    }
-                    else if (expression.Contains("G-01"))
-                    {
-                        StartCoroutine(MouthAnim(64, 65, 66, Voice.clip.length));
-                    }
-                    else if (expression.Contains("G-02"))
-                    {
-                        StartCoroutine(MouthAnim(67, 68, 69, Voice.clip.length));
-                    }
-                    else if (expression.Contains("G-03"))
-                    {
-                        StartCoroutine(MouthAnim(70, 71, 72, Voice.clip.length));
-                    }
-                    else if (expression.Contains("G-04"))
-                    {
-                        StartCoroutine(MouthAnim(73, 74, 75, Voice.clip.length));
-                    }
-                    else if (expression.Contains("G-05"))
-                    {
-                        StartCoroutine(MouthAnim(76, 77, 78, Voice.clip.length));
-                    }
-                    else if (expression.Contains("G-06"))
-                    {
-                        StartCoroutine(MouthAnim(79, 80, 81, Voice.clip.length));
-                    }
-                    else if (expression.Contains("G-07"))
-                    {
-                        StartCoroutine(MouthAnim(82, 83, 84, Voice.clip.length));
-                    }
-                    else if (expression.Contains("T-01"))
-                    {
-                        StartCoroutine(MouthAnim(85, 86, 87, Voice.clip.length));
-                    }
-                    else if (expression.Contains("T-02"))
-                    {
-                        StartCoroutine(MouthAnim(88, 89, 90, Voice.clip.length));
-                    }
-                    else if (expression.Contains("T-03"))
-                    {
-                        StartCoroutine(MouthAnim(91, 92, 93, Voice.clip.length));
-                    }
-                    else if (expression.Contains("T-04"))
-                    {
-                        StartCoroutine(MouthAnim(94, 95, 96, Voice.clip.length));
-                    }
-
-                    if (showtwoone.Contains("L-01"))
-                    {
-                        StartCoroutine(MouthAnim1(0, 1, 2, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("L-02"))
-                    {
-                        StartCoroutine(MouthAnim1(3, 4, 5, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("L-03"))
-                    {
-                        StartCoroutine(MouthAnim1(6, 7, 8, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("L-04"))
-                    {
-                        StartCoroutine(MouthAnim1(9, 10, 11, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("L-05"))
-                    {
-                        StartCoroutine(MouthAnim1(12, 13, 14, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("L-06"))
-                    {
-                        StartCoroutine(MouthAnim1(15, 16, 17, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("L-07"))
-                    {
-                        StartCoroutine(MouthAnim1(18, 19, 20, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("L-08"))
-                    {
-                        StartCoroutine(MouthAnim1(21, 22, 23, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("L-09"))
-                    {
-                        StartCoroutine(MouthAnim1(24, 25, 26, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("L-10"))
-                    {
-                        StartCoroutine(MouthAnim1(27, 28, 29, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-01"))
-                    {
-                        StartCoroutine(MouthAnim1(31, 32, 33, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-02"))
-                    {
-                        StartCoroutine(MouthAnim1(34, 35, 36, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-03"))
-                    {
-                        StartCoroutine(MouthAnim1(37, 38, 39, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-04"))
-                    {
-                        StartCoroutine(MouthAnim1(40, 41, 42, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-05"))
-                    {
-                        StartCoroutine(MouthAnim1(43, 44, 45, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-06"))
-                    {
-                        StartCoroutine(MouthAnim1(46, 47, 48, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-07"))
-                    {
-                        StartCoroutine(MouthAnim1(49, 50, 51, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-08"))
-                    {
-                        StartCoroutine(MouthAnim1(52, 53, 54, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-09"))
-                    {
-                        StartCoroutine(MouthAnim1(55, 56, 57, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-10"))
-                    {
-                        StartCoroutine(MouthAnim1(58, 59, 60, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("K-11"))
-                    {
-                        StartCoroutine(MouthAnim1(60, 62, 63, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("G-01"))
-                    {
-                        StartCoroutine(MouthAnim1(64, 65, 66, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("G-02"))
-                    {
-                        StartCoroutine(MouthAnim1(67, 68, 69, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("G-03"))
-                    {
-                        StartCoroutine(MouthAnim1(70, 71, 72, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("G-04"))
-                    {
-                        StartCoroutine(MouthAnim1(73, 74, 75, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("G-05"))
-                    {
-                        StartCoroutine(MouthAnim1(76, 77, 78, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("G-06"))
-                    {
-                        StartCoroutine(MouthAnim1(79, 80, 81, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("G-07"))
-                    {
-                        StartCoroutine(MouthAnim1(82, 83, 84, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("T-01"))
-                    {
-                        StartCoroutine(MouthAnim1(85, 86, 87, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("T-02"))
-                    {
-                        StartCoroutine(MouthAnim1(88, 89, 90, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("T-03"))
-                    {
-                        StartCoroutine(MouthAnim1(91, 92, 93, Voice.clip.length));
-                    }
-                    else if (showtwoone.Contains("T-04"))
-                    {
-                        StartCoroutine(MouthAnim1(94, 95, 96, Voice.clip.length));
-                    }
-
-                    if (showtwotwo.Contains("L-01"))
-                    {
-                        StartCoroutine(MouthAnim2(0, 1, 2, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("L-02"))
-                    {
-                        StartCoroutine(MouthAnim2(3, 4, 5, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("L-03"))
-                    {
-                        StartCoroutine(MouthAnim2(6, 7, 8, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("L-04"))
-                    {
-                        StartCoroutine(MouthAnim2(9, 10, 11, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("L-05"))
-                    {
-                        StartCoroutine(MouthAnim2(12, 13, 14, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("L-06"))
-                    {
-                        StartCoroutine(MouthAnim2(15, 16, 17, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("L-07"))
-                    {
-                        StartCoroutine(MouthAnim2(18, 19, 20, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("L-08"))
-                    {
-                        StartCoroutine(MouthAnim2(21, 22, 23, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("L-09"))
-                    {
-                        StartCoroutine(MouthAnim2(24, 25, 26, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("L-10"))
-                    {
-                        StartCoroutine(MouthAnim2(27, 28, 29, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-01"))
-                    {
-                        StartCoroutine(MouthAnim2(31, 32, 33, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-02"))
-                    {
-                        StartCoroutine(MouthAnim2(34, 35, 36, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-03"))
-                    {
-                        StartCoroutine(MouthAnim2(37, 38, 39, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-04"))
-                    {
-                        StartCoroutine(MouthAnim2(40, 41, 42, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-05"))
-                    {
-                        StartCoroutine(MouthAnim2(43, 44, 45, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-06"))
-                    {
-                        StartCoroutine(MouthAnim2(46, 47, 48, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-07"))
-                    {
-                        StartCoroutine(MouthAnim2(49, 50, 51, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-08"))
-                    {
-                        StartCoroutine(MouthAnim2(52, 53, 54, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-09"))
-                    {
-                        StartCoroutine(MouthAnim2(55, 56, 57, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-10"))
-                    {
-                        StartCoroutine(MouthAnim2(58, 59, 60, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("K-11"))
-                    {
-                        StartCoroutine(MouthAnim2(60, 62, 63, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("G-01"))
-                    {
-                        StartCoroutine(MouthAnim2(64, 65, 66, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("G-02"))
-                    {
-                        StartCoroutine(MouthAnim2(67, 68, 69, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("G-03"))
-                    {
-                        StartCoroutine(MouthAnim2(70, 71, 72, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("G-04"))
-                    {
-                        StartCoroutine(MouthAnim2(73, 74, 75, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("G-05"))
-                    {
-                        StartCoroutine(MouthAnim2(76, 77, 78, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("G-06"))
-                    {
-                        StartCoroutine(MouthAnim2(79, 80, 81, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("G-07"))
-                    {
-                        StartCoroutine(MouthAnim2(82, 83, 84, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("T-01"))
-                    {
-                        StartCoroutine(MouthAnim2(85, 86, 87, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("T-02"))
-                    {
-                        StartCoroutine(MouthAnim2(88, 89, 90, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("T-03"))
-                    {
-                        StartCoroutine(MouthAnim2(91, 92, 93, Voice.clip.length));
-                    }
-                    else if (showtwotwo.Contains("T-04"))
-                    {
-                        StartCoroutine(MouthAnim2(94, 95, 96, Voice.clip.length));
-                    }
-                }
-                else
-                {
-                    Voice.Stop();
-                }
-            }
-            else
-            {
-                Voice.Stop();
-            }
 		//Background Text Show
 		string[] textTemp = { backGroundName, backGroundLabel.text, whichLineNow.ToString() };
 		StartCoroutine("BGTextAnim", textTemp);
@@ -7665,264 +7926,6 @@ public class LoadDialogue : MonoBehaviour
                 PlayerPrefs.SetString("BackgroundClip", whichBGClip);
             }
 
-if (autoScroll.dialogueIsSkipped == false)
-            {
-                if (sound.Contains("SE-001"))
-                {
-                    SE.clip = SEFile[0];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-002"))
-                {
-                    SE.clip = SEFile[1];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-003"))
-                {
-                    SE.clip = SEFile[2];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-004"))
-                {
-                    SE.clip = SEFile[3];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-005"))
-                {
-                    SE.clip = SEFile[4];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-006"))
-                {
-                    SE.clip = SEFile[5];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-007"))
-                {
-                    SE.clip = SEFile[6];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-008"))
-                {
-                    SE.clip = SEFile[7];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-009"))
-                {
-                    SE.clip = SEFile[8];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-010"))
-                {
-                    SE.clip = SEFile[9];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-011"))
-                {
-                    SE.clip = SEFile[10];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-012"))
-                {
-                    SE.clip = SEFile[11];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-013"))
-                {
-                    SE.clip = SEFile[12];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-014"))
-                {
-                    SE.clip = SEFile[13];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-015"))
-                {
-                    SE.clip = SEFile[14];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-016"))
-                {
-                    SE.clip = SEFile[15];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-017"))
-                {
-                    SE.clip = SEFile[16];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-018"))
-                {
-                    SE.clip = SEFile[17];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-019"))
-                {
-                    SE.clip = SEFile[18];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-020"))
-                {
-                    SE.clip = SEFile[19];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-021"))
-                {
-                    SE.clip = SEFile[20];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-022"))
-                {
-                    SE.clip = SEFile[21];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-023"))
-                {
-                    SE.clip = SEFile[22];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-024"))
-                {
-                    SE.clip = SEFile[23];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-025"))
-                {
-                    SE.clip = SEFile[24];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-026"))
-                {
-                    SE.clip = SEFile[25];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-027"))
-                {
-                    SE.clip = SEFile[26];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-028"))
-                {
-                    SE.clip = SEFile[27];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-029"))
-                {
-                    SE.clip = SEFile[28];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-030"))
-                {
-                    SE.clip = SEFile[29];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-031"))
-                {
-                    SE.clip = SEFile[30];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-032"))
-                {
-                    SE.clip = SEFile[31];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-033"))
-                {
-                    SE.clip = SEFile[32];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-034"))
-                {
-                    SE.clip = SEFile[33];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-035"))
-                {
-                    SE.clip = SEFile[34];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-036"))
-                {
-                    SE.clip = SEFile[35];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-037"))
-                {
-                    SE.clip = SEFile[36];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-038"))
-                {
-                    SE.clip = SEFile[37];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-039"))
-                {
-                    SE.clip = SEFile[38];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-040"))
-                {
-                    SE.clip = SEFile[39];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-041"))
-                {
-                    SE.clip = SEFile[40];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-042"))
-                {
-                    SE.clip = SEFile[41];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-043"))
-                {
-                    SE.clip = SEFile[42];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-044"))
-                {
-                    SE.clip = SEFile[43];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-045"))
-                {
-                    SE.clip = SEFile[44];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-046"))
-                {
-                    SE.clip = SEFile[45];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-047"))
-                {
-                    SE.clip = SEFile[46];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-048"))
-                {
-                    SE.clip = SEFile[47];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-049"))
-                {
-                    SE.clip = SEFile[48];
-                    SE.Play();
-                }
-                else if (sound.Contains("SE-050"))
-                {
-                    SE.clip = SEFile[49];
-                    SE.Play();
-                }
-                else
-                {
-                    SE.Stop();
-                }
-            }
-
 		manager = false;
 	}	
 
@@ -7975,6 +7978,7 @@ if (autoScroll.dialogueIsSkipped == false)
 			//character body
 			bool blankAnim = BustUpAnim.GetBool("isBlank");
 
+			manager = true;
 
 			//main chara
 			if (d.expression == "")
@@ -8121,7 +8125,7 @@ if (autoScroll.dialogueIsSkipped == false)
 				}
 			}
 
-			manager = true;
+			voiceManager = true;
 
 			//Voice
 			mouthStop = true;

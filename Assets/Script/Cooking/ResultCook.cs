@@ -212,12 +212,14 @@ public class ResultCook : MonoBehaviour
 
             PlayerPrefs.SetInt("Money", gameMoneyGet);
             PlayerPrefs.SetInt("NovelMenu", 13);
+			PlayerPrefs.SetInt("ChapterScreen", 0);
             SceneManager.LoadScene("Novel");
         }
         else if (miniGame == 2)
         {
             PlayerPrefs.SetString("BackgroundClip", "");
             PlayerPrefs.SetInt("NovelMenu", 0);
+			PlayerPrefs.SetInt("ChapterScreen", 0);
             SceneManager.LoadScene("Novel");
         }
         else

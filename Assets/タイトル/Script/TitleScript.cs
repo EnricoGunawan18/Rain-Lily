@@ -162,7 +162,7 @@ public class TitleScript : MonoBehaviour
 		PlayerPrefs.SetInt("WhichFile", 0);
 
 		LoadingScreen.SetActive(true);
-
+		PlayerPrefs.SetInt("ChapterScreen", 0);
 		SceneManager.LoadScene("Novel");
 	}
 

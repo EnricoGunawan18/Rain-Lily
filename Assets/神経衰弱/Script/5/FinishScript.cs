@@ -108,6 +108,7 @@ public class FinishScript : MonoBehaviour
 		{
 			PlayerPrefs.SetString("BackgroundClip", "");
 			PlayerPrefs.SetInt("NovelMenu", 0);
+			PlayerPrefs.SetInt("ChapterScreen", 0);
 			SceneManager.LoadScene("Novel");
 		}
 
@@ -121,6 +122,7 @@ public class FinishScript : MonoBehaviour
 			PlayerPrefs.SetInt("Money", gameMoneyGet);
 			PlayerPrefs.SetInt("NovelMenu", 11);
 			PlayerPrefs.SetString("BackgroundClip", "");
+			PlayerPrefs.SetInt("ChapterScreen", 0);
 			SceneManager.LoadScene("Novel");
 		}
 

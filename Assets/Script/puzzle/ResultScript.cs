@@ -216,12 +216,14 @@ public class ResultScript : MonoBehaviour
 
             PlayerPrefs.SetInt("Money", gameMoneyGet);
             PlayerPrefs.SetInt("NovelMenu", 13);
+			PlayerPrefs.SetInt("ChapterScreen", 0);
             SceneManager.LoadScene("Novel");
         }
         else if (miniGame == 1)
         {
             PlayerPrefs.SetString("BackgroundClip", "");
             PlayerPrefs.SetInt("NovelMenu", 0);
+			PlayerPrefs.SetInt("ChapterScreen", 0);
             SceneManager.LoadScene("Novel");
         }
         else

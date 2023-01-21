@@ -125,6 +125,7 @@ public class ChapterScript : MonoBehaviour
 			PlayerPrefs.SetInt("WhichFile", 0);
 
 			LoadingScreen.SetActive(true);
+			PlayerPrefs.SetInt("ChapterScreen", 1);
 			SceneManager.LoadScene("Novel");
 		}
 	}
