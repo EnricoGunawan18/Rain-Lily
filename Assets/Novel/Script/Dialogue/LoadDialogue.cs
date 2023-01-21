@@ -706,13 +706,6 @@ public class LoadDialogue : MonoBehaviour
 
 	void Update()
 	{
-		meiaShow = PlayerPrefs.GetInt("MeiaShow");
-
-		if(meiaShow == 1)
-		{
-			MeiaImage.SetActive(false);
-		}
-
 		Continue();
 		if(manager == true)
 		{
@@ -5336,116 +5329,128 @@ public class LoadDialogue : MonoBehaviour
 	{
 		if (back.Contains("still-006-a"))
 		{
+			textLabel.color = Color.white;
 			StillImage.sprite = StillSprite[0];
 			StillImage.color = new Color(255, 255, 255, 255);
 			DialogueBG.sprite = null;
 			DialogueBG.color = new Color(0, 0, 0, 0);
 			StillDialogueBG.SetActive(true);
-			nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 			Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-006-b"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[1];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-006-c"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[2];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-001"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[3];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-003"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[4];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-004"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[8];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-005-a"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[5];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-005"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[6];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-007"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[7];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-008"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[9];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else if (back.Contains("still-009"))
 		{
+			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[10];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
 		    StillDialogueBG.SetActive(true);
-		    nameLabel.color = new Color(0, 0, 0, 255);
+		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
 		else
 		{
+			textLabel.color = Color.black;
 		    StillImage.color = new Color(0, 0, 0, 0);
 		    DialogueBG.sprite = DialogueBGImage;
 		    DialogueBG.color = new Color(255f / 255, 255f / 255, 255f / 255, 200f / 255);
@@ -5453,6 +5458,15 @@ public class LoadDialogue : MonoBehaviour
 		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", false);
 		}
+
+		meiaShow = PlayerPrefs.GetInt("MeiaShow");
+
+		if(meiaShow == 1 || back.Contains("still"))
+		{
+			MeiaImage.SetActive(false);
+		}
+
+
 		if (back.Contains("back-001"))
 		{
 		    backGroundLabel.text = backgrounds[0].bg;
@@ -7092,7 +7106,7 @@ public class LoadDialogue : MonoBehaviour
             }
             if (autoScroll.dialogueIsSkipped == false)
             {
-                if (voice != "" && id <= 3883)
+                if (voice != "" && id <= 3883 && dialogueManager.next == false)
                 {
                 	AudioClip file = assetBundle.LoadAsset<AudioClip>(voice.ToString());
 					Voice.clip = file;
@@ -8029,6 +8043,15 @@ if (autoScroll.dialogueIsSkipped == false)
 					charaImageNow.sprite = charaImage[1];
 					BustUpAnim.SetBool("isBlank", false);
 					yield return new WaitForSeconds(1.5f);
+				}
+				else
+				{
+					BustUpAnim.SetBool("isLied",false);
+					charaImageNow.color = new Color(255, 255, 255, 255);
+					EyeNow.color = new Color(255, 255, 255, 255);
+					MouthNow.color = new Color(255, 255, 255, 255);
+					charaImageNow.sprite = charaImage[1];
+					BustUpAnim.SetBool("isBlank", false);
 				}
 				charaImageNow.sprite = charaImage[1];
 			}
@@ -9410,7 +9433,7 @@ if (autoScroll.dialogueIsSkipped == false)
 
 			///////////////////////////////////////////////////////////////////////////////K L E I N 5 /////////////////////////////////////////////////////////////////
 
-			else if (date[0] == 11 && date[1] == 15 && KleinFail == 0)
+			else if (date[0] == 11 && date[1] == 10 && KleinFail == 0)
 			{
 				if (d.background.Contains("FI"))
 				{
@@ -9429,6 +9452,7 @@ if (autoScroll.dialogueIsSkipped == false)
 				{
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
+
 				if (d.id == 2447)
 				{
 					finishTemp22 = true;
@@ -10019,6 +10043,7 @@ if (autoScroll.dialogueIsSkipped == false)
 	void TaskOnClick()
 	{
 		dialogueManager.next = true;
+		Voice.Stop();
 		int menu = PlayerPrefs.GetInt("NovelMenu");
 
 		if (menu == 11 && shopDecide == true)
