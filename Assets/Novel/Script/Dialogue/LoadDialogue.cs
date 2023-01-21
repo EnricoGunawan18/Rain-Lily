@@ -8136,6 +8136,7 @@ public class LoadDialogue : MonoBehaviour
 
 			nameLabel.text = MainCharaName;
 
+			int chapterScreen = PlayerPrefs.GetInt("ChapterScreen");
 
 			////////////////////////////////////////////////////////////////////////////P R O L O G U E////////////////////////////////////////////////////////////////
 			if (date[0] == 10 && (date[1] == 7 || date[1] == 8 || date[1] == 9))
@@ -8241,8 +8242,16 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
+
 				}
 			}
 
@@ -8310,8 +8319,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 
 			}
@@ -8377,8 +8393,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 
 			}
@@ -8448,8 +8471,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 
 			}
@@ -8531,8 +8561,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 
 			}
@@ -8600,8 +8637,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -8667,8 +8711,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -8734,8 +8785,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -8817,8 +8875,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -8878,8 +8943,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -8945,8 +9017,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9059,8 +9138,15 @@ public class LoadDialogue : MonoBehaviour
 					textLabel.text = string.Empty;
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
-
+					if(chapterScreen == 0)
+					{
 					GameMenuScript.NextDay();
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
+
 				}
 			}
 
@@ -9199,8 +9285,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9265,8 +9358,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9350,8 +9450,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9430,8 +9537,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9501,8 +9615,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9566,8 +9687,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9636,8 +9764,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9701,8 +9836,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9766,8 +9908,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9827,8 +9976,15 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					PlayerPrefs.SetInt("NovelMenu", 10);
-					GameMenu.SetActive(true);
+					if(chapterScreen == 0)
+					{
+						PlayerPrefs.SetInt("NovelMenu", 10);
+						GameMenu.SetActive(true);
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
@@ -9928,7 +10084,14 @@ public class LoadDialogue : MonoBehaviour
 					FadeAnim.SetBool("Fading", true);
 					yield return new WaitForSeconds(1.5f);
 
-					GameMenuScript.NextDay();
+					if(chapterScreen == 0)
+					{
+						GameMenuScript.NextDay();
+					}
+					else
+					{
+            			SceneManager.LoadScene("TitleScreen");
+					}
 				}
 			}
 
