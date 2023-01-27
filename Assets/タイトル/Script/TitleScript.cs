@@ -100,8 +100,21 @@ public class TitleScript : MonoBehaviour
 		Chapter.onClick.AddListener(ChapterClicked);
 		Options.onClick.AddListener(OptionsClicked);
 		StartGame.onClick.AddListener(NameIsFilled);
-		TitleScreen.SetActive(true);
-		GameScreen.SetActive(false);
+
+		//Start Screen
+		int startScreen = PlayerPrefs.GetInt("ChapterScreen");
+
+		if(startScreen == 0)
+		{
+			TitleScreen.SetActive(true);
+			GameScreen.SetActive(false);		
+		}
+		else if(startScreen == 1)
+		{
+			PlayerPrefs.SetInt("ChapterScreen", 0);
+			TitleScreen.SetActive(false);
+			ChapterScreen.SetActive(true);
+		}
 
 		BackButton.onClick.AddListener(Back);
 		BackMiniGame.onClick.AddListener(Back);

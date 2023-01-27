@@ -8205,34 +8205,66 @@ public class LoadDialogue : MonoBehaviour
 
 				if (d.id == 164)
 				{
-					PlayerPrefs.SetInt("MiniGame", 1);
-					PlayerPrefs.SetInt("NovelMenu", 1);
-					dialogueManager.dialogueSpeed = 0;
-					MiniGameChoose.SetActive(true);
-					MinGameButton[0].interactable = true;
-					MinGameButton[1].interactable = false;
-					MinGameButton[2].interactable = false;
+					int startScreen = PlayerPrefs.GetInt("ChapterScreen");
 
+					if(startScreen == 0)
+					{
+						PlayerPrefs.SetInt("MiniGame", 1);
+						PlayerPrefs.SetInt("NovelMenu", 1);
+						dialogueManager.dialogueSpeed = 0;
+						MiniGameChoose.SetActive(true);
+						MinGameButton[0].interactable = true;
+						MinGameButton[1].interactable = false;
+						MinGameButton[2].interactable = false;
+					}
+					else if(startScreen == 1)
+					{
+						PlayerPrefs.SetInt("MiniGame", 1);
+            			PlayerPrefs.SetInt("NovelMenu", 0);
+            			SceneManager.LoadScene("Novel");
+					}
 				}
 				if (d.id == 170)
 				{
-					PlayerPrefs.SetInt("MiniGame", 2);
-					PlayerPrefs.SetInt("NovelMenu", 2);
-					dialogueManager.dialogueSpeed = 0;
-					MiniGameChoose.SetActive(true);
-					MinGameButton[0].interactable = false;
-					MinGameButton[1].interactable = true;
-					MinGameButton[2].interactable = false;
+					int startScreen = PlayerPrefs.GetInt("ChapterScreen");
+
+					if(startScreen == 0)
+					{
+						PlayerPrefs.SetInt("MiniGame", 2);
+						PlayerPrefs.SetInt("NovelMenu", 2);
+						dialogueManager.dialogueSpeed = 0;
+						MiniGameChoose.SetActive(true);
+						MinGameButton[0].interactable = false;
+						MinGameButton[1].interactable = true;
+						MinGameButton[2].interactable = false;
+					}
+					else if(startScreen == 1)
+					{
+						PlayerPrefs.SetInt("MiniGame", 2);
+            			PlayerPrefs.SetInt("NovelMenu", 0);
+            			SceneManager.LoadScene("Novel");
+					}
 				}
 				if (d.id == 178)
 				{
-					PlayerPrefs.SetInt("MiniGame", 3);
-					PlayerPrefs.SetInt("NovelMenu", 3);
-					dialogueManager.dialogueSpeed = 0;
-					MiniGameChoose.SetActive(true);
-					MinGameButton[0].interactable = false;
-					MinGameButton[1].interactable = false;
-					MinGameButton[2].interactable = true;
+					int startScreen = PlayerPrefs.GetInt("ChapterScreen");
+
+					if(startScreen == 0)
+					{
+						PlayerPrefs.SetInt("MiniGame", 3);
+						PlayerPrefs.SetInt("NovelMenu", 3);
+						dialogueManager.dialogueSpeed = 0;
+						MiniGameChoose.SetActive(true);
+						MinGameButton[0].interactable = false;
+						MinGameButton[1].interactable = false;
+						MinGameButton[2].interactable = true;
+					}
+					else if(startScreen == 1)
+					{
+						PlayerPrefs.SetInt("MiniGame", 3);
+            			PlayerPrefs.SetInt("NovelMenu", 0);
+            			SceneManager.LoadScene("Novel");
+					}
 				}
 
 				if (d.id == 251)
