@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NovelMenu : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class NovelMenu : MonoBehaviour
     Button closeMenu;
     [SerializeField]
     Button affection;
+    [SerializeField]
+    Button toTitle;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,7 @@ public class NovelMenu : MonoBehaviour
         openMenu.onClick.AddListener(Open);
         closeMenu.onClick.AddListener(Close);
         affection.onClick.AddListener(Affection);
+        toTitle.onClick.AddListener(ToTitle);
     }
 
     // Update is called once per frame
@@ -37,5 +41,9 @@ public class NovelMenu : MonoBehaviour
     void Affection()
     {
         affectionScreen.SetActive(true);
+    }
+    void ToTitle()
+    {
+        SceneManager.LoadScene("TitleScreen");
     }
 }

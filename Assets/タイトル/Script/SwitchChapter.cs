@@ -11,6 +11,11 @@ public class SwitchChapter : MonoBehaviour
     Button Klein;
 
     [SerializeField]
+    Sprite[] liedSprite;
+    [SerializeField]
+    Sprite[] kleinSprite;
+
+    [SerializeField]
     Animator Switcher;
 
 
@@ -23,11 +28,17 @@ public class SwitchChapter : MonoBehaviour
 
     // Update is called once per frame
 
-    void SwitchLied() {
+    void SwitchLied() 
+    {
+        Lied.image.sprite = liedSprite[0];
+        Klein.image.sprite = kleinSprite[1];
         Switcher.SetBool("IsLied", true);
     }
 
-    void SwitchKlein() {
+    void SwitchKlein() 
+    {
+        Lied.image.sprite = liedSprite[1];
+        Klein.image.sprite = kleinSprite[0];
         Switcher.SetBool("IsLied", false);
     }
 }
