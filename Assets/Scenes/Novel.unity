@@ -42074,6 +42074,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prologue: {fileID: 4900000, guid: a02ffea45ba95c54baf912b332a5989f, type: 3}
+  theoWater: {fileID: 4900000, guid: f75e57a70ebb9b74da534acb27a16fba, type: 3}
+  greyTobacco: {fileID: 4900000, guid: 3547fd709df785a44864c312dcd1fda6, type: 3}
   itemDialogue: {fileID: 4900000, guid: c5e646a8210065342b91e29fd0b1c2ff, type: 3}
   BGName: {fileID: 4900000, guid: a4748d3b0767edf40989738ee28d25e6, type: 3}
   MinGameButton:
@@ -42473,9 +42475,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3f3eb8ca9e3f81f409b5442e7be07e4d, type: 3}
   - {fileID: 21300000, guid: 790d792fdd5d9c14f976818f18ba738a, type: 3}
   StillSprite:
-  - {fileID: 21300000, guid: b77fa51b0d3a2bf42b88ee3c4bc0d113, type: 3}
-  - {fileID: 21300000, guid: 1deaffbe8d5ad35448e46640a16eafdd, type: 3}
-  - {fileID: 21300000, guid: 649fb72246b2b294b97fb5b6b16bcb4f, type: 3}
+  - {fileID: 21300000, guid: b3fc151e718188b4992e0e5c6298e799, type: 3}
+  - {fileID: 21300000, guid: b0ca79d40d0746c42b9e3fb5ade6ff23, type: 3}
+  - {fileID: 21300000, guid: 04af742718d11964f998542e32625da2, type: 3}
   - {fileID: 21300000, guid: eda3caa318e9b71429309c52b6767ba2, type: 3}
   - {fileID: 21300000, guid: a561082297d61e240842aecf91a8024e, type: 3}
   - {fileID: 21300000, guid: c330439eb71b0234cb0c80d988b713fe, type: 3}
@@ -42484,6 +42486,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8972c6409a2b5ee47b12a24edd0f2291, type: 3}
   - {fileID: 21300000, guid: 898c24854b47d254ebdf3b41b60fc726, type: 3}
   - {fileID: 21300000, guid: 7d22003273fc76a4d8494b793ce1e21b, type: 3}
+  - {fileID: 21300000, guid: b51a5865a30d3c14fb9d48dfea149934, type: 3}
+  - {fileID: 21300000, guid: ee3340ff5bc360e4db62da4cba963b92, type: 3}
+  - {fileID: 21300000, guid: 9641bd35d1604974aa20903b59b28a69, type: 3}
+  - {fileID: 21300000, guid: 2ae3f302cd3659045afa1c22a6bd5ac8, type: 3}
+  - {fileID: 21300000, guid: 0549e45b4a5397c42950c18e82cc0b78, type: 3}
+  - {fileID: 21300000, guid: 69a9abbbaf1363c4e86e7e48557a6d8e, type: 3}
+  - {fileID: 21300000, guid: 156559f3b6db3a54c95ea39398a7ba6e, type: 3}
+  - {fileID: 21300000, guid: d465015f3ee2d7e47a8fdf6752026c7c, type: 3}
+  - {fileID: 21300000, guid: 5c219f8bc1492c540a2878b870465576, type: 3}
+  - {fileID: 21300000, guid: 636c13c6e80cfcb4bade0bbec8698e15, type: 3}
+  - {fileID: 21300000, guid: bd7de2137caca6548935182d52a3675c, type: 3}
+  - {fileID: 21300000, guid: c6b1ff6728beb3d43874454e6f478989, type: 3}
   StillImage: {fileID: 1715682251}
   DialogueBGImage: {fileID: 21300000, guid: 1f8e848fc66af1045b84c899b25c6802, type: 3}
   StillDialogueBG: {fileID: 279290999}

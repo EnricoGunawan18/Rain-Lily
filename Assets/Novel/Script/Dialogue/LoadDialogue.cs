@@ -10,6 +10,10 @@ public class LoadDialogue : MonoBehaviour
 	[SerializeField]
 	TextAsset prologue;
 	[SerializeField]
+	TextAsset theoWater;
+	[SerializeField]
+	TextAsset greyTobacco;
+	[SerializeField]
 	TextAsset itemDialogue;
 	[SerializeField]
 	TextAsset BGName;
@@ -640,7 +644,21 @@ public class LoadDialogue : MonoBehaviour
 					PlayerPrefs.SetInt("KleinFail", 1);
 				}
 			}
-
+			/////////extra\\\\\
+			else if (date[0] == 99 && date[1] == 99)
+			{
+				data = theoWater.text.Split(new char[] { '$' });
+				PlayerPrefs.SetString("ChapterTitle", "Water");
+				menu = 38;
+				PlayerPrefs.SetInt("NovelMenu", menu);
+			}
+			else if (date[0] == 100 && date[1] == 100)
+			{
+				data = greyTobacco.text.Split(new char[] { '$' });
+				PlayerPrefs.SetString("ChapterTitle", "Tobacco");
+				menu = 39;
+				PlayerPrefs.SetInt("NovelMenu", menu);
+			}		
 
 			//Lied failed
 			int liedFail = PlayerPrefs.GetInt("LiedFail");
@@ -1597,6 +1615,78 @@ public class LoadDialogue : MonoBehaviour
 				}
 			}
 
+		}
+
+		///////////////////////////////////////////////SUBSCENARIO//////////////////////////////
+		//Water//
+		else if (novelMenu == 38 && resetFrom == 126)
+		{
+			resetPos = 127;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 66; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		//Tobacco//
+		else if (novelMenu == 39 && resetFrom == 128)
+		{
+			resetPos = 129;
+			PlayerPrefs.SetInt("LogNow", 1);
+			for (int i = 1; i < 54; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if (row[2] != "" || row[15] != "" || row[17] != "")
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
 		}
 
 		///////////////////////////////////////////////CG//////////////////////////////
@@ -4832,6 +4922,72 @@ public class LoadDialogue : MonoBehaviour
 			}
 		}
 
+		//water//
+		else if (resetFrom == 127)
+		{
+			for (int i = logNumber; i < 66; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != ""))
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
+		//tobacco//
+		else if (resetFrom == 129)
+		{
+			for (int i = logNumber; i < 54; i++)
+			{
+				row = data[i].Split(new char[] { ',' });
+
+				if ((row[2] != "" || row[15] != "" || row[17] != ""))
+				{
+					d = new Dialogue();
+					int.TryParse(row[0], out d.id);
+					d.character = row[1];
+					d.dialogue = row[2];
+					d.mainchara = row[3];
+					d.expression = row[4];
+					d.showtwoone = row[5];
+					d.showtwotwo = row[6];
+					d.background = row[7];
+					d.firstchoose = row[8];
+					d.secondchoose = row[9];
+					d.choicetextshow = row[10];
+					d.objecteffect = row[11];
+					d.itemimage = row[12];
+					d.effect = row[13];
+					d.BGM = row[14];
+					d.SE = row[15];
+					d.voice = row[16];
+					d.note = row[17];
+
+					dialogues.Add(d);
+				}
+			}
+		}
 
 		else if (novelMenu == 0 && resetFrom == 0)
 		{
@@ -6117,6 +6273,138 @@ public class LoadDialogue : MonoBehaviour
 		{
 			textLabel.color = Color.white;
 		    StillImage.sprite = StillSprite[10];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-002"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[11];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-010"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[12];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-014-a"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[13];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-014-b"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[14];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}	
+		else if (back.Contains("still-015"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[15];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}			
+		else if (back.Contains("still-019-a"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[16];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}	
+		else if (back.Contains("still-019-b"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[17];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}			
+		else if (back.Contains("still-013-a"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[18];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}		
+		else if (back.Contains("still-013"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[19];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}	
+		else if (back.Contains("still-018"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[20];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}	
+		else if (back.Contains("still-020"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[21];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}				
+		else if (back.Contains("still-021"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[22];
 		    StillImage.color = new Color(255, 255, 255, 255);
 		    DialogueBG.sprite = null;
 		    DialogueBG.color = new Color(0, 0, 0, 0);
@@ -10046,6 +10334,14 @@ public class LoadDialogue : MonoBehaviour
 				{
 					PlayerPrefs.SetInt("Still-2", 1);
 				}
+				if (d.id == 3610)
+				{
+					PlayerPrefs.SetInt("Still-10", 1);
+				}
+				if (d.id == 3577)
+				{
+					PlayerPrefs.SetInt("Still-15", 1);
+				}
 
 				if (d.id == 3331)
 				{
@@ -10203,9 +10499,128 @@ public class LoadDialogue : MonoBehaviour
 					SceneManager.LoadScene("TitleScreen");
 				}
 			}
+			
+			///////////////////////////////////////////////////////////////////////////////T O B A C C O /////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 100 && date[1] == 100 )
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(DialogueChange, textLabel);
+				}
 
 
-			/////////////////////////////////////////////////////////S H O P/////////////////////////////
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.Play("Sliding", -1, 0);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				else if (d.id == 10054)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("TitleScreen");
+				}
+			}
+
+			///////////////////////////////////////////////////////////////////////////////W A T E R /////////////////////////////////////////////////////////////////
+
+			else if (date[0] == 99 && date[1] == 99 )
+			{
+				if (d.background.Contains("FI"))
+				{
+					FadeAnim.SetBool("Fading", false);
+					yield return new WaitForSeconds(1.5f);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
+				}
+				else if (d.background.Contains("SI"))
+				{
+					yield return new WaitForSeconds(1.5f);
+					SlideAnim.Play("NormalFade", -1, 0);
+					yield return dialogueManager.Run(DialogueChange, textLabel);
+
+				}
+				else
+				{
+					yield return dialogueManager.Run(DialogueChange, textLabel);
+				}
+
+
+				if (autoScroll.automated == false)
+				{
+					yield return new WaitUntil(() => dialogueManager.next == true);
+				}
+				else if (autoScroll.automated == true && autoScroll.autoActive == true)
+				{
+					yield return new WaitForSeconds(2);
+				}
+				else
+				{
+				}
+
+				if (d.background.Contains("FO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+				}
+				if (d.background.Contains("SO"))
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					SlideAnim.Play("Sliding", -1, 0);
+					yield return new WaitForSeconds(1.5f);
+				}
+
+				else if (d.id == 10066)
+				{
+					nameLabel.text = string.Empty;
+					textLabel.text = string.Empty;
+					FadeAnim.SetBool("Fading", true);
+					yield return new WaitForSeconds(1.5f);
+
+					SceneManager.LoadScene("TitleScreen");
+				}
+			}			/////////////////////////////////////////////////////////S H O P/////////////////////////////
 			else
 			{
 				yield return dialogueManager.Run(DialogueChange, textLabel);
