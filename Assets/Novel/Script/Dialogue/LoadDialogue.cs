@@ -5489,7 +5489,7 @@ public class LoadDialogue : MonoBehaviour
 	{
 		if (autoScroll.dialogueIsSkipped == false)
     	{
-			if (voice != "" && id <= 3883 && dialogueManager.next == false)
+			if (voice != ""  && dialogueManager.next == false)
 			{
         		AudioClip file = assetBundle.LoadAsset<AudioClip>(voice.ToString());
 				Voice.clip = file;
@@ -5617,7 +5617,11 @@ public class LoadDialogue : MonoBehaviour
             	{
             	    StartCoroutine(MouthAnim(82, 83, 84, Voice.clip.length));
             	}
-            	else if (expression.Contains("T-01"))
+            	else if (expression.Contains("G-08"))
+            	{
+            	    StartCoroutine(MouthAnim(103, 104, 105, Voice.clip.length));
+            	}            	
+				else if (expression.Contains("T-01"))
             	{
             	    StartCoroutine(MouthAnim(85, 86, 87, Voice.clip.length));
             	}
@@ -5633,7 +5637,18 @@ public class LoadDialogue : MonoBehaviour
             	{
             	    StartCoroutine(MouthAnim(94, 95, 96, Voice.clip.length));
             	}
-
+            	else if (expression.Contains("T-05"))
+            	{
+            	    StartCoroutine(MouthAnim(106, 107, 108, Voice.clip.length));
+            	}
+            	else if (expression.Contains("T-06"))
+            	{
+            	    StartCoroutine(MouthAnim(109, 110, 111, Voice.clip.length));
+            	}
+            	else if (expression.Contains("T-07"))
+            	{
+            	    StartCoroutine(MouthAnim(112, 113, 114, Voice.clip.length));
+            	}
             	if (showtwoone.Contains("L-01"))
             	{
             	    StartCoroutine(MouthAnim1(0, 1, 2, Voice.clip.length));
@@ -5746,6 +5761,10 @@ public class LoadDialogue : MonoBehaviour
             	{
             	    StartCoroutine(MouthAnim1(82, 83, 84, Voice.clip.length));
             	}
+            	else if (showtwoone.Contains("G-08"))
+            	{
+            	    StartCoroutine(MouthAnim1(103, 104, 105, Voice.clip.length));
+            	}            	
             	else if (showtwoone.Contains("T-01"))
             	{
             	    StartCoroutine(MouthAnim1(85, 86, 87, Voice.clip.length));
@@ -5761,6 +5780,18 @@ public class LoadDialogue : MonoBehaviour
             	else if (showtwoone.Contains("T-04"))
             	{
             	    StartCoroutine(MouthAnim1(94, 95, 96, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("T-05"))
+            	{
+            	    StartCoroutine(MouthAnim1(106, 107, 108, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("T-06"))
+            	{
+            	    StartCoroutine(MouthAnim1(109, 110, 111, Voice.clip.length));
+            	}
+            	else if (showtwoone.Contains("T-07"))
+            	{
+            	    StartCoroutine(MouthAnim1(112, 113, 114, Voice.clip.length));
             	}
 
             	if (showtwotwo.Contains("L-01"))
@@ -5875,7 +5906,11 @@ public class LoadDialogue : MonoBehaviour
             	{
             	    StartCoroutine(MouthAnim2(82, 83, 84, Voice.clip.length));
             	}
-            	else if (showtwotwo.Contains("T-01"))
+            	else if (showtwotwo.Contains("G-08"))
+            	{
+            	    StartCoroutine(MouthAnim2(103, 104, 105, Voice.clip.length));
+            	}                  	
+				else if (showtwotwo.Contains("T-01"))
             	{
             	    StartCoroutine(MouthAnim2(85, 86, 87, Voice.clip.length));
             	}
@@ -5890,6 +5925,18 @@ public class LoadDialogue : MonoBehaviour
             	else if (showtwotwo.Contains("T-04"))
             	{
             	    StartCoroutine(MouthAnim2(94, 95, 96, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("T-05"))
+            	{
+            	    StartCoroutine(MouthAnim2(106, 107, 108, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("T-06"))
+            	{
+            	    StartCoroutine(MouthAnim2(109, 110, 111, Voice.clip.length));
+            	}
+            	else if (showtwotwo.Contains("T-07"))
+            	{
+            	    StartCoroutine(MouthAnim2(112, 113, 114, Voice.clip.length));
             	}
 			}
         	else
@@ -7019,6 +7066,15 @@ public class LoadDialogue : MonoBehaviour
 		    MouthNow.color = new Color(255, 255, 255, 255);
 		    MouthNow.sprite = CharaMouth[84];
 		}
+		else if (expression.Contains("G-08"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 127, 128, 129 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[105];
+		}		
 		else if (expression.Contains("T-01"))
 		{
 		    StopCoroutine("EyeAnim");
@@ -7063,6 +7119,32 @@ public class LoadDialogue : MonoBehaviour
 		    MouthNow.color = new Color(255, 255, 255, 255);
 		    MouthNow.sprite = CharaMouth[96];
 		}	
+		else if (expression.Contains("T-05"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 130, 131, 132 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[108];
+		}	
+		else if (expression.Contains("T-06"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    int[] eyeList = { 133, 134, 135 };
+		    StartCoroutine("EyeAnim", eyeList);
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[111];
+		}	
+		else if (expression.Contains("T-07"))
+		{
+		    StopCoroutine("EyeAnim");
+		    EyeNow.color = new Color(255, 255, 255, 255);
+		    EyeNow.sprite = CharaEyes[136];
+		    MouthNow.color = new Color(255, 255, 255, 255);
+		    MouthNow.sprite = CharaMouth[114];
+		}							
 		    //left chara
 		    if (showtwoone.Contains("L-01a"))
 		    {
@@ -7450,8 +7532,16 @@ public class LoadDialogue : MonoBehaviour
                 MouthNow1.color = new Color(255, 255, 255, 255);
                 MouthNow1.sprite = CharaMouth[84];
             }
-
-            else if (showtwoone.Contains("T-01"))
+			else if (expression.Contains("G-08"))
+			{
+			    StopCoroutine("EyeAnim1");
+			    EyeNow1.color = new Color(255, 255, 255, 255);
+			    int[] eyeList = { 127, 128, 129 };
+			    StartCoroutine("EyeAnim1", eyeList);
+			    MouthNow1.color = new Color(255, 255, 255, 255);
+			    MouthNow1.sprite = CharaMouth[105];
+			}	            
+			else if (showtwoone.Contains("T-01"))
             {
                 StopCoroutine("EyeAnim1");
                 EyeNow1.color = new Color(255, 255, 255, 255);
@@ -7500,6 +7590,32 @@ public class LoadDialogue : MonoBehaviour
                 MouthNow1.color = new Color(255, 255, 255, 255);
                 MouthNow1.sprite = CharaMouth[96];
             }
+			else if (showtwoone.Contains("T-05"))
+			{
+			    StopCoroutine("EyeAnim1");
+			    EyeNow1.color = new Color(255, 255, 255, 255);
+			    int[] eyeList = { 130, 131, 132 };
+			    StartCoroutine("EyeAnim1", eyeList);
+			    MouthNow1.color = new Color(255, 255, 255, 255);
+			    MouthNow1.sprite = CharaMouth[108];
+			}	
+			else if (showtwoone.Contains("T-06"))
+			{
+			    StopCoroutine("EyeAnim1");
+			    EyeNow1.color = new Color(255, 255, 255, 255);
+			    int[] eyeList = { 133, 134, 135 };
+			    StartCoroutine("EyeAnim1", eyeList);
+			    MouthNow1.color = new Color(255, 255, 255, 255);
+			    MouthNow1.sprite = CharaMouth[111];
+			}	
+			else if (showtwoone.Contains("T-07"))
+			{
+			    StopCoroutine("EyeAnim1");
+			    EyeNow1.color = new Color(255, 255, 255, 255);
+			    EyeNow.sprite = CharaEyes[136];
+			    MouthNow1.color = new Color(255, 255, 255, 255);
+			    MouthNow1.sprite = CharaMouth[114];
+			}
 
             //right chara
             if (showtwotwo.Contains("L-01a"))
@@ -7887,8 +8003,16 @@ public class LoadDialogue : MonoBehaviour
                 MouthNow2.color = new Color(255, 255, 255, 255);
                 MouthNow2.sprite = CharaMouth[84];
             }
-
-            else if (showtwotwo.Contains("T-01"))
+			else if (showtwotwo.Contains("G-08"))
+			{
+			    StopCoroutine("EyeAnim2");
+			    EyeNow2.color = new Color(255, 255, 255, 255);
+			    int[] eyeList = { 127, 128, 129 };
+			    StartCoroutine("EyeAnim2", eyeList);
+			    MouthNow2.color = new Color(255, 255, 255, 255);
+			    MouthNow2.sprite = CharaMouth[105];
+			}	                   
+			else if (showtwotwo.Contains("T-01"))
             {
                 StopCoroutine("EyeAnim2");
                 EyeNow2.color = new Color(255, 255, 255, 255);
@@ -7937,6 +8061,32 @@ public class LoadDialogue : MonoBehaviour
                 MouthNow2.color = new Color(255, 255, 255, 255);
                 MouthNow2.sprite = CharaMouth[96];
             }
+			else if (showtwotwo.Contains("T-05"))
+			{
+			    StopCoroutine("EyeAnim2");
+			    EyeNow2.color = new Color(255, 255, 255, 255);
+			    int[] eyeList = { 130, 131, 132 };
+			    StartCoroutine("EyeAnim2", eyeList);
+			    MouthNow2.color = new Color(255, 255, 255, 255);
+			    MouthNow2.sprite = CharaMouth[108];
+			}	
+			else if (showtwotwo.Contains("T-06"))
+			{
+			    StopCoroutine("EyeAnim2");
+			    EyeNow2.color = new Color(255, 255, 255, 255);
+			    int[] eyeList = { 133, 134, 135 };
+			    StartCoroutine("EyeAnim2", eyeList);
+			    MouthNow2.color = new Color(255, 255, 255, 255);
+			    MouthNow2.sprite = CharaMouth[111];
+			}	
+			else if (showtwotwo.Contains("T-07"))
+			{
+			    StopCoroutine("EyeAnim2");
+			    EyeNow2.color = new Color(255, 255, 255, 255);
+			    EyeNow.sprite = CharaEyes[136];
+			    MouthNow2.color = new Color(255, 255, 255, 255);
+			    MouthNow2.sprite = CharaMouth[114];
+			}
 
             //left chara
             if (showtwoone == "")
@@ -7980,7 +8130,8 @@ public class LoadDialogue : MonoBehaviour
 
             else if (showtwoone.Contains("T-01") || showtwoone.Contains("T-02") ||
                 showtwoone.Contains("T-03") || showtwoone.Contains("T-03a") ||
-                showtwoone.Contains("T-04"))
+                showtwoone.Contains("T-04")|| showtwoone.Contains("T-05")
+				|| showtwoone.Contains("T-06")|| showtwoone.Contains("T-07"))
             {
                 charaImageNow1.color = new Color(255, 255, 255, 255);
                 charaImageNow1.sprite = charaImage[2];
@@ -7988,7 +8139,7 @@ public class LoadDialogue : MonoBehaviour
             else if (showtwoone.Contains("G-01") || showtwoone.Contains("G-02") ||
                 showtwoone.Contains("G-03") || showtwoone.Contains("G-04") ||
                 showtwoone.Contains("G-05") || showtwoone.Contains("G-06") ||
-                showtwoone.Contains("G-07"))
+                showtwoone.Contains("G-07")||showtwoone.Contains("G-08"))
             {
                 charaImageNow1.color = new Color(255, 255, 255, 255);
                 charaImageNow1.sprite = charaImage[3];
@@ -8044,7 +8195,8 @@ public class LoadDialogue : MonoBehaviour
 
             else if (showtwotwo.Contains("T-01") || showtwotwo.Contains("T-02") ||
                 showtwotwo.Contains("T-03") || showtwotwo.Contains("T-03a") ||
-                showtwotwo.Contains("T-04"))
+                showtwotwo.Contains("T-04")|| showtwotwo.Contains("T-05")
+				|| showtwotwo.Contains("T-06")|| showtwotwo.Contains("T-07"))
             {
                 charaImageNow2.color = new Color(255, 255, 255, 255);
                 charaImageNow2.sprite = charaImage[2];
@@ -8052,7 +8204,7 @@ public class LoadDialogue : MonoBehaviour
             else if (showtwotwo.Contains("G-01") || showtwotwo.Contains("G-02") ||
                 showtwotwo.Contains("G-03") || showtwotwo.Contains("G-04") ||
                 showtwotwo.Contains("G-05") || showtwotwo.Contains("G-06") ||
-                showtwotwo.Contains("G-07"))
+                showtwotwo.Contains("G-07") || showtwotwo.Contains("G-08"))
             {
                 charaImageNow2.color = new Color(255, 255, 255, 255);
                 charaImageNow2.sprite = charaImage[3];
@@ -8350,7 +8502,8 @@ public class LoadDialogue : MonoBehaviour
 
 			else if (d.expression.Contains("T-01") || d.expression.Contains("T-02") ||
 				d.expression.Contains("T-03") || d.expression.Contains("T-03a") ||
-				d.expression.Contains("T-04"))
+				d.expression.Contains("T-04")|| d.expression.Contains("T-05")
+				|| d.expression.Contains("T-06")|| d.expression.Contains("T-07"))
 			{
 				if (blankAnim == true)
 				{
@@ -8367,7 +8520,7 @@ public class LoadDialogue : MonoBehaviour
 			else if (d.expression.Contains("G-01") || d.expression.Contains("G-02") ||
 				d.expression.Contains("G-03") || d.expression.Contains("G-04") ||
 				d.expression.Contains("G-05") || d.expression.Contains("G-06") ||
-				d.expression.Contains("G-07"))
+				d.expression.Contains("G-07") || d.expression.Contains("G-08"))
 			{
 				if (blankAnim == true)
 				{
