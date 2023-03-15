@@ -6459,6 +6459,28 @@ public class LoadDialogue : MonoBehaviour
 		    nameLabel.color = new Color(255, 255, 255, 255);
 		    Hide.SetBool("Still", true);
 		}
+		else if (back.Contains("still-026"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[23];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}
+		else if (back.Contains("still-027"))
+		{
+			textLabel.color = Color.white;
+		    StillImage.sprite = StillSprite[24];
+		    StillImage.color = new Color(255, 255, 255, 255);
+		    DialogueBG.sprite = null;
+		    DialogueBG.color = new Color(0, 0, 0, 0);
+		    StillDialogueBG.SetActive(true);
+		    nameLabel.color = new Color(255, 255, 255, 255);
+		    Hide.SetBool("Still", true);
+		}	
 		else
 		{
 			textLabel.color = Color.black;
@@ -10675,6 +10697,10 @@ public class LoadDialogue : MonoBehaviour
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
 
+				if (d.id == 10040)
+				{
+					PlayerPrefs.SetInt("Still-27", 1);
+				}
 
 				if (autoScroll.automated == false)
 				{
@@ -10735,6 +10761,12 @@ public class LoadDialogue : MonoBehaviour
 				{
 					yield return dialogueManager.Run(DialogueChange, textLabel);
 				}
+
+				if (d.id == 10057)
+				{
+					PlayerPrefs.SetInt("Still-26", 1);
+				}
+
 
 
 				if (autoScroll.automated == false)

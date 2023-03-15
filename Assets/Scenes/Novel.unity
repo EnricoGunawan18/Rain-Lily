@@ -42598,6 +42598,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 636c13c6e80cfcb4bade0bbec8698e15, type: 3}
   - {fileID: 21300000, guid: bd7de2137caca6548935182d52a3675c, type: 3}
   - {fileID: 21300000, guid: c6b1ff6728beb3d43874454e6f478989, type: 3}
+  - {fileID: 21300000, guid: 767661e40b7396047bd2626e0948875b, type: 3}
+  - {fileID: 21300000, guid: a669d5553ddded14182b7060748cc34d, type: 3}
   StillImage: {fileID: 1715682251}
   DialogueBGImage: {fileID: 21300000, guid: 1f8e848fc66af1045b84c899b25c6802, type: 3}
   StillDialogueBG: {fileID: 279290999}
